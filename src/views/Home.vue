@@ -1,7 +1,14 @@
 <template>
-  <div class="home">
+  <div>
     <HomeHeader></HomeHeader>
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <v-main>
+      <section class="max-display-width">
+        <div class="home">
+          <div>{{ $t('message') }}</div>
+          <HelloWorld msg="Welcome to Your Vue.js App" />
+        </div>
+      </section>
+    </v-main>
   </div>
 </template>
 

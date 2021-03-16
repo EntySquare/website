@@ -29,11 +29,7 @@
 
       <v-spacer></v-spacer>
 
-      <v-menu
-        bottom
-        transition="scale-transition"
-        :offset-y="true"
-      >
+      <v-menu bottom transition="scale-transition" :offset-y="true">
         <template v-slot:activator="{ on, attrs }">
           <div color="transparent" elevation="0" v-bind="attrs" v-on="on">
             Dropdown
@@ -65,7 +61,7 @@
 <script>
 export default {
   name: 'HomeHeader',
-  data () {
+  data() {
     return {
       items: [
         {
