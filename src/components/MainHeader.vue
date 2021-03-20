@@ -1,66 +1,148 @@
 <template>
-  <v-app-bar app color="primary" absolute>
+  <!--  <v-app-bar app color="#00CFAC" absolute>-->
+  <div
+    style=" width: 100%; height:800px; background: linear-gradient(92deg, #00CFAC 0%, #5B7ADE 100%);"
+  >
     <section class="max-display-width d-flex align-center">
       <div class="d-flex align-center">
         <v-img
           alt="Vuetify Logo"
           class="shrink mr-2"
           contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          src="../assets/logo.png"
           transition="scale-transition"
           width="40"
         />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
+        <router-link to="/">
+          <v-img
+            alt="Vuetify Name"
+            class="shrink mt-1 hidden-sm-and-down"
+            contain
+            src="../assets/mainLogo.png"
+            width="100"
+          />
+        </router-link>
       </div>
 
       <v-spacer></v-spacer>
 
       <div text rounded class="black--text">
-        <router-link to="/">首页1111</router-link>
+        <router-link to="/">
+          <span style="color: #FFFFFF;">首页</span>
+        </router-link>
+      </div>
+      <v-spacer></v-spacer>
+      <div text rounded class="black--text">
+        <router-link to="/">
+          <span style="color: #FFFFFF;">产品</span>
+        </router-link>
+      </div>
+      <v-spacer></v-spacer>
+      <div text rounded class="black--text">
+        <router-link to="/">
+          <span style="color: #FFFFFF;">获取HSF</span>
+        </router-link>
+      </div>
+      <v-spacer></v-spacer>
+      <div text rounded class="white--text">
+        <router-link to="/">
+          <span style="color: #FFFFFF;">资源</span>
+        </router-link>
+      </div>
+      <v-spacer></v-spacer>
+      <div text rounded class="white--text">
+        <router-link to="/">
+          <span style="color: #FFFFFF;">公司</span>
+        </router-link>
       </div>
 
       <v-spacer></v-spacer>
 
-      <v-menu bottom transition="scale-transition" :offset-y="true">
-        <template v-slot:activator="{ on, attrs }">
-          <div color="transparent" elevation="0" v-bind="attrs" v-on="on">
-            Dropdown
-          </div>
-        </template>
+      <!--      <v-menu bottom transition="scale-transition" :offset-y="true">-->
+      <!--        <template v-slot:activator="{ on, attrs }">-->
+      <!--          <div color="transparent" elevation="0" v-bind="attrs" v-on="on">-->
+      <!--            Dropdown-->
+      <!--          </div>-->
+      <!--        </template>-->
 
-        <v-list rounded>
-          <v-list-item v-for="(item, index) in items" :key="index">
-            <v-list-item-title>
-              <router-link :to="item.path">{{ item.title }}</router-link>
-            </v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
+      <!--        <v-list rounded>-->
+      <!--          <v-list-item v-for="(item, index) in items" :key="index">-->
+      <!--            <v-list-item-title>-->
+      <!--              <router-link :to="item.path">{{ item.title }}</router-link>-->
+      <!--            </v-list-item-title>-->
+      <!--          </v-list-item>-->
+      <!--        </v-list>-->
+      <!--      </v-menu>-->
 
       <v-spacer></v-spacer>
 
-      <v-btn text rounded class="yellow red--text">
-        <router-link to="login">Login</router-link>
+      <v-btn text rounded class="green">
+        <router-link to="/register">
+          <span style="color: #FFFFFF;">注册</span>
+        </router-link>
       </v-btn>
-
-      <v-btn text rounded class="yellow red--text">
-        <router-link to="register">Register</router-link>
+      <v-spacer></v-spacer>
+      <v-btn text rounded class="green">
+        <router-link to="/login">
+          <span style="color: #FFFFFF;">登录</span>
+        </router-link>
       </v-btn>
+      <v-spacer></v-spacer>
+      <v-img
+        alt="downCode"
+        class="shrink mt-1 hidden-sm-and-down"
+        contain
+        src="../assets/downCode.png"
+      />
+      <v-spacer></v-spacer>
+      <v-img
+        alt="global"
+        class="shrink mt-1 hidden-sm-and-down"
+        contain
+        src="../assets/global.png"
+      />
     </section>
-  </v-app-bar>
+    <v-col class="col-12">
+      <div style="height: 150px;">&nbsp;</div>
+    </v-col>
+    <v-row class="text-center">
+      <!--      <div class="d-flex align-center" style="margin-left: 35%;width: 50%;">-->
+      <v-col class="col-12">
+        <span style="color: #FFFFFF; font-size: 60px"
+          >区块链组织的商业智能。
+        </span>
+      </v-col>
+      <v-col class="col-11">
+        <div style="height: 100px;">
+          <p style="color: #FFFFFF; font-size: 20px">
+            investors使区块链生态系统能够发挥其全部潜力。
+          </p>
+        </div>
+      </v-col>
+      <v-col class="col-1" />
+      <v-col class="col-10">
+        <div>
+          <v-btn text rounded class="white">
+            <router-link to="/register">
+              <span style="color: #00CFAC;">立即注册</span>
+            </router-link>
+          </v-btn>
+          <v-btn text rounded class="white">
+            <router-link to="/login">
+              <span style="color: #00CFAC;">白皮书</span>
+            </router-link>
+          </v-btn>
+        </div>
+      </v-col>
+      <!--      </div>-->
+    </v-row>
+  </div>
+  <!--  </v-app-bar>-->
 </template>
 
 <script>
 export default {
-  name: 'HomeHeader',
+  name: 'MainHeader',
   data() {
     return {
       items: [
