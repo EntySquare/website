@@ -1,42 +1,178 @@
 
 <style>
-    .container{
-        position: relative;
-        width: 100%;
-       
-    }
-    .container input{
-        width: 100%;
-        height: 30px;
-		opacity: 0.16;
-		border-radius: 24px;
-		background: #D8D8D8;
-    }
-    .container button{
-		width: 25%;
-		 height: 30px;
-        position: absolute;
-        right: 0;
-        background-color: #4C4C4C;
-		border-radius: 24px;
-        border: none;   
-        outline: none;  
-     }
+.container {
+  position: relative;
+  width: 100%;
+}
+.container input {
+  width: 100%;
+  height: 30px;
+  opacity: 0.16;
+  border-radius: 24px;
+  background: #d8d8d8;
+}
+.container button {
+  width: 25%;
+  height: 30px;
+  position: absolute;
+  right: 0;
+  background-color: #4c4c4c;
+  border-radius: 24px;
+  border: none;
+  outline: none;
+}
 </style>
 
 <template>
+  <v-row class="text-center">
+    <v-col class="col-12">
+      <div
+        style="height: 70px;font-size: 32px;font-family: STHeiti;font-weight: 400;font-weight: bold;color: #000000;line-height: 43px;"
+      >
+        公开·公平·透明
+      </div>
+    </v-col>
+    <v-col class="col-12">
+      <div align="center" style="height: 100px;">
+        <p
+          class="text--disabled"
+          style="height: 45px;font-size: 17px;width: 900px;"
+        >
+          INVESTORS的创新团队拥有顶尖金融机构和领先技术公司的背景，为企业、家族基金、个人用户提供投资和融资的专业平台，旨在为新的，创新的，去中心化的金融市场作出贡献。
+        </p>
+      </div>
+    </v-col>
+    <v-col class="col-12">
+      <div style="height: 50px;"></div>
+    </v-col>
+    <v-col cols="col-12" style="height: 336px;">
+      <v-row style="height: 150px;" class="text-center">
+        <v-col cols="4">
+          <img src="../assets/diamond.png" style="width:35%;height:auto;" />
+          <div>
+            <p
+              style="color: black; font-family: STHeiti; font-weight: bold; font-size: 20px"
+            >
+              INVESTORS投资
+            </p>
+          </div>
+          <div style="width: 85%">
+            <v-btn text rounded class="transparent" style="float: right">
+              <router-link to="/">
+                <img
+                  src="../assets/arrow_green.png"
+                  style="width: 35%;height: auto;"
+                />
+              </router-link>
+            </v-btn>
+          </div>
+        </v-col>
+        <v-col cols="4">
+          <img src="../assets/diamond.png" style="width:35%;height:auto;" />
+          <div>
+            <p
+              style="color: black; font-family: STHeiti; font-weight: bold; font-size: 20px"
+            >
+              INVESTORS理财
+            </p>
+          </div>
+          <div style="width: 85%">
+            <v-btn text rounded class="transparent" style="float: right">
+              <router-link to="/">
+                <img
+                  src="../assets/arrow_green.png"
+                  style="width: 35%;height: auto;"
+                />
+              </router-link>
+            </v-btn>
+          </div>
+        </v-col>
+        <v-col cols="4">
+          <img src="../assets/diamond.png" style="width:35%;height:auto;" />
+          <div>
+            <p
+              style="color: black; font-family: STHeiti; font-weight: bold; font-size: 20px"
+            >
+              企业动态
+            </p>
+          </div>
+          <div style="width: 85%">
+            <v-btn text rounded class="transparent" style="float: right">
+              <router-link to="/">
+                <img
+                  src="../assets/arrow_green.png"
+                  style="width: 35%;height: auto;"
+                />
+              </router-link>
+            </v-btn>
+          </div>
+        </v-col>
+      </v-row>
+    </v-col>
+    <v-col class="col-12">
+      <div style="height: 80px;">&nbsp;</div>
+    </v-col>
+    <v-col class="col-12">
+      <div
+        style="height: 80px;font-size: 32px;font-family: STHeiti;font-weight: 400;font-weight: bold;color: #000000;line-height: 43px;"
+      >
+        合规优势
+      </div>
+    </v-col>
+    <v-col cols="col-12" style="height: 336px;">
+      <v-row style="height: 250px;" class="text-left">
+        <v-col class="3">
+          <div>
+            <div align="center">
+              <img
+                src="../assets/diamond.png"
+                style="width: 30%; height: auto; "
+              />
+            </div>
+          </div>
+        </v-col>
+        <v-col class="7">
+          <div>
+            <p
+              style="color: black; font-family: STHeiti; font-size: 24px; font-weight: bold; align: left"
+            >
+              专业
+            </p>
+            <p
+              class="text--disabled"
+              style="color: black; font-family: STHeiti; font-size: 16px"
+            >
+              核心团队来自高盛、Facebook、Google、UBS、AIA
+            </p>
+            <p
+              class="text--disabled"
+              style="color: black; font-family: STHeiti; font-size: 16px"
+            >
+              总交易量超过2,500亿美元，月均交易量百亿美元
+            </p>
+            <p
+              class="text--disabled"
+              style="color: black; font-family: STHeiti; font-size: 16px"
+            >
+              为全球知名大型机构、家族基金以及个人用户提供机构级服务
+            </p>
+          </div>
+        </v-col>
+      </v-row>
+    </v-col>
+    <v-col class="col-12">
+      <div
+        style="height: 45px;font-size: 32px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #000000;line-height: 43px;"
+      >
+        企业动态
+      </div>
+    </v-col>
 
-    <v-row class="text-center">
-		
-		<v-col class="mb-12">
-			 <div style="height: 45px;font-size: 32px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #000000;line-height: 43px;">
-				企业动态
-			 </div>
-		</v-col>
-		
-      <v-col cols="12">
-      <div style=" width: 100%;height: 340px;background: linear-gradient(92deg, #00CFAC 0%, #5B7ADE 100%);"></div>
-      </v-col>
+    <v-col cols="12">
+      <div
+        style=" width: 100%;height: 340px;background: linear-gradient(92deg, #00CFAC 0%, #5B7ADE 100%);"
+      ></div>
+    </v-col>
 
      <v-col class="mb-12">
 		 <div style="height: 45px;font-size: 32px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #000000;line-height: 43px;">
@@ -144,14 +280,14 @@
 				  <button style="width: 20%;background: #4C4C4C;border-radius: 24px;">注册</button>
 			  </div> -->
 		<v-row>
-		<v-col cols="4" ><img src="../assets/z1.png" style="width:126px;height:68px;"/></v-col> 
+		<v-col cols="4" ><img src="../assets/z1.png" style="width:126px;height:68px;"/></v-col>
 		</v-row>
 		<v-row>
 		<v-col cols="5" style ="padding: 0px;width: 221px;font-size: 14px;font-weight: 400;color: #FFFFFF;line-height: 0px;">
-			联系方式：services@invest</v-col> 
+			联系方式：services@invest</v-col>
 		</v-row>
-		
-		<v-row>	  
+
+		<v-row>
 			<v-col cols="5" >
 				<div class="container" style="padding: 0px;">
 				        <input type="text" placeholder="  nane@email.com">
@@ -159,18 +295,18 @@
 				</div>
 			</v-col>
 			<v-col cols="5" style="background: black;" ></v-col>
-		</v-row>	  	  
+		</v-row>
 		    </v-col>
 		</v-row>
- 
+
   </v-col>
-  
+
   <v-col cols="12" style="height: 144px;background: black;">
-  			
+
   		<v-row>
   			<v-col cols="3" style="background: black;">col-20</v-col>
   		  <v-col cols="5" style="background: black;">
-  			<v-row  style="height: 32px;"> 
+  			<v-row  style="height: 32px;">
   							<v-col cols="1" ><img src="../assets/v1.png" style="width:32px;height:32px;"/></v-col>
   							<v-col cols="1" ><img src="../assets/v2.png" style="width:32px;height:32px;"/></v-col>
   							<v-col cols="1" ><img src="../assets/v3.png" style="width:32px;height:32px;"/></v-col>
@@ -178,7 +314,7 @@
 							<v-col cols="1" ><img src="../assets/v5.png" style="width:32px;height:32px;"/></v-col>
 							<v-col cols="1" ></v-col>
 							<v-col cols="1" ></v-col>
-					
+
 							<v-col cols="2" style ="width: 24px;height: 32px;font-size: 12px;text-align:center;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 31px;">
 								<img src="../assets/c1.png" style="width:10px;height:10px;"/>
 								韩国
