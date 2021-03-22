@@ -1,8 +1,10 @@
 <template>
   <!--  <v-app-bar app color="#00CFAC" absolute>-->
-  <div
-    style=" width: 100%; height:800px; background: linear-gradient(92deg, #00CFAC 0%, #5B7ADE 100%);"
-  >
+  <!--    style=" width: 100%; height:800px; background: linear-gradient(92deg, #00CFAC 0%, #5B7ADE 100%);"-->
+  <div :style="bgImg" style="height: 800px">
+    <!--  <div-->
+    <!--    style=" width: 100%; height:800px; background-image: url(../assets/diamond.png)"-->
+    <!--  >-->
     <section class="max-display-width d-flex align-center">
       <div class="d-flex align-center">
         <v-img
@@ -141,6 +143,7 @@
 </template>
 
 <script>
+const imgUrl = require('../assets/background.png')
 export default {
   name: 'MainHeader',
   data() {
@@ -155,6 +158,11 @@ export default {
           path: 'bar',
         },
       ],
+      bgImg: {
+        backgroundImage: 'url(' + imgUrl + ')',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: '100% 100%',
+      },
     }
   },
 }
