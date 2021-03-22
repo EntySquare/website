@@ -20,6 +20,50 @@
 /*  border: none;*/
 /*  outline: none;*/
 /*}*/
+.btn {
+  font-family: STHeiti;
+  font-size: 20px;
+  background-color: #ffffff;
+  color: #ffffff;
+  border: 1px #ffffff solid;
+  border-radius: 50px;
+  text-align: center;
+  padding: 10px 30px;
+  outline: none;
+  -webkit-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+  box-shadow: 0 1px white inset, #cbcbcb 1px 1px, #cecece 2px 2px,
+    #d0d0d0 3px 3px, lightgray 4px 4px, #d5d5d5 5px 5px, #d8d8d8 6px 6px;
+  cursor: pointer;
+}
+
+.bubble_left {
+  border: 1px solid #ffffff;
+  padding: 10px 40px;
+  background: #ffffff;
+  width: 80%;
+  box-shadow: -1px 0px 10px -10px white, -2px 0px 10px -10px #cbcbcb,
+    -3px 0px 10px -10px #cecece, -4px 0px 10px -10px #d0d0d0,
+    -5px 0px 10px -10px lightgray, -6px 0px 10px -10px #d5d5d5,
+    -7px 0px 10px -10px #d8d8d8, -8px 0px 10px -10px #dadada,
+    -9px 0px 10px -10px #ddd, -10px 0px 10px -10px #dfdfdf;
+  border-radius: 150px 150px 150px 150px;
+  margin-left: 90px;
+}
+
+.bubble_right {
+  border: 1px solid #ffffff;
+  padding: 10px 40px;
+  background: #ffffff;
+  width: 80%;
+  box-shadow: 1px 0px 10px -10px white, 2px 0px 10px -10px #cbcbcb,
+    3px 0px 10px -10px #cecece, 4px 0px 10px -10px #d0d0d0,
+    5px 0px 10px -10px lightgray, 6px 0px 10px -10px #d5d5d5,
+    7px 0px 10px -10px #d8d8d8, 8px 0px 10px -10px #dadada,
+    9px 0px 10px -10px #ddd, 10px 0px 10px -10px #dfdfdf;
+  border-radius: 150px 150px 150px 150px;
+  margin-left: 90px;
+}
 </style>
 
 <template>
@@ -52,7 +96,7 @@
         <v-btn
           text
           rounded
-          class="transparent"
+          class="btn"
           style="width: 250px;height: 300px; margin-left: 160px"
         >
           <div class="text-center">
@@ -76,7 +120,7 @@
         <v-btn
           text
           rounded
-          class="transparent"
+          class="btn"
           style="width: 250px;height: 300px; margin-left: 90px"
         >
           <div class="text-center">
@@ -97,12 +141,7 @@
         </v-btn>
       </v-col>
       <v-col cols="2">
-        <v-btn
-          text
-          rounded
-          class="transparent"
-          style="width: 250px;height: 300px;"
-        >
+        <v-btn text rounded class="btn" style="width: 250px;height: 300px;">
           <div class="text-center">
             <img
               src="../assets/diamond.png"
@@ -134,7 +173,7 @@
     <v-row style="height: 400px;">
       <v-col cols="3"></v-col>
       <v-col cols="6">
-        <v-row>
+        <v-row class="bubble_left">
           <v-col cols="5">
             <div>
               <span style="margin-left: 35%;">
@@ -180,9 +219,9 @@
     <v-row style="height: 400px;" class="text-left">
       <v-col cols="3"></v-col>
       <v-col cols="6">
-        <v-row>
+        <v-row class="bubble_right">
           <v-col cols="7">
-            <div style="margin-left: 200px; margin-top: 15px">
+            <div style="margin-left: 100px; margin-top: 15px">
               <p
                 style="color: black; font-family: STHeiti; font-size: 24px; font-weight: bold; align: left"
               >
@@ -212,7 +251,7 @@
             <div>
               <img
                 src="../assets/diamond.png"
-                style="width: 40%; height: auto; margin-left: 10%;"
+                style="width: 40%; height: auto; margin-left: 30%; margin-top: 10%"
               />
             </div>
           </v-col>
@@ -224,7 +263,7 @@
     <v-row style="height: 400px;">
       <v-col cols="3"></v-col>
       <v-col cols="6">
-        <v-row>
+        <v-row class="bubble_left">
           <v-col cols="5">
             <div>
               <span style="margin-left: 35%;">
@@ -270,9 +309,9 @@
     <v-row style="height: 400px;" class="text-left">
       <v-col cols="3"></v-col>
       <v-col cols="6">
-        <v-row>
+        <v-row class="bubble_right">
           <v-col cols="7">
-            <div style="margin-left: 200px; margin-top: 15px">
+            <div style="margin-left: 100px; margin-top: 15px">
               <p
                 style="color: black; font-family: STHeiti; font-size: 24px; font-weight: bold; align: left"
               >
@@ -302,7 +341,7 @@
             <div>
               <img
                 src="../assets/diamond.png"
-                style="width: 40%; height: auto; margin-left: 10%;"
+                style="width: 40%; height: auto; margin-left: 30%; margin-top: 10%"
               />
             </div>
           </v-col>

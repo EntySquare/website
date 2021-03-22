@@ -162,6 +162,8 @@ export default {
         backgroundImage: 'url(' + imgUrl + ')',
         backgroundRepeat: 'no-repeat',
         backgroundSize: '100% 100%',
+        backgroundAttachment: 'fixed',
+        backgroundPosition: 'center',
       },
     }
   },
