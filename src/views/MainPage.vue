@@ -4,10 +4,11 @@
     <v-main>
       <section class="max-display-width">
         <div class="home">
-          <div>{{ $t('message') }}</div>
-          <MainBody msg="Welcome to Your Vue.js App" />
+          <!-- <div>{{ $t('message') }}</div> -->
+         
         </div>
       </section>
+	   <MainBody msg="Welcome to Your Vue.js App" />
     </v-main>
   </div>
 </template>
