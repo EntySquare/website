@@ -7,14 +7,14 @@
     <!--  >-->
     <section class="max-display-width d-flex align-center">
       <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="../assets/logo.png"
-          transition="scale-transition"
-          width="40"
-        />
+        <!--        <v-img-->
+        <!--          alt="Vuetify Logo"-->
+        <!--          class="shrink mr-2"-->
+        <!--          contain-->
+        <!--          src="../assets/logo.png"-->
+        <!--          transition="scale-transition"-->
+        <!--          width="40"-->
+        <!--        />-->
         <router-link to="/">
           <v-img
             alt="Vuetify Name"
@@ -122,21 +122,33 @@
         </div>
       </v-col>
       <v-col class="col-1" />
-      <v-col class="col-10">
-        <div>
-          <v-btn text rounded class="white">
-            <router-link to="/register">
-              <span style="color: #00CFAC;">立即注册</span>
-            </router-link>
-          </v-btn>
-          <v-btn text rounded class="white">
-            <router-link to="/login">
-              <span style="color: #00CFAC;">白皮书</span>
-            </router-link>
-          </v-btn>
-        </div>
+    </v-row>
+    <v-row>
+      <v-col cols="2" style="margin-left: 37%">
+        <v-btn
+          text
+          rounded
+          class="white"
+          style="text-align: center;
+            width: 100px;
+            margin-right: 8%"
+        >
+          <router-link to="/register">
+            <span style="color: #00CFAC;">立即注册</span>
+          </router-link>
+        </v-btn>
+        <v-btn
+          style="background: transparent;
+            border:1px white solid;
+            border-radius: 150px 150px 150px 150px;
+            width: 100px;
+            margin-right: 10%;"
+        >
+          <router-link to="/login">
+            <span style="color: #FFFFFF;">白皮书</span>
+          </router-link>
+        </v-btn>
       </v-col>
-      <!--      </div>-->
     </v-row>
   </div>
   <!--  </v-app-bar>-->

@@ -1,3 +1,4 @@
+
 <style>
 /*.container {*/
 /*  position: relative;*/
@@ -36,6 +37,7 @@
     #d0d0d0 3px 3px, lightgray 4px 4px, #d5d5d5 5px 5px, #d8d8d8 6px 6px;
   cursor: pointer;
 }
+
 .bubble_left {
   border: 1px solid #ffffff;
   padding: 10px 40px;
@@ -49,6 +51,7 @@
   border-radius: 150px 150px 150px 150px;
   margin-left: 90px;
 }
+
 .bubble_right {
   border: 1px solid #ffffff;
   padding: 10px 40px;
@@ -347,7 +350,7 @@
       </v-col>
       <v-col cols="3"></v-col>
     </v-row>
-	
+
     <v-row >
       <v-col class="text-center">
         <div
@@ -357,12 +360,12 @@
         </div>
       </v-col>
     </v-row>
- 
+
  <v-row >
 	  <img src="../assets/qydt1.png" style="width:100%;height:100%;" />
-</v-row>	 
+</v-row>
     <v-col class="col-12 text-center">
-     
+
 
       <v-col cols="12">
         <!-- <p style="background-image: url(../assets/qydt1.png);">123123</p> -->
@@ -529,8 +532,8 @@
       <v-col cols="12" style="height: 100px;"> </v-col>
 
       <v-row style="height: 100px; background: black;"> </v-row>
-	  
-	  
+
+
       <v-row style="height: 250px;background: black;">
           <v-col cols="3" style="background: black;"></v-col>
           <v-col cols="5" style="background: black;">
