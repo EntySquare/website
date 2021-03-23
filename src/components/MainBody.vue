@@ -1,26 +1,5 @@
+
 <style>
-<<<<<<< HEAD
-.container123 {
-  position: relative;
-  width: 100%;
-}
-.container123 input {
-  width: 100%;
-  height: 30px;
-  opacity: 0.16;
-  border-radius: 24px;
-  background: #d8d8d8;
-}
-.container123 button {
-  width: 25%;
-  height: 30px;
-  position: absolute;
-  right: 0;
-  background-color: #4c4c4c;
-  border-radius: 24px;
-  border: none;
-  outline: none;
-=======
 /*.container {*/
 /*  position: relative;*/
 /*  width: 100%;*/
@@ -85,35 +64,16 @@
     9px 0px 10px -10px #ddd, 10px 0px 10px -10px #dfdfdf;
   border-radius: 150px 150px 150px 150px;
   margin-left: 90px;
->>>>>>> b161bf940433ee902c3a05698a61d77d18742a82
 }
 </style>
 
 <template>
-<<<<<<< HEAD
-	<v-container fill-height fluid class="align-start">
-  <v-row class="text-center">
-    <v-col class="col-12">
-      <div
-        style="height: 70px;font-size: 32px;font-family: STHeiti;font-weight: 400;font-weight: bold;color: #000000;line-height: 43px;"
-      >
-        公开·公平·透明
-      </div>
-    </v-col>
-	   </v-row>
-    <v-col class="col-12">
-      <div align="center" style="height: 100px;">
-        <p
-          class="text--disabled"
-          style="height: 45px;font-size: 17px;width: 900px;"
-=======
   <v-container fill-height fluid class="align-start">
     <v-row class="text-center">
       <v-col cols="12" style="height: 180px;" />
       <v-col cols="12" style="height: 100px;">
         <div
           style="height: 70px;font-size: 32px;font-family: STHeiti;font-weight: 400;font-weight: bold;color: #000000;line-height: 43px;"
->>>>>>> b161bf940433ee902c3a05698a61d77d18742a82
         >
           公开·公平·透明
         </div>
@@ -405,12 +365,9 @@
         style=" width: 100%;height: 340px;background: linear-gradient(92deg, #00CFAC 0%, #5B7ADE 100%);"
       ></div>
     </v-col>
-<<<<<<< HEAD
     <v-col class="col-12 text-center">
-=======
 
     <v-col class="mb-12">
->>>>>>> b161bf940433ee902c3a05698a61d77d18742a82
       <div
         style="height: 45px;font-size: 32px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #000000;line-height: 43px;"
       >
@@ -418,7 +375,6 @@
       </div>
     </v-col>
 
-<<<<<<< HEAD
    <v-col cols="12" >
      <img src="../assets/qydt1.png" style="width:100%;height:100%;"/>
 	 <!-- <p style="background-image: url(../assets/qydt1.png);">123123</p> -->
@@ -429,10 +385,10 @@
 
      <v-col class="mb-12 text-center">
 		 <div style="height: 45px;font-size: 32px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #000000;line-height: 43px;">
-			投资机构 
+			投资机构
 		 </div>
 	</v-col>
-	
+
 	<v-col cols="12" style="height: 336px;">
 		<v-row>
 		<v-col cols="3"></v-col>
@@ -450,7 +406,7 @@
 				<v-col cols="3" ><img src="../assets/hezuo_logo2.png" style="width:100%;height:auto;"/></v-col>
 				<v-col cols="3" ><img src="../assets/hezuo_logo1.png" style="width:100%;height:auto;"/></v-col>
 			</v-row>
-		</v-col>		
+		</v-col>
 		<v-col cols="3" ></v-col>
 		</v-row>
 	</v-col>
@@ -461,10 +417,10 @@
 			规划路线
 		 </div>
 	</v-col>
-	
+
 	<v-row>
 		<v-col cols="3"></v-col>
-		
+
 	<v-col cols="6">
 		<v-row>
 		<v-col cols="4" >
@@ -479,9 +435,9 @@
 		</v-row>
 	</v-col>
 	</v-row>
-	
-	
-	
+
+
+
 	 <v-col cols="12" style="height: 50px;">
 	</v-col>
 	<v-col cols="12">
@@ -511,19 +467,19 @@
 				investors Exchange system Beta Launch
 			</p>
 			</div>
-		</v-col>		
+		</v-col>
 		<v-col cols="3" ></v-col>
 		</v-row>
 	</v-col>
  <v-col cols="12" style="height: 100px;">
-</v-col>	
+</v-col>
 
 
  <v-row  style="height: 100px;background: black;">
-	 
-</v-row>	 
+
+</v-row>
  <v-row style="height: 250px;background: black;">
-			
+
 		<v-row>
 			<v-col cols="3" style="background: black;"></v-col>
 		  <v-col cols="5" style="background: black;">
@@ -537,7 +493,7 @@
 				  <th align="left" valign="top" style="width: 178px;height: 45px;font-size: 18px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #FFFFFF;line-height: 16px;">
 					  帮助</th>
 			    </tr>
-				<tr>			      
+				<tr>
 				<td align="left" valign="top" style="width: 158px;height: 35px;font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 14px;">
 					关于我们</td>
 			      <td align="left" valign="top" style="width: 158px;height: 35px;font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 14px;">
@@ -545,7 +501,7 @@
 				  <td align="left" valign="top" style="width: 158px;height: 35px;font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 14px;">
 					  帮助中心</td>
 			    </tr>
-				<tr>				  
+				<tr>
 				  <td align="left" valign="top" style="width: 158px;height: 35px;font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 14px;">
 					  安全与合规</td>
 				  <td align="left" valign="top" style="width: 158px;height: 35px;font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 14px;">
@@ -575,10 +531,10 @@
 				  <td></td>
 				</tr>
 			  </table>
-			  
+
 		  </v-col>
 		  <v-col cols="4">
-			
+
 		<v-row>
 		<v-col cols="6" ><img src="../assets/z1.png" style="width:126px;height:68px;float:left;"/></v-col>
 		</v-row>
@@ -633,8 +589,8 @@
 			  </v-row>
 		  </v-col>
   		</v-row>
-  
- 
+
+
  <v-row style="background: black;">
 		<v-col cols="3" style="background: black;">
 		 </v-col>
@@ -646,8 +602,8 @@
 		  </v-col>
  </v-row>
 
- 
-	
+
+
 =======
     <v-col cols="12" style="height: 336px;">
       <v-row>
@@ -851,19 +807,13 @@
 				  <input type="text" placeholder="   nane@email.com" style="background: #D8D8D8;border-radius: 24px;opacity: 0.16;">
 				  <button style="width: 20%;background: #4C4C4C;border-radius: 24px;">注册</button>
 			  </div> -->
-          <v-row>
-            <v-col cols="4"
-              ><img src="../assets/z1.png" style="width:126px;height:68px;"
-            /></v-col>
-          </v-row>
-          <v-row>
-            <v-col
-              cols="5"
-              style="padding: 0px;width: 221px;font-size: 14px;font-weight: 400;color: #FFFFFF;line-height: 0px;"
-            >
-              联系方式：services@invest</v-col
-            >
-          </v-row>
+		<v-row>
+		<v-col cols="4" ><img src="../assets/z1.png" style="width:126px;height:68px;"/></v-col>
+		</v-row>
+		<v-row>
+		<v-col cols="5" style ="padding: 0px;width: 221px;font-size: 14px;font-weight: 400;color: #FFFFFF;line-height: 0px;">
+			联系方式：services@invest</v-col>
+		</v-row>
 
           <v-row>
             <v-col cols="5">
@@ -930,16 +880,12 @@
     </v-col>
   </v-container>
 </template>
->>>>>>> b161bf940433ee902c3a05698a61d77d18742a82
 
  </v-container>
 </template>
-<!-- <script src="https://unpkg.com/element-ui/lib/index.js"></script> -->
-<!-- <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"> -->
+
 <script>
 export default {
   name: 'HelloWorld',
 }
-
-
 </script>
