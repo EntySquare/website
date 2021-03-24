@@ -1,9 +1,13 @@
 <template>
-  <div>
+  <v-app>
     <the-header />
-    <router-view />
-    <the-footer />
-  </div>
+    <v-main>
+      <router-view />
+    </v-main>
+    <v-footer class="black">
+      <the-footer />
+    </v-footer>
+  </v-app>
 </template>
 
 <script>
@@ -11,7 +15,7 @@ import Header from './Header'
 import Footer from './Footer'
 
 export default {
-  name: 'Layout',
+  name: 'CommonLayout',
   components: {
     TheHeader: Header,
     TheFooter: Footer,

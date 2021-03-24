@@ -10,7 +10,7 @@
 // @ is an alias to /src
 import MainHeader from '@/components/MainHeader.vue'
 import MainBody from '@/components/MainBody.vue'
-import Footer from '@/components/Footer'
+import Footer from '@/layouts/Footer'
 
 export default {
   name: 'MainPage',

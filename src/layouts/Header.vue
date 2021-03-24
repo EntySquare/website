@@ -1,19 +1,5 @@
-<style>
-.titleFont {
-  font-family: STHeiti;
-  font-size: 16px;
-  color: #ffffff;
-}
-.btn {
-}
-</style>
 <template>
-  <!--  <v-app-bar app color="#00CFAC" absolute>-->
-  <!--    style=" width: 100%; height:800px; background: linear-gradient(92deg, #00CFAC 0%, #5B7ADE 100%);"-->
-  <div :style="bgImg" style="height: 100vh">
-    <!--  <div-->
-    <!--    style=" width: 100%; height:800px; background-image: url(../assets/diamond.png)"-->
-    <!--  >-->
+  <v-app-bar app color="primary" absolute>
     <v-col cols="12">
       <section>
         <v-row>
@@ -125,77 +111,12 @@
         </v-row>
       </section>
     </v-col>
-    <v-col class="col-12">
-      <div style="height: 150px;">&nbsp;</div>
-    </v-col>
-    <div class="text-center">
-      <v-row>
-        <!--      <div class="d-flex align-center" style="margin-left: 35%;width: 50%;">-->
-        <v-col cols="12">
-          <div>
-            <p
-              style="color: #FFFFFF; font-size: 68px; font-weight: bold; margin-right: 170px"
-            >
-              区块链组织的商业智能。
-            </p>
-          </div>
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="3"></v-col>
-        <v-col cols="6">
-          <div style="height: 100px;">
-            <p
-              style="width:550px; color: #FFFFFF; font-size: 24px; margin-left: 170px"
-            >
-              investors使区块链生态系统能够发挥其全部潜力。
-            </p>
-          </div>
-        </v-col>
-        <v-col cols="3"></v-col>
-      </v-row>
-      <div>
-        <v-row>
-          <v-col cols="3"></v-col>
-          <v-col cols="6">
-            <div style="display: inline-flex; margin-right: 710px">
-              <v-btn
-                text
-                rounded
-                class="white"
-                style="text-align: center;
-            width: 100px;
-            margin-right: 8%"
-              >
-                <router-link to="/register">
-                  <div style="color: #00CFAC;">立即注册</div>
-                </router-link>
-              </v-btn>
-              <v-btn
-                style="background: transparent;
-            border:1px white solid;
-            border-radius: 150px 150px 150px 150px;
-            width: 100px;
-            margin-right: 10%;"
-              >
-                <router-link to="/login">
-                  <div style="color: #FFFFFF;">白皮书</div>
-                </router-link>
-              </v-btn>
-            </div>
-          </v-col>
-          <v-col cols="3"></v-col>
-        </v-row>
-      </div>
-    </div>
-  </div>
-  <!--  </v-app-bar>-->
+  </v-app-bar>
 </template>
 
 <script>
-const imgUrl = require('../assets/background.png')
 export default {
-  name: 'MainHeader',
+  name: 'Header',
   data () {
     return {
       items: [
@@ -208,13 +129,6 @@ export default {
           path: 'bar',
         },
       ],
-      bgImg: {
-        backgroundImage: 'url(' + imgUrl + ')',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: '100% 100%',
-        backgroundAttachment: 'fixed',
-        backgroundPosition: 'center',
-      },
     }
   },
 }
