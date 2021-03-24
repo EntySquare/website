@@ -1,4 +1,3 @@
-
 <style>
 /*.container {*/
 /*  position: relative;*/
@@ -21,49 +20,46 @@
 /*  border: none;*/
 /*  outline: none;*/
 /*}*/
+
 .btn {
   font-family: STHeiti;
   font-size: 20px;
-  background-color: #ffffff;
-  color: #ffffff;
-  border: 1px #ffffff solid;
-  border-radius: 50px;
+  background: #ffffff;
+  border-radius: 26px;
   text-align: center;
-  padding: 10px 30px;
   outline: none;
-  -webkit-transition: all 0.1s ease;
-  transition: all 0.1s ease;
-  box-shadow: 0 1px white inset, #cbcbcb 1px 1px, #cecece 2px 2px,
-    #d0d0d0 3px 3px, lightgray 4px 4px, #d5d5d5 5px 5px, #d8d8d8 6px 6px;
+  box-shadow: 14px 10px 40px 0 rgba(15, 15, 15, 0.1);
+  -webkit-box-shadow: 14px 10px 40px 0 rgba(15, 15, 15, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   cursor: pointer;
+  padding: 48px 0;
 }
 
 .bubble_left {
-  border: 1px solid #ffffff;
-  padding: 10px 40px;
+  width: 100%;
+  height: 350px;
   background: #ffffff;
-  width: 80%;
-  box-shadow: -1px 0px 10px -10px white, -2px 0px 10px -10px #cbcbcb,
-    -3px 0px 10px -10px #cecece, -4px 0px 10px -10px #d0d0d0,
-    -5px 0px 10px -10px lightgray, -6px 0px 10px -10px #d5d5d5,
-    -7px 0px 10px -10px #d8d8d8, -8px 0px 10px -10px #dadada,
-    -9px 0px 10px -10px #ddd, -10px 0px 10px -10px #dfdfdf;
-  border-radius: 150px 150px 150px 150px;
-  margin-left: 90px;
+  border-radius: 175px 0 0 175px;
+  align-items: center;
+  max-width: 960px;
+  box-shadow: -1px 0px 40px 0px #ffffff, -30px 0px 40px 0 rgba(15, 15, 15, 0.1);
+  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
 }
 
 .bubble_right {
-  border: 1px solid #ffffff;
-  padding: 10px 40px;
+  margin-left: 160px;
+  width: 100%;
+  height: 350px;
   background: #ffffff;
-  width: 80%;
-  box-shadow: 1px 0px 10px -10px white, 2px 0px 10px -10px #cbcbcb,
-    3px 0px 10px -10px #cecece, 4px 0px 10px -10px #d0d0d0,
-    5px 0px 10px -10px lightgray, 6px 0px 10px -10px #d5d5d5,
-    7px 0px 10px -10px #d8d8d8, 8px 0px 10px -10px #dadada,
-    9px 0px 10px -10px #ddd, 10px 0px 10px -10px #dfdfdf;
-  border-radius: 150px 150px 150px 150px;
-  margin-left: 90px;
+  border-radius: 0 175px 175px 0;
+  align-items: center;
+  max-width: 960px;
+  box-shadow: 1px 0px 40px 0px #ffffff, 30px 0px 40px 0 rgba(15, 15, 15, 0.1);
+  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
 }
 </style>
 
@@ -84,83 +80,77 @@
         <div align="center" style="height: 100px;">
           <p
             class="text--disabled"
-            style="height: 45px;font-size: 16px;width: 33%;"
+            style="height: 45px;font-size: 16px;width: 32%;"
           >
             investors的创新团队拥有顶尖金融机构和领先技术公司的背景，为企业、家族基金、个人用户提供投资和融资的专业平台，旨在为新的，创新的，去中心化的金融市场作出贡献。
           </p>
         </div>
       </v-col>
     </v-row>
-    <v-row style="height: 400px;">
-      <v-col cols="3"></v-col>
-      <v-col cols="2">
-        <v-btn
-          text
-          rounded
-          class="btn"
-          style="width: 250px;height: 300px; margin-left: 160px"
-        >
-          <div class="text-center">
-            <img
-              src="../assets/diamond.png"
-              style="width: 120px; height:120px;"
-            />
-            <p
-              style="color: black; font-family: STHeiti; font-weight: bold; font-size: 20px"
-            >
-              INVESTORS投资
-            </p>
-            <img
-              src="../assets/arrow_green.png"
-              style="width:28px; height: 28px; margin-left: 200px"
-            />
-          </div>
-        </v-btn>
+    <v-row style="height: 400px;" class="text-center">
+      <v-col cols="12">
+        <div align="center" style="display: inline-flex; align-items: center">
+          <v-btn text rounded class="btn" style="width: 280px;height: 312px;">
+            <div align="center">
+              <img
+                src="../assets/investors_btn1.png"
+                style="width: 120px; height:120px;"
+              />
+              <p
+                style="color: black; font-family: STHeiti; text-transform: lowercase; font-size: 20px"
+              >
+                investors投资
+              </p>
+              <img
+                src="../assets/arrow_green.png"
+                style="width:28px; height: 28px"
+              />
+            </div>
+          </v-btn>
+          <v-btn
+            text
+            rounded
+            class="btn"
+            style="width: 280px;height: 312px; margin-left: 50px"
+          >
+            <div align="center">
+              <img
+                src="../assets/investors_btn2.png"
+                style="width: 120px; height:120px;"
+              />
+              <p
+                style="color: black; font-family: STHeiti; text-transform: lowercase; font-size: 20px"
+              >
+                investors理财
+              </p>
+              <img
+                src="../assets/arrow_green.png"
+                style="width:28px; height: 28px"
+              />
+            </div>
+          </v-btn>
+          <v-btn
+            text
+            rounded
+            class="btn"
+            style="width: 280px;height: 312px; margin-left: 50px"
+          >
+            <div align="center">
+              <img
+                src="../assets/investors_btn3.png"
+                style="width: 120px; height:120px;"
+              />
+              <p style="color: black; font-family: STHeiti; font-size: 20px">
+                企业动态
+              </p>
+              <img
+                src="../assets/arrow_green.png"
+                style="width:28px; height: 28px"
+              />
+            </div>
+          </v-btn>
+        </div>
       </v-col>
-      <v-col cols="2">
-        <v-btn
-          text
-          rounded
-          class="btn"
-          style="width: 250px;height: 300px; margin-left: 90px"
-        >
-          <div class="text-center">
-            <img
-              src="../assets/diamond.png"
-              style="width: 120px; height:120px;"
-            />
-            <p
-              style="color: black; font-family: STHeiti; font-weight: bold; font-size: 20px"
-            >
-              INVESTORS理财
-            </p>
-            <img
-              src="../assets/arrow_green.png"
-              style="width:28px; height: 28px; margin-left: 200px"
-            />
-          </div>
-        </v-btn>
-      </v-col>
-      <v-col cols="2">
-        <v-btn text rounded class="btn" style="width: 250px;height: 300px;">
-          <div class="text-center">
-            <img
-              src="../assets/diamond.png"
-              style="width: 120px; height:120px;"
-            />
-            <p
-              style="color: black; font-family: STHeiti; font-weight: bold; font-size: 20px"
-            >
-              企业动态
-            </p>
-            <img
-              src="../assets/arrow_green.png"
-              style="width:28px; height: 28px; margin-left: 200px"
-            />
-          </div>
-        </v-btn>
-      </v-col>
-      <v-col cols="3"></v-col>
     </v-row>
     <v-row style="height: 120px" class="text-center">
       <v-col class="col-12" style="height: 180px;">
@@ -171,187 +161,187 @@
         </div>
       </v-col>
     </v-row>
-    <v-row style="height: 400px;">
-      <v-col cols="3"></v-col>
-      <v-col cols="6">
-        <v-row class="bubble_left">
-          <v-col cols="5">
-            <div>
-              <span style="margin-left: 35%;">
-                <img
-                  src="../assets/diamond.png"
-                  style="width: 40%; height: auto;"
-                />
-              </span>
-            </div>
-          </v-col>
-          <v-col cols="7" class="text-left">
-            <div style="margin-left: 40px; margin-top: 15px">
-              <p
-                style="color: black; font-family: STHeiti; font-size: 24px; font-weight: bold; align: left"
-              >
-                专业
-              </p>
-              <p
-                class="text--disabled"
-                style="color: black; font-family: STHeiti; font-size: 16px; align: left"
-              >
-                核心团队来自高盛、Facebook、Google、UBS、AIA
-              </p>
-              <p
-                class="text--disabled"
-                style="color: black; font-family: STHeiti; font-size: 16px; align: left"
-              >
-                总交易量超过2,500亿美元，月均交易量百亿美元
-              </p>
-              <p
-                class="text--disabled"
-                style="color: black; font-family: STHeiti; font-size: 16px; align: left"
-              >
-                为全球知名大型机构、家族基金以及个人用户提供机构级服务
-              </p>
-            </div>
-          </v-col>
-        </v-row>
+    <v-row>
+      <v-col cols="12">
+        <div>
+          <v-row style="height: 400px; align-items: center" class="text-center">
+            <v-col cols="3"></v-col>
+            <v-col cols="6">
+              <v-row class="bubble_left">
+                <v-col cols="5">
+                  <div>
+                    <img
+                      src="../assets/bubble1.png"
+                      style="width: 50%; height: auto;"
+                    />
+                  </div>
+                </v-col>
+                <v-col cols="7">
+                  <div class="text-left" style="align-items: center">
+                    <p
+                      style="color: black; font-family: STHeiti; font-size: 24px; font-weight: bold; align: left"
+                    >
+                      专业
+                    </p>
+                    <p
+                      class="text--disabled"
+                      style="color: black; font-family: STHeiti; font-size: 16px; align: left"
+                    >
+                      核心团队来自高盛、Facebook、Google、UBS、AIA
+                    </p>
+                    <p
+                      class="text--disabled"
+                      style="color: black; font-family: STHeiti; font-size: 16px; align: left"
+                    >
+                      总交易量超过2,500亿美元，月均交易量百亿美元
+                    </p>
+                    <p
+                      class="text--disabled"
+                      style="color: black; font-family: STHeiti; font-size: 16px; align: left"
+                    >
+                      为全球知名大型机构、家族基金以及个人用户提供机构级服务
+                    </p>
+                  </div>
+                </v-col>
+              </v-row>
+              <v-col cols="3"></v-col>
+            </v-col>
+          </v-row>
+          <v-row style="height: 400px; align-items: center" class="text-center">
+            <v-col cols="3"></v-col>
+            <v-col cols="6">
+              <v-row class="bubble_right">
+                <v-col cols="7">
+                  <div class="text-left" style="align-items: center">
+                    <p
+                      style="color: black; font-family: STHeiti; font-size: 24px; font-weight: bold; align: left"
+                    >
+                      合规
+                    </p>
+                    <p
+                      class="text--disabled"
+                      style="color: black; font-family: STHeiti; font-size: 16px; align: left"
+                    >
+                      获得美国及加拿大MSB牌照（Money Service Business）
+                    </p>
+                    <p
+                      class="text--disabled"
+                      style="color: black; font-family: STHeiti; font-size: 16px; align: left"
+                    >
+                      拥有从事数字货币、外汇、期货等金融业务的资质
+                    </p>
+                    <p
+                      class="text--disabled"
+                      style="color: black; font-family: STHeiti; font-size: 16px; align: left"
+                    >
+                      实施严格的KYC认证与反洗钱策略
+                    </p>
+                  </div>
+                </v-col>
+                <v-col cols="5">
+                  <div>
+                    <img
+                      src="../assets/bubble2.png"
+                      style="width: 50%; height: auto; margin-right: 50px"
+                    />
+                  </div>
+                </v-col>
+              </v-row>
+            </v-col>
+            <v-col cols="3"></v-col>
+          </v-row>
+          <v-row style="height: 400px; align-items: center" class="text-center">
+            <v-col cols="3"></v-col>
+            <v-col cols="6">
+              <v-row class="bubble_left">
+                <v-col cols="5">
+                  <div>
+                    <span style="margin-left: 35%;">
+                      <img
+                        src="../assets/bubble3.png"
+                        style="width: 50%; height: auto;"
+                      />
+                    </span>
+                  </div>
+                </v-col>
+                <v-col cols="7" class="text-left">
+                  <div style="margin-left: 40px; margin-top: 15px">
+                    <p
+                      style="color: black; font-family: STHeiti; font-size: 24px; font-weight: bold; align: left"
+                    >
+                      安全
+                    </p>
+                    <p
+                      class="text--disabled"
+                      style="color: black; font-family: STHeiti; font-size: 16px; align: left"
+                    >
+                      与加密资产安全托管商Fireblocks、BitGo达成战略合作
+                    </p>
+                    <p
+                      class="text--disabled"
+                      style="color: black; font-family: STHeiti; font-size: 16px; align: left"
+                    >
+                      采用业内领先的MPC技术，保障账户安全
+                    </p>
+                    <p
+                      class="text--disabled"
+                      style="color: black; font-family: STHeiti; font-size: 16px; align: left"
+                    >
+                      25%的公司预算投入在信息安全体系中，远超行业平均水平
+                    </p>
+                  </div>
+                </v-col>
+              </v-row>
+            </v-col>
+            <v-col cols="3"></v-col>
+          </v-row>
+          <v-row style="height: 400px; align-items: center" class="text-center">
+            <v-col cols="3"></v-col>
+            <v-col cols="6">
+              <v-row class="bubble_right text-left">
+                <v-col cols="7">
+                  <div>
+                    <p
+                      style="color: black; font-family: STHeiti; font-size: 24px; font-weight: bold; align: left"
+                    >
+                      全球化
+                    </p>
+                    <p
+                      class="text--disabled"
+                      style="color: black; font-family: STHeiti; font-size: 16px; align: left"
+                    >
+                      业务覆盖全球，已为全球超80个国家/地区用户提供全年7*24小时服务
+                    </p>
+                    <p
+                      class="text--disabled"
+                      style="color: black; font-family: STHeiti; font-size: 16px; align: left"
+                    >
+                      在全球超过100个电子化交易平台进行交易
+                    </p>
+                    <p
+                      class="text--disabled"
+                      style="color: black; font-family: STHeiti; font-size: 16px; align: left"
+                    >
+                      总部位于韩国首尔，在英国、温哥华、中国设有分支机构
+                    </p>
+                  </div>
+                </v-col>
+                <v-col cols="5">
+                  <div>
+                    <img
+                      src="../assets/bubble4.png"
+                      style="width: 50%; height: auto; margin-left: 30%; margin-top: 10%"
+                    />
+                  </div>
+                </v-col>
+              </v-row>
+            </v-col>
+            <v-col cols="3"></v-col>
+          </v-row>
+        </div>
       </v-col>
-      <v-col cols="3"></v-col>
     </v-row>
-
-    <v-row style="height: 400px;" class="text-left">
-      <v-col cols="3"></v-col>
-      <v-col cols="6">
-        <v-row class="bubble_right">
-          <v-col cols="7">
-            <div style="margin-left: 100px; margin-top: 15px">
-              <p
-                style="color: black; font-family: STHeiti; font-size: 24px; font-weight: bold; align: left"
-              >
-                合规
-              </p>
-              <p
-                class="text--disabled"
-                style="color: black; font-family: STHeiti; font-size: 16px; align: left"
-              >
-                获得美国及加拿大MSB牌照（Money Service Business）
-              </p>
-              <p
-                class="text--disabled"
-                style="color: black; font-family: STHeiti; font-size: 16px; align: left"
-              >
-                拥有从事数字货币、外汇、期货等金融业务的资质
-              </p>
-              <p
-                class="text--disabled"
-                style="color: black; font-family: STHeiti; font-size: 16px; align: left"
-              >
-                实施严格的KYC认证与反洗钱策略
-              </p>
-            </div>
-          </v-col>
-          <v-col cols="5">
-            <div>
-              <img
-                src="../assets/diamond.png"
-                style="width: 40%; height: auto; margin-left: 30%; margin-top: 10%"
-              />
-            </div>
-          </v-col>
-        </v-row>
-      </v-col>
-      <v-col cols="3"></v-col>
-    </v-row>
-
-    <v-row style="height: 400px;">
-      <v-col cols="3"></v-col>
-      <v-col cols="6">
-        <v-row class="bubble_left">
-          <v-col cols="5">
-            <div>
-              <span style="margin-left: 35%;">
-                <img
-                  src="../assets/diamond.png"
-                  style="width: 40%; height: auto;"
-                />
-              </span>
-            </div>
-          </v-col>
-          <v-col cols="7" class="text-left">
-            <div style="margin-left: 40px; margin-top: 15px">
-              <p
-                style="color: black; font-family: STHeiti; font-size: 24px; font-weight: bold; align: left"
-              >
-                安全
-              </p>
-              <p
-                class="text--disabled"
-                style="color: black; font-family: STHeiti; font-size: 16px; align: left"
-              >
-                与加密资产安全托管商Fireblocks、BitGo达成战略合作
-              </p>
-              <p
-                class="text--disabled"
-                style="color: black; font-family: STHeiti; font-size: 16px; align: left"
-              >
-                采用业内领先的MPC技术，保障账户安全
-              </p>
-              <p
-                class="text--disabled"
-                style="color: black; font-family: STHeiti; font-size: 16px; align: left"
-              >
-                25%的公司预算投入在信息安全体系中，远超行业平均水平
-              </p>
-            </div>
-          </v-col>
-        </v-row>
-      </v-col>
-      <v-col cols="3"></v-col>
-    </v-row>
-
-    <v-row style="height: 400px;" class="text-left">
-      <v-col cols="3"></v-col>
-      <v-col cols="6">
-        <v-row class="bubble_right">
-          <v-col cols="7">
-            <div style="margin-left: 100px; margin-top: 15px">
-              <p
-                style="color: black; font-family: STHeiti; font-size: 24px; font-weight: bold; align: left"
-              >
-                全球化
-              </p>
-              <p
-                class="text--disabled"
-                style="color: black; font-family: STHeiti; font-size: 16px; align: left"
-              >
-                业务覆盖全球，已为全球超80个国家/地区用户提供全年7*24小时服务
-              </p>
-              <p
-                class="text--disabled"
-                style="color: black; font-family: STHeiti; font-size: 16px; align: left"
-              >
-                在全球超过100个电子化交易平台进行交易
-              </p>
-              <p
-                class="text--disabled"
-                style="color: black; font-family: STHeiti; font-size: 16px; align: left"
-              >
-                总部位于韩国首尔，在英国、温哥华、中国设有分支机构
-              </p>
-            </div>
-          </v-col>
-          <v-col cols="5">
-            <div>
-              <img
-                src="../assets/diamond.png"
-                style="width: 40%; height: auto; margin-left: 30%; margin-top: 10%"
-              />
-            </div>
-          </v-col>
-        </v-row>
-      </v-col>
-      <v-col cols="3"></v-col>
-    </v-row>
-
-    <v-row >
+    <v-row>
       <v-col class="text-center">
         <div
           style="height: 45px;font-size: 32px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #000000;line-height: 43px;"
@@ -361,12 +351,10 @@
       </v-col>
     </v-row>
 
- <v-row >
-	  <img src="../assets/qydt1.png" style="width:100%;height:100%;" />
-</v-row>
+    <v-row>
+      <img src="../assets/qydt1.png" style="width:100%;height:100%;" />
+    </v-row>
     <v-col class="col-12 text-center">
-
-
       <v-col cols="12">
         <!-- <p style="background-image: url(../assets/qydt1.png);">123123</p> -->
 
@@ -533,160 +521,159 @@
 
       <v-row style="height: 100px; background: black;"> </v-row>
 
-
       <v-row style="height: 250px;background: black;">
-          <v-col cols="3" style="background: black;"></v-col>
-          <v-col cols="5" style="background: black;">
-				<table>
-              <tr>
-                <th
-                  align="left"
-                  valign="top"
-                  style="width: 178px;height: 45px;font-size: 18px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #FFFFFF;line-height: 16px;"
-                >
-                  公司
-                </th>
-                <th
-                  align="left"
-                  valign="top"
-                  style="width: 178px;height: 45px;font-size: 18px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #FFFFFF;line-height: 16px;"
-                >
-                  产品
-                </th>
-                <th
-                  align="left"
-                  valign="top"
-                  style="width: 178px;height: 45px;font-size: 18px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #FFFFFF;line-height: 16px;"
-                >
-                  帮助
-                </th>
-              </tr>
-              <tr>
-                <td
-                  align="left"
-                  valign="top"
-                  style="width: 158px;height: 35px;font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 14px;"
-                >
-                  关于我们
-                </td>
-                <td
-                  align="left"
-                  valign="top"
-                  style="width: 158px;height: 35px;font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 14px;"
-                >
-                  APP 钱包
-                </td>
-                <td
-                  align="left"
-                  valign="top"
-                  style="width: 158px;height: 35px;font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 14px;"
-                >
-                  帮助中心
-                </td>
-              </tr>
-              <tr>
-                <td
-                  align="left"
-                  valign="top"
-                  style="width: 158px;height: 35px;font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 14px;"
-                >
-                  安全与合规
-                </td>
-                <td
-                  align="left"
-                  valign="top"
-                  style="width: 158px;height: 35px;font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 14px;"
-                >
-                  HSF代币
-                </td>
-                <td
-                  align="left"
-                  valign="top"
-                  style="width: 158px;height: 35px;font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 14px;"
-                >
-                  建议与反馈
-                </td>
-              </tr>
-              <tr>
-                <td
-                  align="left"
-                  valign="top"
-                  style="width: 158px;height: 35px;font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 14px;"
-                >
-                  联系我们
-                </td>
-                <td
-                  align="left"
-                  valign="top"
-                  style="width: 158px;height: 35px;font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 14px;"
-                >
-                  理财
-                </td>
-                <td
-                  align="left"
-                  valign="top"
-                  style="width: 158px;height: 35px;font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 14px;"
-                >
-                  提交工单
-                </td>
-              </tr>
-              <tr>
-                <td
-                  align="left"
-                  valign="top"
-                  style="width: 158px;height: 35px;font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 14px;"
-                >
-                  白皮书
-                </td>
-                <td
-                  align="left"
-                  valign="top"
-                  style="width: 158px;height: 35px;font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 14px;"
-                >
-                  社区
-                </td>
-                <td></td>
-              </tr>
-              <tr>
-                <td
-                  align="left"
-                  valign="top"
-                  style="width: 158px;height: 35px;font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 14px;"
-                >
-                  企业动态
-                </td>
-                <td></td>
-                <td></td>
-              </tr>
-            </table>
-          </v-col>
-          <v-col cols="4" style="background: black;">
-            <v-row>
-              <v-col cols="6"
-                ><img
-                  src="../assets/z1.png"
-                  style="width:126px;height:68px;float:left;"
-              /></v-col>
-            </v-row>
-            <v-row>
-              <v-col
-                cols="6"
-                style="padding: 15px 15px 15px 15px;width: 221px;font-size: 14px;font-weight: 400;color: #FFFFFF;line-height: 0px;text-align: left;"
+        <v-col cols="3" style="background: black;"></v-col>
+        <v-col cols="5" style="background: black;">
+          <table>
+            <tr>
+              <th
+                align="left"
+                valign="top"
+                style="width: 178px;height: 45px;font-size: 18px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #FFFFFF;line-height: 16px;"
               >
-                联系方式：services@investors.com</v-col
+                公司
+              </th>
+              <th
+                align="left"
+                valign="top"
+                style="width: 178px;height: 45px;font-size: 18px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #FFFFFF;line-height: 16px;"
               >
-            </v-row>
+                产品
+              </th>
+              <th
+                align="left"
+                valign="top"
+                style="width: 178px;height: 45px;font-size: 18px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #FFFFFF;line-height: 16px;"
+              >
+                帮助
+              </th>
+            </tr>
+            <tr>
+              <td
+                align="left"
+                valign="top"
+                style="width: 158px;height: 35px;font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 14px;"
+              >
+                关于我们
+              </td>
+              <td
+                align="left"
+                valign="top"
+                style="width: 158px;height: 35px;font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 14px;"
+              >
+                APP 钱包
+              </td>
+              <td
+                align="left"
+                valign="top"
+                style="width: 158px;height: 35px;font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 14px;"
+              >
+                帮助中心
+              </td>
+            </tr>
+            <tr>
+              <td
+                align="left"
+                valign="top"
+                style="width: 158px;height: 35px;font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 14px;"
+              >
+                安全与合规
+              </td>
+              <td
+                align="left"
+                valign="top"
+                style="width: 158px;height: 35px;font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 14px;"
+              >
+                HSF代币
+              </td>
+              <td
+                align="left"
+                valign="top"
+                style="width: 158px;height: 35px;font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 14px;"
+              >
+                建议与反馈
+              </td>
+            </tr>
+            <tr>
+              <td
+                align="left"
+                valign="top"
+                style="width: 158px;height: 35px;font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 14px;"
+              >
+                联系我们
+              </td>
+              <td
+                align="left"
+                valign="top"
+                style="width: 158px;height: 35px;font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 14px;"
+              >
+                理财
+              </td>
+              <td
+                align="left"
+                valign="top"
+                style="width: 158px;height: 35px;font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 14px;"
+              >
+                提交工单
+              </td>
+            </tr>
+            <tr>
+              <td
+                align="left"
+                valign="top"
+                style="width: 158px;height: 35px;font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 14px;"
+              >
+                白皮书
+              </td>
+              <td
+                align="left"
+                valign="top"
+                style="width: 158px;height: 35px;font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 14px;"
+              >
+                社区
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td
+                align="left"
+                valign="top"
+                style="width: 158px;height: 35px;font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 14px;"
+              >
+                企业动态
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
+        </v-col>
+        <v-col cols="4" style="background: black;">
+          <v-row>
+            <v-col cols="6"
+              ><img
+                src="../assets/z1.png"
+                style="width:126px;height:68px;float:left;"
+            /></v-col>
+          </v-row>
+          <v-row>
+            <v-col
+              cols="6"
+              style="padding: 15px 15px 15px 15px;width: 221px;font-size: 14px;font-weight: 400;color: #FFFFFF;line-height: 0px;text-align: left;"
+            >
+              联系方式：services@investors.com</v-col
+            >
+          </v-row>
 
-            <v-row>
-              <v-col cols="5">
-                <div class="container123" style="padding: 0px;">
-                  <input type="text" placeholder="  nane@email.com" />
-                  <button style="color: #D8D8D8;font-size: 14px;">注册</button>
-                </div>
-              </v-col>
-              <v-col cols="5" style="background: black;"></v-col>
-            </v-row>
-          </v-col>
+          <v-row>
+            <v-col cols="5">
+              <div class="container123" style="padding: 0px;">
+                <input type="text" placeholder="  nane@email.com" />
+                <button style="color: #D8D8D8;font-size: 14px;">注册</button>
+              </div>
+            </v-col>
+            <v-col cols="5" style="background: black;"></v-col>
+          </v-row>
+        </v-col>
       </v-row>
 
       <v-row style="height: 120px;background: black;">
