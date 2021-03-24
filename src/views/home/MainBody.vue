@@ -93,7 +93,7 @@
           <v-btn text rounded class="btn" style="width: 280px;height: 312px;">
             <div align="center">
               <img
-                src="../assets/investors_btn1.png"
+                src="@/assets/investors_btn1.png"
                 style="width: 120px; height:120px;"
               />
               <p
@@ -102,7 +102,7 @@
                 investors投资
               </p>
               <img
-                src="../assets/arrow_green.png"
+                src="@/assets/arrow_green.png"
                 style="width:28px; height: 28px"
               />
             </div>
@@ -115,7 +115,7 @@
           >
             <div align="center">
               <img
-                src="../assets/investors_btn2.png"
+                src="@/assets/investors_btn2.png"
                 style="width: 120px; height:120px;"
               />
               <p
@@ -124,7 +124,7 @@
                 investors理财
               </p>
               <img
-                src="../assets/arrow_green.png"
+                src="@/assets/arrow_green.png"
                 style="width:28px; height: 28px"
               />
             </div>
@@ -137,14 +137,14 @@
           >
             <div align="center">
               <img
-                src="../assets/investors_btn3.png"
+                src="@/assets/investors_btn3.png"
                 style="width: 120px; height:120px;"
               />
               <p style="color: black; font-family: STHeiti; font-size: 20px">
                 企业动态
               </p>
               <img
-                src="../assets/arrow_green.png"
+                src="@/assets/arrow_green.png"
                 style="width:28px; height: 28px"
               />
             </div>
@@ -171,7 +171,7 @@
                 <v-col cols="5">
                   <div>
                     <img
-                      src="../assets/bubble1.png"
+                      src="@/assets/bubble1.png"
                       style="width: 50%; height: auto;"
                     />
                   </div>
@@ -241,7 +241,7 @@
                 <v-col cols="5">
                   <div>
                     <img
-                      src="../assets/bubble2.png"
+                      src="@/assets/bubble2.png"
                       style="width: 50%; height: auto; margin-right: 50px"
                     />
                   </div>
@@ -258,7 +258,7 @@
                   <div>
                     <span style="margin-left: 35%;">
                       <img
-                        src="../assets/bubble3.png"
+                        src="@/assets/bubble3.png"
                         style="width: 50%; height: auto;"
                       />
                     </span>
@@ -329,7 +329,7 @@
                 <v-col cols="5">
                   <div>
                     <img
-                      src="../assets/bubble4.png"
+                      src="@/assets/bubble4.png"
                       style="width: 50%; height: auto; margin-left: 30%; margin-top: 10%"
                     />
                   </div>
@@ -352,13 +352,13 @@
     </v-row>
 
     <v-row>
-      <img src="../assets/qydt1.png" style="width:100%;height:100%;" />
+      <img src="@/assets/qydt1.png" style="width:100%;height:100%;" />
     </v-row>
     <v-col class="col-12 text-center">
       <v-col cols="12">
-        <!-- <p style="background-image: url(../assets/qydt1.png);">123123</p> -->
+        <!-- <p style="background-image: url(@/assets/qydt1.png);">123123</p> -->
 
-        <!-- <div style="background-image: url(../assets/qydt1.png);">22222</div> -->
+        <!-- <div style="background-image: url(@/assets/qydt1.png);">22222</div> -->
       </v-col>
 
       <v-col class="mb-12 text-center">
@@ -376,22 +376,22 @@
             <v-row style="height: 150px;">
               <v-col cols="3"
                 ><img
-                  src="../assets/hezuo_logo1.png"
+                  src="@/assets/hezuo_logo1.png"
                   style="width:100%;height:auto;"
               /></v-col>
               <v-col cols="3"
                 ><img
-                  src="../assets/hezuo_logo2.png"
+                  src="@/assets/hezuo_logo2.png"
                   style="width:100%;height:auto;"
               /></v-col>
               <v-col cols="3"
                 ><img
-                  src="../assets/hezuo_logo1.png"
+                  src="@/assets/hezuo_logo1.png"
                   style="width:100%;height:auto;"
               /></v-col>
               <v-col cols="3"
                 ><img
-                  src="../assets/hezuo_logo2.png"
+                  src="@/assets/hezuo_logo2.png"
                   style="width:100%;height:auto;"
               /></v-col>
             </v-row>
@@ -399,22 +399,22 @@
             <v-row style="height: 150px;">
               <v-col cols="3"
                 ><img
-                  src="../assets/hezuo_logo2.png"
+                  src="@/assets/hezuo_logo2.png"
                   style="width:100%;height:auto;"
               /></v-col>
               <v-col cols="3"
                 ><img
-                  src="../assets/hezuo_logo1.png"
+                  src="@/assets/hezuo_logo1.png"
                   style="width:100%;height:auto;"
               /></v-col>
               <v-col cols="3"
                 ><img
-                  src="../assets/hezuo_logo2.png"
+                  src="@/assets/hezuo_logo2.png"
                   style="width:100%;height:auto;"
               /></v-col>
               <v-col cols="3"
                 ><img
-                  src="../assets/hezuo_logo1.png"
+                  src="@/assets/hezuo_logo1.png"
                   style="width:100%;height:auto;"
               /></v-col>
             </v-row>

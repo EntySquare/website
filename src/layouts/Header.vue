@@ -8,7 +8,7 @@
               <router-link to="/">
                 <v-img
                   alt="Investors Name"
-                  src="../assets/mainLogo.png"
+                  src="@/assets/mainLogo.png"
                   width="150px"
                 />
               </router-link>
@@ -101,10 +101,10 @@
                 </v-btn>
               </div>
               <div style="display: inline-flex; margin-left: 30px;">
-                <v-img src="../assets/downCode.png" style="width: 20px;" />
+                <v-img src="@/assets/downCode.png" style="width: 20px;" />
               </div>
               <div style="display: inline-flex; margin-left: 30px">
-                <v-img src="../assets/global.png" style="width: 20px" />
+                <v-img src="@/assets/global.png" style="width: 20px" />
               </div>
             </div>
           </v-col>

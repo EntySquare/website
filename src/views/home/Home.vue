@@ -8,8 +8,8 @@
 
 <script>
 // @ is an alias to /src
-import MainHeader from '@/components/MainHeader.vue'
-import MainBody from '@/components/MainBody.vue'
+import MainHeader from './MainHeader.vue'
+import MainBody from './MainBody.vue'
 import Footer from '@/layouts/Footer'
 
 export default {

@@ -132,7 +132,7 @@
         <v-row>
           <v-col cols="6"
             ><img
-              src="../assets/z1.png"
+              src="@/assets/z1.png"
               style="width:126px;height:68px;float:left;"
           /></v-col>
         </v-row>
@@ -162,19 +162,19 @@
       <v-col cols="5" style="background: black;">
         <v-row style="height: 32px;">
           <v-col cols="1"
-            ><img src="../assets/v1.png" style="width:32px;height:32px;"
+            ><img src="@/assets/v1.png" style="width:32px;height:32px;"
           /></v-col>
           <v-col cols="1"
-            ><img src="../assets/v2.png" style="width:32px;height:32px;"
+            ><img src="@/assets/v2.png" style="width:32px;height:32px;"
           /></v-col>
           <v-col cols="1"
-            ><img src="../assets/v3.png" style="width:32px;height:32px;"
+            ><img src="@/assets/v3.png" style="width:32px;height:32px;"
           /></v-col>
           <v-col cols="1"
-            ><img src="../assets/v4.png" style="width:32px;height:32px;"
+            ><img src="@/assets/v4.png" style="width:32px;height:32px;"
           /></v-col>
           <v-col cols="1"
-            ><img src="../assets/v5.png" style="width:32px;height:32px;"
+            ><img src="@/assets/v5.png" style="width:32px;height:32px;"
           /></v-col>
           <v-col cols="1"></v-col>
           <v-col cols="1"></v-col>
@@ -183,7 +183,7 @@
             cols="2"
             style="width: 24px;height: 32px;font-size: 12px;text-align:center;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 31px;"
           >
-            <img src="../assets/c1.png" style="width:10px;height:10px;" />
+            <img src="@/assets/c1.png" style="width:10px;height:10px;" />
             韩国
           </v-col>
           <v-col cols="1"></v-col>
@@ -195,13 +195,13 @@
         <v-row>
           <v-col cols="2"
             ><img
-              src="../assets/k1.png"
+              src="@/assets/k1.png"
               style="width:133px;height:32px;float:left;"
           /></v-col>
           <v-col cols="1"></v-col>
           <v-col cols="2"
             ><img
-              src="../assets/k2.png"
+              src="@/assets/k2.png"
               style="width:133px;height:32px;float:left;"
           /></v-col>
           <v-col cols="2"></v-col>
