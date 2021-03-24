@@ -85,7 +85,7 @@
       </v-btn>
       <v-spacer></v-spacer>
       <v-btn text rounded class="green">
-        <router-link to="/login">
+        <router-link to="/loginPage">
           <span style="color: #FFFFFF;">登录</span>
         </router-link>
       </v-btn>

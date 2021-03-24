@@ -2,7 +2,7 @@
   <v-app>
     <router-view></router-view>
 
-    <!-- <v-footer absolute class="black" height="200px">
+   <!-- <v-footer absolute class="black" height="200px">
       <section class="max-display-width d-flex align-center white--text">
         footer
       </section>
