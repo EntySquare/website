@@ -3,7 +3,6 @@ import VueRouter from 'vue-router'
 import AuthLayout from '@/layouts/AuthLayout'
 import CommonLayout from '@/layouts/CommonLayout'
 import MainPage from '@/views/MainPage'
-import LoginPage from '@/views/LoginPage'
 
 Vue.use(VueRouter)
 
@@ -13,21 +12,6 @@ const routes = [
     name: 'MainPage',
     component: MainPage,
   },
-  {
-    path: '/loginPage',
-    name: 'LoginPage',
-    component: LoginPage,
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/About.vue'),
-  },
-  // 除了上面的，都要加 Layout
 
   {
     path: '/',
