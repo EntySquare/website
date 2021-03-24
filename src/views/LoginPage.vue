@@ -1,16 +1,13 @@
 <template>
   <div>
-	  <div>
-		  <LoginBody></LoginBody>
-	  </div>
-	   <!-- <v-footer absolute  style="padding: 0px;"> -->
-	      <LoginBottom/>
-	   <!-- </v-footer> -->
+    <div>
+      <LoginBody></LoginBody>
+    </div>
+    <!-- <v-footer absolute  style="padding: 0px;"> -->
+    <LoginBottom />
+    <!-- </v-footer> -->
   </div>
 </template>
-
-
-
 
 <script>
 // @ is an alias to /src

@@ -5,10 +5,9 @@
       <section class="max-display-width">
         <div class="home">
           <!-- <div>{{ $t('message') }}</div> -->
-         
         </div>
       </section>
-	   <MainBody msg="Welcome to Your Vue.js App" />
+      <MainBody msg="Welcome to Your Vue.js App" />
     </v-main>
   </div>
 </template>
