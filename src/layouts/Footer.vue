@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="width:100%">
     <v-col cols="12" style="height: 100px;"> </v-col>
     <v-row style="height: 100px; background: black;"> </v-row>
     <v-row style="height: 250px;background: black;">
