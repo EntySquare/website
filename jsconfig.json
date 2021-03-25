@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.js"]
+}

@@ -12,7 +12,7 @@
   <!--    style=" width: 100%; height:800px; background: linear-gradient(92deg, #00CFAC 0%, #5B7ADE 100%);"-->
   <div :style="bgImg" style="height: 100vh">
     <!--  <div-->
-    <!--    style=" width: 100%; height:800px; background-image: url(../assets/diamond.png)"-->
+    <!--    style=" width: 100%; height:800px; background-image: url(@/assets/diamond.png)"-->
     <!--  >-->
     <v-col cols="12">
       <section>
@@ -22,7 +22,7 @@
               <router-link to="/">
                 <v-img
                   alt="Investors Name"
-                  src="../assets/mainLogo.png"
+                  src="@/assets/mainLogo.png"
                   width="150px"
                 />
               </router-link>
@@ -41,7 +41,7 @@
                 </v-col>
                 <v-col cols="2">
                   <div style="width: 50px; display: inline-flex">
-                    <router-link to="/">
+                    <router-link to="/product">
                       <p class="titleFont">产品</p>
                     </router-link>
                   </div>
@@ -50,21 +50,21 @@
                   <div
                     style="width: 50px; display: inline-flex; white-space: nowrap"
                   >
-                    <router-link to="/">
+                    <router-link to="/product">
                       <p class="titleFont">获取HSF</p>
                     </router-link>
                   </div>
                 </v-col>
                 <v-col cols="2">
                   <div style="width: 50px; display: inline-flex">
-                    <router-link to="/">
+                    <router-link to="/product">
                       <p class="titleFont">资源</p>
                     </router-link>
                   </div>
                 </v-col>
                 <v-col cols="2">
                   <div style="width: 50px; display: inline-flex">
-                    <router-link to="/">
+                    <router-link to="/product">
                       <p class="titleFont">公司</p>
                     </router-link>
                   </div>
@@ -115,10 +115,10 @@
                 </v-btn>
               </div>
               <div style="display: inline-flex; margin-left: 30px;">
-                <v-img src="../assets/downCode.png" style="width: 20px;" />
+                <v-img src="@/assets/downCode.png" style="width: 20px;" />
               </div>
               <div style="display: inline-flex; margin-left: 30px">
-                <v-img src="../assets/global.png" style="width: 20px" />
+                <v-img src="@/assets/global.png" style="width: 20px" />
               </div>
             </div>
           </v-col>
@@ -193,10 +193,10 @@
 </template>
 
 <script>
-const imgUrl = require('../assets/background.png')
+const imgUrl = require('@/assets/background.png')
 export default {
   name: 'MainHeader',
-  data() {
+  data () {
     return {
       items: [
         {
