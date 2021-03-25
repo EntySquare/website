@@ -41,7 +41,7 @@
   width: 100%;
   height: 350px;
   background: #ffffff;
-  border-radius: 175px 0 0 175px;
+  border-radius: 175px 175px 175px 175px;
   align-items: center;
   max-width: 960px;
   box-shadow: -1px 0px 40px 0px #ffffff, -30px 0px 40px 0 rgba(15, 15, 15, 0.1);
@@ -50,11 +50,10 @@
 }
 
 .bubble_right {
-  margin-left: 160px;
   width: 100%;
   height: 350px;
   background: #ffffff;
-  border-radius: 0 175px 175px 0;
+  border-radius: 175px 175px 175px 175px;
   align-items: center;
   max-width: 960px;
   box-shadow: 1px 0px 40px 0px #ffffff, 30px 0px 40px 0 rgba(15, 15, 15, 0.1);
@@ -66,28 +65,27 @@
 <template>
   <v-container fill-height fluid class="align-start" style="padding: 0px;">
     <v-row class="text-center">
-      <v-col cols="12" style="height: 180px;"></v-col>
-      <v-col cols="12" style="height: 100px;">
+      <v-col cols="12" style="height: 120px;"></v-col>
+      <v-col cols="12">
         <div
+          class="text-center"
           style="height: 70px;font-size: 32px;font-family: STHeiti;font-weight: 400;font-weight: bold;color: #000000;line-height: 43px;"
         >
           公开·公平·透明
         </div>
       </v-col>
-    </v-row>
-    <v-row class="text-center" style="height: 200px">
+      <v-col class="col-12" style="height: 60px;"></v-col>
       <v-col class="col-12">
-        <div align="center" style="height: 100px;">
+        <div align="center">
           <p
             class="text--disabled"
-            style="height: 45px;font-size: 16px;width: 32%;"
+            style="font-size: 16px;width: 32vw; min-width: 819px"
           >
             investors的创新团队拥有顶尖金融机构和领先技术公司的背景，为企业、家族基金、个人用户提供投资和融资的专业平台，旨在为新的，创新的，去中心化的金融市场作出贡献。
           </p>
         </div>
       </v-col>
-    </v-row>
-    <v-row style="height: 400px;" class="text-center">
+      <v-col cols="12" style="height: 120px;"></v-col>
       <v-col cols="12">
         <div align="center" style="display: inline-flex; align-items: center">
           <v-btn text rounded class="btn" style="width: 280px;height: 312px;">
@@ -151,194 +149,175 @@
           </v-btn>
         </div>
       </v-col>
-    </v-row>
-    <v-row style="height: 120px" class="text-center">
-      <v-col class="col-12" style="height: 180px;">
-        <div
-          style="height: 80px;font-size: 32px;font-family: STHeiti;font-weight: 400;font-weight: bold;color: #000000;line-height: 43px;"
-        >
-          合规优势
-        </div>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col cols="12">
-        <div>
-          <v-row style="height: 400px; align-items: center" class="text-center">
-            <v-col cols="3"></v-col>
-            <v-col cols="6">
-              <v-row class="bubble_left">
-                <v-col cols="5">
-                  <div>
-                    <img
-                      src="@/assets/bubble1.png"
-                      style="width: 50%; height: auto;"
-                    />
-                  </div>
-                </v-col>
-                <v-col cols="7">
-                  <div class="text-left" style="align-items: center">
+      <v-col cols="12" style="height: 120px;"></v-col>
+      <v-col cols="12" class="text-center">
+        <v-col cols="12">
+          <div
+            style="font-size: 32px;font-family: STHeiti;font-weight: 400;font-weight: bold;color: #000000;line-height: 43px;"
+          >
+            合规优势
+          </div>
+        </v-col>
+        <v-col cols="12" style="height: 120px;"></v-col>
+        <v-col cols="12">
+          <div align="center" style="align-items: center">
+            <v-row class="bubble_left" style="text-align: center;">
+              <v-col cols="5">
+                <div>
+                  <img
+                    src="@/assets/bubble1.png"
+                    style="width: 50%; height: auto;"
+                  />
+                </div>
+              </v-col>
+              <v-col cols="7">
+                <div class="text-left" style="align-items: center">
+                  <p
+                    style="color: black; font-family: STHeiti; font-size: 24px; font-weight: bold;"
+                  >
+                    专业
+                  </p>
+                  <p
+                    class="text--disabled"
+                    style="color: black; font-family: STHeiti; font-size: 16px;"
+                  >
+                    核心团队来自高盛、Facebook、Google、UBS、AIA
+                  </p>
+                  <p
+                    class="text--disabled"
+                    style="color: black; font-family: STHeiti; font-size: 16px;"
+                  >
+                    总交易量超过2,500亿美元，月均交易量百亿美元
+                  </p>
+                  <p
+                    class="text--disabled"
+                    style="color: black; font-family: STHeiti; font-size: 16px;"
+                  >
+                    为全球知名大型机构、家族基金以及个人用户提供机构级服务
+                  </p>
+                </div>
+              </v-col>
+            </v-row>
+            <v-col cols="12" style="height: 60px;"></v-col>
+            <v-row class="bubble_right" style="align-items: center;">
+              <v-col cols="7">
+                <div align="right">
+                  <div class="text-left" style="width: 78%; max-width: 430px">
                     <p
-                      style="color: black; font-family: STHeiti; font-size: 24px; font-weight: bold; align: left"
-                    >
-                      专业
-                    </p>
-                    <p
-                      class="text--disabled"
-                      style="color: black; font-family: STHeiti; font-size: 16px; align: left"
-                    >
-                      核心团队来自高盛、Facebook、Google、UBS、AIA
-                    </p>
-                    <p
-                      class="text--disabled"
-                      style="color: black; font-family: STHeiti; font-size: 16px; align: left"
-                    >
-                      总交易量超过2,500亿美元，月均交易量百亿美元
-                    </p>
-                    <p
-                      class="text--disabled"
-                      style="color: black; font-family: STHeiti; font-size: 16px; align: left"
-                    >
-                      为全球知名大型机构、家族基金以及个人用户提供机构级服务
-                    </p>
-                  </div>
-                </v-col>
-              </v-row>
-              <v-col cols="3"></v-col>
-            </v-col>
-          </v-row>
-          <v-row style="height: 400px; align-items: center" class="text-center">
-            <v-col cols="3"></v-col>
-            <v-col cols="6">
-              <v-row class="bubble_right">
-                <v-col cols="7">
-                  <div class="text-left" style="align-items: center">
-                    <p
-                      style="color: black; font-family: STHeiti; font-size: 24px; font-weight: bold; align: left"
+                      style="color: black; font-family: STHeiti; font-size: 24px; font-weight: bold"
                     >
                       合规
                     </p>
                     <p
                       class="text--disabled"
-                      style="color: black; font-family: STHeiti; font-size: 16px; align: left"
+                      style="color: black; font-family: STHeiti; font-size: 16px"
                     >
                       获得美国及加拿大MSB牌照（Money Service Business）
                     </p>
                     <p
                       class="text--disabled"
-                      style="color: black; font-family: STHeiti; font-size: 16px; align: left"
+                      style="color: black; font-family: STHeiti; font-size: 16px"
                     >
                       拥有从事数字货币、外汇、期货等金融业务的资质
                     </p>
                     <p
                       class="text--disabled"
-                      style="color: black; font-family: STHeiti; font-size: 16px; align: left"
+                      style="color: black; font-family: STHeiti; font-size: 16px"
                     >
                       实施严格的KYC认证与反洗钱策略
                     </p>
                   </div>
-                </v-col>
-                <v-col cols="5">
-                  <div>
-                    <img
-                      src="@/assets/bubble2.png"
-                      style="width: 50%; height: auto; margin-right: 50px"
-                    />
-                  </div>
-                </v-col>
-              </v-row>
-            </v-col>
-            <v-col cols="3"></v-col>
-          </v-row>
-          <v-row style="height: 400px; align-items: center" class="text-center">
-            <v-col cols="3"></v-col>
-            <v-col cols="6">
-              <v-row class="bubble_left">
-                <v-col cols="5">
-                  <div>
-                    <span style="margin-left: 35%;">
-                      <img
-                        src="@/assets/bubble3.png"
-                        style="width: 50%; height: auto;"
-                      />
-                    </span>
-                  </div>
-                </v-col>
-                <v-col cols="7" class="text-left">
-                  <div style="margin-left: 40px; margin-top: 15px">
+                </div>
+              </v-col>
+              <v-col cols="5">
+                <div>
+                  <img
+                    src="@/assets/bubble2.png"
+                    style="width: 50%; height: auto; margin-right: 50px"
+                  />
+                </div>
+              </v-col>
+            </v-row>
+            <v-col cols="12" style="height: 60px;"></v-col>
+            <v-row class="bubble_left" style="text-align: center;">
+              <v-col cols="5">
+                <div>
+                  <img
+                    src="@/assets/bubble3.png"
+                    style="width: 50%; height: auto;"
+                  />
+                </div>
+              </v-col>
+              <v-col cols="7">
+                <div class="text-left" style="align-items: center">
+                  <p
+                    style="color: black; font-family: STHeiti; font-size: 24px; font-weight: bold;"
+                  >
+                    安全
+                  </p>
+                  <p
+                    class="text--disabled"
+                    style="color: black; font-family: STHeiti; font-size: 16px;"
+                  >
+                    与加密资产安全托管商Fireblocks、BitGo达成战略合作
+                  </p>
+                  <p
+                    class="text--disabled"
+                    style="color: black; font-family: STHeiti; font-size: 16px;"
+                  >
+                    采用业内领先的MPC技术，保障账户安全
+                  </p>
+                  <p
+                    class="text--disabled"
+                    style="color: black; font-family: STHeiti; font-size: 16px;"
+                  >
+                    25%的公司预算投入在信息安全体系中，远超行业平均水平
+                  </p>
+                </div>
+              </v-col>
+            </v-row>
+            <v-col cols="12" style="height: 60px;"></v-col>
+            <v-row class="bubble_right" style="align-items: center;">
+              <v-col cols="8">
+                <div align="right">
+                  <div class="text-left" style="max-width: 500px">
                     <p
-                      style="color: black; font-family: STHeiti; font-size: 24px; font-weight: bold; align: left"
-                    >
-                      安全
-                    </p>
-                    <p
-                      class="text--disabled"
-                      style="color: black; font-family: STHeiti; font-size: 16px; align: left"
-                    >
-                      与加密资产安全托管商Fireblocks、BitGo达成战略合作
-                    </p>
-                    <p
-                      class="text--disabled"
-                      style="color: black; font-family: STHeiti; font-size: 16px; align: left"
-                    >
-                      采用业内领先的MPC技术，保障账户安全
-                    </p>
-                    <p
-                      class="text--disabled"
-                      style="color: black; font-family: STHeiti; font-size: 16px; align: left"
-                    >
-                      25%的公司预算投入在信息安全体系中，远超行业平均水平
-                    </p>
-                  </div>
-                </v-col>
-              </v-row>
-            </v-col>
-            <v-col cols="3"></v-col>
-          </v-row>
-          <v-row style="height: 400px; align-items: center" class="text-center">
-            <v-col cols="3"></v-col>
-            <v-col cols="6">
-              <v-row class="bubble_right text-left">
-                <v-col cols="7">
-                  <div>
-                    <p
-                      style="color: black; font-family: STHeiti; font-size: 24px; font-weight: bold; align: left"
+                      style="color: black; font-family: STHeiti; font-size: 24px; font-weight: bold"
                     >
                       全球化
                     </p>
                     <p
                       class="text--disabled"
-                      style="color: black; font-family: STHeiti; font-size: 16px; align: left"
+                      style="color: black; font-family: STHeiti; font-size: 16px"
                     >
                       业务覆盖全球，已为全球超80个国家/地区用户提供全年7*24小时服务
                     </p>
                     <p
                       class="text--disabled"
-                      style="color: black; font-family: STHeiti; font-size: 16px; align: left"
+                      style="color: black; font-family: STHeiti; font-size: 16px"
                     >
                       在全球超过100个电子化交易平台进行交易
                     </p>
                     <p
                       class="text--disabled"
-                      style="color: black; font-family: STHeiti; font-size: 16px; align: left"
+                      style="color: black; font-family: STHeiti; font-size: 16px"
                     >
-                      总部位于韩国首尔，在英国、温哥华、中国设有分支机构
+                      总部位于韩国首尔，在英国、温哥华、新加坡设有分支机构
                     </p>
                   </div>
-                </v-col>
-                <v-col cols="5">
-                  <div>
-                    <img
-                      src="@/assets/bubble4.png"
-                      style="width: 50%; height: auto; margin-left: 30%; margin-top: 10%"
-                    />
-                  </div>
-                </v-col>
-              </v-row>
-            </v-col>
-            <v-col cols="3"></v-col>
-          </v-row>
-        </div>
+                </div>
+              </v-col>
+              <v-col cols="4">
+                <div>
+                  <img
+                    src="@/assets/bubble4.png"
+                    style="width: 63%; height: auto; margin-right: 100px"
+                  />
+                </div>
+              </v-col>
+            </v-row>
+          </div>
+        </v-col>
       </v-col>
     </v-row>
     <v-row>
@@ -584,7 +563,6 @@
               </p>
             </div>
           </v-col>
-
           <v-col
             hidden
             id="2021"
@@ -640,7 +618,7 @@ export default {
   name: 'HelloWorld',
 
   methods: {
-    bao2019: function () {
+    bao2019: function() {
       document.getElementById('2019but').style.background =
         'linear-gradient(270deg, #00FFBC 0%, #5B7ADE 100%) '
       document.getElementById('2020but').style.background = '#F7F8FB'
@@ -650,7 +628,7 @@ export default {
       document.getElementById('2021').style.display = 'none'
       // hidden
     },
-    bao2020: function () {
+    bao2020: function() {
       document.getElementById('2019but').style.background = '#F7F8FB'
       document.getElementById('2020but').style.background =
         'linear-gradient(270deg, #00FFBC 0%, #5B7ADE 100%) '
@@ -659,7 +637,7 @@ export default {
       document.getElementById('2020').style.display = 'block'
       document.getElementById('2021').style.display = 'none'
     },
-    bao2021: function () {
+    bao2021: function() {
       document.getElementById('2019but').style.background = '#F7F8FB'
       document.getElementById('2020but').style.background = '#F7F8FB'
       document.getElementById('2021but').style.background =
