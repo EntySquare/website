@@ -451,7 +451,7 @@
             cols="6"
             style="background: #FFFFFF;box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.04);border-radius: 24px;"
           >
-            <div id="i1" style="padding: 40px 40px 40px 40px">
+            <div  style="padding: 40px 40px 40px 40px">
               <p
                 align="left"
                 style="font-size: 24px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
@@ -500,7 +500,7 @@
             cols="6"
             style="background: #FFFFFF;box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.04);border-radius: 24px;"
           >
-            <div id="i1" style="padding: 40px 40px 40px 40px">
+            <div  style="padding: 40px 40px 40px 40px">
               <p
                 align="left"
                 style="font-size: 24px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
@@ -562,7 +562,7 @@
             cols="6"
             style="background: #FFFFFF;box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.04);border-radius: 24px;"
           >
-            <div id="i1" style="padding: 40px 40px 40px 40px">
+            <div  style="padding: 40px 40px 40px 40px">
               <p
                 align="left"
                 style="font-size: 24px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
