@@ -59,7 +59,7 @@
 </style>
 
 <template>
-  <v-container fill-height fluid class="align-start" style="padding: 0px;">
+  <v-container fluid class="align-start" style="padding: 0px;">
     <v-row class="text-center">
       <v-col cols="12" style="height: 120px;"></v-col>
       <v-col cols="12">
@@ -376,27 +376,20 @@
           </div>
         </v-col>
       </v-col>
-    </v-row>
-    <v-row>
-      <v-col class="text-center">
+ <v-col cols="12" style="height: 120px;"></v-col>
+    <v-col cols="12" class="text-center" style="height: 45px;">
         <div
           style="height: 45px;font-size: 32px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #000000;line-height: 43px;"
         >
           企业动态
         </div>
       </v-col>
-    </v-row>
-
-    <v-row>
-      <img src="@/assets/qydt1.png" style="width:100%;height:100%;" />
-    </v-row>
-    <v-col class="col-12 text-center">
-      <v-col cols="12">
-        <!-- <p style="background-image: url(@/assets/qydt1.png);">123123</p> -->
-
-        <!-- <div style="background-image: url(@/assets/qydt1.png);">22222</div> -->
+ <v-col cols="12" style="height: 120px;"></v-col>
+        <v-col cols="12" class="text-center">
+             <img src="@/assets/qydt1.png" style="width:100%;height:100%;" />
       </v-col>
-
+      <v-col cols="12" style="height: 120px;"></v-col>
+ <v-col class="col-12 text-center">
       <v-col class="mb-12 text-center">
         <div
           style="height: 45px;font-size: 32px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #000000;line-height: 43px;"
@@ -515,7 +508,7 @@
             cols="6"
             style="background: #FFFFFF;box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.04);border-radius: 24px;"
           >
-            <div id="i1" style="padding: 40px 40px 40px 40px">
+            <div  style="padding: 40px 40px 40px 40px">
               <p
                 align="left"
                 style="font-size: 24px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
@@ -564,7 +557,7 @@
             cols="6"
             style="background: #FFFFFF;box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.04);border-radius: 24px;"
           >
-            <div id="i1" style="padding: 40px 40px 40px 40px">
+            <div  style="padding: 40px 40px 40px 40px">
               <p
                 align="left"
                 style="font-size: 24px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
@@ -626,7 +619,7 @@
             cols="6"
             style="background: #FFFFFF;box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.04);border-radius: 24px;"
           >
-            <div id="i1" style="padding: 40px 40px 40px 40px">
+            <div  style="padding: 40px 40px 40px 40px">
               <p
                 align="left"
                 style="font-size: 24px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
@@ -662,11 +655,15 @@
               </p>
             </div>
           </v-col>
-
           <v-col cols="3"></v-col>
         </v-row>
       </v-col>
     </v-col>
+
+    </v-row>
+
+
+   
   </v-container>
 </template>
 
