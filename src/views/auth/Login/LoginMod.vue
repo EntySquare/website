@@ -18,12 +18,14 @@
               欢迎来到investors
             </p>
           </v-col>
-          <v-col
-            cols="2"
-          >
-          <router-link to="/register">
-          <div  style="font-size: 18px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #00CFAC;line-height: 28px;">注册</div>
-           </router-link>
+          <v-col cols="2">
+            <router-link to="/register">
+              <div
+                style="font-size: 18px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #00CFAC;line-height: 28px;"
+              >
+                注册
+              </div>
+            </router-link>
           </v-col>
         </v-row>
         <v-row>
@@ -174,7 +176,7 @@ export default {
   components: {
     countryCodeSelector,
   },
-  data() {
+  data () {
     return {
       items: ['Foo', 'Bar', 'Fizz', 'Buzz'],
       model: 'tab-2',

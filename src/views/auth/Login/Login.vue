@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import AuthHeader from './AuthHeader.vue'
-import AuthLeft from './AuthLeft.vue'
+import AuthHeader from '../AuthHeader.vue'
+import AuthLeft from '../AuthLeft.vue'
 import LoginMod from './LoginMod.vue'
 export default {
   name: 'Login',

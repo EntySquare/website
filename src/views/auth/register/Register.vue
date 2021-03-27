@@ -19,9 +19,9 @@
 </template>
 
 <script>
-import AuthHeader from './AuthHeader.vue'
-import AuthLeft from './AuthLeft.vue'
-import RegisterMod from './RegisterMod.vue'
+import AuthHeader from '../AuthHeader.vue'
+import AuthLeft from '../AuthLeft.vue'
+import RegisterMod from '../register/RegisterMod.vue'
 export default {
   name: 'Register',
   components: {
