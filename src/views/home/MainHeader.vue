@@ -196,7 +196,7 @@
 const imgUrl = require('@/assets/background.png')
 export default {
   name: 'MainHeader',
-  data () {
+  data() {
     return {
       items: [
         {

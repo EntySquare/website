@@ -3,7 +3,7 @@
     <v-row>
       <v-col
         cols="12"
-        style="height: 600px; background: #FFFFFF;box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.04);border-radius: 16px;padding: 40px 40px 40px 40px;"
+        style="height: 705px; background: #FFFFFF;box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.04);border-radius: 16px;padding: 40px 40px 40px 40px;"
       >
         <v-row>
           <v-col
@@ -20,9 +20,10 @@
           </v-col>
           <v-col
             cols="2"
-            style="font-size: 18px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #00CFAC;line-height: 28px;"
           >
-            注册
+          <router-link to="/register">
+          <div  style="font-size: 18px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #00CFAC;line-height: 28px;">注册</div>
+           </router-link>
           </v-col>
         </v-row>
         <v-row>

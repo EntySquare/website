@@ -1,7 +1,30 @@
+<style>
+.container123 {
+ position: relative;
+ width: 100%;
+}
+.container123 input {
+ width: 100%;
+ height: 30px;
+ opacity: 0.16;
+ border-radius: 24px;
+ background: #d8d8d8;
+}
+.container123 button {
+ width: 25%;
+ height: 30px;
+ position: absolute;
+ right: 0;
+ background-color: #4c4c4c;
+ border-radius: 24px;
+ border: none;
+ outline: none;
+}
+</style>
 <template>
   <div style="width:100%">
     <v-col cols="12" style="height: 100px;"> </v-col>
-    <v-row style="height: 100px; background: black;"> </v-row>
+    <v-row style="height: 150px; background: black;"> </v-row>
     <v-row style="height: 250px;background: black;">
       <v-col cols="3" style="background: black;"></v-col>
       <v-col cols="5" style="background: black;">
@@ -162,19 +185,19 @@
       <v-col cols="5" style="background: black;">
         <v-row style="height: 32px;">
           <v-col cols="1"
-            ><img src="@/assets/v1.png" style="width:32px;height:32px;"
+            ><img src="@/assets/v1.png" style="width:32px;height:36px;"
           /></v-col>
           <v-col cols="1"
-            ><img src="@/assets/v2.png" style="width:32px;height:32px;"
+            ><img src="@/assets/v2.png" style="width:32px;height:36px;"
           /></v-col>
           <v-col cols="1"
-            ><img src="@/assets/v3.png" style="width:32px;height:32px;"
+            ><img src="@/assets/v3.png" style="width:32px;height:36px;"
           /></v-col>
           <v-col cols="1"
-            ><img src="@/assets/v4.png" style="width:32px;height:32px;"
+            ><img src="@/assets/v4.png" style="width:32px;height:36px;"
           /></v-col>
           <v-col cols="1"
-            ><img src="@/assets/v5.png" style="width:32px;height:32px;"
+            ><img src="@/assets/v5.png" style="width:32px;height:36px;"
           /></v-col>
           <v-col cols="1"></v-col>
           <v-col cols="1"></v-col>
@@ -183,7 +206,7 @@
             cols="2"
             style="width: 24px;height: 32px;font-size: 12px;text-align:center;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 31px;"
           >
-            <img src="@/assets/c1.png" style="width:10px;height:10px;" />
+            <img src="@/assets/c1.png" style="width:16px;height:16px;" />
             韩国
           </v-col>
           <v-col cols="1"></v-col>
@@ -209,7 +232,7 @@
         </v-row>
       </v-col>
     </v-row>
-
+ <v-row style="height: 100px; background: black;"> </v-row>
     <v-row style="background: black;">
       <v-col cols="3" style="background: black;"> </v-col>
       <v-col
