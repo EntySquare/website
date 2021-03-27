@@ -22,14 +22,10 @@
 /*}*/
 
 .btn {
-  font-family: STHeiti;
   font-size: 20px;
-  background: #ffffff;
   border-radius: 26px;
   text-align: center;
-  outline: none;
   box-shadow: 14px 10px 40px 0 rgba(15, 15, 15, 0.1);
-  -webkit-box-shadow: 14px 10px 40px 0 rgba(15, 15, 15, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -88,28 +84,54 @@
       <v-col cols="12" style="height: 120px;"></v-col>
       <v-col cols="12">
         <div align="center" style="display: inline-flex; align-items: center">
-          <v-btn text rounded class="btn" style="width: 280px;height: 312px;">
+          <v-btn
+            id="btn1"
+            text
+            rounded
+            class="btn"
+            style="width: 280px;height: 312px;"
+            @mouseover="showBtnMore1()"
+            @mouseout="hideBtnMore1()"
+          >
             <div align="center">
               <img
                 src="@/assets/investors_btn1.png"
                 style="width: 120px; height:120px;"
               />
               <p
-                style="color: black; font-family: STHeiti; text-transform: lowercase; font-size: 20px"
+                style="color: black; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif; text-transform: lowercase; margin-top: 20px; font-size: 20px"
               >
                 investors投资
               </p>
-              <img
-                src="@/assets/arrow_green.png"
-                style="width:28px; height: 28px"
-              />
+              <div
+                class="text-center"
+                id="btnMore1"
+                style="display: none; margin-top: 25px"
+              >
+                <p
+                  style="color: #00CFAC; display:inline-flex; font-size: 16px; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif"
+                >
+                  了解更多
+                </p>
+                <div
+                  style="display: inline-flex; margin-left: 3px; margin-bottom: 4px; vertical-align: middle"
+                >
+                  <img
+                    src="@/assets/arrow_green.png"
+                    style="width:14px; height: 14px;"
+                  />
+                </div>
+              </div>
             </div>
           </v-btn>
           <v-btn
+            id="btn2"
             text
             rounded
             class="btn"
             style="width: 280px;height: 312px; margin-left: 50px"
+            @mouseover="showBtnMore2()"
+            @mouseout="hideBtnMore2()"
           >
             <div align="center">
               <img
@@ -117,34 +139,69 @@
                 style="width: 120px; height:120px;"
               />
               <p
-                style="color: black; font-family: STHeiti; text-transform: lowercase; font-size: 20px"
+                style="color: black; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif; text-transform: lowercase; margin-top: 20px; font-size: 20px"
               >
                 investors理财
               </p>
-              <img
-                src="@/assets/arrow_green.png"
-                style="width:28px; height: 28px"
-              />
+              <div
+                class="text-center"
+                id="btnMore2"
+                style="display: none; margin-top: 25px"
+              >
+                <p
+                  style="color: #00CFAC; display:inline-flex; font-size: 16px; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif"
+                >
+                  了解更多
+                </p>
+                <div
+                  style="display: inline-flex; margin-left: 3px; margin-bottom: 4px; vertical-align: middle"
+                >
+                  <img
+                    src="@/assets/arrow_green.png"
+                    style="width:14px; height: 14px;"
+                  />
+                </div>
+              </div>
             </div>
           </v-btn>
           <v-btn
+            id="btn3"
             text
             rounded
             class="btn"
             style="width: 280px;height: 312px; margin-left: 50px"
+            @mouseover="showBtnMore3()"
+            @mouseout="hideBtnMore3()"
           >
             <div align="center">
               <img
                 src="@/assets/investors_btn3.png"
                 style="width: 120px; height:120px;"
               />
-              <p style="color: black; font-family: STHeiti; font-size: 20px">
+              <p
+                style="color: black; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif; text-transform: lowercase; margin-top: 20px; font-size: 20px"
+              >
                 企业动态
               </p>
-              <img
-                src="@/assets/arrow_green.png"
-                style="width:28px; height: 28px"
-              />
+              <div
+                class="text-center"
+                id="btnMore3"
+                style="display: none; margin-top: 25px"
+              >
+                <p
+                  style="color: #00CFAC; display:inline-flex; font-size: 16px; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif"
+                >
+                  了解更多
+                </p>
+                <div
+                  style="display: inline-flex; margin-left: 3px; margin-bottom: 4px; vertical-align: middle"
+                >
+                  <img
+                    src="@/assets/arrow_green.png"
+                    style="width:14px; height: 14px;"
+                  />
+                </div>
+              </div>
             </div>
           </v-btn>
         </div>
@@ -645,6 +702,28 @@ export default {
       document.getElementById('2019').style.display = 'none'
       document.getElementById('2020').style.display = 'none'
       document.getElementById('2021').style.display = 'block'
+    },
+
+    showBtnMore1: function() {
+      document.getElementById('btnMore1').style.display = 'block'
+      document.getElementById('btn1').style.color = '#FFFFFF'
+    },
+    hideBtnMore1: function(btnId) {
+      document.getElementById('btnMore1').style.display = 'none'
+    },
+    showBtnMore2: function() {
+      document.getElementById('btnMore2').style.display = 'block'
+      document.getElementById('btn2').style.color = '#FFFFFF'
+    },
+    hideBtnMore2: function(btnId) {
+      document.getElementById('btnMore2').style.display = 'none'
+    },
+    showBtnMore3: function() {
+      document.getElementById('btnMore3').style.display = 'block'
+      document.getElementById('btn3').style.color = '#FFFFFF'
+    },
+    hideBtnMore3: function(btnId) {
+      document.getElementById('btnMore3').style.display = 'none'
     },
   },
 }
