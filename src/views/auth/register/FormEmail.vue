@@ -1,35 +1,30 @@
 <template>
   <v-tab-item>
     <v-form v-model="valid" ref="form" class="mt-4 form">
-      <v-row>
-        <v-col cols="4">
-          <v-select
-            v-model="reginCode"
-            label="区号"
-            hint="如中国 +86"
-            :items="reginCodes"
-            single-line
-            filled
-            dense
-            rounded
-          ></v-select>
-        </v-col>
-        <v-col cols="8">
-          <v-text-field
-            v-model="phone"
-            :rules="phoneRules"
-            label="请输入手机号"
-            single-line
-            filled
-            dense
-            rounded
-          ></v-text-field>
-        </v-col>
-      </v-row>
+      <v-text-field
+        v-model="email"
+        :rules="emailRules"
+        label="请输入邮箱"
+        single-line
+        filled
+        dense
+        rounded
+      ></v-text-field>
+
       <v-text-field
         v-model="password"
         :rules="passwordRules"
         label="请输入密码"
+        single-line
+        filled
+        dense
+        rounded
+      ></v-text-field>
+
+      <v-text-field
+        v-model="password"
+        :rules="passwordRules"
+        label="请再次输入密码"
         single-line
         filled
         dense
@@ -74,13 +69,12 @@ export default {
   data () {
     return {
       valid: false,
-      reginCode: '+86',
-      reginCodes: ['+86', '+87'],
-      phone: '',
-      phoneRules: [
-        v => !!v || '手机号必须输入',
-        v => /^(\d)+$/.test(v) || '手机号是数字',
-        v => /^(\d){11}$/.test(v) || '手机号是11位',
+      email: '',
+      emailRules: [
+        v => !!v || '邮箱必须输入',
+        v =>
+          /^[a-zA-Z\d]+(\.[a-zA-Z\d])*@[a-zA-Z\d]+(\.[a-zA-Z\d])+$/.test(v) ||
+          '邮箱格式不对',
       ],
       password: '',
       passwordRules: [
@@ -96,8 +90,7 @@ export default {
       console.log(this.valid)
       if (this.valid) {
         this.axios.post('/login', {
-          reginCode: this.reginCode,
-          phone: this.phone,
+          email: this.email,
           password: this.password,
         })
       }

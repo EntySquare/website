@@ -35,6 +35,15 @@
         dense
         rounded
       ></v-text-field>
+      <v-text-field
+        v-model="password"
+        :rules="passwordRules"
+        label="请再次输入密码"
+        single-line
+        filled
+        dense
+        rounded
+      ></v-text-field>
 
       <div
         style="font-size: 14px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #00CFAC;line-height: 20px;margin-left:10px;"

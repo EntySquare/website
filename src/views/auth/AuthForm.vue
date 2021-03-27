@@ -1,6 +1,6 @@
 <template>
   <v-card class="wrap">
-    <div class="d-flex justify-space-between ">
+    <div class="d-flex justify-space-between">
       <div>
         <div class="title">
           {{ title }}
@@ -14,39 +14,63 @@
       </div>
     </div>
 
-    <v-tabs
-      v-model="tab"
-      slider-size="5"
-      background-color="transparent"
-      slider-color="#00FFBC"
-      grow
-    >
-      <v-tab>
-        手机号
-      </v-tab>
-      <v-tab>
-        邮箱
-      </v-tab>
-    </v-tabs>
-    <v-tabs-items v-model="tab">
-      <LoginFormPhone />
-      <v-tab-item>
-        <v-card color="basil" flat>
-          <v-card-text>200</v-card-text>
-        </v-card>
-      </v-tab-item>
-    </v-tabs-items>
+    <template v-if="isLogin">
+      <v-tabs
+        v-model="tab"
+        slider-size="5"
+        background-color="transparent"
+        slider-color="#00FFBC"
+        grow
+      >
+        <v-tab>
+          手机号
+        </v-tab>
+        <v-tab>
+          邮箱
+        </v-tab>
+      </v-tabs>
+      <v-tabs-items v-model="tab">
+        <LoginFormPhone />
+        <LoginFormEmail />
+      </v-tabs-items>
+    </template>
+    <template v-else>
+      <v-tabs
+        v-model="tab"
+        slider-size="5"
+        background-color="transparent"
+        slider-color="#00FFBC"
+        grow
+      >
+        <v-tab>
+          手机号
+        </v-tab>
+        <v-tab>
+          邮箱
+        </v-tab>
+      </v-tabs>
+      <v-tabs-items v-model="tab">
+        <RegisterFormPhone />
+        <RegisterFormEmail />
+      </v-tabs-items>
+    </template>
   </v-card>
 </template>
 
 <script>
 import LoginFormPhone from './Login/FormPhone'
+import LoginFormEmail from './Login/FormEmail'
+import RegisterFormPhone from './register/FormPhone'
+import RegisterFormEmail from './register/FormEmail'
 import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   name: 'AuthForm',
   components: {
     LoginFormPhone,
+    LoginFormEmail,
+    RegisterFormPhone,
+    RegisterFormEmail,
   },
   data () {
     return {
