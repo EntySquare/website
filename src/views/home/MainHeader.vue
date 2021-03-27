@@ -110,9 +110,7 @@
                 border-radius: 175px 175px 175px 175px"
                 >
                   <router-link to="/register">
-                    <div
-                      style="color: #00CFAC; font-size:16px; background-color: #FFFFFF"
-                    >
+                    <div style="color: #00CFAC; font-size:16px">
                       注册
                     </div>
                   </router-link>

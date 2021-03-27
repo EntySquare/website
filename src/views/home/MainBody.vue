@@ -376,294 +376,290 @@
           </div>
         </v-col>
       </v-col>
- <v-col cols="12" style="height: 120px;"></v-col>
-    <v-col cols="12" class="text-center" style="height: 45px;">
+      <v-col cols="12" style="height: 120px;"></v-col>
+      <v-col cols="12" class="text-center" style="height: 45px;">
         <div
           style="height: 45px;font-size: 32px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #000000;line-height: 43px;"
         >
           企业动态
         </div>
       </v-col>
- <v-col cols="12" style="height: 120px;"></v-col>
-        <v-col cols="12" class="text-center">
-             <img src="@/assets/qydt1.png" style="width:100%;height:100%;" />
+      <v-col cols="12" style="height: 120px;"></v-col>
+      <v-col cols="12" class="text-center">
+        <img src="@/assets/qydt1.png" style="width:100%;height:100%;" />
       </v-col>
       <v-col cols="12" style="height: 120px;"></v-col>
- <v-col class="col-12 text-center">
-      <v-col class="mb-12 text-center">
-        <div
-          style="height: 45px;font-size: 32px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #000000;line-height: 43px;"
-        >
-          投资机构
-        </div>
-      </v-col>
+      <v-col class="col-12 text-center">
+        <v-col class="mb-12 text-center">
+          <div
+            style="height: 45px;font-size: 32px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #000000;line-height: 43px;"
+          >
+            投资机构
+          </div>
+        </v-col>
 
-      <v-col cols="12" style="height: 336px;">
+        <v-col cols="12" style="height: 336px;">
+          <v-row>
+            <v-col cols="3"></v-col>
+            <v-col cols="6">
+              <v-row style="height: 150px;">
+                <v-col cols="3"
+                  ><img
+                    src="@/assets/hezuo_logo1.png"
+                    style="width:100%;height:auto;"
+                /></v-col>
+                <v-col cols="3"
+                  ><img
+                    src="@/assets/hezuo_logo2.png"
+                    style="width:100%;height:auto;"
+                /></v-col>
+                <v-col cols="3"
+                  ><img
+                    src="@/assets/hezuo_logo1.png"
+                    style="width:100%;height:auto;"
+                /></v-col>
+                <v-col cols="3"
+                  ><img
+                    src="@/assets/hezuo_logo2.png"
+                    style="width:100%;height:auto;"
+                /></v-col>
+              </v-row>
+              <v-row style="height: 30px;"></v-row>
+              <v-row style="height: 150px;">
+                <v-col cols="3"
+                  ><img
+                    src="@/assets/hezuo_logo2.png"
+                    style="width:100%;height:auto;"
+                /></v-col>
+                <v-col cols="3"
+                  ><img
+                    src="@/assets/hezuo_logo1.png"
+                    style="width:100%;height:auto;"
+                /></v-col>
+                <v-col cols="3"
+                  ><img
+                    src="@/assets/hezuo_logo2.png"
+                    style="width:100%;height:auto;"
+                /></v-col>
+                <v-col cols="3"
+                  ><img
+                    src="@/assets/hezuo_logo1.png"
+                    style="width:100%;height:auto;"
+                /></v-col>
+              </v-row>
+            </v-col>
+            <v-col cols="3"></v-col>
+          </v-row>
+        </v-col>
+        <v-col cols="12" style="height: 120px;"> </v-col>
+        <v-col class="mb-12 text-center">
+          <div
+            style="width: 100%;height: 45px;font-size: 32px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;line-height: 45px;"
+          >
+            规划路线
+          </div>
+        </v-col>
+
         <v-row>
           <v-col cols="3"></v-col>
           <v-col cols="6">
-            <v-row style="height: 150px;">
-              <v-col cols="3"
-                ><img
-                  src="@/assets/hezuo_logo1.png"
-                  style="width:100%;height:auto;"
-              /></v-col>
-              <v-col cols="3"
-                ><img
-                  src="@/assets/hezuo_logo2.png"
-                  style="width:100%;height:auto;"
-              /></v-col>
-              <v-col cols="3"
-                ><img
-                  src="@/assets/hezuo_logo1.png"
-                  style="width:100%;height:auto;"
-              /></v-col>
-              <v-col cols="3"
-                ><img
-                  src="@/assets/hezuo_logo2.png"
-                  style="width:100%;height:auto;"
-              /></v-col>
-            </v-row>
-            <v-row style="height: 30px;"></v-row>
-            <v-row style="height: 150px;">
-              <v-col cols="3"
-                ><img
-                  src="@/assets/hezuo_logo2.png"
-                  style="width:100%;height:auto;"
-              /></v-col>
-              <v-col cols="3"
-                ><img
-                  src="@/assets/hezuo_logo1.png"
-                  style="width:100%;height:auto;"
-              /></v-col>
-              <v-col cols="3"
-                ><img
-                  src="@/assets/hezuo_logo2.png"
-                  style="width:100%;height:auto;"
-              /></v-col>
-              <v-col cols="3"
-                ><img
-                  src="@/assets/hezuo_logo1.png"
-                  style="width:100%;height:auto;"
-              /></v-col>
+            <v-row>
+              <v-col cols="4">
+                <button
+                  type="button"
+                  id="2019but"
+                  @click="bao2019()"
+                  style="line-height:80px; background: linear-gradient(270deg, #00FFBC 0%, #5B7ADE 100%); height: 6px; width:100%;font-size: 32px;outline: none;"
+                >
+                  2019
+                </button>
+              </v-col>
+              <v-col cols="4">
+                <button
+                  id="2020but"
+                  @click="bao2020()"
+                  type="button"
+                  style="line-height:80px; background: #F7F8FB; height: 6px;font-size: 32px; width:100%;outline: none;"
+                >
+                  2020
+                </button>
+              </v-col>
+              <v-col cols="4">
+                <button
+                  id="2021but"
+                  @click="bao2021()"
+                  type="button"
+                  style="line-height:80px; background: #F7F8FB; height: 6px;font-size: 32px; width:100%;outline: none;"
+                >
+                  2021
+                </button>
+              </v-col>
             </v-row>
           </v-col>
-          <v-col cols="3"></v-col>
         </v-row>
-      </v-col>
-      <v-col cols="12" style="height: 120px;"> </v-col>
-      <v-col class="mb-12 text-center">
-        <div
-          style="width: 100%;height: 45px;font-size: 32px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;line-height: 45px;"
-        >
-          规划路线
-        </div>
-      </v-col>
 
-      <v-row>
-        <v-col cols="3"></v-col>
-        <v-col cols="6">
+        <v-col cols="12" style="height: 50px;"> </v-col>
+        <v-col cols="12" id="code_text">
           <v-row>
-            <v-col cols="4">
-              <button
-                type="button"
-                id="2019but"
-                @click="bao2019()"
-                style="line-height:80px; background: linear-gradient(270deg, #00FFBC 0%, #5B7ADE 100%); height: 6px; width:100%;font-size: 32px;outline: none;"
-              >
-                2019
-              </button>
+            <v-col cols="3"></v-col>
+
+            <v-col
+              id="2019"
+              cols="6"
+              style="background: #FFFFFF;box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.04);border-radius: 24px;"
+            >
+              <div style="padding: 40px 40px 40px 40px">
+                <p
+                  align="left"
+                  style="font-size: 24px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
+                >
+                  2019
+                </p>
+                <p
+                  align="left"
+                  style="font-size: 18px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
+                >
+                  第二季度~第三季度
+                </p>
+                <p
+                  align="left"
+                  style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
+                >
+                  <span style="color: #00FFBC ;font-size: 5px;">●</span>
+                  investors Established
+                </p>
+                <p
+                  align="left"
+                  style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
+                >
+                  <span style="color: #00FFBC ;font-size: 5px;">●</span>
+                  investors Architecture and Consensus Design
+                </p>
+                <p
+                  align="left"
+                  style="font-size: 18px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
+                >
+                  第四季度
+                </p>
+                <p
+                  align="left"
+                  style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
+                >
+                  <span style="color: #00FFBC ;font-size: 5px;">●</span>
+                  investors Exchange system Beta Launch
+                </p>
+              </div>
             </v-col>
-            <v-col cols="4">
-              <button
-                id="2020but"
-                @click="bao2020()"
-                type="button"
-                style="line-height:80px; background: #F7F8FB; height: 6px;font-size: 32px; width:100%;outline: none;"
-              >
-                2020
-              </button>
+
+            <v-col
+              hidden
+              id="2020"
+              cols="6"
+              style="background: #FFFFFF;box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.04);border-radius: 24px;"
+            >
+              <div style="padding: 40px 40px 40px 40px">
+                <p
+                  align="left"
+                  style="font-size: 24px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
+                >
+                  2020
+                </p>
+                <p
+                  align="left"
+                  style="font-size: 18px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
+                >
+                  第一季度
+                </p>
+                <p
+                  align="left"
+                  style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
+                >
+                  <span style="color: #00FFBC ;font-size: 5px;">●</span>
+                  investors Established text text text text text
+                </p>
+                <p
+                  align="left"
+                  style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
+                >
+                  <span style="color: #00FFBC ;font-size: 5px;">●</span>
+                  investors Established text text text text text
+                </p>
+                <p
+                  align="left"
+                  style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
+                >
+                  <span style="color: #00FFBC ;font-size: 5px;">●</span>
+                  investors Established text text text text text
+                </p>
+                <p
+                  align="left"
+                  style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
+                >
+                  <span style="color: #00FFBC ;font-size: 5px;">●</span>
+                  investors Architecture and Consensus Design
+                </p>
+                <p
+                  align="left"
+                  style="font-size: 18px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
+                >
+                  第四季度
+                </p>
+                <p
+                  align="left"
+                  style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
+                >
+                  <span style="color: #00FFBC ;font-size: 5px;">●</span>
+                  investors Exchange system Beta Launch
+                </p>
+              </div>
             </v-col>
-            <v-col cols="4">
-              <button
-                id="2021but"
-                @click="bao2021()"
-                type="button"
-                style="line-height:80px; background: #F7F8FB; height: 6px;font-size: 32px; width:100%;outline: none;"
-              >
-                2021
-              </button>
+            <v-col
+              hidden
+              id="2021"
+              cols="6"
+              style="background: #FFFFFF;box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.04);border-radius: 24px;"
+            >
+              <div style="padding: 40px 40px 40px 40px">
+                <p
+                  align="left"
+                  style="font-size: 24px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
+                >
+                  2021
+                </p>
+                <p
+                  align="left"
+                  style="font-size: 18px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
+                >
+                  第三季度
+                </p>
+                <p
+                  align="left"
+                  style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
+                >
+                  <span style="color: #00FFBC ;font-size: 5px;">●</span>
+                  investors Established text text text text text
+                </p>
+                <p
+                  align="left"
+                  style="font-size: 18px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
+                >
+                  第四季度
+                </p>
+                <p
+                  align="left"
+                  style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
+                >
+                  <span style="color: #00FFBC ;font-size: 5px;">●</span>
+                  investors Exchange system Beta Launch test test test test test
+                  test
+                </p>
+              </div>
             </v-col>
+            <v-col cols="3"></v-col>
           </v-row>
         </v-col>
-      </v-row>
-
-      <v-col cols="12" style="height: 50px;"> </v-col>
-      <v-col cols="12" id="code_text">
-        <v-row>
-          <v-col cols="3"></v-col>
-
-          <v-col
-            id="2019"
-            cols="6"
-            style="background: #FFFFFF;box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.04);border-radius: 24px;"
-          >
-            <div  style="padding: 40px 40px 40px 40px">
-              <p
-                align="left"
-                style="font-size: 24px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
-              >
-                2019
-              </p>
-              <p
-                align="left"
-                style="font-size: 18px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
-              >
-                第二季度~第三季度
-              </p>
-              <p
-                align="left"
-                style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
-              >
-                <span style="color: #00FFBC ;font-size: 5px;">●</span>
-                investors Established
-              </p>
-              <p
-                align="left"
-                style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
-              >
-                <span style="color: #00FFBC ;font-size: 5px;">●</span>
-                investors Architecture and Consensus Design
-              </p>
-              <p
-                align="left"
-                style="font-size: 18px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
-              >
-                第四季度
-              </p>
-              <p
-                align="left"
-                style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
-              >
-                <span style="color: #00FFBC ;font-size: 5px;">●</span>
-                investors Exchange system Beta Launch
-              </p>
-            </div>
-          </v-col>
-
-          <v-col
-            hidden
-            id="2020"
-            cols="6"
-            style="background: #FFFFFF;box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.04);border-radius: 24px;"
-          >
-            <div  style="padding: 40px 40px 40px 40px">
-              <p
-                align="left"
-                style="font-size: 24px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
-              >
-                2020
-              </p>
-              <p
-                align="left"
-                style="font-size: 18px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
-              >
-                第一季度
-              </p>
-              <p
-                align="left"
-                style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
-              >
-                <span style="color: #00FFBC ;font-size: 5px;">●</span>
-                investors Established text text text text text
-              </p>
-              <p
-                align="left"
-                style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
-              >
-                <span style="color: #00FFBC ;font-size: 5px;">●</span>
-                investors Established text text text text text
-              </p>
-              <p
-                align="left"
-                style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
-              >
-                <span style="color: #00FFBC ;font-size: 5px;">●</span>
-                investors Established text text text text text
-              </p>
-              <p
-                align="left"
-                style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
-              >
-                <span style="color: #00FFBC ;font-size: 5px;">●</span>
-                investors Architecture and Consensus Design
-              </p>
-              <p
-                align="left"
-                style="font-size: 18px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
-              >
-                第四季度
-              </p>
-              <p
-                align="left"
-                style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
-              >
-                <span style="color: #00FFBC ;font-size: 5px;">●</span>
-                investors Exchange system Beta Launch
-              </p>
-            </div>
-          </v-col>
-          <v-col
-            hidden
-            id="2021"
-            cols="6"
-            style="background: #FFFFFF;box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.04);border-radius: 24px;"
-          >
-            <div  style="padding: 40px 40px 40px 40px">
-              <p
-                align="left"
-                style="font-size: 24px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
-              >
-                2021
-              </p>
-              <p
-                align="left"
-                style="font-size: 18px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
-              >
-                第三季度
-              </p>
-              <p
-                align="left"
-                style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
-              >
-                <span style="color: #00FFBC ;font-size: 5px;">●</span>
-                investors Established text text text text text
-              </p>
-              <p
-                align="left"
-                style="font-size: 18px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
-              >
-                第四季度
-              </p>
-              <p
-                align="left"
-                style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
-              >
-                <span style="color: #00FFBC ;font-size: 5px;">●</span>
-                investors Exchange system Beta Launch test test test test test
-                test
-              </p>
-            </div>
-          </v-col>
-          <v-col cols="3"></v-col>
-        </v-row>
       </v-col>
-    </v-col>
-
     </v-row>
-
-
-   
   </v-container>
 </template>
 
