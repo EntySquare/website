@@ -9,7 +9,7 @@
           欢迎来到investors
         </div>
       </div>
-      <div class="action" @click="isLogin = !isLogin">
+      <div class="action" @click="setIsLogin(!isLogin)">
         {{ action }}
       </div>
     </div>
@@ -41,26 +41,20 @@
 
 <script>
 import LoginFormPhone from './Login/FormPhone'
+import { mapGetters, mapMutations } from 'vuex'
+
 export default {
   name: 'AuthForm',
-  props: {
-    // t means type here
-    t: {
-      type: String,
-      // 1 login; 2 register
-      default: '1', // 因为要显示在url，所以不用 isLogin 这样的变量，使用通用的t来表示，减少用户的认知【有意为之】
-    },
-  },
   components: {
     LoginFormPhone,
   },
   data () {
     return {
-      isLogin: this.t === '1',
       tab: null,
     }
   },
   computed: {
+    ...mapGetters(['isLogin']),
     title () {
       if (this.isLogin) {
         return '登录您的账户'
@@ -75,6 +69,9 @@ export default {
         return '登录'
       }
     },
+  },
+  methods: {
+    ...mapMutations(['setIsLogin']),
   },
 }
 </script>

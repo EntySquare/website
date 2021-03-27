@@ -95,6 +95,7 @@
                 <router-link to="/login">
                   <div
                     style="color: #FFFFFF; font-size:16px; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif; margin-right: 50px"
+                    @click="setIsLogin(true)"
                   >
                     登录
                   </div>
@@ -109,8 +110,11 @@
                 box-shadow: none;
                 border-radius: 175px 175px 175px 175px"
                 >
-                  <router-link to="/register">
-                    <div style="color: #00CFAC; font-size:16px">
+                  <router-link to="/login">
+                    <div
+                      style="color: #00CFAC; font-size:16px"
+                      @click="setIsLogin(false)"
+                    >
                       注册
                     </div>
                   </router-link>
@@ -211,9 +215,11 @@
 
 <script>
 const imgUrl = require('@/assets/background.png')
+import { mapGetters, mapMutations } from 'vuex'
+
 export default {
   name: 'MainHeader',
-  data() {
+  data () {
     return {
       items: [
         {
@@ -235,7 +241,8 @@ export default {
     }
   },
   methods: {
-    scrollAnimation: function() {
+    ...mapMutations(['setIsLogin']),
+    scrollAnimation: function () {
       const currentY =
         document.documentElement.scrollTop || document.body.scrollTop
       scrollAnimation(currentY, window.innerHeight)
@@ -243,7 +250,7 @@ export default {
   },
 }
 
-function scrollAnimation(currentY, targetY) {
+function scrollAnimation (currentY, targetY) {
   // 获取当前位置方法
   // const currentY = document.documentElement.scrollTop || document.body.scrollTop
   // 计算需要移动的距离
