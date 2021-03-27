@@ -4,10 +4,10 @@
       <v-row>
         <v-col cols="4">
           <v-select
-            v-model="reginCode"
+            v-model="areaCode"
             label="区号"
             hint="如中国 +86"
-            :items="reginCodes"
+            :items="areaCodes"
             single-line
             filled
             dense
@@ -80,11 +80,11 @@
 <script>
 export default {
   name: 'Login',
-  data () {
+  data() {
     return {
       valid: false,
-      reginCode: '+86',
-      reginCodes: ['+86', '+87'],
+      areaCode: '+86',
+      areaCodes: ['+86', '+87'],
       phone: '',
       phoneRules: [
         v => !!v || '手机号必须输入',
@@ -100,12 +100,12 @@ export default {
     }
   },
   methods: {
-    submit () {
+    submit() {
       this.$refs.form.validate()
       console.log(this.valid)
       if (this.valid) {
         this.axios.post('/login', {
-          reginCode: this.reginCode,
+          areaCode: this.areaCode,
           phone: this.phone,
           password: this.password,
         })

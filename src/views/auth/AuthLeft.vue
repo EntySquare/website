@@ -30,7 +30,8 @@ export default {
 <style lang="scss" scoped>
 .main-title {
   font-size: 56px;
-  font-family: PingFang-SC-Semibold, PingFang-SC;
+  font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: 600;
   color: #000000;
   line-height: 78px;
@@ -38,7 +39,8 @@ export default {
 .sub-feature {
   margin-top: 54px;
   font-size: 28px;
-  font-family: Nunito-SemiBold, Nunito;
+  font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: 600;
   color: #000000;
   display: flex;

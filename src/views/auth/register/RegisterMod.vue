@@ -18,12 +18,14 @@
               欢迎来到investors
             </p>
           </v-col>
-          <v-col
-            cols="2"
-          >
-          <router-link to="/login">
-          <div  style="font-size: 18px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #00CFAC;line-height: 28px;">登录</div>
-           </router-link>
+          <v-col cols="2">
+            <router-link to="/login">
+              <div
+                style="font-size: 18px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #00CFAC;line-height: 28px;"
+              >
+                登录
+              </div>
+            </router-link>
           </v-col>
         </v-row>
         <v-row>

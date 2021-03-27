@@ -19,7 +19,7 @@
         v-model="tab"
         slider-size="5"
         background-color="transparent"
-        slider-color="#00FFBC"
+        slider-color="#00CFAC"
         grow
       >
         <v-tab>
@@ -39,7 +39,7 @@
         v-model="tab"
         slider-size="5"
         background-color="transparent"
-        slider-color="#00FFBC"
+        slider-color="#00CFAC"
         grow
       >
         <v-tab>
@@ -72,21 +72,21 @@ export default {
     RegisterFormPhone,
     RegisterFormEmail,
   },
-  data () {
+  data() {
     return {
       tab: null,
     }
   },
   computed: {
     ...mapGetters(['isLogin']),
-    title () {
+    title() {
       if (this.isLogin) {
         return '登录您的账户'
       } else {
         return '注册您的账户'
       }
     },
-    action () {
+    action() {
       if (this.isLogin) {
         return '注册'
       } else {
@@ -110,14 +110,16 @@ export default {
 }
 .title {
   font-size: 28px;
-  font-family: PingFang-SC-Semibold, PingFang-SC;
+  font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: 600;
   color: #000000;
   line-height: 28px;
 }
 .action {
   font-size: 18px;
-  font-family: Nunito-SemiBold, Nunito;
+  font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: 600;
   color: #00cfac;
   line-height: 28px;

@@ -56,14 +56,14 @@
 <script>
 export default {
   name: 'Login',
-  data () {
+  data() {
     return {
       valid: false,
       email: '',
       emailRules: [
         v => !!v || '邮箱必须输入',
         v =>
-          /^[a-zA-Z\d]+(\.[a-zA-Z\d])*@[a-zA-Z\d]+(\.[a-zA-Z\d])+$/.test(v) ||
+          /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(v) ||
           '邮箱格式不对',
       ],
       password: '',
@@ -75,13 +75,25 @@ export default {
     }
   },
   methods: {
-    submit () {
+    submit() {
       this.$refs.form.validate()
       console.log(this.valid)
+
       if (this.valid) {
-        this.axios.post('/login', {
-          email: this.email,
-          password: this.password,
+        return new Promise((resolve, reject) => {
+          this.axios
+            .post('/r0/login', {
+              email: this.email,
+              password: this.password,
+              types: 'mailbox',
+              equipment: 1,
+            })
+            .then(response => {
+              resolve(response.status)
+            })
+            .catch(error => {
+              reject(error)
+            })
         })
       }
     },
