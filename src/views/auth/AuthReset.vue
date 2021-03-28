@@ -100,8 +100,64 @@ export default {
   name: 'AuthReset',
   data() {
     return {
-      tab: null,
+      sendCodeVue: true, // 控制发送验证码按钮显示
+      authTime: 0, // 倒计时
+      checkCode: '',
+      valid: false,
+      areaCode: '+86',
+      areaCodes: ['+86', '+87'],
+      phone: '',
+      phoneRules: [
+        v => !!v || '手机号必须输入',
+        v => /^(\d)+$/.test(v) || '手机号是数字',
+        v => /^(\d){11}$/.test(v) || '手机号是11位',
+      ],
+      password: '',
+      passwordRules: [
+        v => !!v || '密码必须输入',
+        v => !/^(\s)+$/.test(v) || '密码不能有空格',
+        v => /^[\da-zA-Z]{6,12}$/.test(v) || '密码为6-12位',
+      ],
     }
+  },
+  methods: {
+    submit() {
+      this.$refs.form.validate()
+      console.log(this.valid)
+      if (this.valid) {
+        this.axios
+          .post('/r0/resetMatch', {
+            phoneNum: this.phone,
+            password: this.password,
+            email:"",
+            code: this.checkCode
+          })
+          .then(response => {
+            alert('修改成功！,userid:' + response.data.UserId)
+            this.$router.push('/')
+            console.log(response)
+          })
+      }
+    },
+    sendCode() {
+      this.$refs.form.validate()
+      this.axios
+        .post('/r0/resetSetCheckCode', {
+          phone_num: this.phone,
+        })
+        .then(response => {
+          //成功逻辑
+          this.sendCodeVue = false // 控制显示隐藏
+          this.authTime = 60
+          let timeInt = setInterval(() => {
+            this.authTime--
+            if (this.authTime <= 0) {
+              this.sendCodeVue = true
+              window.clearInterval(this.timeInt)
+            }
+          }, 1000)
+        })
+    },
   },
 }
 </script>
