@@ -107,6 +107,8 @@ export default {
   box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.04);
   border-radius: 16px !important;
   padding: 40px 40px 40px 40px;
+  font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 .title {
   font-size: 28px;
@@ -120,13 +122,15 @@ export default {
   font-size: 18px;
   font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-weight: 600;
+  font-weight: Bold;
   color: #00cfac;
   line-height: 28px;
   cursor: pointer;
 }
 .tabs-after {
   position: relative;
+  font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   &::after {
     content: '';
     height: 5px;

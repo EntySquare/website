@@ -2,15 +2,18 @@
   <v-container style="padding: 20px;">
     <div class="d-flex align-center justify-space-between">
       <img src="@/assets/logo_black.png" style="width:126px;height:30px;" />
-      <div class="d-flex flex-column">
-        <img src="@/assets/h1.png" style="width:126px;height:auto;" />
-        &#32;
-        <img
-          src="@/assets/h2.png"
-          style="width:126px;height:auto; margin-top: 10px"
-        />
+      <div class="d-inline-flex">
+        <div style="margin-right: 10px">
+          <img src="@/assets/h1.png" style="width:142px;height:40px;" />
+        </div>
+        <div>
+          <img src="@/assets/h2.png" style="width:142px;height:40px;" />
+        </div>
       </div>
     </div>
+    <v-row>
+      <v-col cols="12" style="height: 200px"></v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -18,7 +21,7 @@
 export default {
   name: 'AuthHeader',
   components: {},
-  data () {
+  data() {
     return {}
   },
 }

@@ -35,9 +35,8 @@
         dense
         rounded
       ></v-text-field>
-
       <div
-        style="font-size: 14px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #00CFAC;line-height: 20px;margin-left:10px;"
+        style="font-size: 14px;font-weight: bold;color: #00CFAC;line-height: 20px;margin-left:10px;"
       >
         忘记密码？
       </div>
