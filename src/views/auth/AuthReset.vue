@@ -1,6 +1,6 @@
 <template>
   <v-card class="wrap">
-    <div class="d-flex text-center justify-space-between" align="center">
+    <div class="d-flex justify-lg-center">
       <div class="title">
         重置密码
       </div>
