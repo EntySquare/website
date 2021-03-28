@@ -12,6 +12,7 @@
       ></v-text-field>
       <v-text-field
         label="请输入验证码"
+        v-model="checkCode"
         single-line
         filled
         dense
@@ -20,8 +21,14 @@
       <span
         style="color: #00CFAC; position: absolute; top: 19%; right: 25px; cursor: pointer"
         @click="sendCode()"
+        v-show="sendCodeVue"
         ><p>发送验证码</p>
       </span>
+
+       <span v-show="!sendCodeVue"
+        style="color: #00CFAC; position: absolute; top: 19%; right: 25px; cursor: pointer">
+         <p>{{authTime}} S </p>
+        </span> 
       <v-text-field
         v-model="password"
         :rules="passwordRules"
@@ -32,7 +39,7 @@
         rounded
       >
       </v-text-field>
-      <v-text-field
+      <!-- <v-text-field
         v-model="password"
         :rules="passwordRules"
         label="请再次输入密码"
@@ -40,7 +47,7 @@
         filled
         dense
         rounded
-      ></v-text-field>
+      ></v-text-field> -->
 
       <div
         style="font-size: 14px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #00CFAC;line-height: 20px;margin-left:10px;"
@@ -79,12 +86,15 @@ export default {
   name: 'Login',
   data() {
     return {
+      sendCodeVue: true, // 控制发送验证码按钮显示
+      authTime: 0, // 倒计时
       valid: false,
+      checkCode :"",
       email: '',
       emailRules: [
         v => !!v || '邮箱必须输入',
         v =>
-          /^[a-zA-Z\d]+(\.[a-zA-Z\d])*@[a-zA-Z\d]+(\.[a-zA-Z\d])+$/.test(v) ||
+          /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(v) ||
           '邮箱格式不对',
       ],
       password: '',
@@ -95,19 +105,46 @@ export default {
       ],
     }
   },
+  // User_Name string `json:"user_name"`
+	// Password  string `json:"password"`
+	// Phone_Num string `json:"phone_num"`
+	// Email     string `json:"email"`
+	// Gender    int    `json:"gender"`
+	// Age       int    `json:"age"`
+	// Code      string `json:"code"`
   methods: {
     submit() {
       this.$refs.form.validate()
       console.log(this.valid)
       if (this.valid) {
-        this.axios.post('/', {
+        this.axios.post('/r0/register', {
+          user_name: this.email,
           email: this.email,
           password: this.password,
+          code: this.checkCode,
         })
+        .then(response => {
+              console.log(response)
+
+      })
       }
     },
     sendCode() {
-      alert(1)
+      this.$refs.form.validate()
+      this.axios.post('/r0/checkCode', {
+          email: this.email,
+        }).then(response =>{
+           //成功逻辑
+        this.sendCodeVue = false  // 控制显示隐藏
+          this.authTime = 60
+          let timeInt = setInterval(() => {
+            this.authTime--
+            if (this.authTime <= 0) {
+              this.sendCodeVue = true
+              window.clearInterval(this.timeInt)
+            }
+          }, 1000)
+        })
     },
   },
 }

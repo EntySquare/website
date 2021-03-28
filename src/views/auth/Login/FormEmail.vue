@@ -83,16 +83,21 @@ export default {
         return new Promise((resolve, reject) => {
           this.axios
             .post('/r0/login', {
-              email: this.email,
+              user_name: this.email,
               password: this.password,
               types: 'mailbox',
               equipment: 1,
             })
             .then(response => {
-              resolve(response.status)
+              console.log(response)
+              if (response.status == 200){
+                alert("登录成功,userid:"+response.data.UserId)
+              }
+              // resolve(response.status)
             })
             .catch(error => {
-              reject(error)
+              console.log(error.response);
+              // reject(error)
             })
         })
       }
