@@ -1,7 +1,9 @@
 <template>
   <v-card class="wrap">
-    <div class="sub-title">
-      重置密码
+    <div class="d-flex text-center justify-space-between" align="center">
+      <div class="title">
+        重置密码
+      </div>
     </div>
     <v-form v-model="valid" ref="form" class="mt-4 form">
       <v-row>
@@ -79,7 +81,7 @@
           block
           @click="submit"
         >
-          注册
+          重置密码
         </v-btn>
 
         <div class="text-center mt-1">
@@ -102,6 +104,26 @@ export default {
     return {
       tab: null,
     }
+  },
+  methods: {
+    submit() {
+      this.$refs.form.validate()
+      console.log(this.valid)
+      if (this.valid) {
+        this.axios
+          .post('/r0/register', {
+            user_name: this.phone,
+            phone_num: this.phone,
+            password: this.password,
+            code: this.checkCode,
+          })
+          .then(response => {
+            alert('重置成功')
+            this.$router.push('/')
+            console.log(response)
+          })
+      }
+    },
   },
 }
 </script>
