@@ -87,6 +87,7 @@ export default {
         v => !/^(\s)+$/.test(v) || '密码不能有空格',
         v => /^[\da-zA-Z]{6,12}$/.test(v) || '密码为6-12位',
       ],
+      userName: '未登录',
     }
   },
   methods: {
@@ -103,10 +104,16 @@ export default {
               equipment: 1,
             })
             .then(response => {
-              if (response.status == 200) {
-                alert('登录成功,userid:' + response.data.UserId)
+              if (response.status === 200) {
+                this.userName = response.data.UserName
               }
-              this.$router.push('/')
+              this.$router.push({
+                path: '/home/resource/',
+                query: {
+                  name: this.userName,
+                },
+              })
+              //this.userName = this.$route.params.userName
             })
             .catch(error => {
               reject(error)

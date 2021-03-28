@@ -1,26 +1,4 @@
 <style>
-/*.container {*/
-/*  position: relative;*/
-/*  width: 100%;*/
-/*}*/
-/*.container input {*/
-/*  width: 100%;*/
-/*  height: 30px;*/
-/*  opacity: 0.16;*/
-/*  border-radius: 24px;*/
-/*  background: #d8d8d8;*/
-/*}*/
-/*.container button {*/
-/*  width: 25%;*/
-/*  height: 30px;*/
-/*  position: absolute;*/
-/*  right: 0;*/
-/*  background-color: #4c4c4c;*/
-/*  border-radius: 24px;*/
-/*  border: none;*/
-/*  outline: none;*/
-/*}*/
-
 .btn {
   font-size: 20px;
   border-radius: 26px;

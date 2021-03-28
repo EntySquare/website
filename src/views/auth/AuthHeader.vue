@@ -1,7 +1,9 @@
 <template>
   <v-container style="padding: 20px;">
     <div class="d-flex align-center justify-space-between">
-      <img src="@/assets/logo_black.png" style="width:126px;height:30px;" />
+      <router-link to="/">
+        <img src="@/assets/logo_black.png" style="width:126px;height:30px;" />
+      </router-link>
       <div class="d-inline-flex">
         <div style="margin-right: 10px">
           <img src="@/assets/h1.png" style="width:142px;height:40px;" />

@@ -77,9 +77,7 @@
             <div>
               <v-img src="@/assets/user_logo.png"></v-img>
             </div>
-            <div id="user" class="align-center">
-              {{ this.$route.query.name }}
-            </div>
+            <div id="user" class="align-center"></div>
             <!--            <div-->
             <!--              style="display: inline-flex; margin-left: 50px; border-radius: 26px; color: #00CFAC"-->
             <!--            >-->
@@ -97,22 +95,9 @@
 
 <script>
 export default {
-  name: 'Header',
-  data() {
-    return {
-      items: [
-        {
-          title: 'Foo',
-          path: 'foo',
-        },
-        {
-          title: 'Bar',
-          path: 'bar',
-        },
-      ],
-    }
-  },
+  name: 'HeadBar',
 }
+//document.getElementById('user').innerText = this.$route.params.userName
 </script>
 
 <style lang="scss" scoped>

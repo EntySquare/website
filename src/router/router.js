@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import AuthLayout from '@/layouts/AuthLayout'
 import CommonLayout from '@/layouts/CommonLayout'
 import Home from '@/views/home/Home'
+import Resource from '@/views/home/HomeResource'
+import HeadBar from '@/views/home/HeadBar'
 
 Vue.use(VueRouter)
 
@@ -30,6 +32,7 @@ const routes = [
   },
   {
     path: '/',
+    name: 'CommonLayout',
     component: CommonLayout,
     children: [
       {
@@ -41,6 +44,10 @@ const routes = [
         path: '/bar',
         name: 'Bar',
         component: () => import('../views/demo/Bar.vue'),
+      },
+      {
+        path: '/home/resource/',
+        name: 'Resource',
       },
     ],
   },

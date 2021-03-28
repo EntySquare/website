@@ -5,8 +5,6 @@
   font-size: 16px;
   color: #ffffff;
 }
-.btn {
-}
 </style>
 <template>
   <!--  <v-app-bar app color="#00CFAC" absolute>-->
@@ -19,11 +17,7 @@
           <v-col cols="2">
             <div align="center">
               <router-link to="/">
-                <v-img
-                  alt="Investors Name"
-                  src="@/assets/logo.svg"
-                  width="150px"
-                />
+                <v-img src="@/assets/logo.svg" width="150px" />
               </router-link>
             </div>
           </v-col>
@@ -74,21 +68,6 @@
               </v-row>
             </div>
           </v-col>
-          <!--      <v-menu bottom transition="scale-transition" :offset-y="true">-->
-          <!--        <template v-slot:activator="{ on, attrs }">-->
-          <!--          <div color="transparent" elevation="0" v-bind="attrs" v-on="on">-->
-          <!--            Dropdown-->
-          <!--          </div>-->
-          <!--        </template>-->
-
-          <!--        <v-list rounded>-->
-          <!--          <v-list-item v-for="(item, index) in items" :key="index">-->
-          <!--            <v-list-item-title>-->
-          <!--              <router-link :to="item.path">{{ item.title }}</router-link>-->
-          <!--            </v-list-item-title>-->
-          <!--          </v-list-item>-->
-          <!--        </v-list>-->
-          <!--      </v-menu>-->
           <v-col cols="3">
             <div>
               <div style="display: inline-block;">
@@ -219,7 +198,7 @@ import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   name: 'MainHeader',
-  data () {
+  data() {
     return {
       items: [
         {
@@ -242,7 +221,7 @@ export default {
   },
   methods: {
     ...mapMutations(['setIsLogin']),
-    scrollAnimation: function () {
+    scrollAnimation: function() {
       const currentY =
         document.documentElement.scrollTop || document.body.scrollTop
       scrollAnimation(currentY, window.innerHeight)
@@ -250,7 +229,7 @@ export default {
   },
 }
 
-function scrollAnimation (currentY, targetY) {
+function scrollAnimation(currentY, targetY) {
   // 获取当前位置方法
   // const currentY = document.documentElement.scrollTop || document.body.scrollTop
   // 计算需要移动的距离
