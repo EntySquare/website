@@ -12,7 +12,6 @@ const routes = [
     name: 'Home',
     component: Home,
   },
-
   {
     path: '/',
     component: AuthLayout,
@@ -21,6 +20,11 @@ const routes = [
         path: '/login',
         name: 'Login',
         component: () => import('../views/auth/index.vue'),
+      },
+      {
+        path: '/resetPwd',
+        name: 'ResetPwd',
+        component: () => import('../views/auth/ResetPassword.vue'),
       },
     ],
   },

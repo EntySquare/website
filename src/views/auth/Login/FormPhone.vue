@@ -35,12 +35,13 @@
         dense
         rounded
       ></v-text-field>
-      <div
-        style="font-size: 14px;font-weight: bold;color: #00CFAC;line-height: 20px;margin-left:10px;"
-      >
-        忘记密码？
-      </div>
-
+      <router-link to="/resetPwd">
+        <div
+          style="font-size: 14px;font-weight: bold;color: #00CFAC;line-height: 20px;margin-left:10px; cursor: pointer"
+        >
+          忘记密码？
+        </div>
+      </router-link>
       <div class="card-bottom">
         <v-btn
           style="background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);"
@@ -102,10 +103,10 @@ export default {
               equipment: 1,
             })
             .then(response => {
-              if (response.status == 200){
-                alert("登录成功,userid:"+response.data.UserId)
+              if (response.status == 200) {
+                alert('登录成功,userid:' + response.data.UserId)
               }
-              this.$router.push("/");
+              this.$router.push('/')
             })
             .catch(error => {
               reject(error)

@@ -22,7 +22,7 @@
       ></v-text-field>
 
       <div
-        style="font-size: 14px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #00CFAC;line-height: 20px;margin-left:10px;"
+        style="font-size: 14px;font-weight: bold;color: #00CFAC;line-height: 20px;margin-left:10px; cursor: pointer"
       >
         忘记密码？
       </div>
@@ -90,14 +90,14 @@ export default {
             })
             .then(response => {
               console.log(response)
-              if (response.status == 200){
-                alert("登录成功,userid:"+response.data.UserId)
+              if (response.status == 200) {
+                alert('登录成功,userid:' + response.data.UserId)
               }
-              this.$router.push("/");
+              this.$router.push('/')
               // resolve(response.status)
             })
             .catch(error => {
-              console.log(error.response);
+              console.log(error.response)
               // reject(error)
             })
         })
@@ -111,11 +111,15 @@ export default {
 .form {
   height: 400px;
   position: relative;
+  font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 .card-bottom {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
+  font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 </style>

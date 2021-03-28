@@ -1,5 +1,8 @@
 <template>
-  <v-tab-item>
+  <v-card class="wrap">
+    <div class="sub-title">
+      重置密码
+    </div>
     <v-form v-model="valid" ref="form" class="mt-4 form">
       <v-row>
         <v-col cols="4">
@@ -89,85 +92,55 @@
         </div>
       </div>
     </v-form>
-  </v-tab-item>
+  </v-card>
 </template>
 
 <script>
 export default {
-  name: 'Login',
+  name: 'AuthReset',
   data() {
     return {
-      sendCodeVue: true, // 控制发送验证码按钮显示
-      authTime: 0, // 倒计时
-      checkCode: '',
-      valid: false,
-      areaCode: '+86',
-      areaCodes: ['+86', '+87'],
-      phone: '',
-      phoneRules: [
-        v => !!v || '手机号必须输入',
-        v => /^(\d)+$/.test(v) || '手机号是数字',
-        v => /^(\d){11}$/.test(v) || '手机号是11位',
-      ],
-      password: '',
-      passwordRules: [
-        v => !!v || '密码必须输入',
-        v => !/^(\s)+$/.test(v) || '密码不能有空格',
-        v => /^[\da-zA-Z]{6,12}$/.test(v) || '密码为6-12位',
-      ],
+      tab: null,
     }
-  },
-  methods: {
-    submit() {
-      this.$refs.form.validate()
-      console.log(this.valid)
-      if (this.valid) {
-        this.axios
-          .post('/r0/register', {
-            user_name: this.phone,
-            phone_num: this.phone,
-            password: this.password,
-            code: this.checkCode,
-          })
-          .then(response => {
-            alert('注册成功！,userid:' + response.data.UserId)
-            this.$router.push('/')
-            console.log(response)
-          })
-      }
-    },
-    sendCode() {
-      this.$refs.form.validate()
-      this.axios
-        .post('/r0/checkCode', {
-          phone_num: this.phone,
-        })
-        .then(response => {
-          //成功逻辑
-          this.sendCodeVue = false // 控制显示隐藏
-          this.authTime = 60
-          let timeInt = setInterval(() => {
-            this.authTime--
-            if (this.authTime <= 0) {
-              this.sendCodeVue = true
-              window.clearInterval(this.timeInt)
-            }
-          }, 1000)
-        })
-    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-.form {
-  height: 400px;
-  position: relative;
+.wrap {
+  width: 480px;
+  background: #ffffff;
+  box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.04);
+  border-radius: 16px !important;
+  padding: 40px 40px 40px 40px;
+  font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
-.card-bottom {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
+.title {
+  font-size: 28px;
+  font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-weight: 600;
+  color: #000000;
+  line-height: 28px;
+}
+.action {
+  font-size: 18px;
+  font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-weight: Bold;
+  color: #00cfac;
+  line-height: 28px;
+  cursor: pointer;
+}
+.tabs-after {
+  position: relative;
+  font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  &::after {
+    content: '';
+    height: 5px;
+    background-color: #f7f8fb;
+  }
 }
 </style>
