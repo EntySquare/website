@@ -27,6 +27,25 @@
         </v-col>
       </v-row>
       <v-text-field
+        label="请输入验证码"
+        v-model="checkCode"
+        single-line
+        filled
+        dense
+        rounded
+      ></v-text-field>
+      <span
+        style="color: #00CFAC; position: absolute; top: 21%; right: 19px; cursor: pointer"
+        @click="sendCode()"
+        v-show="sendCodeVue"
+        ><p>发送验证码</p>
+      </span>
+
+       <span v-show="!sendCodeVue"
+        style="color: #00CFAC; position: absolute; top: 21%; right: 19px; cursor: pointer">
+         <p>{{authTime}} S </p>
+        </span> 
+      <v-text-field
         v-model="password"
         :rules="passwordRules"
         label="请输入密码"
@@ -61,7 +80,7 @@
           block
           @click="submit"
         >
-          注册
+          登录
         </v-btn>
 
         <div class="text-center mt-1">
@@ -82,6 +101,9 @@ export default {
   name: 'Login',
   data() {
     return {
+      sendCodeVue: true, // 控制发送验证码按钮显示
+      authTime: 0, // 倒计时
+      checkCode :"",
       valid: false,
       areaCode: '+86',
       areaCodes: ['+86', '+87'],
@@ -104,12 +126,36 @@ export default {
       this.$refs.form.validate()
       console.log(this.valid)
       if (this.valid) {
-        this.axios.post('/login', {
-          areaCode: this.areaCode,
-          phone: this.phone,
+        this.axios.post('/r0/register', {
+          user_name: this.phone,
+          phone_num: this.phone,
           password: this.password,
+          code: this.checkCode,
         })
+        .then(response => {
+          alert("注册成功！,userid:"+response.data.UserId)
+          this.$router.push("/");
+          console.log(response)
+
+      })
       }
+    },
+     sendCode() {
+      this.$refs.form.validate()
+      this.axios.post('/r0/checkCode', {
+          phone_num: this.phone,
+        }).then(response =>{
+           //成功逻辑
+        this.sendCodeVue = false  // 控制显示隐藏
+          this.authTime = 60
+          let timeInt = setInterval(() => {
+            this.authTime--
+            if (this.authTime <= 0) {
+              this.sendCodeVue = true
+              window.clearInterval(this.timeInt)
+            }
+          }, 1000)
+        })
     },
   },
 }

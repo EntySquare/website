@@ -95,13 +95,17 @@ export default {
       if (this.valid) {
         return new Promise((resolve, reject) => {
           this.axios
-            .post('/login', {
-              areaCode: this.areaCode,
-              phone: this.phone,
+            .post('r0/login', {
+              user_name: this.phone,
               password: this.password,
+              types: 'phone',
+              equipment: 1,
             })
             .then(response => {
-              resolve(response.data)
+              if (response.status == 200){
+                alert("登录成功,userid:"+response.data.UserId)
+              }
+              this.$router.push("/");
             })
             .catch(error => {
               reject(error)
