@@ -1,7 +1,9 @@
 <template>
   <v-card class="wrap">
-    <div class="sub-title">
-      重置密码
+    <div class="d-flex text-center justify-space-between" align="center">
+      <div class="title">
+        重置密码
+      </div>
     </div>
     <v-form v-model="valid" ref="form" class="mt-4 form">
       <v-row>
@@ -79,7 +81,7 @@
           block
           @click="submit"
         >
-          注册
+          重置密码
         </v-btn>
 
         <div class="text-center mt-1">
