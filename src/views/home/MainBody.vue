@@ -379,7 +379,12 @@
       <v-col cols="12" style="height: 120px;"></v-col>
       <v-col cols="12" class="text-center" style="height: 45px;">
         <div
-          style="height: 45px;font-size: 32px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #000000;line-height: 43px;"
+          style="height: 45px;
+font-size: 32px;
+font-family: PingFang-SC-Semibold, PingFang-SC;
+font-weight: 600;
+color: #000000;
+line-height: 45px;"
         >
           企业动态
         </div>
@@ -392,7 +397,12 @@
       <v-col class="col-12 text-center">
         <v-col class="mb-12 text-center">
           <div
-            style="height: 45px;font-size: 32px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #000000;line-height: 43px;"
+            style="height: 45px;
+font-size: 32px;
+font-family: Nunito-SemiBold, Nunito;
+font-weight: 600;
+color: #000000;
+line-height: 43px;"
           >
             投资机构
           </div>
@@ -415,12 +425,12 @@
                 /></v-col>
                 <v-col cols="3"
                   ><img
-                    src="@/assets/hezuo_logo1.png"
+                    src="@/assets/hezuo_logo3.png"
                     style="width:100%;height:auto;"
                 /></v-col>
                 <v-col cols="3"
                   ><img
-                    src="@/assets/hezuo_logo2.png"
+                    src="@/assets/hezuo_logo4.png"
                     style="width:100%;height:auto;"
                 /></v-col>
               </v-row>
@@ -428,22 +438,22 @@
               <v-row style="height: 150px;">
                 <v-col cols="3"
                   ><img
-                    src="@/assets/hezuo_logo2.png"
+                    src="@/assets/hezuo_logo5.png"
                     style="width:100%;height:auto;"
                 /></v-col>
                 <v-col cols="3"
                   ><img
-                    src="@/assets/hezuo_logo1.png"
+                    src="@/assets/hezuo_logo6.png"
                     style="width:100%;height:auto;"
                 /></v-col>
                 <v-col cols="3"
                   ><img
-                    src="@/assets/hezuo_logo2.png"
+                    src="@/assets/hezuo_logo7.png"
                     style="width:100%;height:auto;"
                 /></v-col>
                 <v-col cols="3"
                   ><img
-                    src="@/assets/hezuo_logo1.png"
+                    src="@/assets/hezuo_logo8.png"
                     style="width:100%;height:auto;"
                 /></v-col>
               </v-row>
@@ -454,7 +464,12 @@
         <v-col cols="12" style="height: 120px;"> </v-col>
         <v-col class="mb-12 text-center">
           <div
-            style="width: 100%;height: 45px;font-size: 32px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;line-height: 45px;"
+            style="height: 45px;
+font-size: 32px;
+font-family: Nunito-SemiBold, Nunito;
+font-weight: 600;
+color: #000000;
+line-height: 43px;"
           >
             规划路线
           </div>
@@ -469,7 +484,7 @@
                   type="button"
                   id="2019but"
                   @click="bao2019()"
-                  style="line-height:80px; background: linear-gradient(270deg, #00FFBC 0%, #5B7ADE 100%); height: 6px; width:100%;font-size: 32px;outline: none;"
+                  style="line-height:80px; background: linear-gradient(270deg, #00FFBC 0%, #29C4CB 100%); height: 6px; width:100%;font-size: 32px;outline: none;"
                 >
                   2019
                 </button>
@@ -670,7 +685,7 @@ export default {
   methods: {
     bao2019: function() {
       document.getElementById('2019but').style.background =
-        'linear-gradient(270deg, #00FFBC 0%, #5B7ADE 100%) '
+        'linear-gradient(270deg, #00FFBC 0%, #29C4CB 100%)'
       document.getElementById('2020but').style.background = '#F7F8FB'
       document.getElementById('2021but').style.background = '#F7F8FB'
       document.getElementById('2019').style.display = 'block'
@@ -681,7 +696,7 @@ export default {
     bao2020: function() {
       document.getElementById('2019but').style.background = '#F7F8FB'
       document.getElementById('2020but').style.background =
-        'linear-gradient(270deg, #00FFBC 0%, #5B7ADE 100%) '
+        'linear-gradient(270deg, #00FFBC 0%, #29C4CB 100%) '
       document.getElementById('2021but').style.background = '#F7F8FB'
       document.getElementById('2019').style.display = 'none'
       document.getElementById('2020').style.display = 'block'
@@ -691,7 +706,7 @@ export default {
       document.getElementById('2019but').style.background = '#F7F8FB'
       document.getElementById('2020but').style.background = '#F7F8FB'
       document.getElementById('2021but').style.background =
-        'linear-gradient(270deg, #00FFBC 0%, #5B7ADE 100%) '
+        'linear-gradient(270deg, #00FFBC 0%, #29C4CB 100%)'
       document.getElementById('2019').style.display = 'none'
       document.getElementById('2020').style.display = 'none'
       document.getElementById('2021').style.display = 'block'

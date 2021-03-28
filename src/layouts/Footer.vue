@@ -185,26 +185,24 @@
       <v-col cols="5" style="background: black;">
         <v-row style="height: 32px;">
           <v-col cols="1"
-            ><img src="@/assets/v1.png" style="width:32px;height:36px;"
+            ><img src="@/assets/v1.png" style="width:36px;height:36px;"
           /></v-col>
           <v-col cols="1"
-            ><img src="@/assets/v2.png" style="width:32px;height:36px;"
+            ><img src="@/assets/v2.png" style="width:36px;height:36px;"
           /></v-col>
           <v-col cols="1"
-            ><img src="@/assets/v3.png" style="width:32px;height:36px;"
+            ><img src="@/assets/v3.png" style="width:36px;height:36px;"
           /></v-col>
           <v-col cols="1"
-            ><img src="@/assets/v4.png" style="width:32px;height:36px;"
+            ><img src="@/assets/v4.png" style="width:36px;height:36px;"
           /></v-col>
           <v-col cols="1"
-            ><img src="@/assets/v5.png" style="width:32px;height:36px;"
+            ><img src="@/assets/v5.png" style="width:36px;height:36px;"
           /></v-col>
-          <v-col cols="1"></v-col>
-          <v-col cols="1"></v-col>
 
           <v-col
             cols="2"
-            style="width: 24px;height: 32px;font-size: 12px;text-align:center;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 31px;"
+            style="width: 24px;height: 32px;font-size: 12px;text-align:center;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 45px;"
           >
             <img src="@/assets/c1.png" style="width:16px;height:16px;" />
             韩国
@@ -219,13 +217,13 @@
           <v-col cols="2"
             ><img
               src="@/assets/k1.png"
-              style="width:133px;height:32px;float:left;"
+              style="width:142px;height:40px;float:left;"
           /></v-col>
           <v-col cols="1"></v-col>
           <v-col cols="2"
             ><img
               src="@/assets/k2.png"
-              style="width:133px;height:32px;float:left;"
+              style="width:142px;height:40px;float:left;"
           /></v-col>
           <v-col cols="2"></v-col>
           <v-col cols="3"></v-col>
