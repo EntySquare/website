@@ -40,15 +40,14 @@
         rounded
       ></v-text-field>
       <span
-        style="color: #00CFAC; position: absolute; top: 21%; right: 19px; cursor: pointer"
+        style="color: #00CFAC; position: absolute; top: 35%; right: 60px; cursor: pointer"
         @click="sendCode()"
         v-show="sendCodeVue"
         ><p>发送验证码</p>
       </span>
-
       <span
         v-show="!sendCodeVue"
-        style="color: #00CFAC; position: absolute; top: 21%; right: 19px; cursor: pointer"
+        style="color: #00CFAC; position: absolute; top: 35%; right: 60px; cursor: pointer"
       >
         <p>{{ authTime }} S</p>
       </span>
@@ -131,8 +130,8 @@ export default {
           .post('/r0/resetMatch', {
             phoneNum: this.phone,
             password: this.password,
-            email:"",
-            code: this.checkCode
+            email: '',
+            code: this.checkCode,
           })
           .then(response => {
             alert('修改成功！,userid:' + response.data.UserId)
