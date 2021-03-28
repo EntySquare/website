@@ -93,6 +93,7 @@ export default {
               if (response.status == 200){
                 alert("登录成功,userid:"+response.data.UserId)
               }
+              this.$router.push("/");
               // resolve(response.status)
             })
             .catch(error => {

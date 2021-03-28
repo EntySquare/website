@@ -65,7 +65,7 @@
           block
           @click="submit"
         >
-          登录
+          注册
         </v-btn>
 
         <div class="text-center mt-1">
@@ -124,7 +124,9 @@ export default {
           code: this.checkCode,
         })
         .then(response => {
-              console.log(response)
+          alert("注册成功！,userid:"+response.data.UserId)
+          this.$router.push("/");
+          console.log(response)
 
       })
       }

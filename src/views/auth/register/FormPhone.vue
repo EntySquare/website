@@ -61,7 +61,7 @@
           block
           @click="submit"
         >
-          登录
+          注册
         </v-btn>
 
         <div class="text-center mt-1">
