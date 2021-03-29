@@ -1,0 +1,8 @@
+version: "3.4"
+services:
+  web:
+    container_name: website
+    image: docker.entysquare.io:8443/investors/website1-vue:latest
+    ports:
+      - "8844:8080"
+    restart: always
