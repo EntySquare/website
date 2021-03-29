@@ -110,6 +110,7 @@ export default {
   font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
+
 .title {
   font-size: 28px;
   font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
@@ -118,6 +119,7 @@ export default {
   color: #000000;
   line-height: 28px;
 }
+
 .action {
   font-size: 18px;
   font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
@@ -127,10 +129,12 @@ export default {
   line-height: 28px;
   cursor: pointer;
 }
+
 .tabs-after {
   position: relative;
   font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
   &::after {
     content: '';
     height: 5px;

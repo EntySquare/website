@@ -70,7 +70,8 @@
           </v-col>
           <v-col cols="3" >
             <!-- 已登录显示 -->
-            <div v-show="!loginVue" class="d-inline-flex justify-space-around align-center" >
+            <div v-show="!loginVue"  >
+              <div class="d-inline-flex justify-space-around align-center">
               <div style="display: inline-block;" >
                 <router-link to="/login">
                   <div
@@ -117,10 +118,11 @@
               <div style="display: inline-flex;">
                 <v-img src="@/assets/global.svg" style="width: 20px" />
               </div>
+              </div>
             </div>
              <!-- 已登录显示 -->
               <!-- 未登录显示 -->
-                <div v-show="loginVue">
+             <div v-show="loginVue">
               <div style="display: inline-block;">
                 <router-link to="/login">
                   <div
@@ -274,8 +276,8 @@ export default {
   name: 'MainHeader',
   data() {
     return {
-      loginVue:true, //登录or未登录显示控制
-      username:"",
+      loginVue: true, //登录or未登录显示控制
+      username: '',
       items: [
         {
           title: 'Foo',
