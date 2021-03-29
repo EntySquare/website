@@ -17,7 +17,7 @@
           <v-col cols="2">
             <div align="center">
               <router-link to="/">
-                <v-img src="@/assets/logo.svg" width="150px" />
+                <v-img src="@/assets/logo.svg" width="152px" height="36px" />
               </router-link>
             </div>
           </v-col>
@@ -68,10 +68,13 @@
               </v-row>
             </div>
           </v-col>
-          <v-col cols="3" >
+          <v-col cols="3">
             <!-- 已登录显示 -->
-            <div v-show="!loginVue" class="d-inline-flex justify-space-around align-center" >
-              <div style="display: inline-block;" >
+            <div
+              v-show="!loginVue"
+              class="d-inline-flex justify-space-around align-center"
+            >
+              <div style="display: inline-block;">
                 <router-link to="/login">
                   <div
                     style="color: #FFFFFF; font-size:16px; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
@@ -83,7 +86,7 @@
                 </router-link>
               </div>
               <div style="margin-left: 50px"></div>
-              <div style="display: inline-block;"  >
+              <div style="display: inline-block;">
                 <router-link to="/login">
                   <div
                     style="color: #FFFFFF; font-size:16px; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
@@ -94,22 +97,30 @@
                   </div>
                 </router-link>
               </div>
-            <div style="margin-left: 50px"></div>
+              <div style="margin-left: 50px"></div>
               <div class="d-inline-flex justify-space-around align-center">
-            <div>
-              <v-img src="@/assets/loginTou.png" width="44px" height="44px"></v-img>
-            </div>
-            <div style="margin-left: 10px"></div>
-            <div id="user" class="align-center" style="font-size: 16px;
+                <div>
+                  <v-img
+                    src="@/assets/loginTou.png"
+                    width="44px"
+                    height="44px"
+                  ></v-img>
+                </div>
+                <div style="margin-left: 10px"></div>
+                <div
+                  id="user"
+                  class="align-center"
+                  style="font-size: 16px;
                         font-family: Nunito-SemiBold, Nunito;
                         font-weight: 600;
                         color: #FFFFFF;
                         line-height: 0px;
-                       ">
-              {{ this.username }}
-            </div>
-          </div>
-               <div style="margin-left: 50px"></div>
+                       "
+                >
+                  {{ this.username }}
+                </div>
+              </div>
+              <div style="margin-left: 50px"></div>
               <div style="display: inline-flex;">
                 <v-img src="@/assets/download.svg" style="width: 20px;" />
               </div>
@@ -118,9 +129,9 @@
                 <v-img src="@/assets/global.svg" style="width: 20px" />
               </div>
             </div>
-             <!-- 已登录显示 -->
-              <!-- 未登录显示 -->
-                <div v-show="loginVue">
+            <!-- 已登录显示 -->
+            <!-- 未登录显示 -->
+            <div v-show="loginVue">
               <div style="display: inline-block;">
                 <router-link to="/login">
                   <div
@@ -157,7 +168,7 @@
                 <v-img src="@/assets/global.svg" style="width: 20px" />
               </div>
             </div>
-              <!-- 未登录显示 -->
+            <!-- 未登录显示 -->
           </v-col>
         </v-row>
       </section>
@@ -196,7 +207,7 @@
           <div style="display: inline-flex; float: left">
             <!-- 未登录 按钮显示 -->
             <v-btn
-            v-show="loginVue"
+              v-show="loginVue"
               text
               rounded
               class="white"
@@ -212,9 +223,9 @@
             </v-btn>
             <!-- 未登录 按钮显示 -->
 
-             <!-- 已登录 按钮显示 -->
+            <!-- 已登录 按钮显示 -->
             <v-btn
-            v-show="!loginVue"
+              v-show="!loginVue"
               text
               rounded
               class="white"
@@ -274,8 +285,8 @@ export default {
   name: 'MainHeader',
   data() {
     return {
-      loginVue:true, //登录or未登录显示控制
-      username:"",
+      loginVue: true, //登录or未登录显示控制
+      username: '',
       items: [
         {
           title: 'Foo',
@@ -295,9 +306,9 @@ export default {
       },
     }
   },
- mounted:function(){
-      this.GetMyData();//需要触发的函数
-    },
+  mounted: function() {
+    this.GetMyData() //需要触发的函数
+  },
   methods: {
     ...mapMutations(['setIsLogin']),
     scrollAnimation: function() {
@@ -306,17 +317,15 @@ export default {
       scrollAnimation(currentY, window.innerHeight)
     },
     GetMyData: function() {
-      var token = localStorage.getItem('token');
-        this.axios
-          .post('/r0/getMyUserData', {}
-          ,{headers: {"access_token":token,
-          }})
-          .then(response => {
-            // alert('已登录提示！,userid:' + response.data.UserId)
-            this.loginVue = false //显示登录代码
-            this.username = response.data.UserName
-            // console.log(response)
-          })
+      var token = localStorage.getItem('token')
+      this.axios
+        .post('/r0/getMyUserData', {}, { headers: { access_token: token } })
+        .then(response => {
+          // alert('已登录提示！,userid:' + response.data.UserId)
+          this.loginVue = false //显示登录代码
+          this.username = response.data.UserName
+          // console.log(response)
+        })
     },
   },
 }
