@@ -17,7 +17,7 @@
           <v-col cols="2">
             <div align="center">
               <router-link to="/">
-                <v-img src="@/assets/logo.svg" width="150px" />
+                <v-img src="@/assets/logo.svg" width="152px" height="36px" />
               </router-link>
             </div>
           </v-col>
@@ -276,8 +276,8 @@ export default {
   name: 'MainHeader',
   data() {
     return {
-      loginVue: true, //登录or未登录显示控制
-      username: '',
+      loginVue:true, //登录or未登录显示控制
+      username:"",
       items: [
         {
           title: 'Foo',
