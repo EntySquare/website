@@ -14,17 +14,17 @@ steps:
       tags:
         - latest
 
----
-kind: pipeline
-type: exec
-name: run
-
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-  - name: run-website
-    commands:
-      - cd /root/website
-      - docker-compose up -d
+#---
+#kind: pipeline
+#type: exec
+#name: run
+#
+#platform:
+#  os: linux
+#  arch: amd64
+#
+#steps:
+#  - name: run-website
+#    commands:
+#      - cd /root/website
+#      - docker-compose up -d
