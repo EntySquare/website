@@ -21,7 +21,7 @@
               </router-link>
             </div>
           </v-col>
-          <v-col cols="7" >
+          <v-col cols="7">
             <div align="center" style="margin-top: 18px">
               <v-row>
                 <v-col cols="1">
@@ -73,7 +73,7 @@
             <div v-show="!loginVue" class="d-">
               <div style="display: inline-block;" >
                 <router-link to="/login">
-                  <div 
+                  <div
                     style="color: #FFFFFF; font-size:16px; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif; margin-right: 50px;
                     "
                     @click="setIsLogin(true)"
