@@ -21,7 +21,7 @@
               </router-link>
             </div>
           </v-col>
-          <v-col cols="7">
+          <v-col cols="7" >
             <div align="center" style="margin-top: 18px">
               <v-row>
                 <v-col cols="1">
@@ -68,13 +68,14 @@
               </v-row>
             </div>
           </v-col>
-          <v-col cols="3">
+          <v-col cols="3" >
             <!-- 已登录显示 -->
-            <div v-show="!loginVue">
-              <div style="display: inline-block;">
+            <div v-show="!loginVue" class="d-">
+              <div style="display: inline-block;" >
                 <router-link to="/login">
-                  <div
-                    style="color: #FFFFFF; font-size:16px; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif; margin-right: 50px"
+                  <div 
+                    style="color: #FFFFFF; font-size:16px; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif; margin-right: 50px;
+                    "
                     @click="setIsLogin(true)"
                   >
                     订单
@@ -93,7 +94,7 @@
               </div>
               <div
             class="d-inline-flex justify-space-around align-center"
-            style="margin-top: 10px"
+            style=""
              >
             <div>
               <v-img src="@/assets/loginTou.png" width="44px" height="44px"></v-img>

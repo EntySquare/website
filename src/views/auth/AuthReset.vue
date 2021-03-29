@@ -1,8 +1,17 @@
 <template>
   <v-card class="wrap">
-    <div class="d-flex justify-lg-center">
+     <v-row style="height: 30px;">
+    </v-row>
+
+    <div class="d-flex justify-lg-center" style="font-size: 28px;
+font-family: PingFang-SC-Semibold, PingFang-SC;
+font-weight: 600;
+color: #000000;
+line-height: 28px;">
       重置密码
     </div>
+    <v-row style="height: 60px;">
+    </v-row>
     <v-form v-model="valid" ref="form" class="mt-4 form">
       <v-row>
         <v-col cols="4">
@@ -30,6 +39,7 @@
         </v-col>
       </v-row>
       <v-text-field
+        autocomplete="off"
         label="请输入验证码"
         v-model="checkCode"
         single-line
@@ -38,18 +48,21 @@
         rounded
       ></v-text-field>
       <span
-         style="color: #00CFAC; position: absolute; top: 35%; right: 60px; cursor: pointer"
+         style="color: #00CFAC; position: absolute; top: 43%; right: 60px; cursor: pointer"
         @click="sendCode()"
         v-show="sendCodeVue"
         ><p>发送验证码</p>
       </span>
 
       <span
-        v-show="!sendCodeVue"  style="color: #00CFAC; position: absolute; top: 35%; right: 60px; cursor: pointer">
+        v-show="!sendCodeVue"  style="color: #00CFAC; position: absolute; top: 43%; right: 60px; cursor: pointer">
         <p>{{ authTime }} S</p>
       </span>
       <v-text-field
         v-model="password"
+        :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+        :type="show1 ? 'text' : 'password'"
+        @click:append="show1 = !show1"
         :rules="passwordRules"
         label="请输入密码"
         single-line
@@ -59,6 +72,9 @@
       ></v-text-field>
       <v-text-field
         v-model="password"
+        :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+        :type="show1 ? 'text' : 'password'"
+        @click:append="show1 = !show1"
         :rules="passwordRules"
         label="请再次输入密码"
         single-line
@@ -81,12 +97,12 @@
         </v-btn>
 
         <div class="text-center mt-1">
-          <span style="color: #7F7F7F ;font-size: 14px; margin-right:0.5em">
+          <!-- <span style="color: #7F7F7F ;font-size: 14px; margin-right:0.5em">
             还未创建账号?
           </span>
           <span style="color: #00CFAC ;font-size: 14px;">
             注册
-          </span>
+          </span> -->
         </div>
       </div>
     </v-form>
@@ -98,6 +114,7 @@ export default {
   name: 'AuthReset',
   data() {
     return {
+      show1: true,
       sendCodeVue: true, // 控制发送验证码按钮显示
       authTime: 0, // 倒计时
       checkCode: '',
@@ -116,6 +133,7 @@ export default {
         v => !/^(\s)+$/.test(v) || '密码不能有空格',
         v => /^[\da-zA-Z]{6,12}$/.test(v) || '密码为6-12位',
       ],
+      
     }
   },
   methods: {
@@ -131,6 +149,10 @@ export default {
             code: this.checkCode
           })
           .then(response => {
+            if(response.data.errcode != null){
+              alert('修改失败！')
+                return
+            }
             alert('修改成功！,userid:' + response.data.UserId)
             this.$router.push('/')
             console.log(response)
@@ -144,6 +166,9 @@ export default {
           phone_num: this.phone,
         })
         .then(response => {
+          if(response.data.errcode != null){
+                return
+          }
           //成功逻辑
           this.sendCodeVue = false // 控制显示隐藏
           this.authTime = 60

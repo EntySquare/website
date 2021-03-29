@@ -2,6 +2,7 @@
   <v-tab-item>
     <v-form v-model="valid" ref="form" class="mt-4 form">
       <v-text-field
+      autocomplete="off"
         v-model="email"
         :rules="emailRules"
         label="请输入邮箱"
@@ -12,6 +13,7 @@
       ></v-text-field>
 
       <v-text-field
+      autocomplete="off"
         v-model="password"
         :rules="passwordRules"
         label="请输入密码"
@@ -19,6 +21,9 @@
         filled
         dense
         rounded
+        :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+        :type="show1 ? 'text' : 'password'"
+        @click:append="show1 = !show1"
       ></v-text-field>
 <router-link to="/resetPwdEmail">
       <div
@@ -58,6 +63,7 @@ export default {
   name: 'Login',
   data() {
     return {
+      show1:false,
       valid: false,
       email: '',
       emailRules: [
@@ -90,10 +96,20 @@ export default {
             })
             .then(response => {
               console.log(response)
-              if (response.status == 200) {
-                alert('登录成功,userid:' + response.data.UserId)
+              if(response.data.errcode != null){
+                alert("登录失败！");
+                return
               }
-              this.$router.push('/')
+              if (response.status == 200) {
+                // alert('登录成功,userid:' + response.data.UserId)
+                localStorage.setItem('token',response.data.Token);
+              }
+              this.$router.push({
+                path: '/home/resource/',
+                query: {
+                  name: this.email,
+                },
+              })
               // resolve(response.status)
             })
             .catch(error => {

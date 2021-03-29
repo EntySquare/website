@@ -16,6 +16,7 @@
         </v-col>
         <v-col cols="8">
           <v-text-field
+          autocomplete="off"
             v-model="phone"
             :rules="phoneRules"
             label="请输入手机号"
@@ -27,6 +28,7 @@
         </v-col>
       </v-row>
       <v-text-field
+      autocomplete="off"
         v-model="password"
         :rules="passwordRules"
         label="请输入密码"
@@ -34,6 +36,9 @@
         filled
         dense
         rounded
+        :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+        :type="show1 ? 'text' : 'password'"
+        @click:append="show1 = !show1"
       ></v-text-field>
       <router-link to="/resetPwd">
         <div
@@ -72,6 +77,7 @@ export default {
   name: 'Login',
   data() {
     return {
+      show1:false,
       valid: false,
       areaCode: '+86',
       areaCodes: ['+86', '+87'],
@@ -104,6 +110,11 @@ export default {
               equipment: 1,
             })
             .then(response => {
+              console.log(response);
+              if(response.data.errcode != null){
+                alert("登录失败！");
+                return
+              }
               if (response.status === 200) {
                 this.userName = response.data.UserName
                 localStorage.setItem('token',response.data.Token);
