@@ -1,27 +1,15 @@
 <template>
   <v-card class="wrap">
     <div class="d-flex justify-lg-center">
-      重置密码
+      邮箱重置密码
     </div>
     <v-form v-model="valid" ref="form" class="mt-4 form">
       <v-row>
-        <v-col cols="4">
-          <v-select
-            v-model="areaCode"
-            label="区号"
-            hint="如中国 +86"
-            :items="areaCodes"
-            single-line
-            filled
-            dense
-            rounded
-          ></v-select>
-        </v-col>
-        <v-col cols="8">
+        <v-col cols="12">
           <v-text-field
-            v-model="phone"
-            :rules="phoneRules"
-            label="请输入手机号"
+            v-model="email"
+            :rules="emailRules"
+            label="请输入邮箱"
             single-line
             filled
             dense
@@ -104,11 +92,12 @@ export default {
       valid: false,
       areaCode: '+86',
       areaCodes: ['+86', '+87'],
-      phone: '',
-      phoneRules: [
-        v => !!v || '手机号必须输入',
-        v => /^(\d)+$/.test(v) || '手机号是数字',
-        v => /^(\d){11}$/.test(v) || '手机号是11位',
+      email: '',
+      emailRules: [
+        v => !!v || '邮箱必须输入',
+        v =>
+          /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(v) ||
+          '邮箱格式不对',
       ],
       password: '',
       passwordRules: [
@@ -125,9 +114,8 @@ export default {
       if (this.valid) {
         this.axios
           .post('/r0/resetMatch', {
-            phoneNum: this.phone,
             password: this.password,
-            email:"",
+            email:this.email,
             code: this.checkCode
           })
           .then(response => {
@@ -141,7 +129,7 @@ export default {
       this.$refs.form.validate()
       this.axios
         .post('/r0/resetSetCheckCode', {
-          phone_num: this.phone,
+          email: this.email,
         })
         .then(response => {
           //成功逻辑

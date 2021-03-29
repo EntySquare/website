@@ -20,13 +20,13 @@
         dense
         rounded
       ></v-text-field>
-
+<router-link to="/resetPwdEmail">
       <div
         style="font-size: 14px;font-weight: bold;color: #00CFAC;line-height: 20px;margin-left:10px; cursor: pointer"
       >
         忘记密码？
       </div>
-
+</router-link>
       <div class="card-bottom">
         <v-btn
           style="background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);"

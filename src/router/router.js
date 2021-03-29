@@ -28,6 +28,11 @@ const routes = [
         name: 'ResetPwd',
         component: () => import('../views/auth/ResetPassword.vue'),
       },
+      {
+        path: '/resetPwdEmail',
+        name: 'resetPwdEmail',
+        component: () => import('../views/auth/ResetPasswordEmail.vue'),
+      },
     ],
   },
   {
