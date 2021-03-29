@@ -69,7 +69,49 @@
             </div>
           </v-col>
           <v-col cols="3">
+            <!-- 已登录显示 -->
+            <div v-show="!loginVue">
+              <div style="display: inline-block;">
+                <router-link to="/login">
+                  <div
+                    style="color: #FFFFFF; font-size:16px; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif; margin-right: 50px"
+                    @click="setIsLogin(true)"
+                  >
+                    订单
+                  </div>
+                </router-link>
+              </div>
+              <div style="display: inline-block;">
+                <router-link to="/login">
+                  <div
+                    style="color: #FFFFFF; font-size:16px; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif; margin-right: 50px"
+                    @click="setIsLogin(true)"
+                  >
+                    资金
+                  </div>
+                </router-link>
+              </div>
+              <div
+            class="d-inline-flex justify-space-around align-center"
+            style="margin-top: 10px"
+             >
             <div>
+              <v-img src="@/assets/loginTou.png" width="44px" height="44px"></v-img>
+            </div>
+            <div id="user" class="align-center">
+              {{ this.username }}
+            </div>
+          </div>
+              <div style="display: inline-flex; margin-left: 50px;">
+                <v-img src="@/assets/download.svg" style="width: 20px;" />
+              </div>
+              <div style="display: inline-flex; margin-left: 50px">
+                <v-img src="@/assets/global.svg" style="width: 20px" />
+              </div>
+            </div>
+             <!-- 已登录显示 -->
+              <!-- 未登录显示 -->
+                <div v-show="loginVue">
               <div style="display: inline-block;">
                 <router-link to="/login">
                   <div
@@ -106,6 +148,7 @@
                 <v-img src="@/assets/global.svg" style="width: 20px" />
               </div>
             </div>
+              <!-- 未登录显示 -->
           </v-col>
         </v-row>
       </section>
@@ -142,7 +185,9 @@
         <v-col cols="2"></v-col>
         <v-col cols="7">
           <div style="display: inline-flex; float: left">
+            <!-- 未登录显示 -->
             <v-btn
+            v-show="loginVue"
               text
               rounded
               class="white"
@@ -156,6 +201,26 @@
                 <div style="color: #00CFAC; font-size: 16px">立即注册</div>
               </router-link>
             </v-btn>
+            <!-- 未登录显示 -->
+
+             <!-- 已登录显示 -->
+            <v-btn
+            v-show="!loginVue"
+              text
+              rounded
+              class="white"
+              style="text-align: center;
+            border-radius: 175px 175px 175px 175px;
+            width: 200px;
+            height: 70px;
+            margin-right: 8%"
+            >
+              <router-link to="/register">
+                <div style="color: #00CFAC; font-size: 16px">理财</div>
+              </router-link>
+            </v-btn>
+            <!-- 已登录显示 -->
+
             <v-btn
               style="background: transparent;
             border:4px white solid;
@@ -200,6 +265,8 @@ export default {
   name: 'MainHeader',
   data() {
     return {
+      loginVue:true, //登录or未登录显示控制
+      username:"",
       items: [
         {
           title: 'Foo',
@@ -219,12 +286,28 @@ export default {
       },
     }
   },
+ mounted:function(){
+      this.GetMyData();//需要触发的函数
+    },
   methods: {
     ...mapMutations(['setIsLogin']),
     scrollAnimation: function() {
       const currentY =
         document.documentElement.scrollTop || document.body.scrollTop
       scrollAnimation(currentY, window.innerHeight)
+    },
+    GetMyData: function() {
+      var token = localStorage.getItem('token');
+        this.axios
+          .post('/r0/getMyUserData', {}
+          ,{headers: {"access_token":token,
+          }})
+          .then(response => {
+            // alert('已登录提示！,userid:' + response.data.UserId)
+            this.loginVue = false //显示登录代码
+            this.username = response.data.UserName
+            // console.log(response)
+          })
     },
   },
 }

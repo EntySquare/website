@@ -106,6 +106,7 @@ export default {
             .then(response => {
               if (response.status === 200) {
                 this.userName = response.data.UserName
+                localStorage.setItem('token',response.data.Token);
               }
               this.$router.push({
                 path: '/home/resource/',

@@ -1,9 +1,7 @@
 <template>
   <v-card class="wrap">
-    <div class="d-flex justify-lg-center">
-      <div class="title">
-        重置密码
-      </div>
+    <div class="sub-title">
+      重置密码
     </div>
     <v-form v-model="valid" ref="form" class="mt-4 form">
       <v-row>
@@ -40,14 +38,15 @@
         rounded
       ></v-text-field>
       <span
-        style="color: #00CFAC; position: absolute; top: 35%; right: 60px; cursor: pointer"
+        style="color: #00CFAC; position: absolute; top: 21%; right: 19px; cursor: pointer"
         @click="sendCode()"
         v-show="sendCodeVue"
         ><p>发送验证码</p>
       </span>
+
       <span
         v-show="!sendCodeVue"
-        style="color: #00CFAC; position: absolute; top: 35%; right: 60px; cursor: pointer"
+，，，，k m        style="color: #00CFAC; position: absolute; top: 21%; right: 19px; cursor: pointer"
       >
         <p>{{ authTime }} S</p>
       </span>
@@ -80,7 +79,7 @@
           block
           @click="submit"
         >
-          重置密码
+          注册
         </v-btn>
 
         <div class="text-center mt-1">
@@ -130,8 +129,8 @@ export default {
           .post('/r0/resetMatch', {
             phoneNum: this.phone,
             password: this.password,
-            email: '',
-            code: this.checkCode,
+            email:"",
+            code: this.checkCode
           })
           .then(response => {
             alert('修改成功！,userid:' + response.data.UserId)
