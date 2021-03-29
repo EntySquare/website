@@ -70,11 +70,11 @@
           </v-col>
           <v-col cols="3" >
             <!-- 已登录显示 -->
-            <div v-show="!loginVue" class="d-">
+            <div v-show="!loginVue" class="d-inline-flex justify-space-around align-center" >
               <div style="display: inline-block;" >
                 <router-link to="/login">
                   <div
-                    style="color: #FFFFFF; font-size:16px; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif; margin-right: 50px;
+                    style="color: #FFFFFF; font-size:16px; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
                     "
                     @click="setIsLogin(true)"
                   >
@@ -82,31 +82,39 @@
                   </div>
                 </router-link>
               </div>
-              <div style="display: inline-block;">
+              <div style="margin-left: 50px"></div>
+              <div style="display: inline-block;"  >
                 <router-link to="/login">
                   <div
-                    style="color: #FFFFFF; font-size:16px; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif; margin-right: 50px"
+                    style="color: #FFFFFF; font-size:16px; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+                    "
                     @click="setIsLogin(true)"
                   >
                     资金
                   </div>
                 </router-link>
               </div>
-              <div
-            class="d-inline-flex justify-space-around align-center"
-            style=""
-             >
+            <div style="margin-left: 50px"></div>
+              <div class="d-inline-flex justify-space-around align-center">
             <div>
               <v-img src="@/assets/loginTou.png" width="44px" height="44px"></v-img>
             </div>
-            <div id="user" class="align-center">
+            <div style="margin-left: 10px"></div>
+            <div id="user" class="align-center" style="font-size: 16px;
+                        font-family: Nunito-SemiBold, Nunito;
+                        font-weight: 600;
+                        color: #FFFFFF;
+                        line-height: 0px;
+                       ">
               {{ this.username }}
             </div>
           </div>
-              <div style="display: inline-flex; margin-left: 50px;">
+               <div style="margin-left: 50px"></div>
+              <div style="display: inline-flex;">
                 <v-img src="@/assets/download.svg" style="width: 20px;" />
               </div>
-              <div style="display: inline-flex; margin-left: 50px">
+              <div style="margin-left: 50px"></div>
+              <div style="display: inline-flex;">
                 <v-img src="@/assets/global.svg" style="width: 20px" />
               </div>
             </div>
@@ -186,7 +194,7 @@
         <v-col cols="2"></v-col>
         <v-col cols="7">
           <div style="display: inline-flex; float: left">
-            <!-- 未登录显示 -->
+            <!-- 未登录 按钮显示 -->
             <v-btn
             v-show="loginVue"
               text
@@ -202,9 +210,9 @@
                 <div style="color: #00CFAC; font-size: 16px">立即注册</div>
               </router-link>
             </v-btn>
-            <!-- 未登录显示 -->
+            <!-- 未登录 按钮显示 -->
 
-             <!-- 已登录显示 -->
+             <!-- 已登录 按钮显示 -->
             <v-btn
             v-show="!loginVue"
               text
@@ -220,7 +228,7 @@
                 <div style="color: #00CFAC; font-size: 16px">理财</div>
               </router-link>
             </v-btn>
-            <!-- 已登录显示 -->
+            <!-- 已登录 按钮显示 -->
 
             <v-btn
               style="background: transparent;
