@@ -17,7 +17,7 @@
           <v-col cols="2">
             <div align="center">
               <router-link to="/">
-                <v-img src="@/assets/logo.svg" width="152px" height="36px" />
+                <v-img src="@/assets/logo.svg" width="150px" height="36px" />
               </router-link>
             </div>
           </v-col>
