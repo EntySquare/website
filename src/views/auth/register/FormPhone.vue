@@ -16,6 +16,7 @@
         </v-col>
         <v-col cols="8">
           <v-text-field
+          autocomplete="off"
             v-model="phone"
             :rules="phoneRules"
             label="请输入手机号"
@@ -27,6 +28,7 @@
         </v-col>
       </v-row>
       <v-text-field
+      autocomplete="off"
         label="请输入验证码"
         v-model="checkCode"
         single-line
@@ -48,6 +50,7 @@
         <p>{{ authTime }} S</p>
       </span>
       <v-text-field
+      autocomplete="off"
         v-model="password"
         :rules="passwordRules"
         label="请输入密码"
@@ -55,8 +58,12 @@
         filled
         dense
         rounded
+         :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+        :type="show1 ? 'text' : 'password'"
+        @click:append="show1 = !show1"
       ></v-text-field>
       <v-text-field
+      autocomplete="off"
         v-model="password"
         :rules="passwordRules"
         label="请再次输入密码"
@@ -64,6 +71,9 @@
         filled
         dense
         rounded
+         :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+        :type="show1 ? 'text' : 'password'"
+        @click:append="show1 = !show1"
       ></v-text-field>
 
       <div class="card-bottom">
@@ -97,6 +107,7 @@ export default {
   name: 'Login',
   data() {
     return {
+      show1:false,
       sendCodeVue: true, // 控制发送验证码按钮显示
       authTime: 0, // 倒计时
       checkCode: '',
@@ -120,7 +131,6 @@ export default {
   methods: {
     submit() {
       this.$refs.form.validate()
-      console.log(this.valid)
       if (this.valid) {
         this.axios
           .post('/r0/register', {
@@ -130,19 +140,27 @@ export default {
             code: this.checkCode,
           })
           .then(response => {
-            alert('注册成功！,userid:' + response.data.UserId)
-            this.$router.push('/')
+            if(response.data.errcode != null){
+                alert("邮箱注册失败！");
+                return
+              }
+            alert('注册成功！跳转到登录页,userid:' + response.data.UserId)
+            this.$router.push('/login')
             console.log(response)
           })
       }
     },
     sendCode() {
+      
       this.$refs.form.validate()
       this.axios
         .post('/r0/checkCode', {
           phone_num: this.phone,
         })
         .then(response => {
+           if(response.data.errcode != null){
+                return
+          }
           //成功逻辑
           this.sendCodeVue = false // 控制显示隐藏
           this.authTime = 60

@@ -2,6 +2,7 @@
   <v-tab-item class="tabItem">
     <v-form v-model="valid" ref="form" class="mt-4 form">
       <v-text-field
+      autocomplete="off"
         v-model="email"
         :rules="emailRules"
         label="请输入邮箱"
@@ -11,6 +12,7 @@
         rounded
       ></v-text-field>
       <v-text-field
+      autocomplete="off"
         label="请输入验证码"
         v-model="checkCode"
         single-line
@@ -32,6 +34,7 @@
         <p>{{ authTime }} S</p>
       </span>
       <v-text-field
+      autocomplete="off"
         v-model="password"
         :rules="passwordRules"
         label="请输入密码"
@@ -39,6 +42,9 @@
         filled
         dense
         rounded
+        :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+        :type="show1 ? 'text' : 'password'"
+        @click:append="show1 = !show1"
       >
       </v-text-field>
       <!-- <v-text-field
@@ -81,6 +87,7 @@ export default {
   name: 'Login',
   data() {
     return {
+      show1:false,
       sendCodeVue: true, // 控制发送验证码按钮显示
       authTime: 0, // 倒计时
       valid: false,
@@ -120,8 +127,12 @@ export default {
             code: this.checkCode,
           })
           .then(response => {
-            alert('注册成功！,userid:' + response.data.UserId)
-            this.$router.push('/')
+            if(response.data.errcode != null){
+                alert("邮箱注册失败！");
+                return
+              }
+            alert('注册成功.跳转到登录页！')
+            this.$router.push('/login')
             console.log(response)
           })
       }
@@ -133,6 +144,9 @@ export default {
           email: this.email,
         })
         .then(response => {
+          if(response.data.errcode != null){
+                return
+          }
           //成功逻辑
           this.sendCodeVue = false // 控制显示隐藏
           this.authTime = 60
