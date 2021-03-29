@@ -8,5 +8,6 @@ COPY . /home/website
 # RUN npm install -g npm@7.7.5
 RUN npm install
 RUN npm run build
+EXPOSE 8080
 # 将dist文件中的内容复制到 /usr/share/nginx/html/ 这个目录下面
 CMD npm run serve
