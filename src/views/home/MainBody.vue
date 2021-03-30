@@ -453,6 +453,49 @@ line-height: 43px;"
           </div>
         </v-col>
        
+      <!-- <v-row>
+          <v-col cols="3"></v-col>
+         <v-col cols="6" style="width: 100%;height: 311px;background: #F0F0FF;">
+             <swiper class="swiper" :options="swiperOption">
+               
+              <swiper-slide>
+                <div style="height:40px"></div>
+                <div style="width: 654px;height: 150px;background: #FFFFFF;padding:20px 20px 20px 20px;border-radius: 3px;">
+                  <div align="left" style="">investors App上线收益优先·满足跟高投资需求</div>
+                  <div align="left" style="">为用户创造更加安全、透明的加密金融生态</div>
+                  <div style="height:32px"></div>
+                  <div align="left" style="">investors</div>
+                  <div align="left" style="">首席执行官</div>
+                  <div align="right" style="">2012.03.05</div>
+                </div>
+              </swiper-slide>
+              <swiper-slide>
+                <div style="height:40px"></div>
+                <div style="width: 654px;height: 150px;background: #FFFFFF;padding:20px 20px 20px 20px;border-radius: 3px;">
+                  <div align="left" style="">investors App上线收益优先·满足跟高投资需求</div>
+                  <div align="left" style="">为用户创造更加安全、透明的加密金融生态</div>
+                  <div style="height:32px"></div>
+                  <div align="left" style="">investors</div>
+                  <div align="left" style="">首席执行官</div>
+                  <div align="right" style="">2012.03.05</div>
+                </div>
+              </swiper-slide>
+              <swiper-slide>Slide 3</swiper-slide>
+              <swiper-slide>Slide 4</swiper-slide>
+              <swiper-slide>Slide 5</swiper-slide>
+              <swiper-slide>Slide 6</swiper-slide>
+              <swiper-slide>Slide 7</swiper-slide>
+              <swiper-slide>Slide 8</swiper-slide>
+              <swiper-slide>Slide 9</swiper-slide>
+              <swiper-slide>Slide 10</swiper-slide>
+              
+              <div class="swiper-pagination" slot="pagination"></div>
+            </swiper>
+        </v-col>
+          <v-col cols="3"></v-col>
+    </v-row> -->
+
+
         <v-row>
           <v-col cols="3"></v-col>
           <v-col cols="6">
@@ -657,9 +700,27 @@ line-height: 43px;"
 </template>
 
 <script>
+ import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+  import 'swiper/css/swiper.css'
+
 export default {
   name: 'HelloWorld',
-
+  components: {
+      Swiper,
+      SwiperSlide
+    },
+  data() {
+      return {
+        swiperOption: {
+          slidesPerView: 'auto',
+          spaceBetween: 30,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+          }
+        }
+   }
+  }, 
   methods: {
     bao2019: function() {
       document.getElementById('2019but').style.background =
@@ -714,3 +775,18 @@ export default {
   },
 }
 </script>
+
+
+<style lang="scss" scoped>
+
+  .swiper-slide {
+    width: 70%;
+  background: #f00;
+  }
+  .swiper-slide:nth-child(2n) {
+    width: 70%;
+  }
+  .swiper-slide:nth-child(3n) {
+    width: 70%;
+  }
+</style>
