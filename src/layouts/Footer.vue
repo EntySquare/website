@@ -1,24 +1,24 @@
 <style>
 .container123 {
- position: relative;
- width: 100%;
+  position: relative;
+  width: 100%;
 }
 .container123 input {
- width: 100%;
- height: 30px;
- opacity: 0.16;
- border-radius: 24px;
- background: #d8d8d8;
+  width: 100%;
+  height: 30px;
+  opacity: 0.16;
+  border-radius: 24px;
+  background: #d8d8d8;
 }
 .container123 button {
- width: 25%;
- height: 30px;
- position: absolute;
- right: 0;
- background-color: #4c4c4c;
- border-radius: 24px;
- border: none;
- outline: none;
+  width: 25%;
+  height: 30px;
+  position: absolute;
+  right: 0;
+  background-color: #4c4c4c;
+  border-radius: 24px;
+  border: none;
+  outline: none;
 }
 </style>
 <template>
@@ -155,7 +155,7 @@
         <v-row>
           <v-col cols="6"
             ><img
-              src="@/assets/z1.png"
+              src="https://investors.oss-cn-beijing.aliyuncs.com/assets/z1.png"
               style="width:126px;height:68px;float:left;"
           /></v-col>
         </v-row>
@@ -185,26 +185,39 @@
       <v-col cols="5" style="background: black;">
         <v-row style="height: 32px;">
           <v-col cols="1"
-            ><img src="@/assets/v1.png" style="width:36px;height:36px;"
+            ><img
+              src="https://investors.oss-cn-beijing.aliyuncs.com/assets/v1.png"
+              style="width:36px;height:36px;"
           /></v-col>
           <v-col cols="1"
-            ><img src="@/assets/v2.png" style="width:36px;height:36px;"
+            ><img
+              src="https://investors.oss-cn-beijing.aliyuncs.com/assets/v2.png"
+              style="width:36px;height:36px;"
           /></v-col>
           <v-col cols="1"
-            ><img src="@/assets/v3.png" style="width:36px;height:36px;"
+            ><img
+              src="https://investors.oss-cn-beijing.aliyuncs.com/assets/v3.png"
+              style="width:36px;height:36px;"
           /></v-col>
           <v-col cols="1"
-            ><img src="@/assets/v4.png" style="width:36px;height:36px;"
+            ><img
+              src="https://investors.oss-cn-beijing.aliyuncs.com/assets/v4.png"
+              style="width:36px;height:36px;"
           /></v-col>
           <v-col cols="1"
-            ><img src="@/assets/v5.png" style="width:36px;height:36px;"
+            ><img
+              src="https://investors.oss-cn-beijing.aliyuncs.com/assets/v5.png"
+              style="width:36px;height:36px;"
           /></v-col>
 
           <v-col
             cols="2"
             style="width: 24px;height: 32px;font-size: 12px;text-align:center;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 45px;"
           >
-            <img src="@/assets/c1.png" style="width:16px;height:16px;" />
+            <img
+              src="https://investors.oss-cn-beijing.aliyuncs.com/assets/c1.png"
+              style="width:16px;height:16px;"
+            />
             韩国
           </v-col>
           <v-col cols="1"></v-col>
@@ -216,13 +229,13 @@
         <v-row>
           <v-col cols="2"
             ><img
-              src="@/assets/k1.png"
+              src="https://investors.oss-cn-beijing.aliyuncs.com/assets/k1.png"
               style="width:142px;height:40px;float:left;"
           /></v-col>
           <v-col cols="1"></v-col>
           <v-col cols="2"
             ><img
-              src="@/assets/k2.png"
+              src="https://investors.oss-cn-beijing.aliyuncs.com/assets/k2.png"
               style="width:142px;height:40px;float:left;"
           /></v-col>
           <v-col cols="2"></v-col>
@@ -230,7 +243,7 @@
         </v-row>
       </v-col>
     </v-row>
- <v-row style="height: 100px; background: black;"> </v-row>
+    <v-row style="height: 100px; background: black;"> </v-row>
     <v-row style="background: black;">
       <v-col cols="3" style="background: black;"> </v-col>
       <v-col

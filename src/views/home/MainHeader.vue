@@ -9,7 +9,11 @@
 <template>
   <!--  <v-app-bar app color="#00CFAC" absolute>-->
   <!--    style=" width: 100%; height:800px; background: linear-gradient(92deg, #00CFAC 0%, #5B7ADE 100%);"-->
-  <div :style="bgImg" style="height: 100vh">
+  <!--  <div :style="bgImg" style="height: 100vh">-->
+  <v-img
+    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/background.png"
+    style="height: 100vh"
+  >
     <v-col class="col-12" style="height: 30px"></v-col>
     <v-col cols="12">
       <section>
@@ -17,7 +21,11 @@
           <v-col cols="2">
             <div align="center">
               <router-link to="/">
-                <v-img src="@/assets/logo.svg" width="152px" height="36px" />
+                <v-img
+                  src="https://investors.oss-cn-beijing.aliyuncs.com/assets/logo.svg"
+                  width="152px"
+                  height="36px"
+                />
               </router-link>
             </div>
           </v-col>
@@ -68,61 +76,75 @@
               </v-row>
             </div>
           </v-col>
-          <v-col cols="3" >
+          <v-col cols="3">
             <!-- 已登录显示 -->
-            <div v-show="!loginVue"  >
+            <div v-show="!loginVue">
               <div class="d-inline-flex justify-space-around align-center">
-              <div style="display: inline-block;" >
-                <router-link to="/login">
-                  <div
-                    style="color: #FFFFFF; font-size:16px; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+                <div style="display: inline-block;">
+                  <router-link to="/login">
+                    <div
+                      style="color: #FFFFFF; font-size:16px; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
                     "
-                    @click="setIsLogin(true)"
-                  >
-                    订单
-                  </div>
-                </router-link>
-              </div>
-              <div style="margin-left: 50px"></div>
-              <div style="display: inline-block;"  >
-                <router-link to="/login">
-                  <div
-                    style="color: #FFFFFF; font-size:16px; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+                      @click="setIsLogin(true)"
+                    >
+                      订单
+                    </div>
+                  </router-link>
+                </div>
+                <div style="margin-left: 50px"></div>
+                <div style="display: inline-block;">
+                  <router-link to="/login">
+                    <div
+                      style="color: #FFFFFF; font-size:16px; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
                     "
-                    @click="setIsLogin(true)"
-                  >
-                    资金
+                      @click="setIsLogin(true)"
+                    >
+                      资金
+                    </div>
+                  </router-link>
+                </div>
+                <div style="margin-left: 50px"></div>
+                <div class="d-inline-flex justify-space-around align-center">
+                  <div>
+                    <v-img
+                      src="https://investors.oss-cn-beijing.aliyuncs.com/assets/loginTou.png"
+                      width="44px"
+                      height="44px"
+                    ></v-img>
                   </div>
-                </router-link>
-              </div>
-            <div style="margin-left: 50px"></div>
-              <div class="d-inline-flex justify-space-around align-center">
-            <div>
-              <v-img src="@/assets/loginTou.png" width="44px" height="44px"></v-img>
-            </div>
-            <div style="margin-left: 10px"></div>
-            <div id="user" class="align-center" style="font-size: 16px;
+                  <div style="margin-left: 10px"></div>
+                  <div
+                    id="user"
+                    class="align-center"
+                    style="font-size: 16px;
                         font-family: Nunito-SemiBold, Nunito;
                         font-weight: 600;
                         color: #FFFFFF;
                         line-height: 0px;
-                       ">
-              {{ this.username }}
+                       "
+                  >
+                    {{ this.username }}
+                  </div>
+                </div>
+                <div style="margin-left: 50px"></div>
+                <div style="display: inline-flex;">
+                  <v-img
+                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/download.svg"
+                    style="width: 20px;"
+                  />
+                </div>
+                <div style="margin-left: 50px"></div>
+                <div style="display: inline-flex;">
+                  <v-img
+                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/global.svg"
+                    style="width: 20px"
+                  />
+                </div>
+              </div>
             </div>
-          </div>
-               <div style="margin-left: 50px"></div>
-              <div style="display: inline-flex;">
-                <v-img src="@/assets/download.svg" style="width: 20px;" />
-              </div>
-              <div style="margin-left: 50px"></div>
-              <div style="display: inline-flex;">
-                <v-img src="@/assets/global.svg" style="width: 20px" />
-              </div>
-              </div>
-            </div>
-             <!-- 已登录显示 -->
-              <!-- 未登录显示 -->
-             <div v-show="loginVue">
+            <!-- 已登录显示 -->
+            <!-- 未登录显示 -->
+            <div v-show="loginVue">
               <div style="display: inline-block;">
                 <router-link to="/login">
                   <div
@@ -153,13 +175,19 @@
                 </v-btn>
               </div>
               <div style="display: inline-flex; margin-left: 50px;">
-                <v-img src="@/assets/download.svg" style="width: 20px;" />
+                <v-img
+                  src="https://investors.oss-cn-beijing.aliyuncs.com/assets/download.svg"
+                  style="width: 20px;"
+                />
               </div>
               <div style="display: inline-flex; margin-left: 50px">
-                <v-img src="@/assets/global.svg" style="width: 20px" />
+                <v-img
+                  src="https://investors.oss-cn-beijing.aliyuncs.com/assets/global.svg"
+                  style="width: 20px"
+                />
               </div>
             </div>
-              <!-- 未登录显示 -->
+            <!-- 未登录显示 -->
           </v-col>
         </v-row>
       </section>
@@ -198,7 +226,7 @@
           <div style="display: inline-flex; float: left">
             <!-- 未登录 按钮显示 -->
             <v-btn
-            v-show="loginVue"
+              v-show="loginVue"
               text
               rounded
               class="white"
@@ -214,9 +242,9 @@
             </v-btn>
             <!-- 未登录 按钮显示 -->
 
-             <!-- 已登录 按钮显示 -->
+            <!-- 已登录 按钮显示 -->
             <v-btn
-            v-show="!loginVue"
+              v-show="!loginVue"
               text
               rounded
               class="white"
@@ -252,20 +280,18 @@
       </v-row>
       <v-row>
         <v-col cols="12" style="position: absolute; top: 93vh;">
-          <div
-            style="display: inline-flex;"
-            @click="scrollAnimation()"
-            align="center"
-          >
+          <div style="display: inline-flex;" @click="scrollAnimation()">
             <v-img
-              src="@/assets/arrow_down_white.png"
-              style="width: 28px;"
+              src="
+  https://investors.oss-cn-beijing.aliyuncs.com/assets/arrow_down_white.png"
+              style="width: 28px; cursor: pointer"
             ></v-img>
           </div>
         </v-col>
       </v-row>
     </div>
-  </div>
+  </v-img>
+  <!--  </div>-->
 </template>
 
 <script>
@@ -276,8 +302,8 @@ export default {
   name: 'MainHeader',
   data() {
     return {
-      loginVue:true, //登录or未登录显示控制
-      username:"",
+      loginVue: true, //登录or未登录显示控制
+      username: '',
       items: [
         {
           title: 'Foo',
@@ -297,9 +323,9 @@ export default {
       },
     }
   },
- mounted:function(){
-      this.GetMyData();//需要触发的函数
-    },
+  mounted: function() {
+    this.GetMyData() //需要触发的函数
+  },
   methods: {
     ...mapMutations(['setIsLogin']),
     scrollAnimation: function() {
@@ -308,17 +334,15 @@ export default {
       scrollAnimation(currentY, window.innerHeight)
     },
     GetMyData: function() {
-      var token = localStorage.getItem('token');
-        this.axios
-          .post('/r0/getMyUserData', {}
-          ,{headers: {"access_token":token,
-          }})
-          .then(response => {
-            // alert('已登录提示！,userid:' + response.data.UserId)
-            this.loginVue = false //显示登录代码
-            this.username = response.data.UserName
-            // console.log(response)
-          })
+      var token = localStorage.getItem('token')
+      this.axios
+        .post('/r0/getMyUserData', {}, { headers: { access_token: token } })
+        .then(response => {
+          // alert('已登录提示！,userid:' + response.data.UserId)
+          this.loginVue = false //显示登录代码
+          this.username = response.data.UserName
+          // console.log(response)
+        })
     },
   },
 }

@@ -7,15 +7,30 @@
       马上加入 investor
     </div>
     <p class="sub-feature">
-      <img src="@/assets/lgt1.png" alt="资产配置服务" width="32" height="32" />
+      <img
+        src="https://investors.oss-cn-beijing.aliyuncs.com/assets/lgt1.png"
+        alt="资产配置服务"
+        width="32"
+        height="32"
+      />
       资产配置服务
     </p>
     <p class="sub-feature">
-      <img src="@/assets/lgt2.png" alt="资产配置服务" width="32" height="32" />
+      <img
+        src="https://investors.oss-cn-beijing.aliyuncs.com/assets/lgt2.png"
+        alt="资产配置服务"
+        width="32"
+        height="32"
+      />
       轻松兑换资产
     </p>
     <p class="sub-feature">
-      <img src="@/assets/lgt3.png" alt="资产配置服务" width="32" height="32" />
+      <img
+        src="https://investors.oss-cn-beijing.aliyuncs.com/assets/lgt3.png"
+        alt="资产配置服务"
+        width="32"
+        height="32"
+      />
       智能安全钱包
     </p>
   </div>
