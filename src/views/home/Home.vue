@@ -1,8 +1,10 @@
 <template>
   <div>
+    <main>
     <MainHeader />
     <MainBody />
     <the-footer />
+    </main>
   </div>
 </template>
 
