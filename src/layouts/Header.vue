@@ -79,6 +79,7 @@
           >
             <div>
               <v-img
+                style="width: 44px; height: 44px"
                 src="https://investors.oss-cn-beijing.aliyuncs.com/assets/user_logo.png"
               ></v-img>
             </div>

@@ -1,41 +1,3 @@
-<style>
-.btn {
-  font-size: 20px;
-  border-radius: 26px;
-  text-align: center;
-  box-shadow: 14px 10px 40px 0 rgba(15, 15, 15, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  padding: 48px 0;
-}
-
-.bubble_left {
-  width: 100%;
-  height: 350px;
-  background: #ffffff;
-  border-radius: 175px 175px 175px 175px;
-  align-items: center;
-  max-width: 960px;
-  box-shadow: -1px 0px 40px 0px #ffffff, -30px 0px 40px 0 rgba(15, 15, 15, 0.1);
-  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-  transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
-}
-
-.bubble_right {
-  width: 100%;
-  height: 350px;
-  background: #ffffff;
-  border-radius: 175px 175px 175px 175px;
-  align-items: center;
-  max-width: 960px;
-  box-shadow: 1px 0px 40px 0px #ffffff, 30px 0px 40px 0 rgba(15, 15, 15, 0.1);
-  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-  transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
-}
-</style>
-
 <template>
   <v-container fluid class="align-start" style="padding: 0px;">
     <v-row class="text-center">
@@ -788,5 +750,40 @@ export default {
 }
 .swiper-slide:nth-child(3n) {
   width: 70%;
+}
+.btn {
+  font-size: 20px;
+  border-radius: 26px;
+  text-align: center;
+  box-shadow: 14px 10px 40px 0 rgba(15, 15, 15, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 48px 0;
+}
+
+.bubble_left {
+  width: 100%;
+  height: 350px;
+  background: #ffffff;
+  border-radius: 175px 175px 175px 175px;
+  align-items: center;
+  max-width: 960px;
+  box-shadow: -1px 0px 40px 0px #ffffff, -30px 0px 40px 0 rgba(15, 15, 15, 0.1);
+  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
+}
+
+.bubble_right {
+  width: 100%;
+  height: 350px;
+  background: #ffffff;
+  border-radius: 175px 175px 175px 175px;
+  align-items: center;
+  max-width: 960px;
+  box-shadow: 1px 0px 40px 0px #ffffff, 30px 0px 40px 0 rgba(15, 15, 15, 0.1);
+  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
 }
 </style>

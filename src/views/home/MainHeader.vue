@@ -1,11 +1,3 @@
-<style>
-.titleFont {
-  font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-size: 16px;
-  color: #ffffff;
-}
-</style>
 <template>
   <!--  <v-app-bar app color="#00CFAC" absolute>-->
   <!--    style=" width: 100%; height:800px; background: linear-gradient(92deg, #00CFAC 0%, #5B7ADE 100%);"-->
@@ -30,7 +22,7 @@
             </div>
           </v-col>
           <v-col cols="7">
-            <div align="center" style="margin-top: 18px">
+            <div class="headMenu" align="center" style="margin-top: 18px">
               <v-row>
                 <v-col cols="1">
                   <div style="width: 50px; display: inline-flex">
@@ -80,53 +72,187 @@
             <!-- 已登录显示 -->
             <div v-show="!loginVue">
               <div class="d-inline-flex justify-space-around align-center">
-                <div style="display: inline-block;">
+                <div class="d-flex">
                   <router-link to="/login">
                     <div
-                      style="color: #FFFFFF; font-size:16px; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
-                    "
+                      class="titleFont"
+                      style="font-size:16px;"
                       @click="setIsLogin(true)"
                     >
                       订单
                     </div>
                   </router-link>
-                </div>
-                <div style="margin-left: 50px"></div>
-                <div style="display: inline-block;">
+                  <div style="width: 50px"></div>
                   <router-link to="/login">
                     <div
-                      style="color: #FFFFFF; font-size:16px; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
-                    "
+                      class="titleFont"
+                      style="font-size:16px;"
                       @click="setIsLogin(true)"
                     >
                       资金
                     </div>
                   </router-link>
                 </div>
-                <div style="margin-left: 50px"></div>
-                <div class="d-inline-flex justify-space-around align-center">
-                  <div>
-                    <v-img
-                      src="https://investors.oss-cn-beijing.aliyuncs.com/assets/loginTou.png"
-                      width="44px"
-                      height="44px"
-                    ></v-img>
-                  </div>
-                  <div style="margin-left: 10px"></div>
-                  <div
-                    id="user"
-                    class="align-center"
-                    style="font-size: 16px;
-                        font-family: Nunito-SemiBold, Nunito;
-                        font-weight: 600;
-                        color: #FFFFFF;
-                        line-height: 0px;
-                       "
+                <div style="width: 50px"></div>
+
+                <div class="text-center">
+                  <v-menu
+                    content-class="rounded-xl"
+                    v-model="menu"
+                    :close-on-content-click="false"
+                    :nudge-bottom="17"
+                    offset-y
+                    style="width: 250px; height: 410px;"
                   >
-                    {{ this.username }}
-                  </div>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn
+                        text
+                        rounded
+                        large
+                        color="transparent"
+                        class="d-inline-flex align-center"
+                        v-bind="attrs"
+                        v-on="on"
+                      >
+                        <div>
+                          <v-img
+                            src="https://investors.oss-cn-beijing.aliyuncs.com/assets/loginTou.png"
+                            width="44px"
+                            height="44px"
+                          ></v-img>
+                        </div>
+                        <div style="width: 8px"></div>
+                        <div
+                          v-text="username"
+                          style="font-size: 16px;
+                          font-weight: bold;
+                          color: #FFFFFF;"
+                        ></div>
+                      </v-btn>
+                    </template>
+                    <v-card>
+                      <v-list>
+                        <v-list-item>
+                          <v-list-item-content>
+                            <v-list-item-subtitle
+                              >总资产折合
+                              <v-icon
+                                id="eyeIcon"
+                                small
+                                @click="eyeShow"
+                                v-text="eyeFlag"
+                                style="margin-bottom: 3px"
+                              ></v-icon>
+                            </v-list-item-subtitle>
+                          </v-list-item-content>
+                        </v-list-item>
+                        <v-list-item>
+                          <v-list-item-title>
+                            <div
+                              class="d-inline-flex"
+                              style="font-size: 20px; font-weight: bold"
+                            >
+                              <div>******</div>
+                              <div style="width: 10px"></div>
+                              <div>USDT</div>
+                            </div>
+                          </v-list-item-title>
+                        </v-list-item>
+                        <v-list-item>
+                          <v-list-item-subtitle>
+                            <div>$ ******</div>
+                          </v-list-item-subtitle>
+                        </v-list-item>
+                        <v-list-item>
+                          <v-btn
+                            text
+                            style="width: 100px; height: 48px;
+                            box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04);
+                            border-radius: 8px;"
+                          >
+                            <div>
+                              充值
+                            </div>
+                          </v-btn>
+                          <div style="width: 10px"></div>
+                          <v-btn
+                            text
+                            style="width: 100px; height: 48px;
+                            box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04);
+                            border-radius: 8px;"
+                          >
+                            <div>
+                              提现
+                            </div>
+                          </v-btn>
+                        </v-list-item>
+                        <v-list-item>
+                          <v-list-item-content>
+                            <v-btn
+                              text
+                              style="width: 210px; height: 80px;
+                              background: linear-gradient(30deg, #00DEB8 50%, #5B7ADE 100%, #5F80E8 100%);
+                              box-shadow: 0 7px 8px 0 rgba(127, 127, 127, 0.09);
+                              border-radius: 4px;"
+                            >
+                              <div
+                                class="text-left"
+                                style="margin-right: 120px;"
+                              >
+                                <div
+                                  style="color: #FFFFFF; font-size: 16px; font-weight: bold"
+                                >
+                                  邀请好友
+                                </div>
+                                <div
+                                  style="color: #FFFFFF; font-size: 12px; font-weight: bold"
+                                >
+                                  赚取佣金
+                                </div>
+                              </div>
+                            </v-btn>
+                          </v-list-item-content>
+                        </v-list-item>
+                        <v-list-item>
+                          <v-list-item-content>
+                            <router-link to="/centerTab">
+                              <div style="cursor: pointer">个人中心</div>
+                            </router-link>
+                            <div style="height: 16px"></div>
+                            <router-link to="/">
+                              <div style="cursor: pointer">安全中心</div>
+                            </router-link>
+                            <div style="height: 16px"></div>
+                            <router-link to="/">
+                              <div style="cursor: pointer">退出</div>
+                            </router-link>
+                          </v-list-item-content>
+                        </v-list-item>
+                      </v-list>
+                      <!--                      <v-divider></v-divider>-->
+                    </v-card>
+                  </v-menu>
                 </div>
-                <div style="margin-left: 50px"></div>
+
+                <!--                <v-btn text class="d-inline-flex align-center">-->
+                <!--                  <div>-->
+                <!--                    <v-img-->
+                <!--                      src="https://investors.oss-cn-beijing.aliyuncs.com/assets/loginTou.png"-->
+                <!--                      width="44px"-->
+                <!--                      height="44px"-->
+                <!--                    ></v-img>-->
+                <!--                  </div>-->
+                <!--                  <div style="width: 8px"></div>-->
+                <!--                  <div-->
+                <!--                    style="font-size: 16px;-->
+                <!--                        font-weight: bold;-->
+                <!--                        color: #FFFFFF;-->
+                <!--                       "-->
+                <!--                  >-->
+                <!--                    {{ this.username }}-->
+                <!--                  </div>-->
+                <!--                </v-btn>-->
+                <div style="width: 50px"></div>
                 <div style="display: inline-flex;">
                   <v-img
                     src="https://investors.oss-cn-beijing.aliyuncs.com/assets/download.svg"
@@ -321,6 +447,11 @@ export default {
         backgroundAttachment: 'fixed',
         backgroundPosition: 'center',
       },
+      fav: true,
+      menu: false,
+      message: false,
+      hints: true,
+      eyeFlag: 'mdi-eye',
     }
   },
   mounted: function() {
@@ -334,7 +465,7 @@ export default {
       scrollAnimation(currentY, window.innerHeight)
     },
     GetMyData: function() {
-      var token = localStorage.getItem('token')
+      const token = localStorage.getItem('token')
       this.axios
         .post('/r0/getMyUserData', {}, { headers: { access_token: token } })
         .then(response => {
@@ -343,6 +474,13 @@ export default {
           this.username = response.data.UserName
           // console.log(response)
         })
+    },
+    eyeShow: function() {
+      if (this.eyeFlag === 'mdi-eye') {
+        this.eyeFlag = 'mdi-eye-off'
+      } else {
+        this.eyeFlag = 'mdi-eye'
+      }
     },
   },
 }
@@ -368,4 +506,17 @@ function scrollAnimation(currentY, targetY) {
 }
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.titleFont {
+  font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.headMenu {
+  font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 16px;
+}
+</style>
