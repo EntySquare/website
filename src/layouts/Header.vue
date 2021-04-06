@@ -80,7 +80,7 @@
             <div>
               <v-img
                 src="https://investors.oss-cn-beijing.aliyuncs.com/assets/user_logo.png"
-              ></v-img>
+              style='height: 40px;width: 40px'></v-img>
             </div>
             <div id="user" class="align-center">
               {{ this.$route.query.name }}
