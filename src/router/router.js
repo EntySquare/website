@@ -45,24 +45,36 @@ const routes = [
       },
     ],
   },
+  // {
+  //   path: '/',
+  //   name: 'CommonLayout',
+  //   component: CommonLayout,
+  //   children: [
+  //     {
+  //       path: '/product',
+  //       name: 'Product',
+  //       component: () => import('../views/product/Product.vue'),
+  //     },
+  //     {
+  //       path: '/bar',
+  //       name: 'Bar',
+  //       component: () => import('../views/demo/Bar.vue'),
+  //     },
+  //     {
+  //       path: '/home/resource/',
+  //       name: 'Resource',
+  //     },
+  //   ],
+  // },
   {
     path: '/',
     name: 'CommonLayout',
     component: CommonLayout,
     children: [
       {
-        path: '/product',
-        name: 'Product',
-        component: () => import('../views/product/Product.vue'),
-      },
-      {
-        path: '/bar',
-        name: 'Bar',
-        component: () => import('../views/demo/Bar.vue'),
-      },
-      {
-        path: '/home/resource/',
-        name: 'Resource',
+        path: '/centerTab/',
+        name: 'CenterTab',
+        component: () => import('../views/center/CenterTab.vue'),
       },
     ],
   },
