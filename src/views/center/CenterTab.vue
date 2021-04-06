@@ -201,25 +201,60 @@
             class="mx-auto"
             style="top: 28px; box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04); border-radius: 24px;"
           >
-            <v-card-title style="padding-top: 32px; padding-left: 32px">
-              <div style="font-size: 18px; font-weight: bold; color: #000000">
-                UID账号
+            <div class="d-inline-flex">
+              <div>
+                <v-card-title
+                  style="padding-top: 32px; padding-left: 32px; font-size: 16px"
+                >
+                  <div
+                    style="font-size: 18px; font-weight: bold; color: #000000"
+                  >
+                    UID账号
+                  </div>
+                </v-card-title>
+                <v-card-subtitle style="padding-left: 32px; font-size: 14px">
+                  INVESTORS号是账号的唯一凭证，只能设置一次
+                </v-card-subtitle>
               </div>
-            </v-card-title>
-            <v-card-subtitle style="padding-left: 32px">
-              INVESTORS号是账号的唯一凭证，只能设置一次
-            </v-card-subtitle>
+              <div style="width: 411px"></div>
+              <div style="padding-top: 44px">UID:10086</div>
+              <div style="width: 20px"></div>
+              <v-btn
+                text
+                style="width: 76px; height: 30px; margin-top: 39px; background: #F7F8FB;
+                       border-radius: 15px; color: #00CFAC; font-size: 14px; font-weight: 600;"
+                >修改</v-btn
+              >
+            </div>
             <v-divider
               style="width: 896px; color: #F5F5F5; margin-left: 30px"
             ></v-divider>
-            <v-card-title style="padding-left: 32px">
-              <div style="font-size: 18px; font-weight: bold; color: #000000">
-                实名认证
+            <div class="d-inline-flex">
+              <div>
+                <v-card-title style="padding-left: 32px">
+                  <div
+                    style="font-size: 18px; font-weight: bold; color: #000000"
+                  >
+                    实名认证
+                  </div>
+                </v-card-title>
+                <v-card-subtitle
+                  style="padding-left: 32px; padding-bottom: 32px"
+                >
+                  完成实名认证之后即可获得更高的日提现额度
+                </v-card-subtitle>
               </div>
-            </v-card-title>
-            <v-card-subtitle style="padding-left: 32px; padding-bottom: 32px">
-              完成实名认证之后即可获得更高的日提现额度
-            </v-card-subtitle>
+              <div style="width: 455px"></div>
+              <div style="padding-top: 44px">未认证</div>
+              <div style="width: 20px"></div>
+              <v-btn
+                text
+                outlined
+                style="width: 76px; height: 30px; margin-top: 39px; background: #F7F8FB;
+                       border-radius: 15px; color: #00CFAC; border: 1px solid #00CFAC; font-size: 14px; font-weight: 600"
+                >认证</v-btn
+              >
+            </div>
           </v-card>
           <div style="height: 72px"></div>
           <v-card
