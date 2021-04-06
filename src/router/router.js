@@ -33,6 +33,11 @@ const routes = [
         name: 'resetPwdEmail',
         component: () => import('../views/auth/ResetPasswordEmail.vue'),
       },
+      {
+        path: '/wallet',
+        name: 'wallet',
+        component: () => import('../views/wallet/index.vue'),
+      },
     ],
   },
   // {
