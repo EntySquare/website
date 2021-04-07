@@ -43,6 +43,11 @@ const routes = [
         name: 'assets',
         component: () => import('../views/wallet/assets.vue'),
       },
+      {
+        path: '/order',
+        name: 'order',
+        component: () => import('../views/financial/order.vue'),
+      },
     ],
   },
   // {
