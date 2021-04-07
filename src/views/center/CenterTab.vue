@@ -500,11 +500,298 @@
                   </div>
                   <div style="width: 20px"></div>
                   <v-btn
+                    v-show="setPayPwd"
                     text
                     style="width: 76px; height: 30px; margin-top: 20px; background: #F7F8FB;
                        border-radius: 15px; color: #00CFAC; font-size: 14px; font-weight: 600;"
+                    @click="payPwdFlag = true"
                     >设置
                   </v-btn>
+                  <v-btn
+                    v-show="updatePayPwd"
+                    text
+                    style="width: 76px; height: 30px; margin-top: 20px; background: #F7F8FB;
+                       border-radius: 15px; color: #00CFAC; font-size: 14px; font-weight: 600;"
+                    @click="payPwdUpdateFlag = true"
+                    >修改
+                  </v-btn>
+                  <v-dialog
+                    content-class="rounded-xl"
+                    v-model="payPwdFlag"
+                    width="400"
+                    height="544"
+                  >
+                    <div
+                      style="height: 544px;width: 400px;background: #FFFFFF; padding: 30px"
+                    >
+                      <v-img
+                        class="mx-auto"
+                        width="80px"
+                        height="80px"
+                        src="https://investors.oss-cn-beijing.aliyuncs.com/assets/userCenter/dun.png"
+                        style="margin-top: 42px"
+                      ></v-img>
+
+                      <div style="height: 28px"></div>
+                      <div
+                        class="mx-auto"
+                        style="width: 144px; height: 24px; font-size: 24px; font-weight: 600; color: #000000; line-height: 24px;"
+                      >
+                        设置支付密码
+                      </div>
+                      <div style="height: 28px"></div>
+                      <div
+                        class="mx-auto text-center"
+                        style="width: 266px; height: 22px; font-size: 14px; font-weight: 400; color: #808080; line-height: 22px;"
+                      >
+                        支付密码是保障您资产安全的重要凭证，请妥善保管。
+                      </div>
+                      <div style="height: 40px"></div>
+                      <div class="row-center captcha_input_wrapper">
+                        <input
+                          autocomplete="off"
+                          v-for="(item, index) in setCaptchas"
+                          :key="index"
+                          v-model="item.num"
+                          :id="'captcha' + index"
+                          @input="inputFinish(index)"
+                          @focus="adjust(index)"
+                          @keydown="inputDirection(index)"
+                          class="captcha_input_box row-center"
+                          type="tel"
+                          maxlength="1"
+                        />
+                      </div>
+                    </div>
+                  </v-dialog>
+                  <v-dialog
+                    content-class="rounded-xl"
+                    v-model="payPwdAffFlag"
+                    width="400"
+                    height="544"
+                  >
+                    <div
+                      style="height: 544px;width: 400px;background: #FFFFFF; padding: 30px"
+                    >
+                      <v-img
+                        class="mx-auto"
+                        width="80px"
+                        height="80px"
+                        src="https://investors.oss-cn-beijing.aliyuncs.com/assets/userCenter/dun.png"
+                        style="margin-top: 42px"
+                      ></v-img>
+
+                      <div style="height: 28px"></div>
+                      <div
+                        class="mx-auto text-center"
+                        style="width: 144px; height: 24px; font-size: 24px; font-weight: 600; color: #000000; line-height: 24px;"
+                      >
+                        请再一次输入
+                      </div>
+                      <div style="height: 28px"></div>
+                      <div
+                        class="mx-auto text-center"
+                        style="width: 266px; height: 22px; font-size: 14px; font-weight: 400; color: #808080; line-height: 22px;"
+                      >
+                        支付密码是保障您资产安全的重要凭证，请妥善保管。
+                      </div>
+                      <div style="height: 40px"></div>
+                      <div class="row-center captcha_input_wrapper">
+                        <input
+                          autocomplete="off"
+                          v-for="(item, index) in affCaptchas"
+                          :key="index"
+                          v-model="item.num"
+                          :id="'affCaptcha' + index"
+                          @input="inputFinishAff(index)"
+                          @focus="adjustAff(index)"
+                          @keydown="inputDirectionAff(index)"
+                          class="captcha_input_box row-center"
+                          type="tel"
+                          maxlength="1"
+                        />
+                      </div>
+                    </div>
+                  </v-dialog>
+                  <v-dialog
+                    content-class="rounded-xl"
+                    v-model="payPwdUpdateFlag"
+                    width="400"
+                    height="544"
+                  >
+                    <div
+                      style="height: 544px;width: 400px;background: #FFFFFF; padding: 30px"
+                    >
+                      <v-img
+                        class="mx-auto"
+                        width="80px"
+                        height="80px"
+                        src="https://investors.oss-cn-beijing.aliyuncs.com/assets/userCenter/dun.png"
+                        style="margin-top: 42px"
+                      ></v-img>
+
+                      <div style="height: 28px"></div>
+                      <div
+                        class="mx-auto text-center"
+                        style="width: 144px; height: 24px; font-size: 24px; font-weight: 600; color: #000000; line-height: 24px;"
+                      >
+                        修改支付密码
+                      </div>
+                      <div style="height: 28px"></div>
+                      <div
+                        class="mx-auto text-center"
+                        style="width: 196px; height: 22px; font-size: 14px; font-weight: 400; color: #808080; line-height: 22px;"
+                      >
+                        请输入原支付密码，以验证身份
+                      </div>
+                      <div style="height: 40px"></div>
+                      <div class="row-center captcha_input_wrapper">
+                        <input
+                          autocomplete="off"
+                          v-for="(item, index) in updateCaptchas"
+                          :key="index"
+                          v-model="item.num"
+                          :id="'updateCaptcha' + index"
+                          @input="inputFinishUpdate(index)"
+                          @focus="adjustUpdate(index)"
+                          @keydown="inputDirectionUpdate(index)"
+                          class="captcha_input_box row-center"
+                          type="tel"
+                          maxlength="1"
+                        />
+                      </div>
+                      <div style="height: 28px"></div>
+                      <div
+                        class="text-center"
+                        style="width: 100%;height: 14px;font-size: 14px;font-weight: 400;color: #00CFAC;
+                        line-height: 14px; cursor: pointer"
+                        @click="
+                          payPwdUpdateFlag = false
+                          forgetPayPwdFlag = true
+                        "
+                      >
+                        忘记密码？
+                      </div>
+                    </div>
+                  </v-dialog>
+                  <v-dialog
+                    content-class="rounded-xl"
+                    v-model="payPwdNewFlag"
+                    width="400"
+                    height="544"
+                  >
+                    <div
+                      style="height: 544px;width: 400px;background: #FFFFFF; padding: 30px"
+                    >
+                      <v-img
+                        class="mx-auto"
+                        width="80px"
+                        height="80px"
+                        src="https://investors.oss-cn-beijing.aliyuncs.com/assets/userCenter/dun.png"
+                        style="margin-top: 42px"
+                      ></v-img>
+
+                      <div style="height: 28px"></div>
+                      <div
+                        class="mx-auto text-center"
+                        style="width: 168px; height: 24px; font-size: 24px; font-weight: 600; color: #000000; line-height: 24px;"
+                      >
+                        设置新支付密码
+                      </div>
+                      <div style="height: 28px"></div>
+                      <div
+                        class="mx-auto text-center"
+                        style="width: 266px; height: 22px; font-size: 14px; font-weight: 400; color: #808080; line-height: 22px;"
+                      >
+                        支付密码是保障您资产安全的重要凭证，请妥善保管。
+                      </div>
+                      <div style="height: 40px"></div>
+                      <div class="row-center captcha_input_wrapper">
+                        <input
+                          autocomplete="off"
+                          v-for="(item, index) in newCaptchas"
+                          :key="index"
+                          v-model="item.num"
+                          :id="'newCaptcha' + index"
+                          @input="inputFinishNew(index)"
+                          @focus="adjustNew(index)"
+                          @keydown="inputDirectionNew(index)"
+                          class="captcha_input_box row-center"
+                          type="tel"
+                          maxlength="1"
+                        />
+                      </div>
+                    </div>
+                  </v-dialog>
+                  <v-dialog
+                    content-class="rounded-xl"
+                    v-model="forgetPayPwdFlag"
+                    width="400"
+                    height="544"
+                  >
+                    <div
+                      style="height: 544px;width: 400px;background: #FFFFFF; padding: 48px 30px 40px 30px"
+                    >
+                      <div
+                        class="text-center"
+                        style="width: 100%; height: 24px; font-size: 24px;
+                        font-weight: 600; color: #000000; line-height: 24px;"
+                      >
+                        找回支付密码
+                      </div>
+                      <div style="height: 56px"></div>
+                      <v-text-field
+                        autocomplete="off"
+                        label="输入登录密码"
+                        single-line
+                        filled
+                        dense
+                        rounded
+                      ></v-text-field>
+                      <v-text-field
+                        autocomplete="off"
+                        label="输入手机验证码"
+                        v-model="checkCode"
+                        single-line
+                        filled
+                        dense
+                        rounded
+                      >
+                      </v-text-field>
+                      <span
+                        style="color: #00CFAC;width: 100%; position: absolute; margin-top: -55px;
+                        margin-left: 240px; font-size: 14px; font-weight: 600; cursor: pointer"
+                        @click="sendCode()"
+                        v-show="sendCodeVue"
+                        >发送验证码
+                      </span>
+                      <span
+                        v-show="!sendCodeVue"
+                        style="color: #00CFAC; position: absolute; margin-top: -57px;
+                        margin-left: 240px; cursor: pointer"
+                      >
+                        <p>{{ authTime }} S</p>
+                      </span>
+                      <v-text-field
+                        autocomplete="off"
+                        label="输入谷歌验证码"
+                        single-line
+                        filled
+                        dense
+                        rounded
+                      >
+                      </v-text-field>
+                      <div style="height: 122px"></div>
+                      <v-btn
+                        width="340px"
+                        height="56px"
+                        text
+                        rounded
+                        style="color: #FFFFFF; background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);"
+                        >确定</v-btn
+                      >
+                    </div>
+                  </v-dialog>
                 </div>
               </v-col>
             </v-row>
@@ -914,6 +1201,47 @@ export default {
       fishFlag: false,
       fishCode: '',
       updatePwdFlag: false,
+      payPwdFlag: false,
+      payPwdAffFlag: false,
+      payPwdUpdateFlag: false,
+      payPwdNewFlag: false,
+      forgetPayPwdFlag: false,
+      //验证码数据
+      activeInput: 0,
+      setCaptchas: [
+        { num: '' },
+        { num: '' },
+        { num: '' },
+        { num: '' },
+        { num: '' },
+        { num: '' },
+      ],
+      affCaptchas: [
+        { num: '' },
+        { num: '' },
+        { num: '' },
+        { num: '' },
+        { num: '' },
+        { num: '' },
+      ],
+      updateCaptchas: [
+        { num: '' },
+        { num: '' },
+        { num: '' },
+        { num: '' },
+        { num: '' },
+        { num: '' },
+      ],
+      newCaptchas: [
+        { num: '' },
+        { num: '' },
+        { num: '' },
+        { num: '' },
+        { num: '' },
+        { num: '' },
+      ],
+      setPayPwd: true,
+      updatePayPwd: false,
     }
   },
   methods: {
@@ -942,8 +1270,179 @@ export default {
           }, 1000)
         })
     },
+    //验证码函数 自动校准输入顺序
+    adjust(index) {
+      let dom = document.getElementById('captcha' + this.activeInput)
+      if (index !== this.activeInput && dom) {
+        dom.focus()
+      }
+    },
+    //验证码函数 控制前后方向
+    inputDirection(index) {
+      let val = this.setCaptchas[index].num
+      // 回退键处理
+      if (event.keyCode === 8 && val === '') {
+        // 重新校准
+        let dom = document.getElementById('captcha' + (index - 1))
+        this.activeInput = index - 1
+        if (dom) dom.focus()
+      }
+      if (event.keyCode !== 8 && val !== '') {
+        let dom = document.getElementById('captcha' + (index + 1))
+        this.activeInput = index + 1
+        if (dom) dom.focus()
+      }
+    },
+    //验证码函数 输入框相互联动
+    inputFinish(index) {
+      let val = this.setCaptchas[index].num
+      this.activeInput = val ? index + 1 : index - 1
+      let dom = document.getElementById('captcha' + this.activeInput)
+      if (dom) dom.focus()
+      if (index === this.setCaptchas.length - 1) {
+        let code = this.setCaptchas.map(x => x.num).join('')
+        if (code.length === 6) {
+          this.payPwdFlag = false
+          this.payPwdAffFlag = true
+        }
+      }
+    },
+    //验证码函数 自动校准输入顺序
+    adjustAff(index) {
+      let dom = document.getElementById('affCaptcha' + this.activeInput)
+      if (index !== this.activeInput && dom) {
+        dom.focus()
+      }
+    },
+    //验证码函数 控制前后方向
+    inputDirectionAff(index) {
+      let val = this.affCaptchas[index].num
+      // 回退键处理
+      if (event.keyCode === 8 && val === '') {
+        // 重新校准
+        let dom = document.getElementById('affCaptcha' + (index - 1))
+        this.activeInput = index - 1
+        if (dom) dom.focus()
+      }
+      if (event.keyCode !== 8 && val !== '') {
+        let dom = document.getElementById('affCaptcha' + (index + 1))
+        this.activeInput = index + 1
+        if (dom) dom.focus()
+      }
+    },
+    //验证码函数 输入框相互联动
+    inputFinishAff(index) {
+      let val = this.affCaptchas[index].num
+      this.activeInput = val ? index + 1 : index - 1
+      let dom = document.getElementById('affCaptcha' + this.activeInput)
+      if (dom) dom.focus()
+      if (index === this.affCaptchas.length - 1) {
+        let code = this.affCaptchas.map(x => x.num).join('')
+        if (code.length === 6) {
+          this.payPwdAffFlag = false
+          this.setPayPwd = false
+          this.updatePayPwd = true
+        }
+      }
+    },
+
+    //验证码函数 自动校准输入顺序
+    adjustUpdate(index) {
+      let dom = document.getElementById('updateCaptcha' + this.activeInput)
+      if (index !== this.activeInput && dom) {
+        dom.focus()
+      }
+    },
+    //验证码函数 控制前后方向
+    inputDirectionUpdate(index) {
+      let val = this.updateCaptchas[index].num
+      // 回退键处理
+      if (event.keyCode === 8 && val === '') {
+        // 重新校准
+        let dom = document.getElementById('updateCaptcha' + (index - 1))
+        this.activeInput = index - 1
+        if (dom) dom.focus()
+      }
+      if (event.keyCode !== 8 && val !== '') {
+        let dom = document.getElementById('updateCaptcha' + (index + 1))
+        this.activeInput = index + 1
+        if (dom) dom.focus()
+      }
+    },
+    //验证码函数 输入框相互联动
+    inputFinishUpdate(index) {
+      let val = this.updateCaptchas[index].num
+      this.activeInput = val ? index + 1 : index - 1
+      let dom = document.getElementById('updateCaptcha' + this.activeInput)
+      if (dom) dom.focus()
+      if (index === this.updateCaptchas.length - 1) {
+        let code = this.updateCaptchas.map(x => x.num).join('')
+        if (code.length === 6) {
+          this.payPwdUpdateFlag = false
+          this.payPwdNewFlag = true
+        }
+      }
+    },
+
+    //验证码函数 自动校准输入顺序
+    adjustNew(index) {
+      let dom = document.getElementById('newCaptcha' + this.activeInput)
+      if (index !== this.activeInput && dom) {
+        dom.focus()
+      }
+    },
+    //验证码函数 控制前后方向
+    inputDirectionNew(index) {
+      let val = this.newCaptchas[index].num
+      // 回退键处理
+      if (event.keyCode === 8 && val === '') {
+        // 重新校准
+        let dom = document.getElementById('newCaptcha' + (index - 1))
+        this.activeInput = index - 1
+        if (dom) dom.focus()
+      }
+      if (event.keyCode !== 8 && val !== '') {
+        let dom = document.getElementById('newCaptcha' + (index + 1))
+        this.activeInput = index + 1
+        if (dom) dom.focus()
+      }
+    },
+    //验证码函数 输入框相互联动
+    inputFinishNew(index) {
+      let val = this.newCaptchas[index].num
+      this.activeInput = val ? index + 1 : index - 1
+      let dom = document.getElementById('newCaptcha' + this.activeInput)
+      if (dom) dom.focus()
+      if (index === this.newCaptchas.length - 1) {
+        let code = this.newCaptchas.map(x => x.num).join('')
+        if (code.length === 6) {
+          this.payPwdNewFlag = false
+        }
+      }
+    },
   },
 }
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.row-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.captcha_input_wrapper {
+  width: 100%;
+}
+.captcha_input_box {
+  width: 45px;
+  height: 45px;
+  margin-right: 12px;
+  background: #f7f8fb;
+  border-radius: 6px;
+  text-align: center;
+  color: rgb(27, 215, 167);
+  border: none;
+  outline: medium;
+}
+</style>
