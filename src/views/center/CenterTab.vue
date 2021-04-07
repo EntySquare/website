@@ -226,6 +226,7 @@
               <div style="padding-top: 44px">UID:10086</div>
               <div style="width: 20px"></div>
               <v-btn
+                @click.stop="user_up2 = true"
                 text
                 style="width: 76px; height: 30px; margin-top: 39px; background: #F7F8FB;
                        border-radius: 15px; color: #00CFAC; font-size: 14px; font-weight: 600;"
@@ -281,6 +282,7 @@
               <div style="width: 700px"></div>
               <div style="margin-left: 32px; padding-top: 32px">
                 <v-btn
+                  @click.stop="addqianbao1 = true"
                   text
                   outlined
                   style="width: 76px; height: 30px; background: #F7F8FB;
@@ -1162,6 +1164,175 @@ color: #E82268;'>
         </v-row>
       </div>
     </v-dialog>
+    <!-- 设置INVESTORS帐号 user_up2 -->
+    <v-dialog
+      content-class='rounded-xl'
+      v-model="user_up2"
+      width="450"
+      height='544'
+    >
+      <div
+        style='height: 544px;width: 450px;background: #FFFFFF;'>
+        <v-row style='height: 60px;width: 100%;margin: 0px'>
+          <span style='font-size: 24px;margin: 30px 33px 32px 45px ;
+            font-family: PingFang-SC-Semibold, PingFang-SC;
+            font-weight: 600;
+            color: #000000;'>设置INVESTORS帐号</span>
+        </v-row>
+        <v-row style='height: 20px'></v-row>
+        <v-row>
+          <v-col cols='1'></v-col>
+          <v-col cols='10' >
+            <v-row>
+              <v-col cols='2'>
+                <img src="https://investors.oss-cn-beijing.aliyuncs.com/assets/usertou9912.png"  style="height: 64px; width: 64px;">
+              </v-col>
+              <v-col cols='10'>
+                <p style='font-size: 18px;padding: 0px;margin: 8px 3px 5px 8px;
+                  font-family: Nunito-SemiBold, Nunito;
+                  font-weight: 600;
+                  color: #000000;'>
+                  Cami Ho
+                </p>
+                <p style='font-size: 16px;padding: 0px;margin:  1px 2px 3px 8px;
+                          font-family: Nunito-Regular, Nunito;
+                          font-weight: 400;
+                          color: #808080;
+                          line-height: 16px;'>
+                  帐号：
+                </p>
+              </v-col>
+            </v-row>
+            <v-row style='padding: 10px'>
+                <v-text-field
+                  autocomplete="off"
+                  label="输入你的帐号"
+                  v-model="checkCode"
+                  single-line
+                  filled
+                  dense
+                  rounded
+                ></v-text-field>
+            </v-row>
+            <v-row style='padding: 0px 15px 0px 15px'>
+              <span style='font-size: 12px;
+                            font-family: Nunito-Regular, Nunito;
+                            font-weight: 400;
+                            color: #6D6D72;'>
+                ·INVESTORS号是账号的唯一凭证，只能设置一次。
+              <p style='padding: 0px'>
+                  ·如果没有设置过INVESTORS号，INVESTORS好友会看到你在系统自动生成的INVESTORS号，但是不能通过系统生成的INVESTORS号找到你。
+              </p>
+              </span>
+            </v-row>
+            <v-row style='height: 90px'></v-row>
+          </v-col>
+          <v-col cols='1'></v-col>
+        </v-row>
+        <v-row>
+          <v-col cols='1'></v-col>
+          <v-col cols='10' >
+            <v-btn
+              style="background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);color: #FFFFFF"
+              depressed
+              bottom
+              rounded
+              large
+              block
+              @click="gugeApi2"
+            >
+              下一步
+            </v-btn>
+          </v-col>
+          <v-col cols='1'></v-col>
+        </v-row>
+      </div>
+    </v-dialog>
+
+    <!-- 添加钱包地址 addqianbao1 -->
+    <v-dialog
+      content-class='rounded-xl'
+      v-model="addqianbao1"
+      width="450"
+      height='544'
+    >
+      <div
+        style='height: 544px;width: 450px;background: #FFFFFF;'>
+        <v-row style='height: 60px;width: 100%;margin: 0px'>
+          <span style='font-size: 24px;margin: 30px 33px 32px 38px ;
+            font-family: PingFang-SC-Semibold, PingFang-SC;
+            font-weight: 600;
+            color: #000000;'>添加地址</span>
+        </v-row>
+        <v-row>
+          <v-col cols='1'></v-col>
+          <v-col cols='10' >
+            <div style='width: 100%;height: 70px'></div>
+            <v-row style='padding: 10px;height: 50px'>
+              <v-select
+                v-model="areaCode3"
+                label="币种"
+                :items="areaCodes3"
+                single-line
+                filled
+                dense
+                rounded
+              ></v-select>
+            </v-row>
+            <v-row style='height: 20px'></v-row>
+            <v-row style='padding: 10px;height: 50px'>
+              <v-text-field
+                autocomplete="off"
+                label="请输入钱包地址"
+                v-model="checkCode"
+                single-line
+                filled
+                dense
+                rounded
+              ></v-text-field>
+            </v-row>
+            <v-row style='height: 20px'></v-row>
+            <v-row style='height: 20px;'>
+              <span style='margin: 0px 0px 1px 16px;font-weight: 600;
+              color: #000000;'>
+                备注
+              </span>
+            </v-row>
+            <v-row style='padding: 10px'>
+              <v-text-field
+                autocomplete="off"
+                label="请输入备注"
+                v-model="checkCode"
+                single-line
+                filled
+                dense
+                rounded
+              ></v-text-field>
+            </v-row>
+
+          </v-col>
+          <v-col cols='1'></v-col>
+        </v-row>
+        <div style='height: 100px;width: 100%'></div>
+        <v-row>
+          <v-col cols='1'></v-col>
+          <v-col cols='10' >
+            <v-btn
+              style="background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);color: #FFFFFF"
+              depressed
+              bottom
+              rounded
+              large
+              block
+              @click="submit"
+            >
+              绑定
+            </v-btn>
+          </v-col>
+          <v-col cols='1'></v-col>
+        </v-row>
+      </div>
+    </v-dialog>
   </div>
 
 </template>
@@ -1196,7 +1367,11 @@ export default {
       googleyz1:false,//谷歌验证页面1
       googleyz2:false,//谷歌验证页面1
       googleyz3:false,//谷歌验证页面1
+      user_up2:false,//设置INVESTORS帐号
+      addqianbao1:false,//添加钱包地址
       sendCodeVue2: true, // 控制发送验证码按钮显示
+      areaCode3: 'HSF',//下拉多选
+      areaCodes3: ['HSF', 'USDT'],//下拉多选
       dataObj: {//二维码
         gugeurl1: 'https://blog.csdn.net/weixin_43760328/rss/list',//谷歌提示页面1 二维码数据1
         gugeurl2: 'https://1323123131223',//谷歌提示页面1 二维码数据2
