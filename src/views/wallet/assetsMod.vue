@@ -34,6 +34,7 @@
           </v-col>
           <v-col cols='6'>
             <v-row>
+              <v-col cols='3'></v-col>
             <v-col cols='3'>
 
               <v-menu offset-y >
@@ -130,8 +131,8 @@
               </v-bottom-sheet>
 
             </v-col>
-            <v-col cols='3' offset-y>
-              <v-menu  >
+            <v-col cols='3'>
+              <v-menu offset-y>
                 <template v-slot:activator="{ on, attrs }">
                   <v-btn
                     v-bind="attrs"
@@ -244,7 +245,101 @@
               </v-bottom-sheet>
 
             </v-col>
+              <v-col cols='3'>
+                <v-menu offset-y>
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-btn
+                      v-bind="attrs"
+                      v-on="on"
+                      style="background: #F7F8FB;color: #000000"
+                      depressed
+                      bottom
+                      rounded
+                      height='28'
+                      width='106'
+                    >
+                    <span style='font-size: 12px;
+                          font-family: PingFangSC-Regular, PingFang SC;
+                          font-weight: 400;
+                          color: #1BD7A7;'>
+                    7天内</span>
+                    </v-btn>
+                  </template>
+                  <v-list>
+                    <v-list-item @click="onClick">
+                      <v-list-item-title>
+                        <v-btn
+                          class='rounded-lg'
+                          style="background: #FFFFFF;color: #000000"
+                          depressed
+                          bottom
+                          rounded
+                          block
+                          height='48'
+                        >
+                        <span style='font-size: 14px;
+                              font-family: Nunito-SemiBold, Nunito;
+                              font-weight: 600;
+                              color: #000000;'>
+                        30天内</span>
+                        </v-btn>
+                      </v-list-item-title>
+                    </v-list-item>
+                    <v-list-item @click="onClick">
+                      <v-list-item-title>
+                        <v-btn
+                          class='rounded-lg'
+                          style="background: #FFFFFF;color: #000000"
+                          depressed
+                          bottom
+                          rounded
+                          block
+                          height='48'
+                        >
+                        <span style='font-size: 14px;
+                              font-family: Nunito-SemiBold, Nunito;
+                              font-weight: 600;
+                              color: #000000;'>
+                        半年内</span>
+                        </v-btn>
+                      </v-list-item-title>
+                    </v-list-item>
 
+                    <v-list-item @click="onClick">
+                      <v-list-item-title>
+                        <v-btn
+                          class='rounded-lg'
+                          style="background: #FFFFFF;color: #000000"
+                          depressed
+                          bottom
+                          rounded
+                          block
+                          height='48'
+                        >
+                        <span style='font-size: 14px;
+                              font-family: Nunito-SemiBold, Nunito;
+                              font-weight: 600;
+                              color: #000000;'>
+                          全部</span>
+                        </v-btn>
+                      </v-list-item-title>
+                    </v-list-item>
+                  </v-list>
+                </v-menu>
+
+                <v-bottom-sheet v-model="sheet" scrollable>
+                  <v-sheet
+                    small
+                    class="text-center"
+                    height="200px"
+                  >
+                    <div class="py-3">
+                      This is a bottom sheet using the controlled by v-model instead of activator
+                    </div>
+                  </v-sheet>
+                </v-bottom-sheet>
+
+              </v-col>
               </v-row>
           </v-col>
         </v-row>
