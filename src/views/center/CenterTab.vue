@@ -1180,63 +1180,79 @@
     </div>
     <!-- 谷歌验证页1 -->
     <v-dialog
-      content-class='rounded-xl'
+      content-class="rounded-xl"
       v-model="googleyz1"
       width="450"
-      height='544'
+      height="544"
     >
-      <div
-        style='height: 544px;width: 450px;background: #FFFFFF;'>
-        <v-row style='height: 60px;width: 100%;margin: 0px'>
-          <span style='font-size: 24px;margin: 30px 33px 32px 45px ;
+      <div style="height: 544px;width: 450px;background: #FFFFFF;">
+        <v-row style="height: 60px;width: 100%;margin: 0px">
+          <span
+            style="font-size: 24px;margin: 30px 33px 32px 45px ;
             font-family: PingFang-SC-Semibold, PingFang-SC;
             font-weight: 600;
-            color: #000000;'>绑定谷歌验证器</span>
+            color: #000000;"
+            >绑定谷歌验证器</span
+          >
         </v-row>
-        <v-row style='height: 20px'></v-row>
+        <v-row style="height: 20px"></v-row>
         <v-row>
-          <v-col cols='1'></v-col>
-          <v-col cols='10' >
-            <span style='font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 600;color: #000000;'>
-              <p style='padding: 0px;margin: 0px'>
+          <v-col cols="1"></v-col>
+          <v-col cols="10">
+            <span
+              style="font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 600;color: #000000;"
+            >
+              <p style="padding: 0px;margin: 0px">
                 下载并安装谷歌验证器（Google Authenticator)
               </p>
-              <p style='padding: 0px;margin: 0px'>
+              <p style="padding: 0px;margin: 0px">
                 若成功，请跳转到下一步
               </p>
             </span>
-            <div style='width: 100%;height: 30px'></div>
+            <div style="width: 100%;height: 30px"></div>
             <v-row>
-              <v-col slot='6'>
-                <img src="https://investors.oss-cn-beijing.aliyuncs.com/assets/heiseshanjiao1.png"  style="height: 48px; width: 168px;">
+              <v-col slot="6">
+                <img
+                  src="https://investors.oss-cn-beijing.aliyuncs.com/assets/heiseshanjiao1.png"
+                  style="height: 48px; width: 168px;"
+                />
               </v-col>
-              <v-col slot='6'>
-                <img src="https://investors.oss-cn-beijing.aliyuncs.com/assets/heisepingguo1.png"  style="height: 48px; width: 168px;">
+              <v-col slot="6">
+                <img
+                  src="https://investors.oss-cn-beijing.aliyuncs.com/assets/heisepingguo1.png"
+                  style="height: 48px; width: 168px;"
+                />
               </v-col>
             </v-row>
             <v-row>
-              <v-col slot='6'>
-                <vue-qr ref="Qrcode"
-                        :text="dataObj.gugeurl1"
-                        :callback="test" qid="testQrId"
-                        margin="15"
-                        size='170'></vue-qr>
+              <v-col slot="6">
+                <vue-qr
+                  ref="Qrcode"
+                  :text="dataObj.gugeurl1"
+                  :callback="test"
+                  qid="testQrId"
+                  margin="15"
+                  size="170"
+                ></vue-qr>
               </v-col>
-              <v-col slot='6'>
-                <vue-qr ref="Qrcode"
-                        :text="dataObj.gugeurl2"
-                        :callback="test" qid="testQrId"
-                        margin="15"
-                        size='170'></vue-qr>
+              <v-col slot="6">
+                <vue-qr
+                  ref="Qrcode"
+                  :text="dataObj.gugeurl2"
+                  :callback="test"
+                  qid="testQrId"
+                  margin="15"
+                  size="170"
+                ></vue-qr>
               </v-col>
             </v-row>
           </v-col>
-          <v-col cols='1'></v-col>
+          <v-col cols="1"></v-col>
         </v-row>
 
         <v-row>
-          <v-col cols='1'></v-col>
-          <v-col cols='10' >
+          <v-col cols="1"></v-col>
+          <v-col cols="10">
             <v-btn
               style="background: linear-gradient(90deg, #00CFAC 0%, #5B7ADE 100%);color: #FFFFFF"
               depressed
@@ -1249,55 +1265,62 @@
               下一步
             </v-btn>
           </v-col>
-          <v-col cols='1'></v-col>
+          <v-col cols="1"></v-col>
         </v-row>
       </div>
     </v-dialog>
     <!-- 谷歌验证页2 googleyz2 -->
     <v-dialog
-      content-class='rounded-xl'
+      content-class="rounded-xl"
       v-model="googleyz2"
       width="450"
-      height='544'
+      height="544"
     >
-      <div
-        style='height: 544px;width: 450px;background: #FFFFFF;'>
-        <v-row style='height: 60px;width: 100%;margin: 0px'>
-          <span style='font-size: 24px;margin: 30px 33px 32px 45px ;
+      <div style="height: 544px;width: 450px;background: #FFFFFF;">
+        <v-row style="height: 60px;width: 100%;margin: 0px">
+          <span
+            style="font-size: 24px;margin: 30px 33px 32px 45px ;
             font-family: PingFang-SC-Semibold, PingFang-SC;
             font-weight: 600;
-            color: #000000;'>复制密钥</span>
+            color: #000000;"
+            >复制密钥</span
+          >
         </v-row>
-        <v-row style='height: 20px'></v-row>
+        <v-row style="height: 20px"></v-row>
         <v-row>
-          <v-col cols='1'></v-col>
-          <v-col cols='10' >
-            <span style='font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 500;color: #000000;'>
+          <v-col cols="1"></v-col>
+          <v-col cols="10">
+            <span
+              style="font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 500;color: #000000;"
+            >
               使用谷歌验证器扫描屏幕中的二维码，或复制粘贴密钥到谷歌验证器中。若已完成，请跳转到下一步
             </span>
-            <div style='width: 100%;height: 30px'></div>
+            <div style="width: 100%;height: 30px"></div>
 
-            <v-row style='padding: 0px 0px 0px 100px;'>
-              <vue-qr ref="Qrcode"
-                      :text="dataObj.gugeurl3"
-                      :callback="test" qid="testQrId"
-                      margin="15"
-                      size='190'></vue-qr>
+            <v-row style="padding: 0px 0px 0px 100px;">
+              <vue-qr
+                ref="Qrcode"
+                :text="dataObj.gugeurl3"
+                :callback="test"
+                qid="testQrId"
+                margin="15"
+                size="190"
+              ></vue-qr>
             </v-row>
           </v-col>
-          <v-col cols='1'></v-col>
+          <v-col cols="1"></v-col>
         </v-row>
-        <v-row style='height: 100px;width: 100%'>
-          <v-col cols='1'></v-col>
-          <v-col cols='10'>
+        <v-row style="height: 100px;width: 100%">
+          <v-col cols="1"></v-col>
+          <v-col cols="10">
             <v-text-field
-              background-color='#F7F8FB'
+              background-color="#F7F8FB"
               autocomplete="off"
-              value='0x852915c9b371833c93eeaeeb2b7f6bb5557eaa41'
+              value="0x852915c9b371833c93eeaeeb2b7f6bb5557eaa41"
               single-line
               filled
               rounded
-              height='50'
+              height="50"
             >
               <template v-slot:append>
                 <v-fade-transition leave-absolute>
@@ -1313,27 +1336,25 @@
                     height="15"
                     src="https://investors.oss-cn-beijing.aliyuncs.com/assets/fuzhi.png"
                     alt=""
-                  >
+                  />
                 </v-fade-transition>
               </template>
-
             </v-text-field>
-            <div style='position:relative;
+            <div
+              style="position:relative;
                         left:106px;
-                        bottom:26px;'>
-              <samp style='font-size: 12px;
-font-family: PingFangSC-Medium, PingFang SC;
-font-weight: 500;
-color: #E82268;'>
+                        bottom:26px;"
+            >
+              <samp style="font-size: 12px;font-weight: 500;color: #E82268;">
                 为防止密钥丢失，请及时备份
               </samp>
             </div>
           </v-col>
-          <v-col cols='1'></v-col>
+          <v-col cols="1"></v-col>
         </v-row>
         <v-row>
-          <v-col cols='1'></v-col>
-          <v-col cols='10' >
+          <v-col cols="1"></v-col>
+          <v-col cols="10">
             <v-btn
               style="background: linear-gradient(90deg, #00CFAC 0%, #5B7ADE 100%);color: #FFFFFF"
               depressed
@@ -1346,34 +1367,38 @@ color: #E82268;'>
               下一步
             </v-btn>
           </v-col>
-          <v-col cols='1'></v-col>
+          <v-col cols="1"></v-col>
         </v-row>
       </div>
     </v-dialog>
     <!-- 谷歌验证页3 googleyz3 -->
     <v-dialog
-      content-class='rounded-xl'
+      content-class="rounded-xl"
       v-model="googleyz3"
       width="450"
-      height='544'
+      height="544"
     >
-      <div
-        style='height: 544px;width: 450px;background: #FFFFFF;'>
-        <v-row style='height: 60px;width: 100%;margin: 0px'>
-          <span style='font-size: 24px;margin: 30px 33px 32px 38px ;
+      <div style="height: 544px;width: 450px;background: #FFFFFF;">
+        <v-row style="height: 60px;width: 100%;margin: 0px">
+          <span
+            style="font-size: 24px;margin: 30px 33px 32px 38px ;
             font-family: PingFang-SC-Semibold, PingFang-SC;
             font-weight: 600;
-            color: #000000;'>启用谷歌认证</span>
+            color: #000000;"
+            >启用谷歌认证</span
+          >
         </v-row>
         <v-row>
-          <v-col cols='1'></v-col>
-          <v-col cols='10' >
-            <span style='font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 500;color: #000000;'>
+          <v-col cols="1"></v-col>
+          <v-col cols="10">
+            <span
+              style="font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 500;color: #000000;"
+            >
               4952***123@163.com
             </span>
-            <div style='width: 100%;height: 70px'></div>
+            <div style="width: 100%;height: 70px"></div>
 
-            <v-row style='padding: 10px;height: 50px'>
+            <v-row style="padding: 10px;height: 50px">
               <v-text-field
                 autocomplete="off"
                 label="请输入验证码"
@@ -1390,17 +1415,17 @@ color: #E82268;'>
                         bottom:20px;font-weight: 600;"
               @click="sendCode2()"
               v-show="sendCodeVue2"
-            ><p>发送验证码</p>
-      </span>
+              ><p>发送验证码</p>
+            </span>
             <span
               v-show="!sendCodeVue2"
               style="color: #00CFAC; position:relative;
                         left:319px;
                         bottom:20px;font-weight: 600;"
             >
-        <p>{{ authTime }} S</p>
-      </span>
-            <v-row style='padding: 10px'>
+              <p>{{ authTime }} S</p>
+            </span>
+            <v-row style="padding: 10px">
               <v-text-field
                 autocomplete="off"
                 label="输入谷歌验证码"
@@ -1411,30 +1436,31 @@ color: #E82268;'>
                 rounded
               ></v-text-field>
             </v-row>
-
           </v-col>
-          <v-col cols='1'></v-col>
+          <v-col cols="1"></v-col>
         </v-row>
         <v-row>
-          <v-col cols='1'></v-col>
-          <v-col cols='10'>
-            <samp style='font-size: 12px;
+          <v-col cols="1"></v-col>
+          <v-col cols="10">
+            <samp
+              style="font-size: 12px;
                         font-family: Nunito-Regular, Nunito;
                         font-weight: 400;
                         color: #A9A9A9;
                         line-height: 16px;
                         position:relative;
                         left:4px;
-                        bottom:45px;font-weight: 600;'>
+                        bottom:45px;font-weight: 600;"
+            >
               谷歌验证码每30秒变化一次，请您注意输入最新验证码
             </samp>
           </v-col>
-          <v-col cols='1'></v-col>
+          <v-col cols="1"></v-col>
         </v-row>
-        <div style='height: 100px;width: 100%'></div>
+        <div style="height: 100px;width: 100%"></div>
         <v-row>
-          <v-col cols='1'></v-col>
-          <v-col cols='10' >
+          <v-col cols="1"></v-col>
+          <v-col cols="10">
             <v-btn
               style="background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);color: #FFFFFF"
               depressed
@@ -1447,78 +1473,89 @@ color: #E82268;'>
               绑定
             </v-btn>
           </v-col>
-          <v-col cols='1'></v-col>
+          <v-col cols="1"></v-col>
         </v-row>
       </div>
     </v-dialog>
     <!-- 设置INVESTORS帐号 user_up2 -->
     <v-dialog
-      content-class='rounded-xl'
+      content-class="rounded-xl"
       v-model="user_up2"
       width="450"
-      height='544'
+      height="544"
     >
-      <div
-        style='height: 544px;width: 450px;background: #FFFFFF;'>
-        <v-row style='height: 60px;width: 100%;margin: 0px'>
-          <span style='font-size: 24px;margin: 30px 33px 32px 45px ;
+      <div style="height: 544px;width: 450px;background: #FFFFFF;">
+        <v-row style="height: 60px;width: 100%;margin: 0px">
+          <span
+            style="font-size: 24px;margin: 30px 33px 32px 45px ;
             font-family: PingFang-SC-Semibold, PingFang-SC;
             font-weight: 600;
-            color: #000000;'>设置INVESTORS帐号</span>
+            color: #000000;"
+            >设置INVESTORS帐号</span
+          >
         </v-row>
-        <v-row style='height: 20px'></v-row>
+        <v-row style="height: 20px"></v-row>
         <v-row>
-          <v-col cols='1'></v-col>
-          <v-col cols='10' >
+          <v-col cols="1"></v-col>
+          <v-col cols="10">
             <v-row>
-              <v-col cols='2'>
-                <img src="https://investors.oss-cn-beijing.aliyuncs.com/assets/usertou9912.png"  style="height: 64px; width: 64px;">
+              <v-col cols="2">
+                <img
+                  src="https://investors.oss-cn-beijing.aliyuncs.com/assets/usertou9912.png"
+                  style="height: 64px; width: 64px;"
+                />
               </v-col>
-              <v-col cols='10'>
-                <p style='font-size: 18px;padding: 0px;margin: 8px 3px 5px 8px;
+              <v-col cols="10">
+                <p
+                  style="font-size: 18px;padding: 0px;margin: 8px 3px 5px 8px;
                   font-family: Nunito-SemiBold, Nunito;
                   font-weight: 600;
-                  color: #000000;'>
+                  color: #000000;"
+                >
                   Cami Ho
                 </p>
-                <p style='font-size: 16px;padding: 0px;margin:  1px 2px 3px 8px;
+                <p
+                  style="font-size: 16px;padding: 0px;margin:  1px 2px 3px 8px;
                           font-family: Nunito-Regular, Nunito;
                           font-weight: 400;
                           color: #808080;
-                          line-height: 16px;'>
+                          line-height: 16px;"
+                >
                   帐号：
                 </p>
               </v-col>
             </v-row>
-            <v-row style='padding: 10px'>
-                <v-text-field
-                  autocomplete="off"
-                  label="输入你的帐号"
-                  v-model="checkCode"
-                  single-line
-                  filled
-                  dense
-                  rounded
-                ></v-text-field>
+            <v-row style="padding: 10px">
+              <v-text-field
+                autocomplete="off"
+                label="输入你的帐号"
+                v-model="checkCode"
+                single-line
+                filled
+                dense
+                rounded
+              ></v-text-field>
             </v-row>
-            <v-row style='padding: 0px 15px 0px 15px'>
-              <span style='font-size: 12px;
+            <v-row style="padding: 0px 15px 0px 15px">
+              <span
+                style="font-size: 12px;
                             font-family: Nunito-Regular, Nunito;
                             font-weight: 400;
-                            color: #6D6D72;'>
+                            color: #6D6D72;"
+              >
                 ·INVESTORS号是账号的唯一凭证，只能设置一次。
-              <p style='padding: 0px'>
+                <p style="padding: 0px">
                   ·如果没有设置过INVESTORS号，INVESTORS好友会看到你在系统自动生成的INVESTORS号，但是不能通过系统生成的INVESTORS号找到你。
-              </p>
+                </p>
               </span>
             </v-row>
-            <v-row style='height: 90px'></v-row>
+            <v-row style="height: 90px"></v-row>
           </v-col>
-          <v-col cols='1'></v-col>
+          <v-col cols="1"></v-col>
         </v-row>
         <v-row>
-          <v-col cols='1'></v-col>
-          <v-col cols='10' >
+          <v-col cols="1"></v-col>
+          <v-col cols="10">
             <v-btn
               style="background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);color: #FFFFFF"
               depressed
@@ -1531,31 +1568,33 @@ color: #E82268;'>
               下一步
             </v-btn>
           </v-col>
-          <v-col cols='1'></v-col>
+          <v-col cols="1"></v-col>
         </v-row>
       </div>
     </v-dialog>
 
     <!-- 添加钱包地址 addqianbao1 -->
     <v-dialog
-      content-class='rounded-xl'
+      content-class="rounded-xl"
       v-model="addqianbao1"
       width="450"
-      height='544'
+      height="544"
     >
-      <div
-        style='height: 544px;width: 450px;background: #FFFFFF;'>
-        <v-row style='height: 60px;width: 100%;margin: 0px'>
-          <span style='font-size: 24px;margin: 30px 33px 32px 38px ;
+      <div style="height: 544px;width: 450px;background: #FFFFFF;">
+        <v-row style="height: 60px;width: 100%;margin: 0px">
+          <span
+            style="font-size: 24px;margin: 30px 33px 32px 38px ;
             font-family: PingFang-SC-Semibold, PingFang-SC;
             font-weight: 600;
-            color: #000000;'>添加地址</span>
+            color: #000000;"
+            >添加地址</span
+          >
         </v-row>
         <v-row>
-          <v-col cols='1'></v-col>
-          <v-col cols='10' >
-            <div style='width: 100%;height: 70px'></div>
-            <v-row style='padding: 10px;height: 50px'>
+          <v-col cols="1"></v-col>
+          <v-col cols="10">
+            <div style="width: 100%;height: 70px"></div>
+            <v-row style="padding: 10px;height: 50px">
               <v-select
                 v-model="areaCode3"
                 label="币种"
@@ -1566,8 +1605,8 @@ color: #E82268;'>
                 rounded
               ></v-select>
             </v-row>
-            <v-row style='height: 20px'></v-row>
-            <v-row style='padding: 10px;height: 50px'>
+            <v-row style="height: 20px"></v-row>
+            <v-row style="padding: 10px;height: 50px">
               <v-text-field
                 autocomplete="off"
                 label="请输入钱包地址"
@@ -1578,14 +1617,16 @@ color: #E82268;'>
                 rounded
               ></v-text-field>
             </v-row>
-            <v-row style='height: 20px'></v-row>
-            <v-row style='height: 20px;'>
-              <span style='margin: 0px 0px 1px 16px;font-weight: 600;
-              color: #000000;'>
+            <v-row style="height: 20px"></v-row>
+            <v-row style="height: 20px;">
+              <span
+                style="margin: 0px 0px 1px 16px;font-weight: 600;
+              color: #000000;"
+              >
                 备注
               </span>
             </v-row>
-            <v-row style='padding: 10px'>
+            <v-row style="padding: 10px">
               <v-text-field
                 autocomplete="off"
                 label="请输入备注"
@@ -1596,14 +1637,13 @@ color: #E82268;'>
                 rounded
               ></v-text-field>
             </v-row>
-
           </v-col>
-          <v-col cols='1'></v-col>
+          <v-col cols="1"></v-col>
         </v-row>
-        <div style='height: 100px;width: 100%'></div>
+        <div style="height: 100px;width: 100%"></div>
         <v-row>
-          <v-col cols='1'></v-col>
-          <v-col cols='10' >
+          <v-col cols="1"></v-col>
+          <v-col cols="10">
             <v-btn
               style="background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);color: #FFFFFF"
               depressed
@@ -1616,12 +1656,11 @@ color: #E82268;'>
               绑定
             </v-btn>
           </v-col>
-          <v-col cols='1'></v-col>
+          <v-col cols="1"></v-col>
         </v-row>
       </div>
     </v-dialog>
   </div>
-
 </template>
 
 <script>
@@ -1692,40 +1731,43 @@ export default {
       ],
       setPayPwd: true,
       updatePayPwd: false,
-      googleyz1:false,//谷歌验证页面1
-      googleyz2:false,//谷歌验证页面1
-      googleyz3:false,//谷歌验证页面1
-      user_up2:false,//设置INVESTORS帐号
-      addqianbao1:false,//添加钱包地址
+      googleyz1: false, //谷歌验证页面1
+      googleyz2: false, //谷歌验证页面1
+      googleyz3: false, //谷歌验证页面1
+      user_up2: false, //设置INVESTORS帐号
+      addqianbao1: false, //添加钱包地址
       sendCodeVue2: true, // 控制发送验证码按钮显示
-      areaCode3: 'HSF',//下拉多选
-      areaCodes3: ['HSF', 'USDT'],//下拉多选
-      dataObj: {//二维码
-        gugeurl1: 'https://blog.csdn.net/weixin_43760328/rss/list',//谷歌提示页面1 二维码数据1
-        gugeurl2: 'https://1323123131223',//谷歌提示页面1 二维码数据2
-        gugeurl3: 'https://132123123131223',//绑定谷歌验证 二维码
+      areaCode3: 'HSF', //下拉多选
+      areaCodes3: ['HSF', 'USDT'], //下拉多选
+      dataObj: {
+        //二维码
+        gugeurl1: 'https://blog.csdn.net/weixin_43760328/rss/list', //谷歌提示页面1 二维码数据1
+        gugeurl2: 'https://1323123131223', //谷歌提示页面1 二维码数据2
+        gugeurl3: 'https://132123123131223', //绑定谷歌验证 二维码
         text: 'https://blog.csdn.net/weixin_43760328/rss/list',
       },
     }
   },
   methods: {
     sendCode2() {
-          //成功逻辑
-          this.sendCodeVue2 = false // 控制显示隐藏
-          this.authTime = 60
-          let timeInt = setInterval(() => {
-            this.authTime--
-            if (this.authTime <= 0) {
-              this.sendCodeVue2 = true
-              window.clearInterval(this.timeInt)
-            }
-          }, 1000)
+      //成功逻辑
+      this.sendCodeVue2 = false // 控制显示隐藏
+      this.authTime = 60
+      let timeInt = setInterval(() => {
+        this.authTime--
+        if (this.authTime <= 0) {
+          this.sendCodeVue2 = true
+          window.clearInterval(this.timeInt)
+        }
+      }, 1000)
     },
-    gugeApi1(){//谷歌验证 第一步下一步渲染谷歌页面
+    gugeApi1() {
+      //谷歌验证 第一步下一步渲染谷歌页面
       this.googleyz1 = false
       this.googleyz2 = true
     },
-    gugeApi2(){//谷歌验证2 第一步下一步输入验证码页面
+    gugeApi2() {
+      //谷歌验证2 第一步下一步输入验证码页面
       this.googleyz2 = false
       this.googleyz3 = true
     },
