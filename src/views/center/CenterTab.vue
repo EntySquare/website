@@ -253,13 +253,15 @@
               <div style="width: 455px"></div>
               <div style="padding-top: 44px">未认证</div>
               <div style="width: 20px"></div>
-              <v-btn
-                text
-                outlined
-                style="width: 76px; height: 30px; margin-top: 39px; background: #F7F8FB;
+              <router-link to="/realName">
+                <v-btn
+                  text
+                  outlined
+                  style="width: 76px; height: 30px; margin-top: 39px; background: #F7F8FB;
                        border-radius: 15px; color: #00CFAC; border: 1px solid #00CFAC; font-size: 14px; font-weight: 600"
-                >认证</v-btn
-              >
+                  >认证</v-btn
+                >
+              </router-link>
             </div>
           </v-card>
           <div style="height: 72px"></div>
