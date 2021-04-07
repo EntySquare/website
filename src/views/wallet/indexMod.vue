@@ -1732,7 +1732,7 @@ export default {
     VueQr,
   },
   methods: {
-    querenfukuan(){//确认付款
+    querenfukuan(){//确认付款2
       this.dialog4 = false
       this.dialog6 = true
     },
