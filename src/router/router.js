@@ -76,6 +76,11 @@ const routes = [
         name: 'CenterTab',
         component: () => import('../views/center/CenterTab.vue'),
       },
+      {
+        path: '/realName/',
+        name: 'realName',
+        component: () => import('../views/center/RealName.vue'),
+      },
     ],
   },
 ]
