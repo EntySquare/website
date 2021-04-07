@@ -521,7 +521,7 @@
                   <v-card-subtitle
                     style="padding-left: 32px; font-size: 14px; white-space: nowrap"
                   >
-                    登录密码是保障您资产安全的重要凭证，请妥善保管
+                    登录密码是保障您资产安全的重要凭证，请妥善保管。
                   </v-card-subtitle>
                 </div>
               </v-col>
