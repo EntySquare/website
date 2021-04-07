@@ -33,26 +33,53 @@ const routes = [
         name: 'resetPwdEmail',
         component: () => import('../views/auth/ResetPasswordEmail.vue'),
       },
+      {
+        path: '/wallet',
+        name: 'wallet',
+        component: () => import('../views/wallet/index.vue'),
+      },
+      {
+        path: '/assets',
+        name: 'assets',
+        component: () => import('../views/wallet/assets.vue'),
+      },
     ],
   },
+  // {
+  //   path: '/',
+  //   name: 'CommonLayout',
+  //   component: CommonLayout,
+  //   children: [
+  //     {
+  //       path: '/product',
+  //       name: 'Product',
+  //       component: () => import('../views/product/Product.vue'),
+  //     },
+  //     {
+  //       path: '/bar',
+  //       name: 'Bar',
+  //       component: () => import('../views/demo/Bar.vue'),
+  //     },
+  //     {
+  //       path: '/home/resource/',
+  //       name: 'Resource',
+  //     },
+  //   ],
+  // },
   {
     path: '/',
     name: 'CommonLayout',
     component: CommonLayout,
     children: [
       {
-        path: '/product',
-        name: 'Product',
-        component: () => import('../views/product/Product.vue'),
+        path: '/centerTab/',
+        name: 'CenterTab',
+        component: () => import('../views/center/CenterTab.vue'),
       },
       {
-        path: '/bar',
-        name: 'Bar',
-        component: () => import('../views/demo/Bar.vue'),
-      },
-      {
-        path: '/home/resource/',
-        name: 'Resource',
+        path: '/realName/',
+        name: 'realName',
+        component: () => import('../views/center/RealName.vue'),
       },
     ],
   },

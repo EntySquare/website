@@ -5,7 +5,10 @@
         <v-col cols="3">
           <div class="d-flex justify-center">
             <router-link to="/">
-              <v-img src="@/assets/logo_black.png" width="150px" />
+              <v-img
+                src="https://investors.oss-cn-beijing.aliyuncs.com/assets/logo_black.png"
+                width="150px"
+              />
             </router-link>
           </div>
         </v-col>
@@ -75,16 +78,18 @@
             style="margin-top: 10px"
           >
             <div>
-              <v-img src="@/assets/user_logo.png"></v-img>
+              <v-img
+                src="https://investors.oss-cn-beijing.aliyuncs.com/assets/user_logo.png"
+              ></v-img>
             </div>
             <div id="user" class="align-center"></div>
             <!--            <div-->
             <!--              style="display: inline-flex; margin-left: 50px; border-radius: 26px; color: #00CFAC"-->
             <!--            >-->
-            <!--              <v-img src="@/assets/download.svg" style="width: 20px;" />-->
+            <!--              <v-img src="https://investors.oss-cn-beijing.aliyuncs.com/assets/download.svg" style="width: 20px;" />-->
             <!--            </div>-->
             <!--            <div style="display: inline-flex; margin-left: 50px">-->
-            <!--              <v-img src="@/assets/global.svg" style="width: 20px" />-->
+            <!--              <v-img src="https://investors.oss-cn-beijing.aliyuncs.com/assets/global.svg" style="width: 20px" />-->
             <!--            </div>-->
           </div>
         </v-col>

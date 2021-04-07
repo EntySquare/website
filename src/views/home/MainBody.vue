@@ -1,41 +1,3 @@
-<style>
-.btn {
-  font-size: 20px;
-  border-radius: 26px;
-  text-align: center;
-  box-shadow: 14px 10px 40px 0 rgba(15, 15, 15, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  padding: 48px 0;
-}
-
-.bubble_left {
-  width: 100%;
-  height: 350px;
-  background: #ffffff;
-  border-radius: 175px 175px 175px 175px;
-  align-items: center;
-  max-width: 960px;
-  box-shadow: -1px 0px 40px 0px #ffffff, -30px 0px 40px 0 rgba(15, 15, 15, 0.1);
-  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-  transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
-}
-
-.bubble_right {
-  width: 100%;
-  height: 350px;
-  background: #ffffff;
-  border-radius: 175px 175px 175px 175px;
-  align-items: center;
-  max-width: 960px;
-  box-shadow: 1px 0px 40px 0px #ffffff, 30px 0px 40px 0 rgba(15, 15, 15, 0.1);
-  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-  transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
-}
-</style>
-
 <template>
   <v-container fluid class="align-start" style="padding: 0px;">
     <v-row class="text-center">
@@ -73,7 +35,7 @@
           >
             <div align="center">
               <img
-                src="@/assets/investors_btn1.png"
+                src="https://investors.oss-cn-beijing.aliyuncs.com/assets/investors_btn1.png"
                 style="width: 120px; height:120px;"
               />
               <p
@@ -95,7 +57,7 @@
                   style="display: inline-flex; margin-left: 3px; margin-bottom: 4px; vertical-align: middle"
                 >
                   <img
-                    src="@/assets/arrow_green.png"
+                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/arrow_green.png"
                     style="width:14px; height: 14px;"
                   />
                 </div>
@@ -113,7 +75,7 @@
           >
             <div align="center">
               <img
-                src="@/assets/investors_btn2.png"
+                src="https://investors.oss-cn-beijing.aliyuncs.com/assets/investors_btn2.png"
                 style="width: 120px; height:120px;"
               />
               <p
@@ -135,7 +97,7 @@
                   style="display: inline-flex; margin-left: 3px; margin-bottom: 4px; vertical-align: middle"
                 >
                   <img
-                    src="@/assets/arrow_green.png"
+                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/arrow_green.png"
                     style="width:14px; height: 14px;"
                   />
                 </div>
@@ -153,7 +115,7 @@
           >
             <div align="center">
               <img
-                src="@/assets/investors_btn3.png"
+                src="https://investors.oss-cn-beijing.aliyuncs.com/assets/investors_btn3.png"
                 style="width: 120px; height:120px;"
               />
               <p
@@ -175,7 +137,7 @@
                   style="display: inline-flex; margin-left: 3px; margin-bottom: 4px; vertical-align: middle"
                 >
                   <img
-                    src="@/assets/arrow_green.png"
+                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/arrow_green.png"
                     style="width:14px; height: 14px;"
                   />
                 </div>
@@ -200,7 +162,7 @@
               <v-col cols="5">
                 <div>
                   <img
-                    src="@/assets/bubble1.png"
+                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/bubble1.png"
                     style="width: 50%; height: auto;"
                   />
                 </div>
@@ -267,7 +229,7 @@
               <v-col cols="5">
                 <div>
                   <img
-                    src="@/assets/bubble2.png"
+                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/bubble2.png"
                     style="width: 50%; height: auto; margin-right: 50px"
                   />
                 </div>
@@ -278,7 +240,7 @@
               <v-col cols="5">
                 <div>
                   <img
-                    src="@/assets/bubble3.png"
+                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/bubble3.png"
                     style="width: 50%; height: auto;"
                   />
                 </div>
@@ -345,7 +307,7 @@
               <v-col cols="4">
                 <div>
                   <img
-                    src="@/assets/bubble4.png"
+                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/bubble4.png"
                     style="width: 63%; height: auto; margin-right: 100px"
                   />
                 </div>
@@ -369,7 +331,10 @@ line-height: 45px;"
       </v-col>
       <v-col cols="12" style="height: 120px;"></v-col>
       <v-col cols="12" class="text-center">
-        <img src="@/assets/qydt1.png" style="width:100%;height:100%;" />
+        <img
+          src="https://investors.oss-cn-beijing.aliyuncs.com/assets/qydt1.png"
+          style="width:100%;height:100%;"
+        />
       </v-col>
       <v-col cols="12" style="height: 120px;"></v-col>
       <v-col class="col-12 text-center">
@@ -393,22 +358,22 @@ line-height: 43px;"
               <v-row style="height: 150px;">
                 <v-col cols="3"
                   ><img
-                    src="@/assets/hezuo_logo1.png"
+                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/hezuo_logo1.png"
                     style="width:100%;height:auto;"
                 /></v-col>
                 <v-col cols="3"
                   ><img
-                    src="@/assets/hezuo_logo2.png"
+                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/hezuo_logo2.png"
                     style="width:100%;height:auto;"
                 /></v-col>
                 <v-col cols="3"
                   ><img
-                    src="@/assets/hezuo_logo3.png"
+                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/hezuo_logo3.png"
                     style="width:100%;height:auto;"
                 /></v-col>
                 <v-col cols="3"
                   ><img
-                    src="@/assets/hezuo_logo4.png"
+                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/hezuo_logo4.png"
                     style="width:100%;height:auto;"
                 /></v-col>
               </v-row>
@@ -416,22 +381,22 @@ line-height: 43px;"
               <v-row style="height: 150px;">
                 <v-col cols="3"
                   ><img
-                    src="@/assets/hezuo_logo5.png"
+                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/hezuo_logo5.png"
                     style="width:100%;height:auto;"
                 /></v-col>
                 <v-col cols="3"
                   ><img
-                    src="@/assets/hezuo_logo6.png"
+                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/hezuo_logo6.png"
                     style="width:100%;height:auto;"
                 /></v-col>
                 <v-col cols="3"
                   ><img
-                    src="@/assets/hezuo_logo7.png"
+                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/hezuo_logo7.png"
                     style="width:100%;height:auto;"
                 /></v-col>
                 <v-col cols="3"
                   ><img
-                    src="@/assets/hezuo_logo8.png"
+                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/hezuo_logo8.png"
                     style="width:100%;height:auto;"
                 /></v-col>
               </v-row>
@@ -452,6 +417,48 @@ line-height: 43px;"
             规划路线
           </div>
         </v-col>
+
+        <!-- <v-row>
+          <v-col cols="3"></v-col>
+         <v-col cols="6" style="width: 100%;height: 311px;background: #F0F0FF;">
+             <swiper class="swiper" :options="swiperOption">
+               
+              <swiper-slide>
+                <div style="height:40px"></div>
+                <div style="width: 654px;height: 150px;background: #FFFFFF;padding:20px 20px 20px 20px;border-radius: 3px;">
+                  <div align="left" style="">investors App上线收益优先·满足跟高投资需求</div>
+                  <div align="left" style="">为用户创造更加安全、透明的加密金融生态</div>
+                  <div style="height:32px"></div>
+                  <div align="left" style="">investors</div>
+                  <div align="left" style="">首席执行官</div>
+                  <div align="right" style="">2012.03.05</div>
+                </div>
+              </swiper-slide>
+              <swiper-slide>
+                <div style="height:40px"></div>
+                <div style="width: 654px;height: 150px;background: #FFFFFF;padding:20px 20px 20px 20px;border-radius: 3px;">
+                  <div align="left" style="">investors App上线收益优先·满足跟高投资需求</div>
+                  <div align="left" style="">为用户创造更加安全、透明的加密金融生态</div>
+                  <div style="height:32px"></div>
+                  <div align="left" style="">investors</div>
+                  <div align="left" style="">首席执行官</div>
+                  <div align="right" style="">2012.03.05</div>
+                </div>
+              </swiper-slide>
+              <swiper-slide>Slide 3</swiper-slide>
+              <swiper-slide>Slide 4</swiper-slide>
+              <swiper-slide>Slide 5</swiper-slide>
+              <swiper-slide>Slide 6</swiper-slide>
+              <swiper-slide>Slide 7</swiper-slide>
+              <swiper-slide>Slide 8</swiper-slide>
+              <swiper-slide>Slide 9</swiper-slide>
+              <swiper-slide>Slide 10</swiper-slide>
+              
+              <div class="swiper-pagination" slot="pagination"></div>
+            </swiper>
+        </v-col>
+          <v-col cols="3"></v-col>
+    </v-row> -->
 
         <v-row>
           <v-col cols="3"></v-col>
@@ -657,9 +664,27 @@ line-height: 43px;"
 </template>
 
 <script>
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+import 'swiper/css/swiper.css'
+
 export default {
   name: 'HelloWorld',
-
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
+  data() {
+    return {
+      swiperOption: {
+        slidesPerView: 'auto',
+        spaceBetween: 30,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+      },
+    }
+  },
   methods: {
     bao2019: function() {
       document.getElementById('2019but').style.background =
@@ -714,3 +739,51 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.swiper-slide {
+  width: 70%;
+  background: #f00;
+}
+.swiper-slide:nth-child(2n) {
+  width: 70%;
+}
+.swiper-slide:nth-child(3n) {
+  width: 70%;
+}
+.btn {
+  font-size: 20px;
+  border-radius: 26px;
+  text-align: center;
+  box-shadow: 14px 10px 40px 0 rgba(15, 15, 15, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 48px 0;
+}
+
+.bubble_left {
+  width: 100%;
+  height: 350px;
+  background: #ffffff;
+  border-radius: 175px 175px 175px 175px;
+  align-items: center;
+  max-width: 960px;
+  box-shadow: -1px 0px 40px 0px #ffffff, -30px 0px 40px 0 rgba(15, 15, 15, 0.1);
+  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
+}
+
+.bubble_right {
+  width: 100%;
+  height: 350px;
+  background: #ffffff;
+  border-radius: 175px 175px 175px 175px;
+  align-items: center;
+  max-width: 960px;
+  box-shadow: 1px 0px 40px 0px #ffffff, 30px 0px 40px 0 rgba(15, 15, 15, 0.1);
+  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
+}
+</style>
