@@ -229,8 +229,8 @@
                 text
                 style="width: 76px; height: 30px; margin-top: 39px; background: #F7F8FB;
                        border-radius: 15px; color: #00CFAC; font-size: 14px; font-weight: 600;"
-                >修改</v-btn
-              >
+                >修改
+              </v-btn>
             </div>
             <v-divider
               style="width: 896px; color: #F5F5F5; margin-left: 30px"
@@ -259,8 +259,8 @@
                   outlined
                   style="width: 76px; height: 30px; margin-top: 39px; background: #F7F8FB;
                        border-radius: 15px; color: #00CFAC; border: 1px solid #00CFAC; font-size: 14px; font-weight: 600"
-                  >认证</v-btn
-                >
+                  >认证
+                </v-btn>
               </router-link>
             </div>
           </v-card>
@@ -286,8 +286,8 @@
                   style="width: 76px; height: 30px; background: #F7F8FB;
                        border-radius: 15px; color: #00CFAC; border: 1px solid #00CFAC; font-size: 14px; font-weight: 600"
                 >
-                  添加</v-btn
-                >
+                  添加
+                </v-btn>
               </div>
             </div>
             <v-row style="padding-left: 32px; padding-top: 32px">
@@ -354,7 +354,7 @@
                   <v-img
                     style="width: 20px; height: 20px; cursor: pointer"
                     src="https://investors.oss-cn-beijing.aliyuncs.com/assets/cancel.png"
-                    @click="DeleteWallet()"
+                    @click="deleteWallet()"
                   ></v-img>
                 </div>
               </v-col>
@@ -406,8 +406,70 @@
                     text
                     style="width: 76px; height: 30px; margin-top: 20px; background: #F7F8FB;
                        border-radius: 15px; color: #00CFAC; font-size: 14px; font-weight: 600;"
-                    >绑定</v-btn
+                    @click="bindFlag = true"
+                    >绑定
+                  </v-btn>
+                  <v-dialog
+                    content-class="rounded-xl"
+                    v-model="bindFlag"
+                    width="400"
+                    height="544"
                   >
+                    <div
+                      style="height: 544px;width: 400px;background: #FFFFFF; padding: 30px"
+                    >
+                      <div
+                        style="width: 120px; height: 24px; font-size: 24px;
+                        font-weight: 600; color: #000000; line-height: 24px;"
+                      >
+                        绑定邮箱号
+                      </div>
+                      <div style="height: 56px"></div>
+                      <v-text-field
+                        autocomplete="off"
+                        v-model="email"
+                        :rules="emailRules"
+                        label="请输入邮箱"
+                        single-line
+                        filled
+                        dense
+                        rounded
+                      ></v-text-field>
+                      <v-text-field
+                        autocomplete="off"
+                        label="请输入验证码"
+                        v-model="checkCode"
+                        single-line
+                        filled
+                        dense
+                        rounded
+                      >
+                      </v-text-field>
+                      <span
+                        style="color: #00CFAC;width: 100%; position: absolute; margin-top: -55px;
+                        margin-left: 240px; font-size: 14px; font-weight: 600; cursor: pointer"
+                        @click="sendCode()"
+                        v-show="sendCodeVue"
+                        >发送验证码
+                      </span>
+                      <span
+                        v-show="!sendCodeVue"
+                        style="color: #00CFAC; position: absolute; margin-top: -57px;
+                        margin-left: 240px; cursor: pointer"
+                      >
+                        <p>{{ authTime }} S</p>
+                      </span>
+                      <div style="height: 196px"></div>
+                      <v-btn
+                        width="340px"
+                        height="56px"
+                        text
+                        rounded
+                        style="color: #FFFFFF; background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);"
+                        >确定</v-btn
+                      >
+                    </div>
+                  </v-dialog>
                 </div>
               </v-col>
             </v-row>
@@ -441,8 +503,8 @@
                     text
                     style="width: 76px; height: 30px; margin-top: 20px; background: #F7F8FB;
                        border-radius: 15px; color: #00CFAC; font-size: 14px; font-weight: 600;"
-                    >设置</v-btn
-                  >
+                    >设置
+                  </v-btn>
                 </div>
               </v-col>
             </v-row>
@@ -472,8 +534,72 @@
                     text
                     style="width: 76px; height: 30px; margin-top: 20px; background: #F7F8FB;
                        border-radius: 15px; color: #00CFAC; font-size: 14px; font-weight: 600;"
-                    >修改</v-btn
+                    @click="updatePwdFlag = true"
+                    >修改
+                  </v-btn>
+                  <v-dialog
+                    content-class="rounded-xl"
+                    v-model="updatePwdFlag"
+                    width="400"
+                    height="544"
                   >
+                    <div
+                      style="height: 544px;width: 400px;background: #FFFFFF; padding: 30px"
+                    >
+                      <div
+                        style="width: 96px; height: 24px; font-size: 24px;
+                        font-weight: 600; color: #000000; line-height: 24px;"
+                      >
+                        修改密码
+                      </div>
+                      <div style="height: 20px"></div>
+                      <div
+                        style="width: 195px; height: 12px; font-size: 12px; font-weight: 400; color: #E82268;line-height: 12px;"
+                      >
+                        安全设置更改后，24小时内无法提现
+                      </div>
+                      <div style="height: 30px"></div>
+                      <div
+                        style="width: 318px;height: 24px;font-size: 18px;font-weight: 600;color: #000000;line-height: 24px;"
+                      >
+                        183166***739
+                      </div>
+                      <div style="height: 32px"></div>
+                      <v-text-field
+                        autocomplete="off"
+                        label="请输入验证码"
+                        v-model="checkCode"
+                        single-line
+                        filled
+                        dense
+                        rounded
+                      >
+                      </v-text-field>
+                      <span
+                        style="color: #00CFAC;width: 100%; position: absolute; margin-top: -55px;
+                        margin-left: 240px; font-size: 14px; font-weight: 600; cursor: pointer"
+                        @click="sendCode()"
+                        v-show="sendCodeVue"
+                        >发送验证码
+                      </span>
+                      <span
+                        v-show="!sendCodeVue"
+                        style="color: #00CFAC; position: absolute; margin-top: -57px;
+                        margin-left: 240px; cursor: pointer"
+                      >
+                        <p>{{ authTime }} S</p>
+                      </span>
+                      <div style="height: 60px"></div>
+                      <v-btn
+                        width="340px"
+                        height="56px"
+                        text
+                        rounded
+                        style="color: #FFFFFF; background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);"
+                        >确定</v-btn
+                      >
+                    </div>
+                  </v-dialog>
                 </div>
               </v-col>
             </v-row>
@@ -507,8 +633,8 @@
                     text
                     style="width: 76px; height: 30px; margin-top: 20px; background: #F7F8FB;
                        border-radius: 15px; color: #00CFAC; font-size: 14px; font-weight: 600;"
-                    >复制</v-btn
-                  >
+                    >复制
+                  </v-btn>
                 </div>
               </v-col>
             </v-row>
@@ -557,8 +683,8 @@
                     text
                     style="width: 76px; height: 30px; margin-top: 20px; background: #F7F8FB;
                        border-radius: 15px; color: #00CFAC; font-size: 14px; font-weight: 600;"
-                    >绑定</v-btn
-                  >
+                    >绑定
+                  </v-btn>
                 </div>
               </v-col>
             </v-row>
@@ -623,8 +749,51 @@
                     text
                     style="width: 76px; height: 30px; margin-top: 20px; background: #F7F8FB;
                        border-radius: 15px; color: #00CFAC; font-size: 14px; font-weight: 600;"
-                    >设置</v-btn
+                    @click="fishFlag = true"
+                    >设置
+                  </v-btn>
+                  <v-dialog
+                    content-class="rounded-xl"
+                    v-model="fishFlag"
+                    width="400"
+                    height="350"
                   >
+                    <div
+                      style="height: 350px;width: 400px;background: #FFFFFF; padding: 30px"
+                    >
+                      <div
+                        style="width: 144px; height: 24px; font-size: 24px;
+                        font-weight: 600; color: #000000; line-height: 24px;"
+                      >
+                        设置钓鱼码防
+                      </div>
+                      <div style="height: 20px"></div>
+                      <div
+                        style="width: 324px; height: 12px; font-size: 12px; font-weight: 400; color: #E82268;line-height: 12px;"
+                      >
+                        官方邮件都会标注您设置的数字，可防范假冒的邮件或网站。
+                      </div>
+                      <div style="height: 55px"></div>
+                      <v-text-field
+                        autocomplete="off"
+                        v-model="fishCode"
+                        label="输入0-9之间的4位数字"
+                        single-line
+                        filled
+                        dense
+                        rounded
+                      ></v-text-field>
+                      <div style="height: 60px"></div>
+                      <v-btn
+                        width="340px"
+                        height="56px"
+                        text
+                        rounded
+                        style="color: #FFFFFF; background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);"
+                        >确定</v-btn
+                      >
+                    </div>
+                  </v-dialog>
                 </div>
               </v-col>
             </v-row>
@@ -731,11 +900,47 @@ export default {
       text: '1111',
       infoSwitch: true,
       checkSwitch: false,
+      bindFlag: false,
+      checkCode: '',
+      email: '',
+      emailRules: [
+        v => !!v || '邮箱必须输入',
+        v =>
+          /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(v) ||
+          '邮箱格式不对',
+      ],
+      sendCodeVue: true, // 控制发送验证码按钮显示
+      authTime: 0, // 倒计时
+      fishFlag: false,
+      fishCode: '',
+      updatePwdFlag: false,
     }
   },
   methods: {
-    DeleteWallet: function() {
+    deleteWallet: function() {
       alert('删除钱包地址')
+    },
+    sendCode() {
+      this.$refs.form.validate()
+      this.axios
+        .post('/r0/checkCode', {
+          email: this.email,
+        })
+        .then(response => {
+          if (response.data.errcode != null) {
+            return
+          }
+          //成功逻辑
+          this.sendCodeVue = false // 控制显示隐藏
+          this.authTime = 60
+          let timeInt = setInterval(() => {
+            this.authTime--
+            if (this.authTime <= 0) {
+              this.sendCodeVue = true
+              window.clearInterval(this.timeInt)
+            }
+          }, 1000)
+        })
     },
   },
 }
