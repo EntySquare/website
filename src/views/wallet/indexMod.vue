@@ -351,11 +351,13 @@ padding: 0px 0px 0px 40px'>
                         ">资产记录</span>
           </v-col>
           <v-col cols='6' class="text-right">
+            <router-link to="/assets">
              <span style="font-size: 14px;
                           font-family: Nunito-Regular, Nunito;
                           font-weight: 400;
                           color: #1BD7A7;
                           line-height: 19px;">全部记录 ➔</span>
+            </router-link>
           </v-col>
         </v-row>
         <v-col cols='12' style='height: 40px'></v-col>
@@ -1404,7 +1406,7 @@ color: #9F9FA4;'>
         <v-row>
           <v-col cols='1'></v-col>
           <v-col cols='10'>
-<!--            <vueAppVerify @completed="completed" length='6' />-->
+<!--     验证码 实现 -->
             <div class="row-center captcha_input_wrapper">
               <input
                 autocomplete="off"
@@ -1753,14 +1755,14 @@ export default {
       this.dialog = false
       this.dialog8 = true
     },
-    // 自动校准输入顺序
+    //验证码函数 自动校准输入顺序
     adjust(index) {
       let dom = document.getElementById("captcha" + this.activeInput);
       if (index !== this.activeInput && dom) {
         dom.focus();
       }
     },
-    // 控制前后方向
+    //验证码函数 控制前后方向
     inputDirection(index) {
       let val = this.captchas[index].num;
       // 回退键处理
@@ -1776,7 +1778,7 @@ export default {
         if (dom) dom.focus();
       }
     },
-    // 输入框相互联动
+    //验证码函数 输入框相互联动
     inputFinash(index) {
       let val = this.captchas[index].num;
       this.activeInput = val ? index + 1 : index - 1;
@@ -1818,7 +1820,7 @@ export default {
       dialog2: false,
       dialog3: false,
       dialog4:false,
-      dialog6:false,//支付密码。输入验证码
+      dialog6:true,//支付密码。输入验证码
       dialog7:false,//最终支付成功
       dialog8:false,//站内转账下一步
       swiperOption: {
@@ -1829,7 +1831,7 @@ export default {
           clickable: true,
         },
       },
-      // 当前输入框
+      //验证码数据
       activeInput: 0,
       captchas: [
         { num: "" },
