@@ -1820,7 +1820,7 @@ export default {
       dialog2: false,
       dialog3: false,
       dialog4:false,
-      dialog6:true,//支付密码。输入验证码
+      dialog6:false,//支付密码。输入验证码
       dialog7:false,//最终支付成功
       dialog8:false,//站内转账下一步
       swiperOption: {
