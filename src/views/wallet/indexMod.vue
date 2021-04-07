@@ -20,6 +20,7 @@
               <v-col cols='12' style='height: 0px;width: 100%;'></v-col>
               <v-col cols='4' style='height: 64px;width: 64px;'>
                 <v-btn
+                  @click.stop="dialog2 = true"
                   style='background: #FFFFFF;border-radius: 8px;box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.04);'
                   width='64px'
                   height='64px'
@@ -65,6 +66,7 @@
               </v-col>
               <v-col cols='4' style='height: 64px;width: 64px;'>
                 <v-btn
+                  @click.stop="dialog3 = true"
                   style='background: #FFFFFF;border-radius: 8px;box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.04);'
                   width='64px'
                   height='64px'
@@ -564,7 +566,6 @@ padding: 0px 0px 0px 40px'>
             rounded
             height='50'
           >
-
             <template v-slot:append>
               <v-fade-transition leave-absolute>
                 <v-progress-circular
@@ -890,6 +891,335 @@ line-height: 20px;'>全部</div>
 
       </div>
     </v-dialog>
+
+    <!-- d2 -->
+    <v-dialog
+      content-class='rounded-xl'
+      v-model="dialog2"
+      width="400"
+      height='640'
+    >
+      <div
+        style='height: 640px;width: 400px;background: #FFFFFF;'>
+        <v-row style='height: 60px;width: 100%;margin: 0px'>
+          <span style='font-size: 24px;margin: 30px 33px 32px 31px ;
+            font-family: PingFang-SC-Semibold, PingFang-SC;
+            font-weight: 600;
+            color: #000000;'>充值(ERC20)</span>
+        </v-row>
+        <v-row style='height: 30px'></v-row>
+
+        <v-row style='height: 60px;width: 100%;margin: 0px'>
+          <v-col cols='2'></v-col>
+          <v-col cols='8'>
+            <v-menu offset-y>
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                  v-bind="attrs"
+                  v-on="on"
+                  style="background: #F7F8FB;color: #000000"
+                  dark
+                  depressed
+                  bottom
+                  rounded
+                  block
+                  height='60'
+                >
+                  <img src="https://investors.oss-cn-beijing.aliyuncs.com/assets/usdt_logo.png"  style="height: 39px; width: 39px;">
+                  <span style='font-size: 20px;
+                    font-family: Nunito-SemiBold, Nunito;
+                    font-weight: 600;
+                    color: #000000;
+                    line-height: 26px;
+                    margin: 10px'>
+         USDT</span>
+                </v-btn>
+              </template>
+              <v-list>
+                <v-list-item @click="onClick">
+                  <v-list-item-title>
+                    <v-btn
+                      style="background: #F7F8FB;color: #000000"
+                      dark
+                      depressed
+                      bottom
+                      rounded
+                      block
+                      height='60'
+                    >
+                      <img src="https://investors.oss-cn-beijing.aliyuncs.com/assets/usdt_logo.png"  style="height: 39px; width: 39px;">
+                      <span style='font-size: 20px;
+                    font-family: Nunito-SemiBold, Nunito;
+                    font-weight: 600;
+                    color: #000000;
+                    line-height: 26px;
+                    margin: 10px'>
+         USDT2</span>
+                    </v-btn>
+                  </v-list-item-title>
+                </v-list-item>
+                <v-list-item @click="onClick">
+                  <v-list-item-title>
+                    <v-btn
+                      style="background: #F7F8FB;color: #000000"
+                      dark
+                      depressed
+                      bottom
+                      rounded
+                      block
+                      height='60'
+                    >
+                      <img src="https://investors.oss-cn-beijing.aliyuncs.com/assets/usdt_logo.png"  style="height: 39px; width: 39px;">
+                      <span style='font-size: 20px;
+                    font-family: Nunito-SemiBold, Nunito;
+                    font-weight: 600;
+                    color: #000000;
+                    line-height: 26px;
+                    margin: 10px'>
+         USDT3</span>
+                    </v-btn>
+                  </v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+          </v-col>
+          <v-col cols='2'></v-col>
+        </v-row>
+        <v-row>
+          <v-col cols='2'></v-col>
+          <v-col cols='8' >
+            <vue-qr ref="Qrcode"
+                    :text="dataObj.text"
+                    :callback="test" qid="testQrId"
+                    margin="30"
+            size='260'></vue-qr>
+          </v-col>
+          <v-col cols='2'></v-col>
+        </v-row>
+        <v-row>
+          <v-col cols='1'></v-col>
+          <v-col cols='10'>
+            <v-text-field
+              background-color='#F7F8FB'
+              autocomplete="off"
+              value='0x852915c9b371833c93eeaeeb2b7f6bb5557eaa41'
+              single-line
+              filled
+              rounded
+              height='50'
+            >
+              <template v-slot:append>
+                <v-fade-transition leave-absolute>
+                  <v-progress-circular
+                    v-if="loading"
+                    size="24"
+                    color="info"
+                    indeterminate
+                  ></v-progress-circular>
+                  <img
+                    v-else
+                    width="15"
+                    height="15"
+                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/fuzhi.png"
+                    alt=""
+                  >
+                </v-fade-transition>
+              </template>
+
+            </v-text-field>
+          </v-col>
+          <v-col cols='1'></v-col>
+        </v-row>
+        <span style='font-size: 12px;
+                      font-family: PingFang-SC-Regular, PingFang-SC;
+                      font-weight: 400;
+                      color: #E67100;
+                      margin-left: 65px;'>此地址仅用做USDT收款，转入其他币种将无法找回</span>
+        <v-row>
+        </v-row>
+      </div>
+    </v-dialog>
+
+    <!-- d3兑换 -->
+    <v-dialog
+      content-class='rounded-xl'
+      v-model="dialog3"
+      width="400"
+      height='540'
+    >
+      <div
+        style='height: 540px;width: 400px;background: #FFFFFF;'>
+        <v-row style='height: 60px;width: 100%;margin: 0px'>
+          <span style='font-size: 24px;margin: 30px 33px 32px 31px ;
+            font-family: PingFang-SC-Semibold, PingFang-SC;
+            font-weight: 600;
+            color: #000000;'>兑换</span>
+        </v-row>
+        <v-row style='height: 20px'></v-row>
+        <v-row>
+          <v-col cols='1'></v-col>
+          <v-col cols='10'  class='rounded-lg' style='height: 115px;width: 100%;border: 3px solid #F7F8FB;'>
+            <v-row>
+              <v-col cols='1'>从</v-col>
+              <v-col class="text-right" cols='11'>余额:100</v-col>
+            </v-row>
+            <v-row>
+              <v-col cols='6' style=';height: 60px'>
+                <v-row>
+                  <v-col cols='3' style='padding: 12px 5px 17px 8px'>
+                    <v-img src='https://investors.oss-cn-beijing.aliyuncs.com/assets/usdt_logo.png' height='30px' width='30px'></v-img>
+                  </v-col>
+                  <v-col cols='4' style='margin: 0px;padding: 0px'>
+                     <span style='font-size: 12px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;margin-bottom: 12px'>
+                  Tether
+                </span>
+                    <p style='padding: 0px;margin-bottom: 2px'></p>
+                    <span style='font-size: 16px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #000000;'>
+                  USDT
+                </span>
+                  </v-col>
+                  <v-col cols='5' style='margin:4px 0px 0px -19px;'>
+                    <v-btn
+                      style="font-size: 12px;
+font-family: Nunito-Regular, Nunito;
+font-weight: 400;
+color: #FFFFFF;background: linear-gradient(222deg, #3AEDD3 0%, #1BD7A7 100%);"
+                      small
+                      color='#3AEDD3'
+                      elevation='0'
+                    >
+                      MAX
+                    </v-btn>
+                  </v-col>
+                </v-row>
+              </v-col>
+              <v-col cols='6' style='height: 60px;padding: 0px 10px 3px 1px' class="text-right">
+                <span style='font-size: 12px;
+font-family: Nunito-Regular, Nunito;
+font-weight: 400;
+color: #808080;margin-bottom: 12px'>
+                  ≈ $0.00
+                </span>
+                <p style='padding: 0px;margin-bottom: 2px'></p>
+                <span style='font-size: 16px;
+font-family: Nunito-SemiBold, Nunito;
+font-weight: 600;
+color: #9F9FA4;'>
+                  0.00
+                </span>
+              </v-col>
+            </v-row>
+          </v-col>
+          <v-col cols='1'></v-col>
+        </v-row>
+
+          <v-row style=''>
+            <v-col cols='5' style=''>
+               <div style='height: 1px;
+              border: 1px solid #F7F8FB;margin:31px -21px 10px 28px'></div>
+            </v-col>
+            <v-col cols='2' style='height: 87px;width: 100%;padding: 15px 0px 15px 8px'>
+              <v-btn
+                elevation='0'
+                outlined
+                color='#F7F8FB'
+                fab>
+                <v-img src='https://investors.oss-cn-beijing.aliyuncs.com/assets/qiehuan.png' height='36px' width='36px'></v-img>
+              </v-btn>
+            </v-col>
+            <v-col cols='5'>
+              <div style='height: 1px;
+              border: 1px solid #F7F8FB;margin:32px 23px 12px -18px'></div>
+
+            </v-col>
+
+          </v-row>
+
+        <v-row>
+          <v-col cols='1'></v-col>
+          <v-col cols='10'  class='rounded-lg' style='height: 115px;width: 100%;border: 3px solid #F7F8FB;'>
+            <v-row>
+              <v-col cols='1'>到</v-col>
+              <v-col class="text-right" cols='11'>余额:100</v-col>
+            </v-row>
+            <v-row>
+              <v-col cols='6' style=';height: 60px'>
+                <v-row>
+                  <v-col cols='3' style='padding: 12px 5px 17px 8px'>
+                    <v-img src='https://investors.oss-cn-beijing.aliyuncs.com/assets/usdt_logo.png' height='30px' width='30px'></v-img>
+                  </v-col>
+                  <v-col cols='4' style='margin: 0px;padding: 0px'>
+                     <span style='font-size: 12px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;margin-bottom: 12px'>
+                  INVESTORS
+                </span>
+                    <p style='padding: 0px;margin-bottom: 2px'></p>
+                    <span style='font-size: 16px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #000000;'>
+                  HSF
+                </span>
+                  </v-col>
+                  <v-col cols='5' style='margin:4px 0px 0px -19px;'>
+
+                  </v-col>
+                </v-row>
+              </v-col>
+              <v-col cols='6' style='height: 60px;padding: 0px 10px 3px 1px' class="text-right">
+                <span style='font-size: 12px;
+font-family: Nunito-Regular, Nunito;
+font-weight: 400;
+color: #808080;margin-bottom: 12px'>
+                  ≈ $0.00
+                </span>
+                <p style='padding: 0px;margin-bottom: 2px'></p>
+                <span style='font-size: 16px;
+font-family: Nunito-SemiBold, Nunito;
+font-weight: 600;
+color: #9F9FA4;'>
+                  0.00
+                </span>
+              </v-col>
+            </v-row>
+          </v-col>
+          <v-col cols='1'></v-col>
+        </v-row>
+
+        <v-row>
+          <v-col cols='1'></v-col>
+          <span style='font-size: 14px;
+          font-family: Nunito-Regular, Nunito;
+          font-weight: 400;
+          color: #808080;
+          line-height: 32px;'>
+                            汇率：
+                  </span>
+
+                    <span style='font-size: 14px;
+          font-family: Nunito-Regular, Nunito;
+          font-weight: 400;
+          color: #000000;
+          line-height: 32px;'>
+            1USDT≈ 0.005 HSF
+          </span>
+        </v-row>
+        <v-row style='height: 10px'></v-row>
+        <v-row>
+          <v-col cols='1'></v-col>
+          <v-col cols='10'>
+            <v-btn
+              style="background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);color: #FFFFFF"
+              depressed
+              bottom
+              rounded
+              large
+              block
+              @click="submit"
+            >
+              兑换
+            </v-btn>
+          </v-col>
+          <v-col cols='1'></v-col>
+        </v-row>
+      </div>
+    </v-dialog>
   </v-row>
 
 
@@ -900,6 +1230,7 @@ line-height: 20px;'>全部</div>
 
 
 <script>
+import VueQr from 'vue-qr'
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
 
@@ -908,15 +1239,22 @@ export default {
   components: {
     Swiper,
     SwiperSlide,
+    VueQr,
   },
   data() {
     return {
+      // bool1 :true, //充值》
+      dataObj: {//二维码
+        text: 'https://blog.csdn.net/weixin_43760328/rss/list',
+      },
       sheet:false,
       t1: true, //对话框初始画面
       tab:null,
       areaCode: 'USTD',
       areaCodes: ['USTD', 'SHF'],
       dialog: false,
+      dialog2: false,
+      dialog3: false,
       swiperOption: {
         slidesPerView: 'auto',
         spaceBetween: 30,
@@ -927,6 +1265,7 @@ export default {
       },
     }
   },
+
 }
 </script>
 
