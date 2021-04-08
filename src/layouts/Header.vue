@@ -1,7 +1,7 @@
 <template>
-  <v-container fluid class="align-start" style="padding: 10px;">
+  <v-container fluid class="align-start" style="padding-top: 20px;">
     <section>
-      <v-row style="box-shadow: 14px 10px 40px 0 rgba(15, 15, 15, 0.1);">
+      <v-row style="height: 78px;">
         <v-col cols="3">
           <div class="d-flex justify-center">
             <router-link to="/">
@@ -15,21 +15,21 @@
         <v-col cols="6">
           <div style="margin-top: 18px">
             <v-row>
-              <v-col cols="2">
+              <v-col cols="1">
                 <div style="width: 50px; display: inline-flex">
                   <router-link to="/">
                     <p class="titleFont">首页</p>
                   </router-link>
                 </div>
               </v-col>
-              <v-col cols="2">
+              <v-col cols="1">
                 <div style="width: 50px; display: inline-flex">
                   <router-link to="/product">
                     <p class="titleFont">产品</p>
                   </router-link>
                 </div>
               </v-col>
-              <v-col cols="2">
+              <v-col cols="1">
                 <div
                   style="width: 50px; display: inline-flex; white-space: nowrap"
                 >
@@ -38,7 +38,7 @@
                   </router-link>
                 </div>
               </v-col>
-              <v-col cols="2">
+              <v-col cols="1">
                 <div
                   style="width: 50px; display: inline-flex; margin-left: 30px"
                 >
@@ -47,7 +47,7 @@
                   </router-link>
                 </div>
               </v-col>
-              <v-col cols="2">
+              <v-col cols="1">
                 <div
                   style="width: 50px; display: inline-flex; margin-left: 20px"
                 >
@@ -56,43 +56,50 @@
                   </router-link>
                 </div>
               </v-col>
-              <v-col cols="2">
-                <div
-                  class="d-flex justify-space-around"
-                  style="margin-left: 20px"
-                >
-                  <router-link to="/">
-                    <p class="titleFont" style="display: inline-flex">订单</p>
-                  </router-link>
-                  <router-link to="/">
-                    <p class="titleFont" style="display: inline-flex">资金</p>
-                  </router-link>
-                </div>
-              </v-col>
+              <v-col cols="2"> </v-col>
             </v-row>
           </div>
         </v-col>
         <v-col cols="3">
-          <div
-            class="d-inline-flex justify-space-around align-center"
-            style="margin-top: 10px"
-          >
+          <div class="d-inline-flex" style="margin-top: 10px">
+            <div class="d-inline-flex" style="margin-top: 10px">
+              <router-link to="/">
+                <div>订单</div>
+              </router-link>
+              <div style="width: 40px"></div>
+              <router-link to="/">
+                <div>资金</div>
+              </router-link>
+            </div>
+            <div style="width: 40px"></div>
             <div>
               <v-img
                 src="https://investors.oss-cn-beijing.aliyuncs.com/assets/user_logo.png"
-              style='height: 40px;width: 40px'></v-img>
+                style="height: 44px; width: 44px"
+              ></v-img>
             </div>
-            <div id="user" class="align-center">
-              {{ this.$route.query.name }}
+            <div style="width: 8px"></div>
+            <div
+              class="d-flex justify-center"
+              id="user"
+              style="width: 106px;height: 16px;font-size: 16px;font-weight: 600;color: #000000;
+              margin-top: 10px"
+            >
+              <!--              {{ this.$route.query.name }}-->
+              {{ this.username }}
             </div>
-            <!--            <div-->
-            <!--              style="display: inline-flex; margin-left: 50px; border-radius: 26px; color: #00CFAC"-->
-            <!--            >-->
-            <!--              <v-img src="https://investors.oss-cn-beijing.aliyuncs.com/assets/download.svg" style="width: 20px;" />-->
-            <!--            </div>-->
-            <!--            <div style="display: inline-flex; margin-left: 50px">-->
-            <!--              <v-img src="https://investors.oss-cn-beijing.aliyuncs.com/assets/global.svg" style="width: 20px" />-->
-            <!--            </div>-->
+            <div>
+              <v-img
+                src="https://investors.oss-cn-beijing.aliyuncs.com/assets/download.svg"
+                style="width: 20px;"
+              ></v-img>
+            </div>
+            <div>
+              <v-img
+                src="https://investors.oss-cn-beijing.aliyuncs.com/assets/global.svg"
+                style="width: 20px"
+              ></v-img>
+            </div>
           </div>
         </v-col>
       </v-row>
@@ -105,6 +112,7 @@ export default {
   name: 'Header',
   data() {
     return {
+      username: '',
       items: [
         {
           title: 'Foo',
@@ -116,6 +124,20 @@ export default {
         },
       ],
     }
+  },
+  mounted: function() {
+    this.GetMyData() //需要触发的函数
+  },
+  methods: {
+    GetMyData: function() {
+      const token = localStorage.getItem('token')
+      this.axios
+        .post('/r0/getMyUserData', {}, { headers: { access_token: token } })
+        .then(response => {
+          this.loginVue = false //显示登录代码
+          this.username = response.data.UserName
+        })
+    },
   },
 }
 </script>

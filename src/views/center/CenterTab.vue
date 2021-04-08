@@ -22,7 +22,7 @@
       </v-col>
       <v-col cols="3"></v-col>
     </v-row>
-    <div style="height: auto">
+    <div style="height: auto; box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.1);">
       <v-tabs-items v-model="model">
         <v-tab-item :value="`tab-1`">
           <v-card
