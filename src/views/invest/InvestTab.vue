@@ -1,5 +1,96 @@
 <template>
   <v-container fluid class="align-start" style="padding: 0;">
+    <v-col
+      cols="3"
+      offset="7"
+      style="position: absolute; z-index: 99; top: 60px"
+    >
+      <div>
+        <v-card
+          width="420px"
+          height="428px"
+          style="background: #FFFFFF;box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04);border-radius: 24px;"
+        >
+          <div style="padding: 39px 40px 49px 40px">
+            <div class="d-inline-flex">
+              <div
+                style="font-size: 48px;font-family: Nunito-ExtraBold, Nunito;font-weight: 800;color: #00CFAC;line-height: 48px;"
+              >
+                248.2%
+              </div>
+              <div style="width: 12px"></div>
+              <div
+                style="margin-top:18px; font-size: 14px;font-weight: 400;color: #B2B2B2;line-height: 24px;"
+              >
+                年化收益
+              </div>
+            </div>
+            <div style="height: 41px"></div>
+            <div class="d-inline-flex">
+              <div>
+                <div
+                  style="font-size: 16px;font-weight: 400;color: #333333;line-height: 16px;"
+                >
+                  投资总额
+                </div>
+                <div style="height: 18px"></div>
+                <div
+                  style="font-size: 16px;font-weight: 400;color: #333333;line-height: 16px;"
+                >
+                  1,000.000 USDT
+                </div>
+              </div>
+              <div style="width: 64px"></div>
+              <div>
+                <div
+                  style="font-size: 16px;font-weight: 400;color: #333333;line-height: 16px;"
+                >
+                  剩余可购
+                </div>
+                <div style="height: 18px"></div>
+                <div
+                  style="font-size: 16px;font-weight: 400;color: #00CFAC;line-height: 16px;"
+                >
+                  1,000.000 USDT
+                </div>
+              </div>
+            </div>
+            <div style="height: 36px"></div>
+            <div class="d-inline-flex">
+              <div>融资进度</div>
+              <div style="width: 8px"></div>
+              <div
+                style="margin-top: 3px; width:46px;height:18px;background: linear-gradient(225deg, #00E9D6 0%, #00CFAC 100%);border-radius: 4px;text-align:center;color:#fff;font-size:10px;font-weight:400;"
+              >
+                进行中
+              </div>
+            </div>
+            <div style="height: 20px"></div>
+            <v-progress-linear
+              style="height:10px;width:358px;border-radius: 5px;"
+              v-model="valueDeterminate"
+              background-color="#F7F8FB"
+              color="#00CFAC"
+              class="unFinish"
+            ></v-progress-linear>
+            <div style="height: 60px"></div>
+            <v-btn
+              width="340px"
+              height="56px"
+              text
+              rounded
+              style="color: #FFFFFF; background: linear-gradient(90deg, #00CFAC 0%, #5B7ADE 100%);"
+            >
+              <div
+                style="width: 48px;height: 22px;font-size: 16px;font-weight: 600;color: #FFFFFF;"
+              >
+                去投资
+              </div>
+            </v-btn>
+          </div>
+        </v-card>
+      </div>
+    </v-col>
     <v-img
       src="https://investors.oss-cn-beijing.aliyuncs.com/assets/invest/background_black.png"
       style="height: 343px"
@@ -674,6 +765,7 @@ export default {
       tab: 'tab-1',
       tabTrans: null,
       tabProduct: null,
+      valueDeterminate: 90,
     }
   },
 }
@@ -704,5 +796,10 @@ export default {
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: 500;
   color: #000000;
+}
+.unFinish {
+  .v-progress-linear__determinate {
+    background: linear-gradient(90deg, #00e9d6 0%, #00cfac 100%);
+  }
 }
 </style>
