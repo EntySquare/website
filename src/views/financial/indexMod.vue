@@ -36,7 +36,11 @@
               可用余额 (HSF)
             </v-col>
             <v-col class='text-right' cols='6' style='font-size: 14px;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #1BD7A7;line-height: 14px;'>
-              到期订单 〉
+              <router-link to="/order">
+                <samp style='font-size: 14px;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #1BD7A7;line-height: 14px;'>
+                  到期订单 〉
+                </samp>
+              </router-link>
             </v-col>
           </v-row>
           <v-row>
@@ -90,6 +94,7 @@
            <swiper class='swiper' :options='swiperOption' >
              <swiper-slide >
                <div style='height: 20px'></div>
+               <router-link to="/investTab">
                <v-navigation-drawer style='width: 400px;background: linear-gradient(30deg, #00DEB8 0%, #5B7ADE 100%, #5F80E8 100%);height: 190px;border-radius: 20px;box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.04);'>
                  <v-row style='padding: 36px 0px 0px 50px'>
                    <div class='d-inline-flex' style='width: 100%;'>
@@ -135,6 +140,7 @@
                    </div>
                  </v-row>
                </v-navigation-drawer>
+               </router-link>
                <div style='height: 20px'></div>
              </swiper-slide>
              <!-- 白背景 -->
@@ -187,6 +193,7 @@
              <!-- 灰背景 -->
              <swiper-slide >
                <div style='height: 20px'></div>
+
                <v-navigation-drawer style='width: 400px;background: #EBF0F3;height: 190px;border-radius: 20px;box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.04);'>
                  <v-row style='padding: 36px 0px 0px 50px'>
                    <div class='d-inline-flex' style='width: 100%;'>
@@ -230,6 +237,7 @@
                    </div>
                  </v-row>
                </v-navigation-drawer>
+
                <div style='height: 20px'></div>
              </swiper-slide>
 

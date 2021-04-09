@@ -324,7 +324,7 @@ padding: 0px 0px 0px 40px'>
 
       </v-col>
 
-      <v-col cols='12' style='height: 0px'></v-col>
+      <v-col cols='12' style='height: 100px'></v-col>
 
       <v-col cols='12' style='height: 40px'>
         <p style='font-size: 32px;

@@ -94,21 +94,21 @@ const routes = [
         name: 'realName',
         component: () => import('../views/center/RealName.vue'),
       },
-      // {
-      //   path: '/invest/index/',
-      //   name: 'investIndex',
-      //   component: () => import('../views/invest/index.vue'),
-      // },
       {
-        path: '/invest/tab/',
+        path: '/investIndex/',
+        name: 'investIndex',
+        component: () => import('../views/invest/InvestIndex.vue'),
+      },
+      {
+        path: '/investTab',
         name: 'investTab',
         component: () => import('../views/invest/InvestTab.vue'),
       },
-      // {
-      //   path: '/invest/',
-      //   name: 'invest',
-      //   component: () => import('../views/invest/invest.vue'),
-      // },
+      {
+        path: '/investPast/',
+        name: 'investPast',
+        component: () => import('../views/invest/InvestPast.vue'),
+      },
     ],
   },
 ]

@@ -66,7 +66,7 @@
                                 src="https://investors.oss-cn-beijing.aliyuncs.com/assets/headMenu/product_menu1.png"
                               ></v-img>
                             </div>
-                            <router-link to="/invest/index">
+                            <router-link to="/investPast">
                               <div
                                 style="margin-top: 18px; font-size: 12px; font-weight: 400; color: #000000; line-height: 12px"
                               >
@@ -85,11 +85,13 @@
                                 src="https://investors.oss-cn-beijing.aliyuncs.com/assets/headMenu/product_menu2.png"
                               ></v-img>
                             </div>
+                            <router-link to="/financial">
                             <div
                               style="margin-top: 18px; font-size: 12px; font-weight: 400; color: #000000; line-height: 12px"
                             >
                               investors 理财
                             </div>
+                            </router-link>
                           </div>
                           <div
                             class="d-inline-flex"
@@ -148,7 +150,7 @@
             <div v-show="!loginVue">
               <div class="d-inline-flex justify-space-around align-center">
                 <div class="d-flex">
-                  <router-link to="/login">
+                  <router-link to="/investList">
                     <div
                       class="titleFont"
                       style="font-size:16px;"
@@ -158,7 +160,7 @@
                     </div>
                   </router-link>
                   <div style="width: 50px"></div>
-                  <router-link to="/login">
+                  <router-link to="/wallet">
                     <div
                       class="titleFont"
                       style="font-size:16px;"
@@ -239,6 +241,7 @@
                           </v-list-item-subtitle>
                         </v-list-item>
                         <v-list-item>
+                          <router-link to="/wallet">
                           <v-btn
                             text
                             style="width: 100px; height: 48px;
@@ -249,7 +252,9 @@
                               充值
                             </div>
                           </v-btn>
+                            </router-link>
                           <div style="width: 10px"></div>
+                          <router-link to="/wallet">
                           <v-btn
                             text
                             style="width: 100px; height: 48px;
@@ -260,6 +265,7 @@
                               提现
                             </div>
                           </v-btn>
+                          </router-link>
                         </v-list-item>
                         <v-list-item>
                           <v-list-item-content>
@@ -294,11 +300,11 @@
                               <div style="cursor: pointer">个人中心</div>
                             </router-link>
                             <div style="height: 16px"></div>
-                            <router-link to="/">
+                            <router-link to="/centerTab">
                               <div style="cursor: pointer">安全中心</div>
                             </router-link>
                             <div style="height: 16px"></div>
-                            <router-link to="/">
+                            <router-link to="#">
                               <div style="cursor: pointer">退出</div>
                             </router-link>
                           </v-list-item-content>
@@ -437,7 +443,7 @@
             height: 70px;
             margin-right: 8%"
             >
-              <router-link to="/register">
+              <router-link to="/login">
                 <div style="color: #00CFAC; font-size: 16px">立即注册</div>
               </router-link>
             </v-btn>
@@ -455,7 +461,7 @@
             height: 70px;
             margin-right: 8%"
             >
-              <router-link to="/register">
+              <router-link to="/financial">
                 <div style="color: #00CFAC; font-size: 16px">理财</div>
               </router-link>
             </v-btn>
@@ -471,7 +477,7 @@
             box-shadow: none;
             text-align: center"
             >
-              <router-link to="/login">
+              <router-link to="https://www.hillstonetoken.com/">
                 <div style="color: #FFFFFF; font-size: 16px">白皮书</div>
               </router-link>
             </v-btn>
