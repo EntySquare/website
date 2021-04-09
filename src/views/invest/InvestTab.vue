@@ -99,7 +99,7 @@
                     <v-col cols='2' style='padding: 20px 9px 10px 43px'>
                       <img
                         src="https://investors.oss-cn-beijing.aliyuncs.com/assets/guo0001.png"
-                        style="width: 33px; height:37px;"
+                        style="width: 40px; height:40px;"
                       />
                     </v-col>
                     <v-col cols='10' style=''>
@@ -119,7 +119,7 @@
                     <v-col cols='2' style='padding: 20px 9px 10px 43px'>
                       <img
                         src="https://investors.oss-cn-beijing.aliyuncs.com/assets/guo0002.png"
-                        style="width: 33px; height:37px;"
+                        style="width: 40px; height:40px;"
                       />
                     </v-col>
                     <v-col cols='10' style=''>
@@ -142,7 +142,7 @@
                       <v-col cols='2' style='padding: 20px 9px 10px 43px'>
                         <img
                           src="https://investors.oss-cn-beijing.aliyuncs.com/assets/guo0003.png"
-                          style="width: 33px; height:37px;"
+                          style="width: 40px; height:40px;"
                         />
                       </v-col>
                       <v-col cols='10' style=''>
@@ -162,7 +162,7 @@
                       <v-col cols='2' style='padding: 20px 9px 10px 43px'>
                         <img
                           src="https://investors.oss-cn-beijing.aliyuncs.com/assets/guo0004.png"
-                          style="width: 33px; height:37px;"
+                          style="width: 40px; height:40px;"
                         />
                       </v-col>
                       <v-col cols='10' style=''>
@@ -326,7 +326,7 @@ export default {
             emphasis: {
               focus: 'series'
             },
-            data: [123,223,183,380,300,450,500,]
+            data: [223,293,183,380,300,450,500,]
           },
         ] });
     }

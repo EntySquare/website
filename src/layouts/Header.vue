@@ -63,11 +63,11 @@
         <v-col cols="3">
           <div class="d-inline-flex" style="margin-top: 10px">
             <div class="d-inline-flex" style="margin-top: 10px">
-              <router-link to="/">
+              <router-link to="/investList">
                 <div>订单</div>
               </router-link>
               <div style="width: 40px"></div>
-              <router-link to="/">
+              <router-link to="/wallet">
                 <div>资金</div>
               </router-link>
             </div>
