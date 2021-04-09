@@ -46,6 +46,16 @@ const routes = [
         name: 'order',
         component: () => import('../views/financial/order.vue'),
       },
+      {
+        path: '/financial',
+        name: 'financial',
+        component: () => import('../views/financial/index.vue'),
+      },
+      {
+        path: '/investList',
+        name: 'investList',
+        component: () => import('../views/invest/investList.vue'),
+      },
     ],
   },
   // {

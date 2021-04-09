@@ -414,7 +414,7 @@ font-weight: 600;
 color: #000000;
 line-height: 43px;"
           >
-            规划路线
+            路线图
           </div>
         </v-col>
 
@@ -471,7 +471,7 @@ line-height: 43px;"
                   @click="bao2019()"
                   style="line-height:80px; background: linear-gradient(270deg, #00FFBC 0%, #29C4CB 100%); height: 6px; width:100%;font-size: 32px;outline: none;"
                 >
-                  2019
+                  2020
                 </button>
               </v-col>
               <v-col cols="4">
@@ -481,7 +481,7 @@ line-height: 43px;"
                   type="button"
                   style="line-height:80px; background: #F7F8FB; height: 6px;font-size: 32px; width:100%;outline: none;"
                 >
-                  2020
+                  2021
                 </button>
               </v-col>
               <v-col cols="4">
@@ -491,7 +491,7 @@ line-height: 43px;"
                   type="button"
                   style="line-height:80px; background: #F7F8FB; height: 6px;font-size: 32px; width:100%;outline: none;"
                 >
-                  2021
+                  2022
                 </button>
               </v-col>
             </v-row>
@@ -513,40 +513,68 @@ line-height: 43px;"
                   align="left"
                   style="font-size: 24px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
                 >
-                  2019
+                  2020
                 </p>
                 <p
                   align="left"
                   style="font-size: 18px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
                 >
-                  第二季度~第三季度
+                  Q1~Q2
                 </p>
                 <p
                   align="left"
                   style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
                 >
                   <span style="color: #00FFBC ;font-size: 5px;">●</span>
-                  investors Established
+                  Hillstone Finance 项目⽴项
                 </p>
                 <p
                   align="left"
                   style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
                 >
                   <span style="color: #00FFBC ;font-size: 5px;">●</span>
-                  investors Architecture and Consensus Design
+                  IAP protocol 设计架构和共识
                 </p>
                 <p
                   align="left"
                   style="font-size: 18px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
                 >
-                  第四季度
+                  Q3
                 </p>
                 <p
                   align="left"
                   style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
                 >
                   <span style="color: #00FFBC ;font-size: 5px;">●</span>
-                  investors Exchange system Beta Launch
+                  IAP 合约开发完成，进⼊测试完善阶段
+                </p>
+                <p
+                  align="left"
+                  style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
+                >
+                  <span style="color: #00FFBC ;font-size: 5px;">●</span>
+                  项目正式命名Investors、举办品牌发布会
+                </p>
+
+                <p
+                  align="left"
+                  style="font-size: 18px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
+                >
+                  Q4
+                </p>
+                <p
+                  align="left"
+                  style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
+                >
+                  <span style="color: #00FFBC ;font-size: 5px;">●</span>
+                  发布 Hillstone Finance ⽩⽪书
+                </p>
+                <p
+                  align="left"
+                  style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
+                >
+                  <span style="color: #00FFBC ;font-size: 5px;">●</span>
+                  启动Hillstone Finance 合作伙伴计划
                 </p>
               </div>
             </v-col>
@@ -562,54 +590,82 @@ line-height: 43px;"
                   align="left"
                   style="font-size: 24px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
                 >
-                  2020
+                  2021
                 </p>
                 <p
                   align="left"
                   style="font-size: 18px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
                 >
-                  第一季度
+                  Q1
                 </p>
                 <p
                   align="left"
                   style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
                 >
                   <span style="color: #00FFBC ;font-size: 5px;">●</span>
-                  investors Established text text text text text
+                  Investors APP/Web 客户端进⼊开发阶段
                 </p>
                 <p
                   align="left"
                   style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
                 >
                   <span style="color: #00FFBC ;font-size: 5px;">●</span>
-                  investors Established text text text text text
-                </p>
-                <p
-                  align="left"
-                  style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
-                >
-                  <span style="color: #00FFBC ;font-size: 5px;">●</span>
-                  investors Established text text text text text
-                </p>
-                <p
-                  align="left"
-                  style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
-                >
-                  <span style="color: #00FFBC ;font-size: 5px;">●</span>
-                  investors Architecture and Consensus Design
+                  全球化布局深⼊在⾹港、纽约设⽴分⽀机构
                 </p>
                 <p
                   align="left"
                   style="font-size: 18px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
                 >
-                  第四季度
+                  Q2
                 </p>
                 <p
                   align="left"
                   style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
                 >
                   <span style="color: #00FFBC ;font-size: 5px;">●</span>
-                  investors Exchange system Beta Launch
+                  Investors APP/Web 客户端全⾯上线
+                </p>
+                <p
+                  align="left"
+                  style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
+                >
+                  <span style="color: #00FFBC ;font-size: 5px;">●</span>
+                  HSF 代币上市交易所，开放市场交易
+                </p>
+
+                <p
+                  align="left"
+                  style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
+                >
+                  <span style="color: #00FFBC ;font-size: 5px;">●</span>
+                  开始向全球⾼净值客户提供专业⾦融服务
+                </p>
+                <p
+                  align="left"
+                  style="font-size: 18px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
+                >
+                  Q3~Q4
+                </p>
+                <p
+                  align="left"
+                  style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
+                >
+                  <span style="color: #00FFBC ;font-size: 5px;">●</span>
+                  扩⼤HillStone Finance 战略投资机构合作伙伴
+                </p>
+                <p
+                  align="left"
+                  style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
+                >
+                  <span style="color: #00FFBC ;font-size: 5px;">●</span>
+                  开放区块链项目基于HSF代币募资合约
+                </p>
+                <p
+                  align="left"
+                  style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
+                >
+                  <span style="color: #00FFBC ;font-size: 5px;">●</span>
+                  开放项目社群，让投资者与项目⽅零距离接触
                 </p>
               </div>
             </v-col>
@@ -624,34 +680,47 @@ line-height: 43px;"
                   align="left"
                   style="font-size: 24px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
                 >
-                  2021
+                  2022
                 </p>
                 <p
                   align="left"
                   style="font-size: 18px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
                 >
-                  第三季度
+                  Q1~Q2
                 </p>
                 <p
                   align="left"
                   style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
                 >
                   <span style="color: #00FFBC ;font-size: 5px;">●</span>
-                  investors Established text text text text text
-                </p>
-                <p
-                  align="left"
-                  style="font-size: 18px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
-                >
-                  第四季度
+                  开放多元化、多币种投资组合
                 </p>
                 <p
                   align="left"
                   style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
                 >
                   <span style="color: #00FFBC ;font-size: 5px;">●</span>
-                  investors Exchange system Beta Launch test test test test test
-                  test
+                  为有资⾦需求企业提供最便捷的融资⼊⼝
+                </p>
+                <p
+                  align="left"
+                  style="font-size: 18px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #000000;"
+                >
+                  Q3~Q4
+                </p>
+                <p
+                  align="left"
+                  style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
+                >
+                  <span style="color: #00FFBC ;font-size: 5px;">●</span>
+                  跻⾝全球DeFi去中⼼化头部⾦融理财平台
+                </p>
+                <p
+                  align="left"
+                  style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;"
+                >
+                  <span style="color: #00FFBC ;font-size: 5px;">●</span>
+                  完成平台化、产品化、规模化全⾯战略升级
                 </p>
               </div>
             </v-col>
