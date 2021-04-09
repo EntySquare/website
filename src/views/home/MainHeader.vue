@@ -39,7 +39,7 @@
                       content-class="rounded-xl"
                       v-model="productMenu"
                       :close-on-content-click="true"
-                      :nudge-bottom="40"
+                      :nudge-bottom="20"
                       :nudge-left="60"
                       offset-y
                     >
@@ -86,11 +86,11 @@
                               ></v-img>
                             </div>
                             <router-link to="/financial">
-                            <div
-                              style="margin-top: 18px; font-size: 12px; font-weight: 400; color: #000000; line-height: 12px"
-                            >
-                              investors 理财
-                            </div>
+                              <div
+                                style="margin-top: 18px; font-size: 12px; font-weight: 400; color: #000000; line-height: 12px"
+                              >
+                                investors 理财
+                              </div>
                             </router-link>
                           </div>
                           <div
@@ -229,42 +229,52 @@
                               class="d-inline-flex"
                               style="font-size: 20px; font-weight: bold"
                             >
-                              <div>******</div>
-                              <div style="width: 10px"></div>
-                              <div>USDT</div>
+                              <div>0.28802000 USDT</div>
                             </div>
                           </v-list-item-title>
                         </v-list-item>
                         <v-list-item>
                           <v-list-item-subtitle>
-                            <div>$ ******</div>
+                            <div>$ 0.28802000</div>
                           </v-list-item-subtitle>
                         </v-list-item>
                         <v-list-item>
                           <router-link to="/wallet">
-                          <v-btn
-                            text
-                            style="width: 100px; height: 48px;
+                            <v-btn
+                              text
+                              style="width: 100px; height: 48px;
                             box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04);
                             border-radius: 8px;"
-                          >
-                            <div>
-                              充值
-                            </div>
-                          </v-btn>
-                            </router-link>
+                            >
+                              <div class="d-inline-flex">
+                                <div style="width: 18px; height: 18px">
+                                  <v-img
+                                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/userCenter/center_down.png"
+                                  ></v-img>
+                                </div>
+                                <div style="width: 8px"></div>
+                                <div>充值</div>
+                              </div>
+                            </v-btn>
+                          </router-link>
                           <div style="width: 10px"></div>
                           <router-link to="/wallet">
-                          <v-btn
-                            text
-                            style="width: 100px; height: 48px;
+                            <v-btn
+                              text
+                              style="width: 100px; height: 48px;
                             box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04);
                             border-radius: 8px;"
-                          >
-                            <div>
-                              提现
-                            </div>
-                          </v-btn>
+                            >
+                              <div class="d-inline-flex">
+                                <div style="width: 18px; height: 18px">
+                                  <v-img
+                                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/userCenter/center_up.png"
+                                  ></v-img>
+                                </div>
+                                <div style="width: 8px"></div>
+                                <div>提现</div>
+                              </div>
+                            </v-btn>
                           </router-link>
                         </v-list-item>
                         <v-list-item>
@@ -296,43 +306,50 @@
                         </v-list-item>
                         <v-list-item>
                           <v-list-item-content>
-                            <router-link to="/centerTab">
-                              <div style="cursor: pointer">个人中心</div>
-                            </router-link>
+                            <div class="d-inline-flex">
+                              <div style="width: 14px; height: 14px">
+                                <v-img
+                                  src="https://investors.oss-cn-beijing.aliyuncs.com/assets/userCenter/center_product_icon.png"
+                                >
+                                </v-img>
+                              </div>
+                              <div style="width: 8px"></div>
+                              <router-link to="/centerTab">
+                                <div style="cursor: pointer">个人中心</div>
+                              </router-link>
+                            </div>
                             <div style="height: 16px"></div>
-                            <router-link to="/centerTab">
-                              <div style="cursor: pointer">安全中心</div>
-                            </router-link>
+                            <div class="d-inline-flex">
+                              <div style="width: 14px; height: 14px">
+                                <v-img
+                                  src="https://investors.oss-cn-beijing.aliyuncs.com/assets/userCenter/center_people_icon.png"
+                                >
+                                </v-img>
+                              </div>
+                              <div style="width: 8px"></div>
+                              <router-link to="/centerTab">
+                                <div style="cursor: pointer">安全中心</div>
+                              </router-link>
+                            </div>
                             <div style="height: 16px"></div>
-                            <router-link to="#">
-                              <div style="cursor: pointer">退出</div>
-                            </router-link>
+                            <div class="d-inline-flex">
+                              <div style="width: 14px; height: 14px">
+                                <v-img
+                                  src="https://investors.oss-cn-beijing.aliyuncs.com/assets/userCenter/center_logout_icon.png"
+                                >
+                                </v-img>
+                              </div>
+                              <div style="width: 8px"></div>
+                              <router-link to="/centerTab">
+                                <div style="cursor: pointer">退出</div>
+                              </router-link>
+                            </div>
                           </v-list-item-content>
                         </v-list-item>
                       </v-list>
-                      <!--                      <v-divider></v-divider>-->
                     </v-card>
                   </v-menu>
                 </div>
-
-                <!--                <v-btn text class="d-inline-flex align-center">-->
-                <!--                  <div>-->
-                <!--                    <v-img-->
-                <!--                      src="https://investors.oss-cn-beijing.aliyuncs.com/assets/loginTou.png"-->
-                <!--                      width="44px"-->
-                <!--                      height="44px"-->
-                <!--                    ></v-img>-->
-                <!--                  </div>-->
-                <!--                  <div style="width: 8px"></div>-->
-                <!--                  <div-->
-                <!--                    style="font-size: 16px;-->
-                <!--                        font-weight: bold;-->
-                <!--                        color: #FFFFFF;-->
-                <!--                       "-->
-                <!--                  >-->
-                <!--                    {{ this.username }}-->
-                <!--                  </div>-->
-                <!--                </v-btn>-->
                 <div style="width: 50px"></div>
                 <div style="display: inline-flex;">
                   <v-img
