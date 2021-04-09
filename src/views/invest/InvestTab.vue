@@ -82,162 +82,211 @@
       <v-tabs-items v-model="tab">
         <v-tab-item :value="`tab-1`">
           <div style="">
-            <v-col cols='6' offset='3'  style='background: #FAFBFC;height: 1800px;padding: 0px 24px 0px 24px'>
-            <div style='height:80px;width: 100%'></div>
-            <div style='width: 72px;height: 24px;font-size: 24px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;line-height: 24px;'>
-              盈利宝
-            </div>
-            <div style='height: 24px'></div>
-              <!-- 项目亮点 -->
-              <div style='width: 100%;height: 329px;background: #FFFFFF;border-radius: 18px;padding: 40px 30px 30px 30px'>
-                <div style='width: 72px;height: 18px;font-size: 18px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;line-height: 18px;'>
+            <v-col
+              cols="6"
+              offset="3"
+              style="background: #FAFBFC;height: 1800px;padding: 0px 24px 0px 24px"
+            >
+              <div style="height:80px;width: 100%"></div>
+              <div
+                style="width: 72px;height: 24px;font-size: 24px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;line-height: 24px;"
+              >
+                盈利宝
+              </div>
+              <div style="height: 24px"></div>
+              <div
+                style="width: 100%;height: 329px;background: #FFFFFF;border-radius: 18px;padding: 40px 30px 30px 30px"
+              >
+                <div
+                  style="width: 72px;height: 18px;font-size: 18px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;line-height: 18px;"
+                >
                   项目亮点
                 </div>
-                <div style='height: 30px'></div>
-               <v-row>
-                <v-col cols='6'>
-                    <v-row>
-                    <v-col cols='2' style='padding: 20px 9px 10px 43px'>
-                      <img
-                        src="https://investors.oss-cn-beijing.aliyuncs.com/assets/guo0001.png"
-                        style="width: 33px; height:37px;"
-                      />
-                    </v-col>
-                    <v-col cols='10' style=''>
-                      <div style='width: 172px;height: 24px;font-size: 18px;font-family: Nunito-Regular, Nunito;font-weight: 600;color: #000000;line-height: 24px;'>
-                        加密资产
-                      </div>
-                      <div style='height: 13px'></div>
-                      <div style='width: 233px;height: 16px;font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 600;color: #808080;line-height: 16px;'>
-                        灵活期限 随心定制
-                      </div>
-                    </v-col>
-                    </v-row>
-
-                  </v-col>
-                <v-col cols='6'>
-                  <v-row>
-                    <v-col cols='2' style='padding: 20px 9px 10px 43px'>
-                      <img
-                        src="https://investors.oss-cn-beijing.aliyuncs.com/assets/guo0002.png"
-                        style="width: 33px; height:37px;"
-                      />
-                    </v-col>
-                    <v-col cols='10' style=''>
-                      <div style='width: 172px;height: 24px;font-size: 18px;font-family: Nunito-Regular, Nunito;font-weight: 600;color: #000000;line-height: 24px;'>
-                        去中性化金融
-                      </div>
-                      <div style='height: 13px'></div>
-                      <div style='width: 233px;height: 16px;font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 600;color: #808080;line-height: 16px;'>
-                        闪电赎回
-                      </div>
-                    </v-col>
-                  </v-row>
-
-                </v-col>
-               </v-row>
-                <div style='height: 50px'></div>
+                <div style="height: 30px"></div>
                 <v-row>
-                  <v-col cols='6'>
+                  <v-col cols="6">
                     <v-row>
-                      <v-col cols='2' style='padding: 20px 9px 10px 43px'>
+                      <v-col cols="2" style="padding: 20px 9px 10px 43px">
+                        <img
+                          src="https://investors.oss-cn-beijing.aliyuncs.com/assets/guo0001.png"
+                          style="width: 33px; height:37px;"
+                        />
+                      </v-col>
+                      <v-col cols="10" style="">
+                        <div
+                          style="width: 172px;height: 24px;font-size: 18px;font-family: Nunito-Regular, Nunito;font-weight: 600;color: #000000;line-height: 24px;"
+                        >
+                          加密资产
+                        </div>
+                        <div style="height: 13px"></div>
+                        <div
+                          style="width: 233px;height: 16px;font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 600;color: #808080;line-height: 16px;"
+                        >
+                          灵活期限 随心定制
+                        </div>
+                      </v-col>
+                    </v-row>
+                  </v-col>
+                  <v-col cols="6">
+                    <v-row>
+                      <v-col cols="2" style="padding: 20px 9px 10px 43px">
+                        <img
+                          src="https://investors.oss-cn-beijing.aliyuncs.com/assets/guo0002.png"
+                          style="width: 33px; height:37px;"
+                        />
+                      </v-col>
+                      <v-col cols="10" style="">
+                        <div
+                          style="width: 172px;height: 24px;font-size: 18px;font-family: Nunito-Regular, Nunito;font-weight: 600;color: #000000;line-height: 24px;"
+                        >
+                          去中性化金融
+                        </div>
+                        <div style="height: 13px"></div>
+                        <div
+                          style="width: 233px;height: 16px;font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 600;color: #808080;line-height: 16px;"
+                        >
+                          闪电赎回
+                        </div>
+                      </v-col>
+                    </v-row>
+                  </v-col>
+                </v-row>
+                <div style="height: 50px"></div>
+                <v-row>
+                  <v-col cols="6">
+                    <v-row>
+                      <v-col cols="2" style="padding: 20px 9px 10px 43px">
                         <img
                           src="https://investors.oss-cn-beijing.aliyuncs.com/assets/guo0003.png"
                           style="width: 33px; height:37px;"
                         />
                       </v-col>
-                      <v-col cols='10' style=''>
-                        <div style='width: 172px;height: 24px;font-size: 18px;font-family: Nunito-Regular, Nunito;font-weight: 600;color: #000000;line-height: 24px;'>
+                      <v-col cols="10" style="">
+                        <div
+                          style="width: 172px;height: 24px;font-size: 18px;font-family: Nunito-Regular, Nunito;font-weight: 600;color: #000000;line-height: 24px;"
+                        >
                           价格透明
                         </div>
-                        <div style='height: 13px'></div>
-                        <div style='width: 233px;height: 16px;font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 600;color: #808080;line-height: 16px;'>
+                        <div style="height: 13px"></div>
+                        <div
+                          style="width: 233px;height: 16px;font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 600;color: #808080;line-height: 16px;"
+                        >
                           价格实时 链上查询
                         </div>
                       </v-col>
                     </v-row>
-
                   </v-col>
-                  <v-col cols='6'>
+                  <v-col cols="6">
                     <v-row>
-                      <v-col cols='2' style='padding: 20px 9px 10px 43px'>
+                      <v-col cols="2" style="padding: 20px 9px 10px 43px">
                         <img
                           src="https://investors.oss-cn-beijing.aliyuncs.com/assets/guo0004.png"
                           style="width: 33px; height:37px;"
                         />
                       </v-col>
-                      <v-col cols='10' style=''>
-                        <div style='width: 172px;height: 24px;font-size: 18px;font-family: Nunito-Regular, Nunito;font-weight: 600;color: #000000;line-height: 24px;'>
+                      <v-col cols="10" style="">
+                        <div
+                          style="width: 172px;height: 24px;font-size: 18px;font-family: Nunito-Regular, Nunito;font-weight: 600;color: #000000;line-height: 24px;"
+                        >
                           安全合规
                         </div>
-                        <div style='height: 13px'></div>
-                        <div style='width: 233px;height: 16px;font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 600;color: #808080;line-height: 16px;'>
+                        <div style="height: 13px"></div>
+                        <div
+                          style="width: 233px;height: 16px;font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 600;color: #808080;line-height: 16px;"
+                        >
                           合规监管，安全存储
                         </div>
                       </v-col>
                     </v-row>
-
                   </v-col>
                 </v-row>
               </div>
-              <div style='height: 24px'></div>
+              <div style="height: 24px"></div>
               <!-- 交易规则 -->
-              <div style='width: 100%;height: 286px;background: #FFFFFF;border-radius: 18px;padding: 35px 24px 35px 24px'>
-
-                <div style='width: 100%;font-size: 18px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;'>
+              <div
+                style="width: 100%;height: 286px;background: #FFFFFF;border-radius: 18px;padding: 35px 24px 35px 24px"
+              >
+                <div
+                  style="width: 100%;font-size: 18px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;"
+                >
                   交易规则
-                  <div style='float:right;color: #0AC6B1;font-size: 14px;font-weight: 400;'>
+                  <div
+                    style="float:right;color: #0AC6B1;font-size: 14px;font-weight: 400;"
+                  >
                     买入-收益-撤销等详细规则 ➔
                   </div>
                 </div>
-                <div style='height: 38px'></div>
-                <div style='height: 25px;font-size: 18px;font-family: Nunito-Regular, Nunito;font-weight: 500;color: #808080;line-height: 24px'>
+                <div style="height: 38px"></div>
+                <div
+                  style="height: 25px;font-size: 18px;font-family: Nunito-Regular, Nunito;font-weight: 500;color: #808080;line-height: 24px"
+                >
                   本期买入
                 </div>
-                <div style='height: 18px'></div>
-                <div style='width: 100%;height: 18px;font-size: 18px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #000000;line-height: 18px;'>
+                <div style="height: 18px"></div>
+                <div
+                  style="width: 100%;height: 18px;font-size: 18px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #000000;line-height: 18px;"
+                >
                   2021-02-25 10:00:00至2021-03-03 17:00:00
                 </div>
-                <div style='height: 27px'></div>
+                <div style="height: 27px"></div>
                 <v-divider></v-divider>
-                <div style='height: 31px'></div>
-                <div style='width: 100%;font-size: 18px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;'>
+                <div style="height: 31px"></div>
+                <div
+                  style="width: 100%;font-size: 18px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;"
+                >
                   产品档案
-                  <div style='float:right;color: #0AC6B1;font-size: 14px;font-weight: 400;'>
+                  <div
+                    style="float:right;color: #0AC6B1;font-size: 14px;font-weight: 400;"
+                  >
                     产品类型、特点、项目方介绍、资金 ➔
                   </div>
                 </div>
               </div>
-              <div style='height: 24px'></div>
+              <div style="height: 24px"></div>
               <!-- 质押HSF浮动 则线图 -->
-              <div style='width: 100%;height: 800px;background: #FFFFFF;border-radius: 18px;padding: 35px 24px 35px 24px'>
-                <div style='width: 208px;height: 32px;font-size: 18px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;line-height: 32px;'>
+              <div
+                style="width: 100%;height: 800px;background: #FFFFFF;border-radius: 18px;padding: 35px 24px 35px 24px"
+              >
+                <div
+                  style="width: 208px;height: 32px;font-size: 18px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;line-height: 32px;"
+                >
                   质押HSF浮动
                 </div>
-                <div style='height: 40px;'></div>
-                <div style='font-size: 24px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #00CFAC;line-height: 24px;'>
+                <div style="height: 40px;"></div>
+                <div
+                  style="font-size: 24px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #00CFAC;line-height: 24px;"
+                >
                   3.00 HSF 1天
                 </div>
-                <div style='height: 30px'></div>
-                <div style='height: 559px;width: 100%;'>
-                  <div id="main" class='zhexiantu' style="width: 100%;height:100%;"></div>
+                <div style="height: 30px"></div>
+                <div style="height: 559px;width: 100%;">
+                  <div
+                    id="main"
+                    class="zhexiantu"
+                    style="width: 100%;height:100%;"
+                  ></div>
                 </div>
               </div>
-              <div style='height: 24px'></div>
+              <div style="height: 24px"></div>
               <!-- 长见问题 -->
-              <div style='width: 100%;height: 90px;background: #FFFFFF;border-radius: 18px;padding: 35px 24px 35px 24px'>
-                <div style='width: 100%;
+              <div
+                style="width: 100%;height: 90px;background: #FFFFFF;border-radius: 18px;padding: 35px 24px 35px 24px"
+              >
+                <div
+                  style="width: 100%;
                             height: 18px;
                             font-size: 18px;
                             font-family: PingFang-SC-Medium, PingFang-SC;
                             font-weight: 500;
                             color: #000000;
-                            line-height: 18px;'>
+                            line-height: 18px;"
+                >
                   常见问题
 
                   <img
                     src="https://investors.oss-cn-beijing.aliyuncs.com/assets/jiantouhui1.png"
-                    style="width:24px;height:24px;float:right;" />
+                    style="width:24px;height:24px;float:right;"
+                  />
                 </div>
               </div>
             </v-col>
@@ -542,51 +591,51 @@
 </template>
 
 <script>
-import * as echarts from 'echarts';
+import * as echarts from 'echarts'
 export default {
   name: 'InvestTab',
   components: {
     echarts,
   },
-  mounted:function(){
-      this.createcode();
+  mounted: function() {
+    this.createcode()
   },
-  methods:{
-    createcode(){
-      console.log("createcode（）：。。。")
-      var myChart = echarts.init(document.getElementById('main'));
-      console.log("数据：",myChart)
+  methods: {
+    createcode() {
+      console.log('createcode（）：。。。')
+      var myChart = echarts.init(document.getElementById('main'))
+      console.log('数据：', myChart)
       myChart.setOption({
         color: ['#00CFAC'],
         title: {
-          text: ''
+          text: '',
         },
         tooltip: {
           trigger: 'axis',
           axisPointer: {
             type: 'cross',
             label: {
-              backgroundColor: '#6a7985'
-            }
+              backgroundColor: '#6a7985',
+            },
           },
         },
         grid: {
           left: '1%',
           right: '4%',
           bottom: '2%',
-          containLabel: true
+          containLabel: true,
         },
         xAxis: [
           {
             type: 'category',
             boundaryGap: false,
-            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
-          }
+            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+          },
         ],
         yAxis: [
           {
-            type: 'value'
-          }
+            type: 'value',
+          },
         ],
         series: [
           {
@@ -595,26 +644,30 @@ export default {
             stack: '总量',
             smooth: true,
             lineStyle: {
-              width: 10
+              width: 10,
             },
             showSymbol: false,
             areaStyle: {
               opacity: 0.9,
-              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                offset: 0,
-                color: '#00CFAC'
-              }, {
-                offset: 1,
-                color: '#FFFFFF'
-              }])
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                {
+                  offset: 0,
+                  color: '#00CFAC',
+                },
+                {
+                  offset: 1,
+                  color: '#FFFFFF',
+                },
+              ]),
             },
             emphasis: {
-              focus: 'series'
+              focus: 'series',
             },
-            data: [123,223,183,380,300,450,500,]
+            data: [123, 223, 183, 380, 300, 450, 500],
           },
-        ] });
-    }
+        ],
+      })
+    },
   },
   data() {
     return {
