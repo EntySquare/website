@@ -32,10 +32,85 @@
                   </div>
                 </v-col>
                 <v-col cols="1">
-                  <div style="width: 50px; display: inline-flex">
-                    <router-link to="/product">
-                      <p class="titleFont">产品</p>
-                    </router-link>
+                  <div
+                    style="width: 50px; display: inline-flex; cursor: pointer"
+                  >
+                    <v-menu
+                      content-class="rounded-xl"
+                      v-model="productMenu"
+                      :close-on-content-click="true"
+                      :nudge-bottom="40"
+                      :nudge-left="60"
+                      offset-y
+                    >
+                      <template v-slot:activator="{ on, attrs }">
+                        <p
+                          v-bind="attrs"
+                          v-on="on"
+                          class="titleFont"
+                          @click="productMenu = true"
+                        >
+                          产品
+                        </p>
+                      </template>
+                      <v-card width="174px" height="160px">
+                        <div style="padding: 8px">
+                          <div
+                            class="d-inline-flex"
+                            style="width: 158px; height: 48px"
+                          >
+                            <div
+                              style="width: 24px; height: 24px; margin: 12px 10px 12px 8px"
+                            >
+                              <v-img
+                                src="https://investors.oss-cn-beijing.aliyuncs.com/assets/headMenu/product_menu1.png"
+                              ></v-img>
+                            </div>
+                            <router-link to="/invest/index">
+                              <div
+                                style="margin-top: 18px; font-size: 12px; font-weight: 400; color: #000000; line-height: 12px"
+                              >
+                                investors 投资
+                              </div>
+                            </router-link>
+                          </div>
+                          <div
+                            class="d-inline-flex"
+                            style="width: 158px; height: 48px"
+                          >
+                            <div
+                              style="width: 24px; height: 24px; margin: 12px 10px 12px 8px"
+                            >
+                              <v-img
+                                src="https://investors.oss-cn-beijing.aliyuncs.com/assets/headMenu/product_menu2.png"
+                              ></v-img>
+                            </div>
+                            <div
+                              style="margin-top: 18px; font-size: 12px; font-weight: 400; color: #000000; line-height: 12px"
+                            >
+                              investors 理财
+                            </div>
+                          </div>
+                          <div
+                            class="d-inline-flex"
+                            style="width: 158px; height: 48px"
+                          >
+                            <div
+                              style="width: 24px; height: 24px; margin: 12px 10px 12px 8px"
+                            >
+                              <v-img
+                                src="https://investors.oss-cn-beijing.aliyuncs.com/assets/headMenu/product_menu3.png"
+                              ></v-img>
+                            </div>
+                            <div
+                              style="margin-top: 18px; font-size: 12px; font-weight: 400; color: #000000; line-height: 12px"
+                            >
+                              investors APP
+                            </div>
+                          </div>
+                        </div>
+                      </v-card>
+                    </v-menu>
                   </div>
                 </v-col>
                 <v-col cols="1">
@@ -452,6 +527,7 @@ export default {
       message: false,
       hints: true,
       eyeFlag: 'mdi-eye',
+      productMenu: false,
     }
   },
   mounted: function() {

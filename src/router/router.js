@@ -3,8 +3,6 @@ import VueRouter from 'vue-router'
 import AuthLayout from '@/layouts/AuthLayout'
 import CommonLayout from '@/layouts/CommonLayout'
 import Home from '@/views/home/Home'
-import Resource from '@/views/home/HomeResource'
-import HeadBar from '@/views/home/HeadBar'
 
 Vue.use(VueRouter)
 
@@ -85,6 +83,21 @@ const routes = [
         path: '/realName/',
         name: 'realName',
         component: () => import('../views/center/RealName.vue'),
+      },
+      {
+        path: '/invest/index/',
+        name: 'investIndex',
+        component: () => import('../views/invest/index.vue'),
+      },
+      {
+        path: '/invest/tab/',
+        name: 'investTab',
+        component: () => import('../views/invest/InvestTab.vue'),
+      },
+      {
+        path: '/invest/',
+        name: 'invest',
+        component: () => import('../views/invest/invest.vue'),
       },
     ],
   },
