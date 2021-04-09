@@ -29,7 +29,7 @@
             <div
               style="width: 93px;height: 28px;font-size: 20px;font-weight: 500;color: #FFFFFF;line-height: 28px;"
             >
-              R3 中风险
+              R3中风险
             </div>
             <div style="height: 42px"></div>
             <div>
