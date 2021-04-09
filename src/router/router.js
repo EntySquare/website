@@ -53,6 +53,11 @@ const routes = [
         name: 'financial',
         component: () => import('../views/financial/index.vue'),
       },
+      {
+        path: '/investList',
+        name: 'investList',
+        component: () => import('../views/invest/investList.vue'),
+      },
     ],
   },
   // {
