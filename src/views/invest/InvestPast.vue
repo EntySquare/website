@@ -1,16 +1,14 @@
 <template>
   <div>
     <main>
-      <the-header />
       <div
         class="main"
-        style="background: #FAFBFC;padding-bottom:70px;margin-bottom:-90px"
+        style="background: #FAFBFC;padding-bottom:70px;margin-bottom:-90px;"
       >
         <div class="banner" style="height: 343px;width:100%;">
           <div class="container2" style="padding-top: 80px;">
             <!-- 头部标题 -->
             <div class="tit">
-
               <img
                 src="../../assets/invest_icon.png"
                 style="width:36px;vertical-align:bottom;display:inline-block;margin-top:5px"
@@ -18,17 +16,17 @@
               <div
                 style="font-size:32px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #FFF;display:inline-block;margin-left:10px;line-height:36px"
               >
-                投 资 推 荐
+                投资推荐
               </div>
               <router-link to="/investIndex">
-              <div
-                style="font-size: 18px;font-family: PingFangSC-Regular, PingFang SC;color: #FFF;display:inline-block;float:right;"
-              >
-                往期项目
-                <v-icon color="#fff" style="font-size:16px"
-                  >mdi-arrow-right</v-icon
+                <div
+                  style="font-size: 18px;font-family: PingFangSC-Regular, PingFang SC;color: #FFF;display:inline-block;float:right;"
                 >
-              </div>
+                  往期项目
+                  <v-icon color="#fff" style="font-size:16px"
+                    >mdi-arrow-right</v-icon
+                  >
+                </div>
               </router-link>
             </div>
             <div
@@ -51,51 +49,52 @@
         <div class="container2" style="margin-top:-124px;" ref="point">
           <!-- 未完成卡片 -->
           <router-link to="/investTab">
-          <v-card
-            class="mx-auto card"
-            style="box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.04);"
-          >
-            <v-row>
-              <v-col>
-                <v-card-subtitle class="pb-0"
-                  ><span class="card-green">248.22%</span>
-                  年化收益</v-card-subtitle>
-              </v-col>
-              <v-col class="text1"
-                >项目周期&nbsp;&nbsp;&nbsp; <b>10 天</b>
-                <v-icon color="#b3b3b3" class="ll"
-                  >mdi-chevron-right</v-icon
-                ></v-col
-              >
-            </v-row>
-            <v-row>
-              <v-col class="textleft">投资总额 <b>1,000,000 USDT</b></v-col>
-              <v-col>最低收入 <b>100 USDT</b></v-col>
-            </v-row>
-            <v-row>
-              <v-col class="textleft"
-                >融资进度
-                <i
-                  style="display:inline-block;width:46px;height:18px;background: linear-gradient(225deg, #00E9D6 0%, #00CFAC 100%);border-radius: 4px;font-style:normal;text-align:center;line-height:18px;color:#fff;font-size:10px;font-weight:400;font-family: PingFangSC-Regular, PingFang SC;"
-                  >完成</i
-                >
-              </v-col>
-            </v-row>
-            <v-list style="position: relative;"
-              ><v-progress-linear
-                style="margin-top:10px;margin-left:8px;height:10px;width:600px;border-radius: 5px;"
-                v-model="valueDeterminate"
-                background-color="#F7F8FB"
-                color="#00CFAC"
-                class="unfinish"
-              ></v-progress-linear>
-              <span
-                style="position: absolute;top:-12px;right:30%;color:#00CFAC;font-size:14px;"
-                >90%</span
-              ></v-list
+            <v-card
+              class="mx-auto card"
+              style="box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.04);"
             >
-          </v-card>
-            </router-link>
+              <v-row>
+                <v-col>
+                  <v-card-subtitle class="pb-0"
+                    ><span class="card-green">248.2%</span>
+                    年化收益</v-card-subtitle
+                  >
+                </v-col>
+                <v-col class="text1"
+                  >项目周期&nbsp;&nbsp;&nbsp; <b>10 天</b>
+                  <v-icon color="#b3b3b3" class="ll"
+                    >mdi-chevron-right</v-icon
+                  ></v-col
+                >
+              </v-row>
+              <v-row>
+                <v-col class="textleft">投资总额 <b>1,000,000 USDT</b></v-col>
+                <v-col>最低收入 <b>100 USDT</b></v-col>
+              </v-row>
+              <v-row>
+                <v-col class="textleft"
+                  >融资进度
+                  <i
+                    style="display:inline-block;width:46px;height:18px;background: linear-gradient(225deg, #00E9D6 0%, #00CFAC 100%);border-radius: 4px;font-style:normal;text-align:center;line-height:18px;color:#fff;font-size:10px;font-weight:400;font-family: PingFangSC-Regular, PingFang SC;"
+                    >完成</i
+                  >
+                </v-col>
+              </v-row>
+              <v-list style="position: relative;"
+                ><v-progress-linear
+                  style="margin-top:10px;margin-left:8px;height:10px;width:600px;border-radius: 5px;"
+                  v-model="valueDeterminate"
+                  background-color="#F7F8FB"
+                  color="#00CFAC"
+                  class="unfinish"
+                ></v-progress-linear>
+                <span
+                  style="position: absolute;top:-12px;right:30%;color:#00CFAC;font-size:14px;"
+                  >90%</span
+                ></v-list
+              >
+            </v-card>
+          </router-link>
           <!-- 完成卡片 -->
           <v-card
             class="mx-auto card"
@@ -472,7 +471,7 @@
 
 export default {
   name: 'invest',
-  data () {
+  data() {
     return {
       valueDeterminate: 90,
       upbtn: true,
@@ -484,16 +483,16 @@ export default {
     // TheFooter: Footer,
     // TheHeader: Header,
   },
-  mounted () {
+  mounted() {
     window.addEventListener('scroll', this.scrollToTop)
   },
-  destroyed () {
+  destroyed() {
     window.removeEventListener('scroll', this.scrollToTop)
   },
 
   methods: {
     // 点击图片回到顶部方法，加计时器是为了过渡顺滑
-    backTop () {
+    backTop() {
       const that = this
       let timer = setInterval(() => {
         let ispeed = Math.floor(-that.scrollTop / 5)
@@ -505,7 +504,7 @@ export default {
       }, 16)
     },
     // 为了计算距离顶部的高度，当高度大于200显示回顶部图标，小于200则隐藏
-    scrollToTop () {
+    scrollToTop() {
       const that = this
       let scrollTop =
         window.pageYOffset ||
