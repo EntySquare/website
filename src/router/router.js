@@ -56,6 +56,21 @@ const routes = [
         name: 'investList',
         component: () => import('../views/invest/investList.vue'),
       },
+      {
+        path: '/company/about',
+        name: 'companyAbout',
+        component: () => import('../views/company/About.vue'),
+      },
+      {
+        path: '/company/cooperation',
+        name: 'companyCooperation',
+        component: () => import('../views/company/Cooperation.vue'),
+      },
+      {
+        path: '/company/contact',
+        name: 'companyContact',
+        component: () => import('../views/company/Contact.vue'),
+      },
     ],
   },
   // {
@@ -113,6 +128,11 @@ const routes = [
         path: '/investMine/',
         name: 'investMine',
         component: () => import('../views/invest/InvestMine.vue'),
+      },
+      {
+        path: '/company/state',
+        name: 'CompanyState',
+        component: () => import('../views/company/CompanyState.vue'),
       },
     ],
   },

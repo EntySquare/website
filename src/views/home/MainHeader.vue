@@ -168,7 +168,7 @@
                                 src="https://investors.oss-cn-beijing.aliyuncs.com/assets/headMenu/com_select_icon1.png"
                               ></v-img>
                             </div>
-                            <router-link to="/investPast">
+                            <router-link to="/company/about">
                               <div
                                 style="margin-top: 18px; font-size: 12px; font-weight: 400; color: #000000; line-height: 12px"
                               >
@@ -187,7 +187,7 @@
                                 src="https://investors.oss-cn-beijing.aliyuncs.com/assets/headMenu/com_select_icon2.png"
                               ></v-img>
                             </div>
-                            <router-link to="/financial">
+                            <router-link to="/company/cooperation">
                               <div
                                 style="margin-top: 18px; font-size: 12px; font-weight: 400; color: #000000; line-height: 12px"
                               >
@@ -206,11 +206,13 @@
                                 src="https://investors.oss-cn-beijing.aliyuncs.com/assets/headMenu/com_select_icon3.png"
                               ></v-img>
                             </div>
-                            <div
-                              style="margin-top: 18px; font-size: 12px; font-weight: 400; color: #000000; line-height: 12px"
-                            >
-                              企业动态
-                            </div>
+                            <router-link to="/company/state">
+                              <div
+                                style="margin-top: 18px; font-size: 12px; font-weight: 400; color: #000000; line-height: 12px"
+                              >
+                                企业动态
+                              </div>
+                            </router-link>
                           </div>
                           <div
                             class="d-inline-flex"
@@ -223,11 +225,13 @@
                                 src="https://investors.oss-cn-beijing.aliyuncs.com/assets/headMenu/com_select_icon4.png"
                               ></v-img>
                             </div>
-                            <div
-                              style="margin-top: 18px; font-size: 12px; font-weight: 400; color: #000000; line-height: 12px"
-                            >
-                              联系我们
-                            </div>
+                            <router-link to="/company/contact">
+                              <div
+                                style="margin-top: 18px; font-size: 12px; font-weight: 400; color: #000000; line-height: 12px"
+                              >
+                                联系我们
+                              </div>
+                            </router-link>
                           </div>
                         </div>
                       </v-card>
