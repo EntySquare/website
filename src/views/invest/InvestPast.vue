@@ -2,10 +2,12 @@
   <div style="background: #FAFBFC; height: 2844px">
     <div class="banner" style="height: 343px;width:100%;">
       <div class="container2" style="padding-top: 80px;">
-        <img
-          src="../../assets/invest_icon.png"
-          style="width:36px;vertical-align:bottom;display:inline-block"
-        />
+        <router-link to="/investMine">
+          <img
+            src="../../assets/invest_icon.png"
+            style="width:36px;vertical-align:bottom;display:inline-block"
+          />
+        </router-link>
         <div
           style="font-size:32px;font-weight: 600;color: #FFF;
                 display:inline-block;margin-left:10px;line-height:36px"

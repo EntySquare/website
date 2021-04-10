@@ -2,12 +2,12 @@
   <div>
     <main>
       <the-header />
-      <div class="main" style='background: #FAFBFC;'>
+      <div class="main" style="background: #FAFBFC;">
         <div class="container2">
           <div class="ptitle">
             <router-link to="/investPast">
-            <img src="@/assets/arrow_green.png" class="gbicon" />
-              </router-link>
+              <img src="@/assets/arrow_green.png" class="gbicon" />
+            </router-link>
             <h2>往期项目</h2>
             <span
               style="font-size: 12px;font-family: PingFangSC-Regular, PingFang SC;color: #1BD7A7;"
@@ -29,52 +29,52 @@
           </div>
           <!-- 未完成卡片 -->
           <router-link to="/investTab">
-          <v-card
-            class="mx-auto card"
-            style="box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.04);"
-          >
-            <v-row>
-              <v-col
-                ><v-card-subtitle class="pb-0"
-                  ><span class="card-green">248.2%</span>
-                  年化收益</v-card-subtitle
-                ></v-col
-              >
-              <v-col class="text1"
-                >项目周期&nbsp;&nbsp;&nbsp; <b>10 天</b>
-                <v-icon color="#b3b3b3" class="ll"
-                  >mdi-chevron-right</v-icon
-                ></v-col
-              >
-            </v-row>
-            <v-row>
-              <v-col class="textleft">投资总额 <b>1,000,000 USDT</b></v-col>
-              <v-col>最低收入 <b>100 USDT</b></v-col>
-            </v-row>
-            <v-row>
-              <v-col class="textleft"
-                >融资进度
-                <i
-                  style="display:inline-block;width:46px;height:18px;background: linear-gradient(225deg, #00E9D6 0%, #00CFAC 100%);border-radius: 4px;font-style:normal;text-align:center;line-height:18px;color:#fff;font-size:10px;font-weight:400;font-family: PingFangSC-Regular, PingFang SC;"
-                  >完成</i
-                >
-              </v-col>
-            </v-row>
-            <v-list style="position: relative;"
-              ><v-progress-linear
-                style="margin-top:10px;margin-left:8px;height:10px;width:600px;border-radius: 5px;"
-                v-model="valueDeterminate"
-                background-color="#F7F8FB"
-                color="#00CFAC"
-                class="unfinish"
-              ></v-progress-linear>
-              <span
-                style="position: absolute;top:-12px;right:30%;color:#00CFAC;font-size:14px;"
-                >90%</span
-              ></v-list
+            <v-card
+              class="mx-auto card"
+              style="box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.04);"
             >
-          </v-card>
-            </router-link>
+              <v-row>
+                <v-col
+                  ><v-card-subtitle class="pb-0"
+                    ><span class="card-green">248.2%</span>
+                    年化收益</v-card-subtitle
+                  ></v-col
+                >
+                <v-col class="text1"
+                  >项目周期&nbsp;&nbsp;&nbsp; <b>10 天</b>
+                  <v-icon color="#b3b3b3" class="ll"
+                    >mdi-chevron-right</v-icon
+                  ></v-col
+                >
+              </v-row>
+              <v-row>
+                <v-col class="textleft">投资总额 <b>1,000,000 USDT</b></v-col>
+                <v-col>最低收入 <b>100 USDT</b></v-col>
+              </v-row>
+              <v-row>
+                <v-col class="textleft"
+                  >融资进度
+                  <i
+                    style="display:inline-block;width:46px;height:18px;background: linear-gradient(225deg, #00E9D6 0%, #00CFAC 100%);border-radius: 4px;font-style:normal;text-align:center;line-height:18px;color:#fff;font-size:10px;font-weight:400;font-family: PingFangSC-Regular, PingFang SC;"
+                    >完成</i
+                  >
+                </v-col>
+              </v-row>
+              <v-list style="position: relative;"
+                ><v-progress-linear
+                  style="margin-top:10px;margin-left:8px;height:10px;width:600px;border-radius: 5px;"
+                  v-model="valueDeterminate"
+                  background-color="#F7F8FB"
+                  color="#00CFAC"
+                  class="unfinish"
+                ></v-progress-linear>
+                <span
+                  style="position: absolute;top:-12px;right:30%;color:#00CFAC;font-size:14px;"
+                  >90%</span
+                ></v-list
+              >
+            </v-card>
+          </router-link>
           <!-- 完成卡片 -->
           <v-card
             class="mx-auto card"
@@ -185,7 +185,7 @@
 
 export default {
   name: 'property',
-  data () {
+  data() {
     return {
       valueDeterminate: 90,
     }

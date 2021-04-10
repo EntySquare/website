@@ -100,7 +100,7 @@ const routes = [
         component: () => import('../views/invest/InvestIndex.vue'),
       },
       {
-        path: '/investTab',
+        path: '/investTab/',
         name: 'investTab',
         component: () => import('../views/invest/InvestTab.vue'),
       },
@@ -108,6 +108,11 @@ const routes = [
         path: '/investPast/',
         name: 'investPast',
         component: () => import('../views/invest/InvestPast.vue'),
+      },
+      {
+        path: '/investMine/',
+        name: 'investMine',
+        component: () => import('../views/invest/InvestMine.vue'),
       },
     ],
   },
