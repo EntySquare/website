@@ -137,9 +137,101 @@
                   <div
                     style="width: 50px; display: inline-flex; margin-left: 20px"
                   >
-                    <router-link to="/product">
-                      <p class="titleFont">公司</p>
-                    </router-link>
+                    <v-menu
+                      content-class="rounded-xl"
+                      v-model="companyMenu"
+                      :close-on-content-click="true"
+                      :nudge-bottom="20"
+                      :nudge-left="60"
+                      offset-y
+                    >
+                      <template v-slot:activator="{ on, attrs }">
+                        <p
+                          v-bind="attrs"
+                          v-on="on"
+                          class="titleFont"
+                          @click="companyMenu = true"
+                        >
+                          公司
+                        </p>
+                      </template>
+                      <v-card width="174px" height="208px">
+                        <div style="padding: 8px">
+                          <div
+                            class="d-inline-flex"
+                            style="width: 158px; height: 48px"
+                          >
+                            <div
+                              style="width: 24px; height: 24px; margin: 12px 10px 12px 8px"
+                            >
+                              <v-img
+                                src="https://investors.oss-cn-beijing.aliyuncs.com/assets/headMenu/com_select_icon1.png"
+                              ></v-img>
+                            </div>
+                            <router-link to="/investPast">
+                              <div
+                                style="margin-top: 18px; font-size: 12px; font-weight: 400; color: #000000; line-height: 12px"
+                              >
+                                关于我们
+                              </div>
+                            </router-link>
+                          </div>
+                          <div
+                            class="d-inline-flex"
+                            style="width: 158px; height: 48px"
+                          >
+                            <div
+                              style="width: 24px; height: 24px; margin: 12px 10px 12px 8px"
+                            >
+                              <v-img
+                                src="https://investors.oss-cn-beijing.aliyuncs.com/assets/headMenu/com_select_icon2.png"
+                              ></v-img>
+                            </div>
+                            <router-link to="/financial">
+                              <div
+                                style="margin-top: 18px; font-size: 12px; font-weight: 400; color: #000000; line-height: 12px"
+                              >
+                                团队与合作
+                              </div>
+                            </router-link>
+                          </div>
+                          <div
+                            class="d-inline-flex"
+                            style="width: 158px; height: 48px"
+                          >
+                            <div
+                              style="width: 24px; height: 24px; margin: 12px 10px 12px 8px"
+                            >
+                              <v-img
+                                src="https://investors.oss-cn-beijing.aliyuncs.com/assets/headMenu/com_select_icon3.png"
+                              ></v-img>
+                            </div>
+                            <div
+                              style="margin-top: 18px; font-size: 12px; font-weight: 400; color: #000000; line-height: 12px"
+                            >
+                              企业动态
+                            </div>
+                          </div>
+                          <div
+                            class="d-inline-flex"
+                            style="width: 158px; height: 48px"
+                          >
+                            <div
+                              style="width: 24px; height: 24px; margin: 12px 10px 12px 8px"
+                            >
+                              <v-img
+                                src="https://investors.oss-cn-beijing.aliyuncs.com/assets/headMenu/com_select_icon4.png"
+                              ></v-img>
+                            </div>
+                            <div
+                              style="margin-top: 18px; font-size: 12px; font-weight: 400; color: #000000; line-height: 12px"
+                            >
+                              联系我们
+                            </div>
+                          </div>
+                        </div>
+                      </v-card>
+                    </v-menu>
                   </div>
                 </v-col>
               </v-row>
@@ -551,6 +643,7 @@ export default {
       hints: true,
       eyeFlag: 'mdi-eye',
       productMenu: false,
+      companyMenu: false,
     }
   },
   mounted: function() {
