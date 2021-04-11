@@ -742,7 +742,128 @@
           </div>
         </v-tab-item>
         <v-tab-item :value="`tab-4`">
-          <div style="height: 100vh"></div>
+          <div>
+            <v-col cols='6' offset='3' style='background: #FAFBFC;height: 1811px;padding: 0px 24px 0px 24px'>
+              <div style='height: 60px'></div>
+              <div style='width: 196px;
+                          height: 24px;
+                          font-size: 24px;
+                          font-family: PingFang-SC-Semibold, PingFang-SC;
+                          font-weight: 600;
+                          color: #000000;
+                          line-height: 24px;'>
+                常见问题
+              </div>
+              <div style='height: 24px'></div>
+              <div  style='background: #FFFFFF;border-radius: 18px;height: 1582px;padding: 0px 24px 0px 24px'>
+                <div style='height: 38px'></div>
+                <div style='width: 198px;height: 18px;font-size: 18px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;line-height: 18px;'>
+                  投资需要满足什么条件？
+                </div>
+                <div style='height: 38px'></div>
+                <div style='
+                            width: 100%;
+                            height: 50px;
+                            font-size: 18px;
+                            font-family: PingFangSC-Regular, PingFang SC;
+                            font-weight: 400;
+                            color: #808080;
+                            line-height: 25px;'>
+                  当您的资产账户满足最小起购条件，即可购买投资产品。同时，我们建议您仔细阅读投资规则说明。以确保您完全理解了投资的收益与风险。
+                </div>
+                <div style='height: 38px'></div>
+                <div style='width: 100%;
+                            height: 1px;
+                            border: 1px solid #F1F1F2;'>
+                </div>
+                <div style='height: 38px'></div>
+                <div style='width: 100%;height: 18px;font-size: 18px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;line-height: 18px;'>
+                  购买后能在立项前撤销吗？
+                </div>
+                <div style='height: 38px'></div>
+                <div style='
+                            width: 100%;
+                            height: 50px;
+                            font-size: 18px;
+                            font-family: PingFangSC-Regular, PingFang SC;
+                            font-weight: 400;
+                            color: #808080;
+                            line-height: 25px;'>
+                  当您购买成功后可以撤销，持有到期后自动回款结算。
+                </div>
+                <div style='height: 38px'></div>
+                <div style='width: 100%;
+                            height: 1px;
+                            border: 1px solid #F1F1F2;'>
+                </div>
+                <div style='height: 38px'></div>
+
+                <div style='width: 100%;height: 18px;font-size: 18px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;line-height: 18px;'>
+                  什么时候以什么方式回款？
+                </div>
+                <div style='height: 38px'></div>
+                <div style='
+                            width: 100%;
+                            height: 50px;
+                            font-size: 18px;
+                            font-family: PingFangSC-Regular, PingFang SC;
+                            font-weight: 400;
+                            color: #808080;
+                            line-height: 25px;'>
+                  产品立项确定后16:30 (UTC+8) 前收到您的回款。回款将直接转入您的HSF账户，不需要手动操作。
+                </div>
+                <div style='height: 38px'></div>
+                <div style='width: 100%;
+                            height: 1px;
+                            border: 1px solid #F1F1F2;'>
+                </div>
+                <div style='height: 38px'></div>
+
+                <div style='width: 100%;height: 18px;font-size: 18px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;line-height: 18px;'>
+                  产品购买截至时间
+                </div>
+                <div style='height: 38px'></div>
+                <div style='
+                            width: 100%;
+                            height: 50px;
+                            font-size: 18px;
+                            font-family: PingFangSC-Regular, PingFang SC;
+                            font-weight: 400;
+                            color: #808080;
+                            line-height: 25px;'>
+                  产品购买到期日前一天在23:59:59之前都可以下单。比如到期日8月2号持仓期限为1天的投资产品，购买截至时间就是8月1号23:59:59 之前，产品还有剩余可够量，用户都可以下单购买。
+                </div>
+                <div style='height: 38px'></div>
+                <div style='width: 100%;
+                            height: 1px;
+                            border: 1px solid #F1F1F2;'>
+                </div>
+                <div style='height: 38px'></div>
+
+                <div style='width: 100%;height: 18px;font-size: 18px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;line-height: 18px;'>
+                  是否有最小投资金额与最大投资金额的限制？
+                </div>
+                <div style='height: 38px'></div>
+                <div style='
+                            width: 100%;
+                            height: 50px;
+                            font-size: 18px;
+                            font-family: PingFangSC-Regular, PingFang SC;
+                            font-weight: 400;
+                            color: #808080;
+                            line-height: 25px;'>
+                  最小投资金额即是1份产品投资的单价，最大投资金额即是该投资产品的剩余可购量。
+                </div>
+                <div style='height: 38px'></div>
+                <div style='width: 100%;
+                            height: 1px;
+                            border: 1px solid #F1F1F2;'>
+                </div>
+                <div style='height: 38px'></div>
+
+              </div>
+            </v-col>
+          </div>
         </v-tab-item>
       </v-tabs-items>
     </div>
