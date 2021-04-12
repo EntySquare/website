@@ -227,7 +227,7 @@
                   </v-menu>
                 </div>
               </v-col>
-              <v-col cols="2"> </v-col>
+              <v-col cols="2"></v-col>
             </v-row>
           </div>
         </v-col>
