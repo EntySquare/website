@@ -7,6 +7,9 @@ import './plugins/axios'
 import './scss/index.scss'
 import i18n from './locales/i18n'
 
+import moment from 'moment'
+Vue.prototype.$moment = moment
+
 Vue.config.productionTip = false
 
 new Vue({

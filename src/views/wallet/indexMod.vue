@@ -134,7 +134,7 @@
                             line-height: 48px;
 
                  '>
-                  6,288.0206
+                  {{apidata.USDT.num}}
                 </p>
                 <p style='font-size: 14px;
                   font-family: Nunito-Regular, Nunito;
@@ -150,7 +150,7 @@
                   color: rgba(255, 255, 255, 0.8);
                  width: 100%;height: 20px;
 padding: 0px 0px 0px 40px'>
-                  6,288.02 USDT
+                  {{apidata.USDT.numOk}} USDT
                 </p>
                 <div style='height: 20px;width: 100%'></div>
                 <p style='font-size: 14px;
@@ -167,7 +167,7 @@ padding: 0px 0px 0px 40px'>
                   color: rgba(255, 255, 255, 0.8);
                  width: 100%;height: 20px;
                   padding: 0px 0px 0px 40px'>
-                  0.008 USDT
+                  {{apidata.USDT.numNo}} USDT
                 </p>
               </v-row>
             </v-navigation-drawer>
@@ -189,7 +189,7 @@ padding: 0px 0px 0px 40px'>
                   font-weight: 400;
                   color: #808080;
                  '>
-                    USDT总资产 ○
+                    HSF总资产 ○
                   </p>
                 </div>
                 <nobr style='font-size: 23px;
@@ -207,7 +207,7 @@ padding: 0px 0px 0px 40px'>
                             line-height: 48px;
 
                  '>
-                  6,288.0206
+                  {{apidata.HSF.num}}
                 </p>
                 <p style='font-size: 14px;
                   font-family: Nunito-Regular, Nunito;
@@ -223,7 +223,7 @@ padding: 0px 0px 0px 40px'>
                   color: #000000;
                  width: 100%;height: 20px;
 padding: 0px 0px 0px 40px'>
-                  6,288.02 USDT
+                  {{apidata.HSF.numOk}} HSF
                 </p>
                 <div style='height: 20px;width: 100%'></div>
                 <p style='font-size: 14px;
@@ -240,7 +240,7 @@ padding: 0px 0px 0px 40px'>
                   color: #000000;
                  width: 100%;height: 20px;
                   padding: 0px 0px 0px 40px'>
-                  0.008 USDT
+                  {{apidata.HSF.numNo}} HSF
                 </p>
               </v-row>
             </v-navigation-drawer>
@@ -282,7 +282,7 @@ padding: 0px 0px 0px 40px'>
                             line-height: 48px;
 
                  '>
-                  6,288.0206
+                  {{apidata.USDT.num}}
                 </p>
                 <p style='font-size: 14px;
                   font-family: Nunito-Regular, Nunito;
@@ -298,7 +298,7 @@ padding: 0px 0px 0px 40px'>
                   color: rgba(255, 255, 255, 0.8);
                  width: 100%;height: 20px;
 padding: 0px 0px 0px 40px'>
-                  6,288.02 USDT
+                  {{apidata.USDT.numOk}} USDT
                 </p>
                 <div style='height: 20px;width: 100%'></div>
                 <p style='font-size: 14px;
@@ -315,7 +315,7 @@ padding: 0px 0px 0px 40px'>
                   color: rgba(255, 255, 255, 0.8);
                  width: 100%;height: 20px;
                   padding: 0px 0px 0px 40px'>
-                  0.008 USDT
+                  {{apidata.USDT.numNo}} USDT
                 </p>
               </v-row>
             </v-navigation-drawer>
@@ -362,77 +362,64 @@ padding: 0px 0px 0px 40px'>
         </v-row>
         <v-col cols='12' style='height: 40px'></v-col>
         <v-col cols='12'>
-          <!-- 收账 -->
-          <v-row>
-            <!-- shoukuan2.png -->
-            <v-col cols='1' style=''>
-              <v-img src='https://investors.oss-cn-beijing.aliyuncs.com/assets/usertou1.png' height='48px' width='48px'>
-                <img src='https://investors.oss-cn-beijing.aliyuncs.com/assets/shoukuan1.png' height='18px' width='18px' style='margin:30px 0px 0px 30px'>
-              </v-img>
-            </v-col>
-            <v-col cols='9' style=''>
-              <p style='font-size: 18px;font-family: Nunito-Bold, Nunito;font-weight: bold;color: #0C0C0C;line-height: 18px;margin-bottom: 8px'>
-                abcc</p>
-              <p style='font-size: 18px;font-family: Nunito-Bold, Nunito;font-weight: bold;color: #1BD7A7;line-height: 18px;'>
-                +1,224.92 USDT</p>
-            </v-col>
-            <v-col cols='2' class="text-right" style=''>
+          <div v-for="v in apidata.list">
+            <!--//收账-->
+            <div v-if="v.Types == 'enter'">
+              <v-row>
+                <!-- shoukuan2.png -->
+                <v-col cols='1' style=''>
+                  <v-img :src="v.ToFaceImg"  height='48px' width='48px'>
+                    <img src='https://investors.oss-cn-beijing.aliyuncs.com/assets/shoukuan1.png' height='18px' width='18px' style='margin:30px 0px 0px 30px'>
+                  </v-img>
+                </v-col>
+                <v-col cols='9' style=''>
+                  <p style='font-size: 18px;font-family: Nunito-Bold, Nunito;font-weight: bold;color: #0C0C0C;line-height: 18px;margin-bottom: 8px'>
+                    {{ v.ToUserName }}</p>
+                  <p style='font-size: 18px;font-family: Nunito-Bold, Nunito;font-weight: bold;color: #1BD7A7;line-height: 18px;'>
+                    +{{ v.Num }} {{ v.CodeType }}</p>
+                </v-col>
+                <v-col cols='2' class="text-right" style=''>
               <span style='font-size: 18px;
                           font-family: Nunito-Regular, Nunito;
                           font-weight: 400;
                           color: #7F7F7F;
-                          line-height: 18px;'>2021.03.01</span>
-            </v-col>
+                          line-height: 18px;'>{{$moment(v.Times).format('YYYY.MM.DD')}}</span>
+                </v-col>
+              </v-row>
+
+            </div>
+
+              <!--//出账-->
+            <div v-if="v.Types == 'out'">
+              <v-row>
+                <!-- shoukuan2.png -->
+                <v-col cols='1' style=''>
+                  <v-img :src="v.ToFaceImg" height='48px' width='48px'>
+                    <img src='https://investors.oss-cn-beijing.aliyuncs.com/assets/shoukuan2.png' height='18px' width='18px' style='margin:30px 0px 0px 30px'>
+                  </v-img>
+                </v-col>
+                <v-col cols='9' style=''>
+                  <p style='font-size: 18px;font-family: Nunito-Bold, Nunito;font-weight: bold;color: #0C0C0C;line-height: 18px;margin-bottom: 8px'>
+                    {{ v.ToUserName }}</p>
+                  <p style='font-size: 18px;font-family: Nunito-Bold, Nunito;font-weight: bold;color: #E82268;line-height: 18px;'>
+                    -{{ v.Num }} {{ v.CodeType }}</p>
+                </v-col>
+                <v-col cols='2' class="text-right" style=''>
+              <span style='font-size: 18px;
+                          font-family: Nunito-Regular, Nunito;
+                          font-weight: 400;
+                          color: #7F7F7F;
+                          line-height: 18px;'>{{$moment(v.Times).format('YYYY.MM.DD')}}</span>
+                </v-col>
+              </v-row>
+            </div>
+
+          </div>
+          <!-- 收账 -->
+          <v-row>
           </v-row>
           <!-- /收账 -->
 
-          <!-- 出账 -->
-          <v-row>
-            <!-- shoukuan2.png -->
-            <v-col cols='1' style=''>
-              <v-img src='https://investors.oss-cn-beijing.aliyuncs.com/assets/usertou2.png' height='48px' width='48px'>
-                <img src='https://investors.oss-cn-beijing.aliyuncs.com/assets/shoukuan2.png' height='18px' width='18px' style='margin:30px 0px 0px 30px'>
-              </v-img>
-            </v-col>
-            <v-col cols='9' style=''>
-              <p style='font-size: 18px;font-family: Nunito-Bold, Nunito;font-weight: bold;color: #0C0C0C;line-height: 18px;margin-bottom: 8px'>
-                abcc</p>
-              <p style='font-size: 18px;font-family: Nunito-Bold, Nunito;font-weight: bold;color: #E82268;line-height: 18px;'>
-                +1,224.92 USDT</p>
-            </v-col>
-            <v-col cols='2' class="text-right" style=''>
-              <span style='font-size: 18px;
-                          font-family: Nunito-Regular, Nunito;
-                          font-weight: 400;
-                          color: #7F7F7F;
-                          line-height: 18px;'>2021.03.01</span>
-            </v-col>
-          </v-row>
-          <!-- /出账 -->
-
-          <!-- 收账 -->
-          <v-row>
-            <!-- shoukuan2.png -->
-            <v-col cols='1' style=''>
-              <v-img src='https://investors.oss-cn-beijing.aliyuncs.com/assets/usertou3.png' height='48px' width='48px'>
-                <img src='https://investors.oss-cn-beijing.aliyuncs.com/assets/shoukuan1.png' height='18px' width='18px' style='margin:30px 0px 0px 30px'>
-              </v-img>
-            </v-col>
-            <v-col cols='9' style=''>
-              <p style='font-size: 18px;font-family: Nunito-Bold, Nunito;font-weight: bold;color: #0C0C0C;line-height: 18px;margin-bottom: 8px'>
-                abcc</p>
-              <p style='font-size: 18px;font-family: Nunito-Bold, Nunito;font-weight: bold;color: #1BD7A7;line-height: 18px;'>
-                +1,224.92 USDT</p>
-            </v-col>
-            <v-col cols='2' class="text-right" style=''>
-              <span style='font-size: 18px;
-                          font-family: Nunito-Regular, Nunito;
-                          font-weight: 400;
-                          color: #7F7F7F;
-                          line-height: 18px;'>2021.03.01</span>
-            </v-col>
-          </v-row>
-          <!-- /收账 -->
         </v-col>
 
       </v-col>
@@ -892,11 +879,25 @@ padding: 0px 0px 0px 40px'>
                     color="info"
                     indeterminate
                   ></v-progress-circular>
-                  <div style='font-size: 14px;
-font-family: PingFang-SC-Semibold, PingFang-SC;
-font-weight: 600;
-color: #06D0AE;
-line-height: 20px;'>全部</div>
+                  <div v-if='xiala.text == "USDT"'>
+                    <div @click='txdz_code_num=apidata.USDT.numOk'
+                         style='font-size: 14px;
+                  font-family: PingFang-SC-Semibold, PingFang-SC;
+                  font-weight: 600;
+                  color: #06D0AE;
+                  line-height: 20px;'>
+                      全部</div>
+                  </div>
+                  <div v-if='xiala.text == "HSF"'>
+                    <div @click='txdz_code_num=apidata.HSF.numOk'
+                         style='font-size: 14px;
+                  font-family: PingFang-SC-Semibold, PingFang-SC;
+                  font-weight: 600;
+                  color: #06D0AE;
+                  line-height: 20px;'>
+                      全部</div>
+                  </div>
+
                 </v-fade-transition>
               </template>
 
@@ -981,9 +982,10 @@ line-height: 20px;'>全部</div>
         <v-row style='height: 60px;width: 100%;margin: 0px'>
           <v-col cols='2'></v-col>
           <v-col cols='8'>
-            <v-menu offset-y>
+            <v-menu offset-y >
               <template v-slot:activator="{ on, attrs }">
                 <v-btn
+
                   v-bind="attrs"
                   v-on="on"
                   style="background: #F7F8FB;color: #000000"
@@ -994,22 +996,26 @@ line-height: 20px;'>全部</div>
                   block
                   height='60'
                 >
-                  <img src="https://investors.oss-cn-beijing.aliyuncs.com/assets/usdt_logo.png"  style="height: 39px; width: 39px;">
+                  <img :src="xiala.imgurl"  style="height: 39px; width: 39px;">
                   <span style='font-size: 20px;
                     font-family: Nunito-SemiBold, Nunito;
                     font-weight: 600;
                     color: #000000;
                     line-height: 26px;
                     margin: 10px'>
-         USDT</span>
+         {{ xiala.text }}</span>
                 </v-btn>
               </template>
               <v-list>
-                <v-list-item @click="onClick">
+                <v-list-item
+                  @click="
+                  xiala.text='USDT';
+                  xiala.imgurl='https://investors.oss-cn-beijing.aliyuncs.com/assets/usdt_logo.png'"
+                >
                   <v-list-item-title>
                     <v-btn
-                      style="background: #F7F8FB;color: #000000"
-                      dark
+                      class='rounded-lg'
+                      style="background: #FFFFFF;color: #000000"
                       depressed
                       bottom
                       rounded
@@ -1023,29 +1029,33 @@ line-height: 20px;'>全部</div>
                     color: #000000;
                     line-height: 26px;
                     margin: 10px'>
-         USDT2</span>
+         USDT</span>
                     </v-btn>
                   </v-list-item-title>
                 </v-list-item>
-                <v-list-item @click="onClick">
+                <v-list-item
+                  @click="
+                  xiala.text='HSF';
+                  xiala.imgurl='https://investors.oss-cn-beijing.aliyuncs.com/assets/HSF_logo.png'"
+                >
                   <v-list-item-title>
                     <v-btn
-                      style="background: #F7F8FB;color: #000000"
-                      dark
+                      class='rounded-lg'
+                      style="background: #FFFFFF;color: #000000"
                       depressed
                       bottom
                       rounded
                       block
                       height='60'
                     >
-                      <img src="https://investors.oss-cn-beijing.aliyuncs.com/assets/usdt_logo.png"  style="height: 39px; width: 39px;">
+                      <img src="https://investors.oss-cn-beijing.aliyuncs.com/assets/HSF_logo.png"  style="height: 39px; width: 39px;">
                       <span style='font-size: 20px;
                     font-family: Nunito-SemiBold, Nunito;
                     font-weight: 600;
                     color: #000000;
                     line-height: 26px;
                     margin: 10px'>
-         USDT3</span>
+         HSF</span>
                     </v-btn>
                   </v-list-item-title>
                 </v-list-item>
@@ -1057,45 +1067,87 @@ line-height: 20px;'>全部</div>
         <v-row>
           <v-col cols='2'></v-col>
           <v-col cols='8' >
-            <vue-qr ref="Qrcode"
-                    :text="dataObj.text"
-                    :callback="test" qid="testQrId"
-                    margin="30"
-            size='260'></vue-qr>
+            <div v-if='xiala.text == "USDT"'>
+              <vue-qr ref="Qrcode"
+                      :text="apidata.USDT.address"
+                      :callback="test" qid="testQrId"
+                      margin="30"
+                      size='260'></vue-qr>
+            </div>
+            <div v-if='xiala.text == "HSF"'>
+              <vue-qr ref="Qrcode"
+                      :text="apidata.HSF.address"
+                      :callback="test" qid="testQrId"
+                      margin="30"
+                      size='260'></vue-qr>
+            </div>
+
           </v-col>
           <v-col cols='2'></v-col>
         </v-row>
         <v-row>
           <v-col cols='1'></v-col>
           <v-col cols='10'>
-            <v-text-field
-              background-color='#F7F8FB'
-              autocomplete="off"
-              value='0x852915c9b371833c93eeaeeb2b7f6bb5557eaa41'
-              single-line
-              filled
-              rounded
-              height='50'
-            >
-              <template v-slot:append>
-                <v-fade-transition leave-absolute>
-                  <v-progress-circular
-                    v-if="loading"
-                    size="24"
-                    color="info"
-                    indeterminate
-                  ></v-progress-circular>
-                  <img
-                    v-else
-                    width="15"
-                    height="15"
-                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/fuzhi.png"
-                    alt=""
-                  >
-                </v-fade-transition>
-              </template>
+            <div v-if='xiala.text == "USDT"'>
+              <v-text-field
+                background-color='#F7F8FB'
+                autocomplete="off"
+                :value='apidata.USDT.address'
+                single-line
+                filled
+                rounded
+                height='50'
+              >
+                <template v-slot:append>
+                  <v-fade-transition leave-absolute>
+                    <v-progress-circular
+                      v-if="loading"
+                      size="24"
+                      color="info"
+                      indeterminate
+                    ></v-progress-circular>
+                    <img
+                      v-else
+                      width="15"
+                      height="15"
+                      src="https://investors.oss-cn-beijing.aliyuncs.com/assets/fuzhi.png"
+                      alt=""
+                    >
+                  </v-fade-transition>
+                </template>
 
-            </v-text-field>
+              </v-text-field>
+            </div>
+            <div v-if='xiala.text == "HSF"'>
+              <v-text-field
+                background-color='#F7F8FB'
+                autocomplete="off"
+                :value='apidata.HSF.address'
+                single-line
+                filled
+                rounded
+                height='50'
+              >
+                <template v-slot:append>
+                  <v-fade-transition leave-absolute>
+                    <v-progress-circular
+                      v-if="loading"
+                      size="24"
+                      color="info"
+                      indeterminate
+                    ></v-progress-circular>
+                    <img
+                      v-else
+                      width="15"
+                      height="15"
+                      src="https://investors.oss-cn-beijing.aliyuncs.com/assets/fuzhi.png"
+                      alt=""
+                    >
+                  </v-fade-transition>
+                </template>
+
+              </v-text-field>
+            </div>
           </v-col>
           <v-col cols='1'></v-col>
         </v-row>
@@ -1318,7 +1370,7 @@ color: #9F9FA4;'>
               <v-col cols='8' style=''><span style='font-size: 36px;
                                 font-family: Rubik-Regular, Rubik;
                                 font-weight: 400;
-                                color: #323234;'> 1.86750000</span></v-col>
+                                color: #323234;'> {{ dialog04.numText }}</span></v-col>
             </v-row>
           </v-col>
           <v-col cols='2'></v-col>
@@ -1353,7 +1405,7 @@ color: #9F9FA4;'>
             <span  style='font-size: 14px;padding: 20px 20px 20px 147px;
                                             font-family: Nunito-Regular, Nunito;
                                             font-weight: 400;
-                                            color: #000000;'>USDT余额</span>
+                                            color: #000000;'>{{ dialog04.codeText }}余额</span>
             <div style='height: 20px;width: 100%'></div>
             <div style='height: 1px;border: 1px solid #F1F1F2;width: 100%'></div>
           </v-col>
@@ -1724,16 +1776,39 @@ import VueQr from 'vue-qr'
 import vueAppVerify from 'vue-app-verify'
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
+import moment from 'moment'
 
 export default {
   name: 'indexMod',
   components: {
+    moment,
     vueAppVerify,
     Swiper,
     SwiperSlide,
     VueQr,
   },
+  mounted: function() {
+    this.GetData() //需要触发的函数
+  },
   methods: {
+    //页面数据渲染
+    GetData: function() {
+      // const token = localStorage.getItem('token')
+      this.axios
+        .post('/t0/wallet/home', {}, { headers: { access_token: "qhLd3_4Xt3KnIw" } })
+        .then(response => {
+          console.log(response)
+          this.apidata.USDT.num = response.data.w[0].NumAll
+          this.apidata.USDT.numOk = response.data.w[0].NumOk
+          this.apidata.USDT.numNo = response.data.w[0].NumNo
+          this.apidata.USDT.address = response.data.w[0].Address
+          this.apidata.HSF.num = response.data.w[1].NumAll
+          this.apidata.HSF.numOk = response.data.w[1].NumOk
+          this.apidata.HSF.numNo = response.data.w[1].NumNo
+          this.apidata.HSF.address = response.data.w[1].Address
+          this.apidata.list = response.data.a
+        })
+    },
     querenfukuan(){//确认付款2
       this.dialog4 = false
       this.dialog6 = true
@@ -1743,8 +1818,13 @@ export default {
       console.log("提现币名：",this.xiala.text)
       console.log("提现地址：",this.txdz_from)
       console.log("提现币数量：",this.txdz_code_num)
-      this.dialog4 = true
       this.dialog = false
+      this.captchas = [{ num: "" }, { num: "" }, { num: "" }, { num: "" }, { num: "" }, { num: "" },]
+      this.dialog04.codeText = this.xiala.text
+      this.dialog04.toText =this.txdz_from
+      this.dialog04.numText =this.txdz_code_num
+      this.dialog04.typesText ="txdz"
+      this.dialog4 = true
 
     },
     zhanneizhuanzhang() {//站内转账
@@ -1753,6 +1833,7 @@ export default {
       console.log("转账账号：",this.znzz_zhanghu)
       console.log("转账手机号：",this.znzz_shouji)
       this.dialog = false
+
       this.dialog8 = true
     },
     //验证码函数 自动校准输入顺序
@@ -1797,6 +1878,27 @@ export default {
   },
   data() {
     return {
+      dialog04:{
+        typesText:"",//转账类型
+        codeText:"",
+        toText:"",
+        numText:"",
+      },
+      apidata:{
+        USDT:{
+          num:"0",
+          numOk:"0",
+          numNo:"0",
+          address:"null",
+        },
+        HSF:{
+          num:"0",
+          numOk:"0",
+          numNo:"0",
+          address:"null",
+        },
+        list:'',
+      },
       znzz_zhanghu:"",//站内转账 》账号
       znzz_shouji:"",//站内转账 》手机号
       txdz_code_num:"",
@@ -1841,6 +1943,8 @@ export default {
         { num: "" },
         { num: "" },
       ],
+
+
     }
   },
 

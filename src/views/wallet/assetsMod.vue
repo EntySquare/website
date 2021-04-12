@@ -53,13 +53,16 @@
                           font-family: PingFangSC-Regular, PingFang SC;
                           font-weight: 400;
                           color: #1BD7A7;'>
-                    全部币种</span>
+                    {{choice.CodeTypeText}}</span>
                   </v-btn>
                 </template>
                 <v-list>
                   <v-list-item @click="onClick">
                     <v-list-item-title>
                       <v-btn
+                        @click="
+                  choice.CodeType='all';
+                  choice.CodeTypeText='全部币种'"
                         class='rounded-lg'
                         style="background: #FFFFFF;color: #000000"
                         depressed
@@ -79,6 +82,9 @@
                   <v-list-item @click="onClick">
                     <v-list-item-title>
                       <v-btn
+                        @click="
+                  choice.CodeType='USDT';
+                  choice.CodeTypeText='USDT'"
                         class='rounded-lg'
                         style="background: #FFFFFF;color: #000000"
                         depressed
@@ -99,6 +105,9 @@
                   <v-list-item @click="onClick">
                     <v-list-item-title>
                       <v-btn
+                        @click="
+                  choice.CodeType='HSF';
+                  choice.CodeTypeText='HSF'"
                         class='rounded-lg'
                         style="background: #FFFFFF;color: #000000"
                         depressed
@@ -148,13 +157,16 @@
                           font-family: PingFangSC-Regular, PingFang SC;
                           font-weight: 400;
                           color: #1BD7A7;'>
-                    全部类型</span>
+                    {{ choice.PayTypeText}}</span>
                   </v-btn>
                 </template>
                 <v-list>
                   <v-list-item @click="onClick">
                     <v-list-item-title>
                       <v-btn
+                        @click="
+                  choice.PayType='all';
+                  choice.PayTypeText='全部类型'"
                         class='rounded-lg'
                         style="background: #FFFFFF;color: #000000"
                         depressed
@@ -174,6 +186,9 @@
                   <v-list-item @click="onClick">
                     <v-list-item-title>
                       <v-btn
+                        @click="
+                  choice.PayType='cztx';
+                  choice.PayTypeText='充值提现'"
                         class='rounded-lg'
                         style="background: #FFFFFF;color: #000000"
                         depressed
@@ -190,10 +205,12 @@
                       </v-btn>
                     </v-list-item-title>
                   </v-list-item>
-
                   <v-list-item @click="onClick">
                     <v-list-item-title>
                       <v-btn
+                        @click="
+                        choice.PayType='znzz';
+                        choice.PayTypeText='站内转账'"
                         class='rounded-lg'
                         style="background: #FFFFFF;color: #000000"
                         depressed
@@ -213,6 +230,9 @@
                   <v-list-item @click="onClick">
                     <v-list-item-title>
                       <v-btn
+                        @click="
+                        choice.PayType='dh';
+                        choice.PayTypeText='兑换'"
                         class='rounded-lg'
                         style="background: #FFFFFF;color: #000000"
                         depressed
@@ -262,13 +282,16 @@
                           font-family: PingFangSC-Regular, PingFang SC;
                           font-weight: 400;
                           color: #1BD7A7;'>
-                    7天内</span>
+                    {{ choice.TimesText }}</span>
                     </v-btn>
                   </template>
                   <v-list>
                     <v-list-item @click="onClick">
                       <v-list-item-title>
                         <v-btn
+                          @click="
+                  choice.Times='30t';
+                  choice.TimesText='30天内';GetData()"
                           class='rounded-lg'
                           style="background: #FFFFFF;color: #000000"
                           depressed
@@ -288,6 +311,9 @@
                     <v-list-item @click="onClick">
                       <v-list-item-title>
                         <v-btn
+                          @click="
+                  choice.Times='180t';
+                  choice.TimesText='半年内';GetData()"
                           class='rounded-lg'
                           style="background: #FFFFFF;color: #000000"
                           depressed
@@ -308,6 +334,9 @@
                     <v-list-item @click="onClick">
                       <v-list-item-title>
                         <v-btn
+                          @click="
+                  choice.Times='all';
+                  choice.TimesText='全部时间';GetData()"
                           class='rounded-lg'
                           style="background: #FFFFFF;color: #000000"
                           depressed
@@ -345,51 +374,53 @@
         </v-row>
         <v-col cols='12' style='height: 40px'></v-col>
         <v-col cols='12'>
-          <!-- 收账 -->
-          <v-row>
-            <v-expansion-panels flat>
-              <v-expansion-panel>
-                <v-expansion-panel-header>
-                  <v-row>
-                    <!-- shoukuan2.png -->
-                    <v-col cols='1' style=''>
-                      <v-img src='https://investors.oss-cn-beijing.aliyuncs.com/assets/usertou3.png' height='48px' width='48px'>
-                        <img src='https://investors.oss-cn-beijing.aliyuncs.com/assets/shoukuan1.png' height='18px' width='18px' style='margin:30px 0px 0px 30px'>
-                      </v-img>
-                    </v-col>
-                    <v-col cols='9' style=''>
-                      <p style='font-size: 18px;font-family: Nunito-Bold, Nunito;font-weight: bold;color: #0C0C0C;line-height: 18px;margin-bottom: 8px'>
-                        abcc1</p>
-                      <p style='font-size: 18px;font-family: Nunito-Bold, Nunito;font-weight: bold;color: #1BD7A7;line-height: 18px;'>
-                        +1,224.92 USDT</p>
-                    </v-col>
-                    <v-col cols='2' class="text-right" style=''>
+          <div v-for="v in choice.list">
+            <!--//收账-->
+            <div v-if="v.Types == 'enter'">
+              <v-row>
+                <v-expansion-panels flat>
+                  <v-expansion-panel>
+                    <v-expansion-panel-header>
+                      <v-row>
+                        <!-- shoukuan2.png -->
+                        <v-col cols='1' style=''>
+                          <v-img :src="v.ToFaceImg" height='48px' width='48px'>
+                            <img src='https://investors.oss-cn-beijing.aliyuncs.com/assets/shoukuan1.png' height='18px' width='18px' style='margin:30px 0px 0px 30px'>
+                          </v-img>
+                        </v-col>
+                        <v-col cols='9' style=''>
+                          <p style='font-size: 18px;font-family: Nunito-Bold, Nunito;font-weight: bold;color: #0C0C0C;line-height: 18px;margin-bottom: 8px'>
+                            {{ v.ToUserName }}</p>
+                          <p style='font-size: 18px;font-family: Nunito-Bold, Nunito;font-weight: bold;color: #1BD7A7;line-height: 18px;'>
+                            +{{ v.Num }} {{ v.CodeType }}</p>
+                        </v-col>
+                        <v-col cols='2' class="text-right" style=''>
               <span style='font-size: 18px;
                           font-family: Nunito-Regular, Nunito;
                           font-weight: 400;
                           color: #7F7F7F;
-                          line-height: 60px;'>2021.03.01</span>
-                    </v-col>
-                  </v-row>
+                          line-height: 60px;'>{{$moment(v.Times).format('YYYY.MM.DD')}}</span>
+                        </v-col>
+                      </v-row>
 
-                </v-expansion-panel-header>
-                <v-expansion-panel-content style='padding: 0px;'>
-                  <v-row style='background: #F7F8FB;height: 96px;width: 100%;border-radius: 10px;margin: 0px'>
-                    <v-col cols='6' style='font-size: 12px;
+                    </v-expansion-panel-header>
+                    <v-expansion-panel-content style='padding: 0px;'>
+                      <v-row style='background: #F7F8FB;height: 96px;width: 100%;border-radius: 10px;margin: 0px'>
+                        <v-col cols='6' style='font-size: 12px;
                                           font-family: PingFangSC-Regular, PingFang SC;
                                           font-weight: 400;
                                           color: #808080;
                                          '>
-                      充值类型：普通充值
-                    </v-col>
-                    <v-col cols='6' style='font-size: 12px;
+                          充值类型：{{ v.TypesText }}
+                        </v-col>
+                        <v-col cols='6' style='font-size: 12px;
                                         font-family: PingFangSC-Regular, PingFang SC;
                                         font-weight: 400;
                                         color: #808080;
                                        '>
-                      手续费:0.0001 HSF</v-col>
+                          手续费:{{ v.ServiceCharge }} {{ v.CodeType }}</v-col>
 
-                    <v-col cols='6'>
+                        <v-col cols='6'>
                     <span style='font-size: 12px;
                                 font-family: PingFangSC-Regular, PingFang SC;
                                 font-weight: 400;
@@ -397,15 +428,15 @@
                                 '>
                       充值地址：
                     </span>
-                      <span style='font-size: 12px;
+                          <span style='font-size: 12px;
                                 font-family: PingFangSC-Regular, PingFang SC;
                                 font-weight: 400;
                                 color: #1BD7A7;
                                 '>
-                    0x1eff42ace4f4bdasldasjdkqljdqwl
+                     {{ v.To }}
                     </span>
-                    </v-col>
-                    <v-col cols='6'>
+                        </v-col>
+                        <v-col cols='6'>
                     <span style='font-size: 12px;
                                 font-family: PingFangSC-Regular, PingFang SC;
                                 font-weight: 400;
@@ -413,67 +444,67 @@
                                 '>
                       交易id：
                     </span>
-                      <span style='font-size: 12px;
+                          <span style='font-size: 12px;
                                 font-family: PingFangSC-Regular, PingFang SC;
                                 font-weight: 400;
                                 color: #1BD7A7;
                                '>
-                    0x1eff42ac213123e4fdwicw9w98djw9jdkqljdqwl
+                    {{ v.Hash }}
                     </span>
-                    </v-col>
-                  </v-row>
-                </v-expansion-panel-content>
-              </v-expansion-panel>
-            </v-expansion-panels>
-          </v-row>
+                        </v-col>
+                      </v-row>
+                    </v-expansion-panel-content>
+                  </v-expansion-panel>
+                </v-expansion-panels>
+              </v-row>
+            </div>
 
-          <!-- /收账 -->
-
-          <!-- 出账 -->
-          <v-row>
-            <v-expansion-panels flat>
-              <v-expansion-panel>
-                <v-expansion-panel-header>
-                  <v-row>
-                    <!-- shoukuan2.png -->
-                    <v-col cols='1' style=''>
-                      <v-img src='https://investors.oss-cn-beijing.aliyuncs.com/assets/usertou3.png' height='48px' width='48px'>
-                        <img src='https://investors.oss-cn-beijing.aliyuncs.com/assets/shoukuan1.png' height='18px' width='18px' style='margin:30px 0px 0px 30px'>
-                      </v-img>
-                    </v-col>
-                    <v-col cols='9' style=''>
-                      <p style='font-size: 18px;font-family: Nunito-Bold, Nunito;font-weight: bold;color: #0C0C0C;line-height: 18px;margin-bottom: 8px'>
-                        abcc1</p>
-                      <p style='font-size: 18px;font-family: Nunito-Bold, Nunito;font-weight: bold;color: #1BD7A7;line-height: 18px;'>
-                        +1,224.92 USDT</p>
-                    </v-col>
-                    <v-col cols='2' class="text-right" style=''>
+            <!--//出账-->
+            <div v-if="v.Types == 'out'">
+              <v-row>
+                <v-expansion-panels flat>
+                  <v-expansion-panel>
+                    <v-expansion-panel-header>
+                      <v-row>
+                        <!-- shoukuan2.png -->
+                        <v-col cols='1' style=''>
+                          <v-img :src="v.ToFaceImg" height='48px' width='48px'>
+                            <img src='https://investors.oss-cn-beijing.aliyuncs.com/assets/shoukuan2.png' height='18px' width='18px' style='margin:30px 0px 0px 30px'>
+                          </v-img>
+                        </v-col>
+                        <v-col cols='9' style=''>
+                          <p style='font-size: 18px;font-family: Nunito-Bold, Nunito;font-weight: bold;color: #0C0C0C;line-height: 18px;margin-bottom: 8px'>
+                            {{ v.ToUserName }}</p>
+                          <p style='font-size: 18px;font-family: Nunito-Bold, Nunito;font-weight: bold;color: #E82268;line-height: 18px;'>
+                            -{{ v.Num }} {{ v.CodeType }}</p>
+                        </v-col>
+                        <v-col cols='2' class="text-right" style=''>
               <span style='font-size: 18px;
                           font-family: Nunito-Regular, Nunito;
                           font-weight: 400;
                           color: #7F7F7F;
-                          line-height: 60px;'>2021.03.01</span>
-                    </v-col>
-                  </v-row>
+                          line-height: 60px;'>{{$moment(v.Times).format('YYYY.MM.DD')}}</span>
+                        </v-col>
+                      </v-row>
 
-                </v-expansion-panel-header>
-                <v-expansion-panel-content style='padding: 0px;'>
-                  <v-row style='background: #F7F8FB;height: 96px;width: 100%;border-radius: 10px;margin: 0px'>
-                    <v-col cols='6' style='font-size: 12px;
+                    </v-expansion-panel-header>
+                    <v-expansion-panel-content style='padding: 0px;'>
+                      <v-row style='background: #F7F8FB;height: 96px;width: 100%;border-radius: 10px;margin: 0px'>
+                        <v-col cols='6' style='font-size: 12px;
                                           font-family: PingFangSC-Regular, PingFang SC;
                                           font-weight: 400;
                                           color: #808080;
                                          '>
-                      充值类型：普通充值
-                    </v-col>
-                    <v-col cols='6' style='font-size: 12px;
+                          充值类型：{{ v.TypesText }}
+                        </v-col>
+                        <v-col cols='6' style='font-size: 12px;
                                         font-family: PingFangSC-Regular, PingFang SC;
                                         font-weight: 400;
                                         color: #808080;
                                        '>
-                      手续费:0.0001 HSF</v-col>
+                          手续费:{{ v.ServiceCharge }} {{ v.CodeType }}</v-col>
 
-                    <v-col cols='6'>
+                        <v-col cols='6'>
                     <span style='font-size: 12px;
                                 font-family: PingFangSC-Regular, PingFang SC;
                                 font-weight: 400;
@@ -481,15 +512,15 @@
                                 '>
                       充值地址：
                     </span>
-                      <span style='font-size: 12px;
+                          <span style='font-size: 12px;
                                 font-family: PingFangSC-Regular, PingFang SC;
                                 font-weight: 400;
                                 color: #1BD7A7;
                                 '>
-                    0x1eff42ace4f4bdasldasjdkqljdqwl
+                     {{ v.To }}
                     </span>
-                    </v-col>
-                    <v-col cols='6'>
+                        </v-col>
+                        <v-col cols='6'>
                     <span style='font-size: 12px;
                                 font-family: PingFangSC-Regular, PingFang SC;
                                 font-weight: 400;
@@ -497,186 +528,22 @@
                                 '>
                       交易id：
                     </span>
-                      <span style='font-size: 12px;
+                          <span style='font-size: 12px;
                                 font-family: PingFangSC-Regular, PingFang SC;
                                 font-weight: 400;
                                 color: #1BD7A7;
                                '>
-                    0x1eff42ac213123e4fdwicw9w98djw9jdkqljdqwl
+                    {{ v.Hash }}
                     </span>
-                    </v-col>
-                  </v-row>
-                </v-expansion-panel-content>
-              </v-expansion-panel>
-            </v-expansion-panels>
-          </v-row>
+                        </v-col>
+                      </v-row>
+                    </v-expansion-panel-content>
+                  </v-expansion-panel>
+                </v-expansion-panels>
+              </v-row>
+            </div>
 
-          <!-- /出账 -->
-
-          <!-- 收账 -->
-          <v-row>
-            <v-expansion-panels flat>
-              <v-expansion-panel>
-                <v-expansion-panel-header>
-                  <v-row>
-                    <!-- shoukuan2.png -->
-                    <v-col cols='1' style=''>
-                      <v-img src='https://investors.oss-cn-beijing.aliyuncs.com/assets/usertou3.png' height='48px' width='48px'>
-                        <img src='https://investors.oss-cn-beijing.aliyuncs.com/assets/shoukuan1.png' height='18px' width='18px' style='margin:30px 0px 0px 30px'>
-                      </v-img>
-                    </v-col>
-                    <v-col cols='9' style=''>
-                      <p style='font-size: 18px;font-family: Nunito-Bold, Nunito;font-weight: bold;color: #0C0C0C;line-height: 18px;margin-bottom: 8px'>
-                        abcc1</p>
-                      <p style='font-size: 18px;font-family: Nunito-Bold, Nunito;font-weight: bold;color: #1BD7A7;line-height: 18px;'>
-                        +1,224.92 USDT</p>
-                    </v-col>
-                    <v-col cols='2' class="text-right" style=''>
-              <span style='font-size: 18px;
-                          font-family: Nunito-Regular, Nunito;
-                          font-weight: 400;
-                          color: #7F7F7F;
-                          line-height: 60px;'>2021.03.01</span>
-                    </v-col>
-                  </v-row>
-
-                </v-expansion-panel-header>
-                <v-expansion-panel-content style='padding: 0px;'>
-                  <v-row style='background: #F7F8FB;height: 96px;width: 100%;border-radius: 10px;margin: 0px'>
-                    <v-col cols='6' style='font-size: 12px;
-                                          font-family: PingFangSC-Regular, PingFang SC;
-                                          font-weight: 400;
-                                          color: #808080;
-                                         '>
-                      充值类型：普通充值
-                    </v-col>
-                    <v-col cols='6' style='font-size: 12px;
-                                        font-family: PingFangSC-Regular, PingFang SC;
-                                        font-weight: 400;
-                                        color: #808080;
-                                       '>
-                      手续费:0.0001 HSF</v-col>
-
-                    <v-col cols='6'>
-                    <span style='font-size: 12px;
-                                font-family: PingFangSC-Regular, PingFang SC;
-                                font-weight: 400;
-                                color: #808080;
-                                '>
-                      充值地址：
-                    </span>
-                      <span style='font-size: 12px;
-                                font-family: PingFangSC-Regular, PingFang SC;
-                                font-weight: 400;
-                                color: #1BD7A7;
-                                '>
-                    0x1eff42ace4f4bdasldasjdkqljdqwl
-                    </span>
-                    </v-col>
-                    <v-col cols='6'>
-                    <span style='font-size: 12px;
-                                font-family: PingFangSC-Regular, PingFang SC;
-                                font-weight: 400;
-                                color: #808080;
-                                '>
-                      交易id：
-                    </span>
-                      <span style='font-size: 12px;
-                                font-family: PingFangSC-Regular, PingFang SC;
-                                font-weight: 400;
-                                color: #1BD7A7;
-                               '>
-                    0x1eff42ac213123e4fdwicw9w98djw9jdkqljdqwl
-                    </span>
-                    </v-col>
-                  </v-row>
-                </v-expansion-panel-content>
-              </v-expansion-panel>
-            </v-expansion-panels>
-          </v-row>
-
-          <!-- /收账 -->
-<!--完成 -->
-  <v-row>
-          <v-expansion-panels flat>
-            <v-expansion-panel>
-              <v-expansion-panel-header>
-                <v-row>
-                  <!-- shoukuan2.png -->
-                  <v-col cols='1' style=''>
-                    <v-img src='https://investors.oss-cn-beijing.aliyuncs.com/assets/usertou3.png' height='48px' width='48px'>
-                      <img src='https://investors.oss-cn-beijing.aliyuncs.com/assets/shoukuan1.png' height='18px' width='18px' style='margin:30px 0px 0px 30px'>
-                    </v-img>
-                  </v-col>
-                  <v-col cols='9' style=''>
-                    <p style='font-size: 18px;font-family: Nunito-Bold, Nunito;font-weight: bold;color: #0C0C0C;line-height: 18px;margin-bottom: 8px'>
-                      abcc1</p>
-                    <p style='font-size: 18px;font-family: Nunito-Bold, Nunito;font-weight: bold;color: #1BD7A7;line-height: 18px;'>
-                      +1,224.92 USDT</p>
-                  </v-col>
-             <v-col cols='2' class="text-right" style=''>
-              <span style='font-size: 18px;
-                          font-family: Nunito-Regular, Nunito;
-                          font-weight: 400;
-                          color: #7F7F7F;
-                          line-height: 60px;'>2021.03.01</span>
-                  </v-col>
-                </v-row>
-
-              </v-expansion-panel-header>
-              <v-expansion-panel-content style='padding: 0px;'>
-                <v-row style='background: #F7F8FB;height: 96px;width: 100%;border-radius: 10px;margin: 0px'>
-                  <v-col cols='6' style='font-size: 12px;
-                                          font-family: PingFangSC-Regular, PingFang SC;
-                                          font-weight: 400;
-                                          color: #808080;
-                                         '>
-                    充值类型：普通充值
-                  </v-col>
-                  <v-col cols='6' style='font-size: 12px;
-                                        font-family: PingFangSC-Regular, PingFang SC;
-                                        font-weight: 400;
-                                        color: #808080;
-                                       '>
-                    手续费:0.0001 HSF</v-col>
-
-                  <v-col cols='6'>
-                    <span style='font-size: 12px;
-                                font-family: PingFangSC-Regular, PingFang SC;
-                                font-weight: 400;
-                                color: #808080;
-                                '>
-                      充值地址：
-                    </span>
-                    <span style='font-size: 12px;
-                                font-family: PingFangSC-Regular, PingFang SC;
-                                font-weight: 400;
-                                color: #1BD7A7;
-                                '>
-                    0x1eff42ace4f4bdasldasjdkqljdqwl
-                    </span>
-                  </v-col>
-                  <v-col cols='6'>
-                    <span style='font-size: 12px;
-                                font-family: PingFangSC-Regular, PingFang SC;
-                                font-weight: 400;
-                                color: #808080;
-                                '>
-                      交易id：
-                    </span>
-                    <span style='font-size: 12px;
-                                font-family: PingFangSC-Regular, PingFang SC;
-                                font-weight: 400;
-                                color: #1BD7A7;
-                               '>
-                    0x1eff42ac213123e4fdwicw9w98djw9jdkqljdqwl
-                    </span>
-                  </v-col>
-                </v-row>
-              </v-expansion-panel-content>
-            </v-expansion-panel>
-          </v-expansion-panels>
-  </v-row>
+          </div>
 
         </v-col>
 
@@ -706,24 +573,59 @@ export default {
     Swiper,
     SwiperSlide,
   },
-  data() {
-    return {
-      sheet:false,
-      t1: true, //对话框初始画面
-      tab:null,
-      areaCode: 'USTD',
-      areaCodes: ['USTD', 'SHF'],
-      dialog: false,
-      swiperOption: {
-        slidesPerView: 'auto',
-        spaceBetween: 30,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-      },
-    }
+  mounted: function() {
+    this.GetData() //需要触发的函数
   },
+  methods: {
+    //页面数据渲染
+    GetData: function() {
+      // const token = localStorage.getItem('token')
+      this.axios
+        .post(
+          '/t0/wallet/txhistory',
+          {
+            CodeType: this.choice.CodeType,
+            PayType: this.choice.PayType,
+            Times: this.choice.Times
+          },
+          { headers: { access_token: "qhLd3_4Xt3KnIw" } })
+        .then(response => {
+          console.log("/t0/wallet/txhistory api 。。。。")
+          this.choice.list = response.data.list
+        })
+
+    }
+},
+    data() {
+      return {
+        choice: {
+          CodeType: "all",
+          CodeTypeText: "全部币种",
+
+          PayType: "all",
+          PayTypeText: "全部类型",
+
+          Times: "all",
+          TimesText: "全部时间",
+
+          list:''
+        },
+        sheet: false,
+        t1: true, //对话框初始画面
+        tab: null,
+        areaCode: 'USTD',
+        areaCodes: ['USTD', 'SHF'],
+        dialog: false,
+        swiperOption: {
+          slidesPerView: 'auto',
+          spaceBetween: 30,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+        },
+      }
+    },
 }
 </script>
 
