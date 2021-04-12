@@ -51,12 +51,12 @@
                 <v-list-item>
                   <v-list-item-content style="padding-top: 0">
                     <v-list-item-title
+                      v-text="phoneNum"
                       style="font-size: 20px; font-weight: bold"
                     >
-                      183****739
                     </v-list-item-title>
                     <div class="d-inline-flex" style="font-size: 14px;">
-                      <p style="margin-top: 2px">UID:10086</p>
+                      <p v-text="userId" style="margin-top: 2px"></p>
                       <div style="width: 8px"></div>
                       <div
                         class="text-center"
@@ -98,8 +98,6 @@
                         <div style="width: 12px"></div>
                         <v-switch
                           v-model="infoSwitch"
-                          inset
-                          style="width: 44px; height: 24px;"
                           color="#5CBE52"
                         ></v-switch>
                       </div>
@@ -223,7 +221,7 @@
                 </v-card-subtitle>
               </div>
               <div style="width: 411px"></div>
-              <div style="padding-top: 44px">UID:10086</div>
+              <div v-text="userId" style="padding-top: 44px"></div>
               <div style="width: 20px"></div>
               <v-btn
                 @click.stop="user_up2 = true"
@@ -1746,7 +1744,12 @@ export default {
         gugeurl3: 'https://132123123131223', //绑定谷歌验证 二维码
         text: 'https://blog.csdn.net/weixin_43760328/rss/list',
       },
+      phoneNum: '',
+      userId: '',
     }
+  },
+  mounted: function() {
+    this.GetMyData() //需要触发的函数
   },
   methods: {
     sendCode2() {
@@ -1945,6 +1948,19 @@ export default {
           this.payPwdNewFlag = false
         }
       }
+    },
+    //查询个人数据
+    GetMyData: function() {
+      const token = localStorage.getItem('token')
+      this.axios
+        .post('/t0/getMyUserData', {}, { headers: { 'access-token': token } })
+        .then(response => {
+          this.loginVue = false //显示登录代码
+          this.userId = 'UID' + response.data.UserId
+          this.username = response.data.UserName
+          this.phoneNum = response.data.PhoneNumber
+          this.email = response.data.Email
+        })
     },
   },
 }

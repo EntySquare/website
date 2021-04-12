@@ -663,7 +663,7 @@ export default {
     GetMyData: function() {
       const token = localStorage.getItem('token')
       this.axios
-        .post('/r0/getMyUserData', {}, { headers: { access_token: token } })
+        .post('/r0/getMyUserData', {}, { headers: { 'access-token': token } })
         .then(response => {
           // alert('已登录提示！,userid:' + response.data.UserId)
           this.loginVue = false //显示登录代码
