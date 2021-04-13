@@ -647,7 +647,7 @@ export default {
             PayType: this.choice.PayType,
             Times: this.choice.Times,
           },
-          { headers: { 'access-token': "yU1S628pQknyMg" } })
+          { headers: { 'access-token': "YmL7R3LYJKUrfw" } })
         .then(response => {
           console.log('/t0/wallet/txhistory api 。。。。')
           this.choice.list = response.data.list
