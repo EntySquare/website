@@ -16,7 +16,7 @@
               <div
                 style="font-size: 48px;font-family: Nunito-ExtraBold, Nunito;font-weight: 800;color: #00CFAC;line-height: 48px;"
               >
-                248.2%
+                {{info.AnnualizedIncome}}%
               </div>
               <div style="width: 12px"></div>
               <div
@@ -37,7 +37,7 @@
                 <div
                   style="font-size: 16px;font-weight: 400;color: #333333;line-height: 16px;"
                 >
-                  1,000.000 USDT
+                  {{info.Total}} USDT
                 </div>
               </div>
               <div style="width: 64px"></div>
@@ -51,7 +51,7 @@
                 <div
                   style="font-size: 16px;font-weight: 400;color: #00CFAC;line-height: 16px;"
                 >
-                  1,000.000 USDT
+                  {{info.LastAmount}} USDT
                 </div>
               </div>
             </div>
@@ -198,7 +198,7 @@
               <div class="d-inline-flex" style="width: 12px;"></div>
               <span
                 style="width: 40px;height: 16px;font-size: 16px;font-weight: 600;color: #FFFFFF;line-height: 16px;"
-                >10天</span
+                >{{info.Cycle}}天</span
               >
               <div class="d-inline-flex" style="width: 34px;"></div>
               <span
@@ -208,7 +208,7 @@
               <div class="d-inline-flex" style="width: 12px;"></div>
               <span
                 style="width: 40px;height: 16px;font-size: 16px;font-weight: 600;color: #FFFFFF;line-height: 16px;"
-                >100 USDT</span
+                >{{info.MinimumInvestment}} USDT</span
               >
             </div>
           </div>
@@ -878,9 +878,24 @@ export default {
     echarts,
   },
   mounted: function() {
+    this.GetData() //需要触发的函数
     this.createcode()
   },
   methods: {
+    //初始化调用
+    GetData: function() {
+      // const token = localStorage.getItem('token')
+      this.axios
+              .post(
+                      '/t0/invest/projectinfo',
+                      {'project_name':this.$route.query.projectname},
+                      { headers: { 'access-token': 'vYqF5_ZO7fecxQ','Content-Type': 'application/json'} }
+              )
+              .then(response => {
+                console.log(response)
+                this.info = response.data.projectInfo
+              })
+    },
     createcode() {
       console.log('createcode（）：。。。')
       var myChart = echarts.init(document.getElementById('main'))
@@ -957,6 +972,7 @@ export default {
       valueDeterminate: 90,
       investBtnFlag: false,
       investValue: '',
+      info:'',
     }
   },
 }
