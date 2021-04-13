@@ -1366,9 +1366,9 @@ color: #808080;margin-bottom: 12px'>
                 </span>
                   <p style='padding: 0px;margin-bottom: 2px'></p>
                   <span style='font-size: 16px;
-font-family: Nunito-SemiBold, Nunito;
-font-weight: 600;
-color: #9F9FA4;'>
+                              font-family: Nunito-SemiBold, Nunito;
+                              font-weight: 600;
+                              color: #9F9FA4;'>
                  <input       v-model='duihuan_hsf_to_usdt_num'
                               style='color: family: Nunito-SemiBold, Nunito;
                                 font-weight: 600;
@@ -1908,7 +1908,7 @@ export default {
       //           BaiZhu:this.dialog04.beizhu,
       //           PatTypes:this.dialog04.typesText,
       //         },
-      //         { headers: { access_token: "qhLd3_4Xt3KnIw" } })
+      //         { headers: { 'access-token': "yU1S628pQknyMg" } })
       //     .then(response => {
       //       console.log(response)
       //       if (response.data.data == "ok"){
@@ -1926,7 +1926,7 @@ export default {
                 {
                   Num:this.duihuan_usdt_to_hsf_num,
                 },
-                { headers: { access_token: "qhLd3_4Xt3KnIw" } })
+                { headers: { 'access-token': "yU1S628pQknyMg" } })
             .then(response => {
               console.log(response)
               if (response.data.data == "ok"){
@@ -1943,7 +1943,7 @@ export default {
                 {
                   Num: this.duihuan_hsf_to_usdt_num,
                 },
-                { headers: { access_token: "qhLd3_4Xt3KnIw" } })
+                { headers: { 'access-token': "yU1S628pQknyMg" } })
             .then(response => {
               console.log(response)
               if (response.data.data == "ok") {
@@ -1959,7 +1959,7 @@ export default {
     GetData: function() {
       // const token = localStorage.getItem('token')
       this.axios
-        .post('/t0/wallet/home', {}, { headers: { access_token: "qhLd3_4Xt3KnIw" } })
+        .post('/t0/wallet/home', {}, { headers: { 'access-token': "yU1S628pQknyMg" } })
         .then(response => {
           console.log(response)
           this.apidata.USDT.num = response.data.w[0].NumAll
@@ -1984,7 +1984,7 @@ export default {
                 Phone:this.znzz_zhanghu,
                 CodeType:this.xiala.text
               },
-              { headers: { access_token: "qhLd3_4Xt3KnIw" } })
+              { headers: { 'access-token': "yU1S628pQknyMg" } })
           .then(response => {
             console.log(response)
             this.dialog08.name = response.data.Name//渲染dialog8 数据
@@ -2028,7 +2028,7 @@ export default {
         .post('/t0/wallet/getToUserData', {
           Phone:this.znzz_zhanghu
           ,CodeType:this.xiala.text},
-          { headers: { access_token: "qhLd3_4Xt3KnIw" } })
+          { headers: { 'access-token': "yU1S628pQknyMg" } })
         .then(response => {
           console.log(response)
           this.dialog08.name = response.data.Name//渲染dialog8 数据
@@ -2082,7 +2082,7 @@ export default {
                       BaiZhu:this.dialog04.beizhu,
                       PatTypes:this.dialog04.typesText,
                     },
-                    { headers: { access_token: "qhLd3_4Xt3KnIw" } })
+                    { headers: { 'access-token': "yU1S628pQknyMg" } })
                 .then(response => {
                   console.log(response)
                   if (response.data.data == "ok"){

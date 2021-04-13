@@ -374,7 +374,7 @@
         </v-row>
         <v-col cols='12' style='height: 40px'></v-col>
         <v-col cols='12'>
-          <div v-for="v in choice.list">
+          <div v-for="v in choice.list" v-bind:key='v'>
             <!--//收账-->
             <div v-if="v.Types == 'enter'">
               <v-row>
@@ -588,7 +588,7 @@ export default {
             PayType: this.choice.PayType,
             Times: this.choice.Times
           },
-          { headers: { access_token: "qhLd3_4Xt3KnIw" } })
+          { headers: { 'access-token': "yU1S628pQknyMg" } })
         .then(response => {
           console.log("/t0/wallet/txhistory api 。。。。")
           this.choice.list = response.data.list
