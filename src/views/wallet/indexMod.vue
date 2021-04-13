@@ -1,246 +1,283 @@
 <template>
   <v-row style="background: #FAFBFC;">
-    <v-col cols='3'></v-col>
-    <v-col cols='6'>
-      <v-col cols='12' style='height: 0px;width: 100%;'><!-- 我的钱包 【】【】【】 -->
+    <v-col cols="3"></v-col>
+    <v-col cols="6">
+      <v-col cols="12" style="height: 0px;width: 100%;"
+        ><!-- 我的钱包 【】【】【】 -->
         <v-row>
-          <v-col cols='8' style='height: 0px;width: 100%;'>
-
-          <p style='font-size: 32px;
+          <v-col cols="8" style="height: 0px;width: 100%;">
+            <p
+              style="font-size: 32px;
                 font-family: Nunito-SemiBold, Nunito;
                 font-weight: 600;
                 color: #000000;
                 line-height: 32px;
-                margin:98px 22px 23px 0px'>
-                      我的钱包
-          </p>
+                margin:98px 22px 23px 0px"
+            >
+              我的钱包
+            </p>
           </v-col>
-          <v-col cols='4' style='height: 0px;width: 100%;'>
+          <v-col cols="4" style="height: 0px;width: 100%;">
             <v-row>
-              <v-col cols='12' style='height: 0px;width: 100%;'></v-col>
-              <v-col cols='4' style='height: 64px;width: 64px;'>
+              <v-col cols="12" style="height: 0px;width: 100%;"></v-col>
+              <v-col cols="4" style="height: 64px;width: 64px;">
                 <v-btn
                   @click.stop="dialog2 = true"
-                  style='background: #FFFFFF;border-radius: 8px;box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.04);'
-                  width='64px'
-                  height='64px'
-                  elevation='0.5'
+                  style="background: #FFFFFF;border-radius: 8px;box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.04);"
+                  width="64px"
+                  height="64px"
+                  elevation="0.5"
                   large
                 >
                   <img
-                    src='https://investors.oss-cn-beijing.aliyuncs.com/assets/bz001.png'
-                    style='width: 24px; height:24px;'
+                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/bz001.png"
+                    style="width: 24px; height:24px;"
                   />
                 </v-btn>
-                <div style='height: 5px;width: 100%'></div>
-                <div style='width: 100%;'>
-                  <span style='margin: 0px 0px 0px 27px;font-size: 12px;
+                <div style="height: 5px;width: 100%"></div>
+                <div style="width: 100%;">
+                  <span
+                    style="margin: 0px 0px 0px 27px;font-size: 12px;
                               font-family: PingFangSC-Regular, PingFang SC;
                               font-weight: 400;
                               color: #000000;
-                              '>充值</span>
+                              "
+                    >充值</span
+                  >
                 </div>
               </v-col>
-              <v-col cols='4' style='height: 64px;width: 64px;'>
+              <v-col cols="4" style="height: 64px;width: 64px;">
                 <v-btn
                   @click.stop="dialog = true"
-                  style='background: #FFFFFF;border-radius: 8px;box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.04);'
-                  width='64px'
-                  height='64px'
-                  elevation='0.5'
+                  style="background: #FFFFFF;border-radius: 8px;box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.04);"
+                  width="64px"
+                  height="64px"
+                  elevation="0.5"
                   large
                 >
                   <img
-                    src='https://investors.oss-cn-beijing.aliyuncs.com/assets/bz002.png'
-                    style='width: 24px; height:24px;'
+                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/bz002.png"
+                    style="width: 24px; height:24px;"
                   />
                 </v-btn>
-                <div style='height: 5px;width: 100%'></div>
-                <div style='width: 100%;'>
-                  <span style='margin: 0px 0px 0px 27px;font-size: 12px;
+                <div style="height: 5px;width: 100%"></div>
+                <div style="width: 100%;">
+                  <span
+                    style="margin: 0px 0px 0px 27px;font-size: 12px;
                               font-family: PingFangSC-Regular, PingFang SC;
                               font-weight: 400;
                               color: #000000;
-                              '>提现</span>
+                              "
+                    >提现</span
+                  >
                 </div>
               </v-col>
-              <v-col cols='4' style='height: 64px;width: 64px;'>
+              <v-col cols="4" style="height: 64px;width: 64px;">
                 <v-btn
                   @click.stop="dialog3 = true"
-                  style='background: #FFFFFF;border-radius: 8px;box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.04);'
-                  width='64px'
-                  height='64px'
-                  elevation='0.5'
+                  style="background: #FFFFFF;border-radius: 8px;box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.04);"
+                  width="64px"
+                  height="64px"
+                  elevation="0.5"
                   large
                 >
                   <img
-                    src='https://investors.oss-cn-beijing.aliyuncs.com/assets/bz003.png'
-                    style='width: 24px; height:24px;'
+                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/bz003.png"
+                    style="width: 24px; height:24px;"
                   />
                 </v-btn>
-                <div style='height: 5px;width: 100%'></div>
-                <div style='width: 100%;'>
-                  <span style='margin: 0px 0px 0px 27px;font-size: 12px;
+                <div style="height: 5px;width: 100%"></div>
+                <div style="width: 100%;">
+                  <span
+                    style="margin: 0px 0px 0px 27px;font-size: 12px;
                               font-family: PingFangSC-Regular, PingFang SC;
                               font-weight: 400;
                               color: #000000;
-                              '>兑换</span>
+                              "
+                    >兑换</span
+                  >
                 </div>
               </v-col>
             </v-row>
           </v-col>
         </v-row>
-
-
       </v-col>
 
-      <v-col cols='12' style='height: 130px;width: 100%;'></v-col>
+      <v-col cols="12" style="height: 130px;width: 100%;"></v-col>
 
-      <v-col cols='12' style='height: 305px;width: 100%;'>
-        <swiper class='swiper' :options='swiperOption' >
-          <swiper-slide style='height: 300px;'>
-            <div style='height: 10px'></div>
+      <v-col cols="12" style="height: 305px;width: 100%;">
+        <swiper class="swiper" :options="swiperOption">
+          <swiper-slide style="height: 300px;">
+            <div style="height: 10px"></div>
             <!-- 有图底钱包 -->
             <v-navigation-drawer
-
-              src='https://investors.oss-cn-beijing.aliyuncs.com/assets/qianbaoka1.png'
-              style='width: 666px;
+              src="https://investors.oss-cn-beijing.aliyuncs.com/assets/qianbaoka1.png"
+              style="width: 666px;
               height: 280px;
               border-radius: 20px;
               box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.04);
-              '>
+              "
+            >
               <v-row>
-                <div style='width: 100%;padding: 40px 0px 0px 40px'>
-                  <p style='font-size: 14px;
+                <div style="width: 100%;padding: 40px 0px 0px 40px">
+                  <p
+                    style="font-size: 14px;
                   font-family: Nunito-Regular, Nunito;
                   font-weight: 400;
                   color: rgba(255, 255, 255, 0.8);
-                 '>
+                 "
+                  >
                     USDT总资产 ○
                   </p>
                 </div>
-                <nobr style='font-size: 23px;
+                <nobr
+                  style="font-size: 23px;
                             font-family: Nunito-Bold, Nunito;
                             font-weight: bold;
                             color: #FFFFFF;
-                            line-height: 48px;padding: 0px 0px 0px 40px'>
+                            line-height: 48px;padding: 0px 0px 0px 40px"
+                >
                   $
                 </nobr>
-                <div style='width: 16px'></div>
-                <p style='font-size: 48px;
+                <div style="width: 16px"></div>
+                <p
+                  style="font-size: 48px;
                             font-family: Nunito-Bold, Nunito;
                             font-weight: bold;
                             color: #FFFFFF;
                             line-height: 48px;
 
-                 '>
-                  {{apidata.USDT.num}}
+                 "
+                >
+                  {{ apidata.USDT.num }}
                 </p>
-                <p style='font-size: 14px;
+                <p
+                  style="font-size: 14px;
                   font-family: Nunito-Regular, Nunito;
                   font-weight: 400;
                   color: rgba(255, 255, 255, 0.8);
                  width: 100%;height: 14px;
-                  padding: 0px 0px 0px 40px;margin: 0px 0px 11px 0px'>
+                  padding: 0px 0px 0px 40px;margin: 0px 0px 11px 0px"
+                >
                   可用余额
                 </p>
-                <p style='font-size: 20px;
+                <p
+                  style="font-size: 20px;
                   font-family: Nunito-Regular, Nunito;
                   font-weight: 400;
                   color: rgba(255, 255, 255, 0.8);
                  width: 100%;height: 20px;
-padding: 0px 0px 0px 40px'>
-                  {{apidata.USDT.numOk}} USDT
+padding: 0px 0px 0px 40px"
+                >
+                  {{ apidata.USDT.numOk }} USDT
                 </p>
-                <div style='height: 20px;width: 100%'></div>
-                <p style='font-size: 14px;
+                <div style="height: 20px;width: 100%"></div>
+                <p
+                  style="font-size: 14px;
                   font-family: Nunito-Regular, Nunito;
                   font-weight: 400;
                   color: rgba(255, 255, 255, 0.8);
                  width: 100%;height: 20px;
-                  padding: 0px 0px 0px 40px;margin: 0px 0px 5px 0px'>
+                  padding: 0px 0px 0px 40px;margin: 0px 0px 5px 0px"
+                >
                   冻结
                 </p>
-                <p style='font-size: 14px;
+                <p
+                  style="font-size: 14px;
                   font-family: Nunito-Regular, Nunito;
                   font-weight: 400;
                   color: rgba(255, 255, 255, 0.8);
                  width: 100%;height: 20px;
-                  padding: 0px 0px 0px 40px'>
-                  {{apidata.USDT.numNo}} USDT
+                  padding: 0px 0px 0px 40px"
+                >
+                  {{ apidata.USDT.numNo }} USDT
                 </p>
               </v-row>
             </v-navigation-drawer>
           </swiper-slide>
           <swiper-slide>
             <!-- 白色底钱包 -->
-            <div style='height: 10px'></div>
+            <div style="height: 10px"></div>
             <v-navigation-drawer
-
-              style='width: 666px;
+              style="width: 666px;
               height: 280px;
               border-radius: 20px;
               box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.04);
-              '>
+              "
+            >
               <v-row>
-                <div style='width: 100%;padding: 40px 0px 0px 40px'>
-                  <p style='font-size: 14px;
+                <div style="width: 100%;padding: 40px 0px 0px 40px">
+                  <p
+                    style="font-size: 14px;
                   font-family: Nunito-Regular, Nunito;
                   font-weight: 400;
                   color: #808080;
-                 '>
+                 "
+                  >
                     HSF总资产 ○
                   </p>
                 </div>
-                <nobr style='font-size: 23px;
+                <nobr
+                  style="font-size: 23px;
                             font-family: Nunito-Bold, Nunito;
                             font-weight: bold;
                             color: #000000;
-                            line-height: 48px;padding: 0px 0px 0px 40px'>
+                            line-height: 48px;padding: 0px 0px 0px 40px"
+                >
                   $
                 </nobr>
-                <div style='width: 16px'></div>
-                <p style='font-size: 48px;
+                <div style="width: 16px"></div>
+                <p
+                  style="font-size: 48px;
                             font-family: Nunito-Bold, Nunito;
                             font-weight: bold;
                             color: #000000;
                             line-height: 48px;
 
-                 '>
-                  {{apidata.HSF.num}}
+                 "
+                >
+                  {{ apidata.HSF.num }}
                 </p>
-                <p style='font-size: 14px;
+                <p
+                  style="font-size: 14px;
                   font-family: Nunito-Regular, Nunito;
                   font-weight: 400;
                   color: #808080;
                  width: 100%;height: 14px;
-                  padding: 0px 0px 0px 40px;margin: 0px 0px 11px 0px'>
+                  padding: 0px 0px 0px 40px;margin: 0px 0px 11px 0px"
+                >
                   可用余额
                 </p>
-                <p style='font-size: 20px;
+                <p
+                  style="font-size: 20px;
                   font-family: Nunito-Regular, Nunito;
                   font-weight: 400;
                   color: #000000;
                  width: 100%;height: 20px;
-padding: 0px 0px 0px 40px'>
-                  {{apidata.HSF.numOk}} HSF
+padding: 0px 0px 0px 40px"
+                >
+                  {{ apidata.HSF.numOk }} HSF
                 </p>
-                <div style='height: 20px;width: 100%'></div>
-                <p style='font-size: 14px;
+                <div style="height: 20px;width: 100%"></div>
+                <p
+                  style="font-size: 14px;
                   font-family: Nunito-Regular, Nunito;
                   font-weight: 400;
                   color: #808080;
                  width: 100%;height: 20px;
-                  padding: 0px 0px 0px 40px;margin: 0px 0px 5px 0px'>
+                  padding: 0px 0px 0px 40px;margin: 0px 0px 5px 0px"
+                >
                   冻结
                 </p>
-                <p style='font-size: 14px;
+                <p
+                  style="font-size: 14px;
                   font-family: Nunito-Regular, Nunito;
                   font-weight: 400;
                   color: #000000;
                  width: 100%;height: 20px;
-                  padding: 0px 0px 0px 40px'>
-                  {{apidata.HSF.numNo}} HSF
+                  padding: 0px 0px 0px 40px"
+                >
+                  {{ apidata.HSF.numNo }} HSF
                 </p>
               </v-row>
             </v-navigation-drawer>
@@ -248,115 +285,138 @@ padding: 0px 0px 0px 40px'>
           <!--          <div class='swiper-pagination' slot='pagination'></div>-->
           <swiper-slide>
             <!-- 有图底钱包 -->
-            <div style='height: 10px'></div>
+            <div style="height: 10px"></div>
             <v-navigation-drawer
-
-              src='https://investors.oss-cn-beijing.aliyuncs.com/assets/qianbaoka1.png'
-              style='width: 666px;
+              src="https://investors.oss-cn-beijing.aliyuncs.com/assets/qianbaoka1.png"
+              style="width: 666px;
               height: 280px;
               border-radius: 20px;
               box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.04);
-              '>
+              "
+            >
               <v-row>
-                <div style='width: 100%;padding: 40px 0px 0px 40px'>
-                  <p style='font-size: 14px;
+                <div style="width: 100%;padding: 40px 0px 0px 40px">
+                  <p
+                    style="font-size: 14px;
                   font-family: Nunito-Regular, Nunito;
                   font-weight: 400;
                   color: rgba(255, 255, 255, 0.8);
-                 '>
+                 "
+                  >
                     USDT总资产 ○
                   </p>
                 </div>
-                <nobr style='font-size: 23px;
+                <nobr
+                  style="font-size: 23px;
                             font-family: Nunito-Bold, Nunito;
                             font-weight: bold;
                             color: #FFFFFF;
-                            line-height: 48px;padding: 0px 0px 0px 40px'>
+                            line-height: 48px;padding: 0px 0px 0px 40px"
+                >
                   $
                 </nobr>
-                <div style='width: 16px'></div>
-                <p style='font-size: 48px;
+                <div style="width: 16px"></div>
+                <p
+                  style="font-size: 48px;
                             font-family: Nunito-Bold, Nunito;
                             font-weight: bold;
                             color: #FFFFFF;
                             line-height: 48px;
 
-                 '>
-                  {{apidata.USDT.num}}
+                 "
+                >
+                  {{ apidata.USDT.num }}
                 </p>
-                <p style='font-size: 14px;
+                <p
+                  style="font-size: 14px;
                   font-family: Nunito-Regular, Nunito;
                   font-weight: 400;
                   color: rgba(255, 255, 255, 0.8);
                  width: 100%;height: 14px;
-                  padding: 0px 0px 0px 40px;margin: 0px 0px 11px 0px'>
+                  padding: 0px 0px 0px 40px;margin: 0px 0px 11px 0px"
+                >
                   可用余额
                 </p>
-                <p style='font-size: 20px;
+                <p
+                  style="font-size: 20px;
                   font-family: Nunito-Regular, Nunito;
                   font-weight: 400;
                   color: rgba(255, 255, 255, 0.8);
                  width: 100%;height: 20px;
-padding: 0px 0px 0px 40px'>
-                  {{apidata.USDT.numOk}} USDT
+padding: 0px 0px 0px 40px"
+                >
+                  {{ apidata.USDT.numOk }} USDT
                 </p>
-                <div style='height: 20px;width: 100%'></div>
-                <p style='font-size: 14px;
+                <div style="height: 20px;width: 100%"></div>
+                <p
+                  style="font-size: 14px;
                   font-family: Nunito-Regular, Nunito;
                   font-weight: 400;
                   color: rgba(255, 255, 255, 0.8);
                  width: 100%;height: 20px;
-                  padding: 0px 0px 0px 40px;margin: 0px 0px 5px 0px'>
+                  padding: 0px 0px 0px 40px;margin: 0px 0px 5px 0px"
+                >
                   冻结
                 </p>
-                <p style='font-size: 14px;
+                <p
+                  style="font-size: 14px;
                   font-family: Nunito-Regular, Nunito;
                   font-weight: 400;
                   color: rgba(255, 255, 255, 0.8);
                  width: 100%;height: 20px;
-                  padding: 0px 0px 0px 40px'>
-                  {{apidata.USDT.numNo}} USDT
+                  padding: 0px 0px 0px 40px"
+                >
+                  {{ apidata.USDT.numNo }} USDT
                 </p>
               </v-row>
             </v-navigation-drawer>
           </swiper-slide>
         </swiper>
-
       </v-col>
 
-      <v-col cols='12' style='height: 100px'></v-col>
+      <v-col cols="12" style="height: 100px"></v-col>
 
-      <v-col cols='12' style='height: 40px'>
-        <p style='font-size: 32px;
+      <v-col cols="12" style="height: 40px">
+        <p
+          style="font-size: 32px;
         font-family: PingFang-SC-Semibold, PingFang-SC;
         font-weight: 600;
         color: #000000;
-        line-height: 32px;'>
+        line-height: 32px;"
+        >
           资产记录
         </p>
       </v-col>
 
-      <v-col cols='12' style='height: 50px;'> </v-col>
-      <v-col cols='12' style='width: 100%;background: #FFFFFF;
+      <v-col cols="12" style="height: 50px;"> </v-col>
+      <v-col
+        cols="12"
+        style="width: 100%;background: #FFFFFF;
                               box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.04);
                               border-radius: 24px;
-                              padding:40px 40px 40px 40px'>
-
+                              padding:40px 40px 40px 40px"
+      >
         <v-row>
-          <v-col cols='6'>
-            <span style="font-size: 18px;
+          <v-col cols="6">
+            <span
+              style="font-size: 18px;
                         font-family: Nunito-SemiBold, Nunito;
                         font-weight: 600;
                         color: #000000;
-                        ">资产记录</span>
+                        "
+              >资产记录</span
+            >
           </v-col>
-          <v-col cols='6' class="text-right">
+          <v-col cols="6" class="text-right">
             <router-link to="/assets">
-             <span style="font-size: 14px;
+              <span
+                style="font-size: 14px;
                           font-family: Nunito-Regular, Nunito;
                           font-weight: 400;
                           color: #1BD7A7;
-                          line-height: 19px;">全部记录 ➔</span>
+                          line-height: 19px;"
+                >全部记录 ➔</span
+              >
             </router-link>
           </v-col>
         </v-row>
@@ -424,132 +484,154 @@ padding: 0px 0px 0px 40px'>
 
       </v-col>
 
-      <v-col cols='12' style='height: 400px'></v-col>
+      <v-col cols="12" style="height: 400px"></v-col>
     </v-col>
-    <v-col cols='3'></v-col>
-  <!-- d1 -->
+    <v-col cols="3"></v-col>
+    <!-- d1 -->
     <v-dialog
-      content-class='rounded-xl'
+      content-class="rounded-xl"
       v-model="dialog"
       width="400"
-      height='640'
+      height="640"
     >
       <!-- 站内转账 -->
-    <div
-      v-show="t1"
-      style='height: 640px;width: 400px;background: #FFFFFF;'>
-      <!-- img区域 -->
-      <div style='height: 80px;width: 400px;'>
-      <v-img src="https://investors.oss-cn-beijing.aliyuncs.com/assets/w-tou1.png">
-        <v-row style='height: 40px'></v-row>
-          <v-row class="text-center" style='margin: 0px;width: 100%'>
-            <v-col cols='6'
-                   @click="t1 =true"
-                   style='font-size: 20px;
+      <div v-show="t1" style="height: 640px;width: 400px;background: #FFFFFF;">
+        <!-- img区域 -->
+        <div style="height: 80px;width: 400px;">
+          <v-img
+            src="https://investors.oss-cn-beijing.aliyuncs.com/assets/w-tou1.png"
+          >
+            <v-row style="height: 40px"></v-row>
+            <v-row class="text-center" style="margin: 0px;width: 100%">
+              <v-col
+                cols="6"
+                @click="t1 = true"
+                style="font-size: 20px;
                                   font-family: PingFang-SC-Semibold, PingFang-SC;
                                   font-weight: 600;
                                   color: #000000;
-                                  line-height: 20px;'>站内转账</v-col>
-            <v-col cols='6'
-            @click="t1 =false"
-            style='font-size: 20px;
+                                  line-height: 20px;"
+                >站内转账</v-col
+              >
+              <v-col
+                cols="6"
+                @click="t1 = false"
+                style="font-size: 20px;
                   font-family: PingFang-SC-Semibold, PingFang-SC;
                   font-weight: 600;
                   color: #808080;
-                  line-height: 20px;'>
-                                提现地址
-            </v-col>
-          </v-row>
-      </v-img>
-
-      </div>
-
-
-      <v-row style='height: 60px;width: 100%;margin: 0px'>
-        <v-col cols='2'></v-col>
-        <v-col cols='8'>
-          <v-menu offset-y >
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn
-                v-bind="attrs"
-                v-on="on"
-                style="background: #F7F8FB;color: #000000"
-                dark
-                depressed
-                bottom
-                rounded
-                block
-                height='60'
+                  line-height: 20px;"
               >
-                <img :src="xiala.imgurl"  style="height: 39px; width: 39px;">
-                <span style='font-size: 20px;
+                提现地址
+              </v-col>
+            </v-row>
+          </v-img>
+        </div>
+
+        <v-row style="height: 60px;width: 100%;margin: 0px">
+          <v-col cols="2"></v-col>
+          <v-col cols="8">
+            <v-menu offset-y>
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                  v-bind="attrs"
+                  v-on="on"
+                  style="background: #F7F8FB;color: #000000"
+                  dark
+                  depressed
+                  bottom
+                  rounded
+                  block
+                  height="60"
+                >
+                  <img :src="xiala.imgurl" style="height: 39px; width: 39px;" />
+                  <span
+                    style="font-size: 20px;
                     font-family: Nunito-SemiBold, Nunito;
                     font-weight: 600;
                     color: #000000;
                     line-height: 26px;
-                    margin: 10px'>
-         {{ xiala.text }}</span>
-              </v-btn>
-            </template>
-            <v-list>
-              <v-list-item
-                @click="
-                  xiala.text='USDT';
-                  xiala.imgurl='https://investors.oss-cn-beijing.aliyuncs.com/assets/usdt_logo.png'"
-              >
-                <v-list-item-title>
-                  <v-btn
-                    class='rounded-lg'
-                    style="background: #FFFFFF;color: #000000"
-                    depressed
-                    bottom
-                    rounded
-                    block
-                    height='60'
+                    margin: 10px"
                   >
-                    <img src="https://investors.oss-cn-beijing.aliyuncs.com/assets/usdt_logo.png"  style="height: 39px; width: 39px;">
-                    <span style='font-size: 20px;
-                    font-family: Nunito-SemiBold, Nunito;
-                    font-weight: 600;
-                    color: #000000;
-                    line-height: 26px;
-                    margin: 10px'>
-         USDT</span>
-                  </v-btn>
-                </v-list-item-title>
-              </v-list-item>
-              <v-list-item
-                @click="
-                  xiala.text='HSF';
-                  xiala.imgurl='https://investors.oss-cn-beijing.aliyuncs.com/assets/HSF_logo.png'"
-              >
-                <v-list-item-title>
-                  <v-btn
-                    class='rounded-lg'
-                    style="background: #FFFFFF;color: #000000"
-                    depressed
-                    bottom
-                    rounded
-                    block
-                    height='60'
+                    {{ xiala.text }}</span
                   >
-                    <img src="https://investors.oss-cn-beijing.aliyuncs.com/assets/HSF_logo.png"  style="height: 39px; width: 39px;">
-                    <span style='font-size: 20px;
+                </v-btn>
+              </template>
+              <v-list>
+                <v-list-item
+                  @click="
+                    xiala.text = 'USDT'
+                    xiala.imgurl =
+                      'https://investors.oss-cn-beijing.aliyuncs.com/assets/usdt_logo.png'
+                  "
+                >
+                  <v-list-item-title>
+                    <v-btn
+                      class="rounded-lg"
+                      style="background: #FFFFFF;color: #000000"
+                      depressed
+                      bottom
+                      rounded
+                      block
+                      height="60"
+                    >
+                      <img
+                        src="https://investors.oss-cn-beijing.aliyuncs.com/assets/usdt_logo.png"
+                        style="height: 39px; width: 39px;"
+                      />
+                      <span
+                        style="font-size: 20px;
                     font-family: Nunito-SemiBold, Nunito;
                     font-weight: 600;
                     color: #000000;
                     line-height: 26px;
-                    margin: 10px'>
-         HSF</span>
-                  </v-btn>
-                </v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-menu>
-        </v-col>
-        <v-col cols='2'></v-col>
-      </v-row>
-      <v-row style='height: 30px'></v-row>
+                    margin: 10px"
+                      >
+                        USDT</span
+                      >
+                    </v-btn>
+                  </v-list-item-title>
+                </v-list-item>
+                <v-list-item
+                  @click="
+                    xiala.text = 'HSF'
+                    xiala.imgurl =
+                      'https://investors.oss-cn-beijing.aliyuncs.com/assets/HSF_logo.png'
+                  "
+                >
+                  <v-list-item-title>
+                    <v-btn
+                      class="rounded-lg"
+                      style="background: #FFFFFF;color: #000000"
+                      depressed
+                      bottom
+                      rounded
+                      block
+                      height="60"
+                    >
+                      <img
+                        src="https://investors.oss-cn-beijing.aliyuncs.com/assets/HSF_logo.png"
+                        style="height: 39px; width: 39px;"
+                      />
+                      <span
+                        style="font-size: 20px;
+                    font-family: Nunito-SemiBold, Nunito;
+                    font-weight: 600;
+                    color: #000000;
+                    line-height: 26px;
+                    margin: 10px"
+                      >
+                        HSF</span
+                      >
+                    </v-btn>
+                  </v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+          </v-col>
+          <v-col cols="2"></v-col>
+        </v-row>
+        <v-row style="height: 30px"></v-row>
 
       <v-row style='width: 100%;height: 70px; margin: 0px;'>
         <v-col cols='1'></v-col>
@@ -664,17 +746,19 @@ padding: 0px 0px 0px 40px'>
             ·最小提币金额：0.0001 USDT
           </span>
 
-          <p style='margin: 16px'></p>
-          <span style='font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #F69D2B;line-height: 14px;'>
-            ·转账前请务必确认地址及币种信息无误。一旦转出，不可测回！
-          </span>
-        </v-col>
-        <v-col cols='1'></v-col>
-      </v-row>
-      <div style='width: 100%;height: 44px'></div>
-        <v-row  style='width: 100%;height: 70px; margin: 0px;'>
-          <v-col cols='8'></v-col>
-          <v-col cols='2'>
+            <p style="margin: 16px"></p>
+            <span
+              style="font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #F69D2B;line-height: 14px;"
+            >
+              ·转账前请务必确认地址及币种信息无误。一旦转出，不可测回！
+            </span>
+          </v-col>
+          <v-col cols="1"></v-col>
+        </v-row>
+        <div style="width: 100%;height: 44px"></div>
+        <v-row style="width: 100%;height: 70px; margin: 0px;">
+          <v-col cols="8"></v-col>
+          <v-col cols="2">
             <v-btn
               style="background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);color: #FFFFFF"
               depressed
@@ -687,46 +771,47 @@ padding: 0px 0px 0px 40px'>
               下一步
             </v-btn>
           </v-col>
-
         </v-row>
-
-    </div>
+      </div>
 
       <!-- 提现地址 -->
-      <div
-        v-show="!t1"
-        style='height: 640px;width: 400px;background: #FFFFFF;'>
+      <div v-show="!t1" style="height: 640px;width: 400px;background: #FFFFFF;">
         <!-- img区域 -->
-        <div style='height: 80px;width: 400px;'>
-          <v-img src="https://investors.oss-cn-beijing.aliyuncs.com/assets/w-tou2.png">
-            <v-row style='height: 40px'></v-row>
-            <v-row class="text-center" style='margin: 0px;width: 100%'>
-              <v-col cols='6'
-                     @click="t1 = true"
-                     style='font-size: 20px;
+        <div style="height: 80px;width: 400px;">
+          <v-img
+            src="https://investors.oss-cn-beijing.aliyuncs.com/assets/w-tou2.png"
+          >
+            <v-row style="height: 40px"></v-row>
+            <v-row class="text-center" style="margin: 0px;width: 100%">
+              <v-col
+                cols="6"
+                @click="t1 = true"
+                style="font-size: 20px;
                                   font-family: PingFang-SC-Semibold, PingFang-SC;
                                   font-weight: 600;
                                   color: #808080;
-                                  line-height: 20px;'>站内转账</v-col>
-              <v-col cols='6'
-                     @click="t1 =false"
-                     style='font-size: 20px;
+                                  line-height: 20px;"
+                >站内转账</v-col
+              >
+              <v-col
+                cols="6"
+                @click="t1 = false"
+                style="font-size: 20px;
                   font-family: PingFang-SC-Semibold, PingFang-SC;
                   font-weight: 600;
                   color: #000000;
-                  line-height: 20px;'>
+                  line-height: 20px;"
+              >
                 提现地址
               </v-col>
             </v-row>
           </v-img>
-
         </div>
 
-
-        <v-row style='height: 30px;width: 100%;margin: 0px'>
-          <v-col cols='2'></v-col>
-          <v-col cols='8'>
-            <v-menu offset-y >
+        <v-row style="height: 30px;width: 100%;margin: 0px">
+          <v-col cols="2"></v-col>
+          <v-col cols="8">
+            <v-menu offset-y>
               <template v-slot:activator="{ on, attrs }">
                 <v-btn
                   v-bind="attrs"
@@ -737,68 +822,87 @@ padding: 0px 0px 0px 40px'>
                   bottom
                   rounded
                   block
-                  height='60'
+                  height="60"
                 >
-      <img :src="xiala.imgurl"  style="height: 39px; width: 39px;">
-       <span style='font-size: 20px;
+                  <img :src="xiala.imgurl" style="height: 39px; width: 39px;" />
+                  <span
+                    style="font-size: 20px;
                     font-family: Nunito-SemiBold, Nunito;
                     font-weight: 600;
                     color: #000000;
                     line-height: 26px;
-                    margin: 10px'>
-         {{ xiala.text }}</span>
+                    margin: 10px"
+                  >
+                    {{ xiala.text }}</span
+                  >
                 </v-btn>
               </template>
               <v-list>
                 <v-list-item
                   @click="
-                  xiala.text='USDT';
-                  xiala.imgurl='https://investors.oss-cn-beijing.aliyuncs.com/assets/usdt_logo.png'"
+                    xiala.text = 'USDT'
+                    xiala.imgurl =
+                      'https://investors.oss-cn-beijing.aliyuncs.com/assets/usdt_logo.png'
+                  "
                 >
                   <v-list-item-title>
                     <v-btn
-                      class='rounded-lg'
+                      class="rounded-lg"
                       style="background: #FFFFFF;color: #000000"
                       depressed
                       bottom
                       rounded
                       block
-                      height='60'
+                      height="60"
                     >
-                      <img src="https://investors.oss-cn-beijing.aliyuncs.com/assets/usdt_logo.png"  style="height: 39px; width: 39px;">
-                      <span style='font-size: 20px;
+                      <img
+                        src="https://investors.oss-cn-beijing.aliyuncs.com/assets/usdt_logo.png"
+                        style="height: 39px; width: 39px;"
+                      />
+                      <span
+                        style="font-size: 20px;
                     font-family: Nunito-SemiBold, Nunito;
                     font-weight: 600;
                     color: #000000;
                     line-height: 26px;
-                    margin: 10px'>
-         USDT</span>
+                    margin: 10px"
+                      >
+                        USDT</span
+                      >
                     </v-btn>
                   </v-list-item-title>
                 </v-list-item>
                 <v-list-item
                   @click="
-                  xiala.text='HSF';
-                  xiala.imgurl='https://investors.oss-cn-beijing.aliyuncs.com/assets/HSF_logo.png'"
+                    xiala.text = 'HSF'
+                    xiala.imgurl =
+                      'https://investors.oss-cn-beijing.aliyuncs.com/assets/HSF_logo.png'
+                  "
                 >
                   <v-list-item-title>
                     <v-btn
-                      class='rounded-lg'
+                      class="rounded-lg"
                       style="background: #FFFFFF;color: #000000"
                       depressed
                       bottom
                       rounded
                       block
-                      height='60'
+                      height="60"
                     >
-                      <img src="https://investors.oss-cn-beijing.aliyuncs.com/assets/HSF_logo.png"  style="height: 39px; width: 39px;">
-                      <span style='font-size: 20px;
+                      <img
+                        src="https://investors.oss-cn-beijing.aliyuncs.com/assets/HSF_logo.png"
+                        style="height: 39px; width: 39px;"
+                      />
+                      <span
+                        style="font-size: 20px;
                     font-family: Nunito-SemiBold, Nunito;
                     font-weight: 600;
                     color: #000000;
                     line-height: 26px;
-                    margin: 10px'>
-         HSF</span>
+                    margin: 10px"
+                      >
+                        HSF</span
+                      >
                     </v-btn>
                   </v-list-item-title>
                 </v-list-item>
@@ -806,34 +910,30 @@ padding: 0px 0px 0px 40px'>
             </v-menu>
 
             <v-bottom-sheet v-model="sheet" scrollable>
-              <v-sheet
-                small
-                class="text-center"
-                height="200px"
-              >
+              <v-sheet small class="text-center" height="200px">
                 <div class="py-3">
-                  This is a bottom sheet using the controlled by v-model instead of activator
+                  This is a bottom sheet using the controlled by v-model instead
+                  of activator
                 </div>
               </v-sheet>
             </v-bottom-sheet>
-
           </v-col>
-          <v-col cols='2'></v-col>
+          <v-col cols="2"></v-col>
         </v-row>
-        <v-row style='height: 50px'></v-row>
+        <v-row style="height: 50px"></v-row>
 
-        <v-row style='width: 100%;height: 70px; margin: 0px;'>
-          <v-col cols='1'></v-col>
-          <v-col cols='10'>
+        <v-row style="width: 100%;height: 70px; margin: 0px;">
+          <v-col cols="1"></v-col>
+          <v-col cols="10">
             <v-text-field
               v-model="txdz_from"
-              background-color='#F7F8FB'
+              background-color="#F7F8FB"
               autocomplete="off"
               label="请输入或粘贴账户"
               single-line
               filled
               rounded
-              height='50'
+              height="50"
             >
               <template v-slot:append>
                 <v-fade-transition leave-absolute>
@@ -849,27 +949,25 @@ padding: 0px 0px 0px 40px'>
                     height="24"
                     src="https://investors.oss-cn-beijing.aliyuncs.com/assets/dizhi1.png"
                     alt=""
-                  >
+                  />
                 </v-fade-transition>
               </template>
-
             </v-text-field>
           </v-col>
-          <v-col cols='1'>
-          </v-col>
+          <v-col cols="1"> </v-col>
         </v-row>
-        <v-row style='width: 100%;height: 70px; margin: 0px;'>
-          <v-col cols='1'></v-col>
-          <v-col cols='10'>
+        <v-row style="width: 100%;height: 70px; margin: 0px;">
+          <v-col cols="1"></v-col>
+          <v-col cols="10">
             <v-text-field
               v-model="txdz_code_num"
-              background-color='#F7F8FB'
+              background-color="#F7F8FB"
               autocomplete="off"
               label="输入提币数量"
               single-line
               filled
               rounded
-              height='50'
+              height="50"
             >
               <template v-slot:append>
                 <v-fade-transition leave-absolute>
@@ -879,71 +977,87 @@ padding: 0px 0px 0px 40px'>
                     color="info"
                     indeterminate
                   ></v-progress-circular>
-                  <div v-if='xiala.text == "USDT"'>
-                    <div @click='txdz_code_num=apidata.USDT.numOk'
-                         style='font-size: 14px;
+                  <div v-if="xiala.text == 'USDT'">
+                    <div
+                      @click="txdz_code_num = apidata.USDT.numOk"
+                      style="font-size: 14px;
                   font-family: PingFang-SC-Semibold, PingFang-SC;
                   font-weight: 600;
                   color: #06D0AE;
-                  line-height: 20px;'>
-                      全部</div>
+                  line-height: 20px;"
+                    >
+                      全部
+                    </div>
                   </div>
-                  <div v-if='xiala.text == "HSF"'>
-                    <div @click='txdz_code_num=apidata.HSF.numOk'
-                         style='font-size: 14px;
+                  <div v-if="xiala.text == 'HSF'">
+                    <div
+                      @click="txdz_code_num = apidata.HSF.numOk"
+                      style="font-size: 14px;
                   font-family: PingFang-SC-Semibold, PingFang-SC;
                   font-weight: 600;
                   color: #06D0AE;
-                  line-height: 20px;'>
-                      全部</div>
+                  line-height: 20px;"
+                    >
+                      全部
+                    </div>
                   </div>
-
                 </v-fade-transition>
               </template>
-
             </v-text-field>
           </v-col>
-          <v-col cols='1'>
-          </v-col>
+          <v-col cols="1"> </v-col>
         </v-row>
-        <v-row style='width: 100%;margin: 0px;'>
-          <v-col cols='1'></v-col>
-          <v-col cols='10'>
-          <span style='font-size: 12px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #7F7F7F;'>
-            站内转账，实时到账，零手续费。备份</span>
+        <v-row style="width: 100%;margin: 0px;">
+          <v-col cols="1"></v-col>
+          <v-col cols="10">
+            <span
+              style="font-size: 12px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #7F7F7F;"
+            >
+              站内转账，实时到账，零手续费。备份</span
+            >
           </v-col>
-          <v-col cols='1'></v-col>
+          <v-col cols="1"></v-col>
         </v-row>
-<!--        <p style='margin: 20px'></p>-->
-        <v-row style='width: 100%;margin: 0px;'>
-          <v-col cols='1'></v-col>
-          <v-col cols='10'>
-          <span style='font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #7F7F7F;line-height: 14px;'>
-            ·可用余额 0.03005498 USD
-          </span>
-            <p style='margin: 14px'></p>
-            <span style='font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #7F7F7F;line-height: 14px;'>
-            ·手续费:
-          </span>
-            <span style='font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #5B7ADE;line-height: 14px;'>
-                    0.00001 USDT
-          </span>
-            <p style='margin: 14px'></p>
-            <span style='font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #7F7F7F;line-height: 14px;'>
-            ·最小提币金额：0.0001 USDT
-          </span>
+        <!--        <p style='margin: 20px'></p>-->
+        <v-row style="width: 100%;margin: 0px;">
+          <v-col cols="1"></v-col>
+          <v-col cols="10">
+            <span
+              style="font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #7F7F7F;line-height: 14px;"
+            >
+              ·可用余额 0.03005498 USD
+            </span>
+            <p style="margin: 14px"></p>
+            <span
+              style="font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #7F7F7F;line-height: 14px;"
+            >
+              ·手续费:
+            </span>
+            <span
+              style="font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #5B7ADE;line-height: 14px;"
+            >
+              0.00001 USDT
+            </span>
+            <p style="margin: 14px"></p>
+            <span
+              style="font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #7F7F7F;line-height: 14px;"
+            >
+              ·最小提币金额：0.0001 USDT
+            </span>
 
-            <p style='margin: 14px'></p>
-            <span style='font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #F69D2B;line-height: 14px;'>
-            ·转账前请务必确认地址及币种信息无误。一旦转出，不可测回！
-          </span>
+            <p style="margin: 14px"></p>
+            <span
+              style="font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #F69D2B;line-height: 14px;"
+            >
+              ·转账前请务必确认地址及币种信息无误。一旦转出，不可测回！
+            </span>
           </v-col>
-          <v-col cols='1'></v-col>
+          <v-col cols="1"></v-col>
         </v-row>
 
-        <v-row  style='width: 100%;height: 70px; margin: 0px;'>
-          <v-col cols='8'></v-col>
-          <v-col cols='2'>
+        <v-row style="width: 100%;height: 70px; margin: 0px;">
+          <v-col cols="8"></v-col>
+          <v-col cols="2">
             <v-btn
               style="background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);color: #FFFFFF"
               depressed
@@ -964,28 +1078,29 @@ padding: 0px 0px 0px 40px'>
 
     <!-- d2 充值-->
     <v-dialog
-      content-class='rounded-xl'
+      content-class="rounded-xl"
       v-model="dialog2"
       width="400"
-      height='640'
+      height="640"
     >
-      <div
-        style='height: 640px;width: 400px;background: #FFFFFF;'>
-        <v-row style='height: 60px;width: 100%;margin: 0px'>
-          <span style='font-size: 24px;margin: 30px 33px 32px 31px ;
+      <div style="height: 640px;width: 400px;background: #FFFFFF;">
+        <v-row style="height: 60px;width: 100%;margin: 0px">
+          <span
+            style="font-size: 24px;margin: 30px 33px 32px 31px ;
             font-family: PingFang-SC-Semibold, PingFang-SC;
             font-weight: 600;
-            color: #000000;'>充值(ERC20)</span>
+            color: #000000;"
+            >充值(ERC20)</span
+          >
         </v-row>
-        <v-row style='height: 30px'></v-row>
+        <v-row style="height: 30px"></v-row>
 
-        <v-row style='height: 60px;width: 100%;margin: 0px'>
-          <v-col cols='2'></v-col>
-          <v-col cols='8'>
-            <v-menu offset-y >
+        <v-row style="height: 60px;width: 100%;margin: 0px">
+          <v-col cols="2"></v-col>
+          <v-col cols="8">
+            <v-menu offset-y>
               <template v-slot:activator="{ on, attrs }">
                 <v-btn
-
                   v-bind="attrs"
                   v-on="on"
                   style="background: #F7F8FB;color: #000000"
@@ -994,109 +1109,133 @@ padding: 0px 0px 0px 40px'>
                   bottom
                   rounded
                   block
-                  height='60'
+                  height="60"
                 >
-                  <img :src="xiala.imgurl"  style="height: 39px; width: 39px;">
-                  <span style='font-size: 20px;
+                  <img :src="xiala.imgurl" style="height: 39px; width: 39px;" />
+                  <span
+                    style="font-size: 20px;
                     font-family: Nunito-SemiBold, Nunito;
                     font-weight: 600;
                     color: #000000;
                     line-height: 26px;
-                    margin: 10px'>
-         {{ xiala.text }}</span>
+                    margin: 10px"
+                  >
+                    {{ xiala.text }}</span
+                  >
                 </v-btn>
               </template>
               <v-list>
                 <v-list-item
                   @click="
-                  xiala.text='USDT';
-                  xiala.imgurl='https://investors.oss-cn-beijing.aliyuncs.com/assets/usdt_logo.png'"
+                    xiala.text = 'USDT'
+                    xiala.imgurl =
+                      'https://investors.oss-cn-beijing.aliyuncs.com/assets/usdt_logo.png'
+                  "
                 >
                   <v-list-item-title>
                     <v-btn
-                      class='rounded-lg'
+                      class="rounded-lg"
                       style="background: #FFFFFF;color: #000000"
                       depressed
                       bottom
                       rounded
                       block
-                      height='60'
+                      height="60"
                     >
-                      <img src="https://investors.oss-cn-beijing.aliyuncs.com/assets/usdt_logo.png"  style="height: 39px; width: 39px;">
-                      <span style='font-size: 20px;
+                      <img
+                        src="https://investors.oss-cn-beijing.aliyuncs.com/assets/usdt_logo.png"
+                        style="height: 39px; width: 39px;"
+                      />
+                      <span
+                        style="font-size: 20px;
                     font-family: Nunito-SemiBold, Nunito;
                     font-weight: 600;
                     color: #000000;
                     line-height: 26px;
-                    margin: 10px'>
-         USDT</span>
+                    margin: 10px"
+                      >
+                        USDT</span
+                      >
                     </v-btn>
                   </v-list-item-title>
                 </v-list-item>
                 <v-list-item
                   @click="
-                  xiala.text='HSF';
-                  xiala.imgurl='https://investors.oss-cn-beijing.aliyuncs.com/assets/HSF_logo.png'"
+                    xiala.text = 'HSF'
+                    xiala.imgurl =
+                      'https://investors.oss-cn-beijing.aliyuncs.com/assets/HSF_logo.png'
+                  "
                 >
                   <v-list-item-title>
                     <v-btn
-                      class='rounded-lg'
+                      class="rounded-lg"
                       style="background: #FFFFFF;color: #000000"
                       depressed
                       bottom
                       rounded
                       block
-                      height='60'
+                      height="60"
                     >
-                      <img src="https://investors.oss-cn-beijing.aliyuncs.com/assets/HSF_logo.png"  style="height: 39px; width: 39px;">
-                      <span style='font-size: 20px;
+                      <img
+                        src="https://investors.oss-cn-beijing.aliyuncs.com/assets/HSF_logo.png"
+                        style="height: 39px; width: 39px;"
+                      />
+                      <span
+                        style="font-size: 20px;
                     font-family: Nunito-SemiBold, Nunito;
                     font-weight: 600;
                     color: #000000;
                     line-height: 26px;
-                    margin: 10px'>
-         HSF</span>
+                    margin: 10px"
+                      >
+                        HSF</span
+                      >
                     </v-btn>
                   </v-list-item-title>
                 </v-list-item>
               </v-list>
             </v-menu>
           </v-col>
-          <v-col cols='2'></v-col>
+          <v-col cols="2"></v-col>
         </v-row>
         <v-row>
-          <v-col cols='2'></v-col>
-          <v-col cols='8' >
-            <div v-if='xiala.text == "USDT"'>
-              <vue-qr ref="Qrcode"
-                      :text="apidata.USDT.address"
-                      :callback="test" qid="testQrId"
-                      margin="30"
-                      size='260'></vue-qr>
+          <v-col cols="2"></v-col>
+          <v-col cols="8">
+            <div v-if="xiala.text == 'USDT'">
+              <vue-qr
+                ref="Qrcode"
+                :text="apidata.USDT.address"
+                :callback="test"
+                qid="testQrId"
+                margin="30"
+                size="260"
+              ></vue-qr>
             </div>
-            <div v-if='xiala.text == "HSF"'>
-              <vue-qr ref="Qrcode"
-                      :text="apidata.HSF.address"
-                      :callback="test" qid="testQrId"
-                      margin="30"
-                      size='260'></vue-qr>
+            <div v-if="xiala.text == 'HSF'">
+              <vue-qr
+                ref="Qrcode"
+                :text="apidata.HSF.address"
+                :callback="test"
+                qid="testQrId"
+                margin="30"
+                size="260"
+              ></vue-qr>
             </div>
-
           </v-col>
-          <v-col cols='2'></v-col>
+          <v-col cols="2"></v-col>
         </v-row>
         <v-row>
-          <v-col cols='1'></v-col>
-          <v-col cols='10'>
-            <div v-if='xiala.text == "USDT"'>
+          <v-col cols="1"></v-col>
+          <v-col cols="10">
+            <div v-if="xiala.text == 'USDT'">
               <v-text-field
-                background-color='#F7F8FB'
+                background-color="#F7F8FB"
                 autocomplete="off"
-                :value='apidata.USDT.address'
+                :value="apidata.USDT.address"
                 single-line
                 filled
                 rounded
-                height='50'
+                height="50"
               >
                 <template v-slot:append>
                   <v-fade-transition leave-absolute>
@@ -1112,21 +1251,20 @@ padding: 0px 0px 0px 40px'>
                       height="15"
                       src="https://investors.oss-cn-beijing.aliyuncs.com/assets/fuzhi.png"
                       alt=""
-                    >
+                    />
                   </v-fade-transition>
                 </template>
-
               </v-text-field>
             </div>
-            <div v-if='xiala.text == "HSF"'>
+            <div v-if="xiala.text == 'HSF'">
               <v-text-field
-                background-color='#F7F8FB'
+                background-color="#F7F8FB"
                 autocomplete="off"
-                :value='apidata.HSF.address'
+                :value="apidata.HSF.address"
                 single-line
                 filled
                 rounded
-                height='50'
+                height="50"
               >
                 <template v-slot:append>
                   <v-fade-transition leave-absolute>
@@ -1142,39 +1280,42 @@ padding: 0px 0px 0px 40px'>
                       height="15"
                       src="https://investors.oss-cn-beijing.aliyuncs.com/assets/fuzhi.png"
                       alt=""
-                    >
+                    />
                   </v-fade-transition>
                 </template>
-
               </v-text-field>
             </div>
           </v-col>
-          <v-col cols='1'></v-col>
+          <v-col cols="1"></v-col>
         </v-row>
-        <span style='font-size: 12px;
+        <span
+          style="font-size: 12px;
                       font-family: PingFang-SC-Regular, PingFang-SC;
                       font-weight: 400;
                       color: #E67100;
-                      margin-left: 65px;'>此地址仅用做USDT收款，转入其他币种将无法找回</span>
-        <v-row>
-        </v-row>
+                      margin-left: 65px;"
+          >此地址仅用做USDT收款，转入其他币种将无法找回</span
+        >
+        <v-row> </v-row>
       </div>
     </v-dialog>
 
     <!-- d3兑换 -->
     <v-dialog
-      content-class='rounded-xl'
+      content-class="rounded-xl"
       v-model="dialog3"
       width="400"
-      height='540'
+      height="540"
     >
-      <div
-        style='height: 540px;width: 400px;background: #FFFFFF;'>
-        <v-row style='height: 60px;width: 100%;margin: 0px'>
-          <span style='font-size: 24px;margin: 30px 33px 32px 31px ;
+      <div style="height: 540px;width: 400px;background: #FFFFFF;">
+        <v-row style="height: 60px;width: 100%;margin: 0px">
+          <span
+            style="font-size: 24px;margin: 30px 33px 32px 31px ;
             font-family: PingFang-SC-Semibold, PingFang-SC;
             font-weight: 600;
-            color: #000000;'>兑换</span>
+            color: #000000;"
+            >兑换</span
+          >
         </v-row>
         <v-row style='height: 20px'></v-row>
         <!-- usdt换 hsf  -->
@@ -1489,84 +1630,107 @@ color: #9F9FA4;'>
               兑换
             </v-btn>
           </v-col>
-          <v-col cols='1'></v-col>
+          <v-col cols="1"></v-col>
         </v-row>
       </div>
     </v-dialog>
 
-
     <!-- d4 交易确认-->
     <v-dialog
-      content-class='rounded-xl'
+      content-class="rounded-xl"
       v-model="dialog4"
       width="400"
-      height='640'
+      height="640"
     >
-      <div
-        style='height: 640px;width: 400px;background: #FFFFFF;'>
-        <v-row style='height: 60px;width: 100%;margin: 0px'>
-          <span style='font-size: 24px;margin: 30px 33px 32px 31px ;
+      <div style="height: 640px;width: 400px;background: #FFFFFF;">
+        <v-row style="height: 60px;width: 100%;margin: 0px">
+          <span
+            style="font-size: 24px;margin: 30px 33px 32px 31px ;
             font-family: PingFang-SC-Semibold, PingFang-SC;
             font-weight: 600;
-            color: #000000;'>确认付款</span>
+            color: #000000;"
+            >确认付款</span
+          >
         </v-row>
-        <v-row style='height: 30px'></v-row>
+        <v-row style="height: 30px"></v-row>
 
-        <v-row style='height: 60px;width: 100%;margin: 0px'>
-          <v-col cols='2'></v-col>
-          <v-col cols='8'>
+        <v-row style="height: 60px;width: 100%;margin: 0px">
+          <v-col cols="2"></v-col>
+          <v-col cols="8">
             <v-row>
-              <v-col cols='2' style=';margin: 7px 5px 0px -5px'>
-                <img :src="xiala.imgurl"  style="height: 39px; width: 39px;">
+              <v-col cols="2" style=";margin: 7px 5px 0px -5px">
+                <img :src="xiala.imgurl" style="height: 39px; width: 39px;" />
               </v-col>
-              <v-col cols='8' style=''><span style='font-size: 36px;
+              <v-col cols="8" style=""
+                ><span
+                  style="font-size: 36px;
                                 font-family: Rubik-Regular, Rubik;
                                 font-weight: 400;
-                                color: #323234;'> {{ dialog04.numText }}</span></v-col>
+                                color: #323234;"
+                >
+                  {{ dialog04.numText }}</span
+                ></v-col
+              >
             </v-row>
           </v-col>
-          <v-col cols='2'></v-col>
+          <v-col cols="2"></v-col>
         </v-row>
-        <div style='height: 60px;width: 100%'></div>
+        <div style="height: 60px;width: 100%"></div>
         <v-row>
-          <v-col cols='1'></v-col>
-          <v-col cols='10' >
-            <span style='font-size: 14px;padding: 20px;
+          <v-col cols="1"></v-col>
+          <v-col cols="10">
+            <span
+              style="font-size: 14px;padding: 20px;
                           font-family: PingFangSC-Regular, PingFang SC;
                           font-weight: 400;
-                          color: #808080;'>类型</span>
+                          color: #808080;"
+              >类型</span
+            >
 
-            <span  style='font-size: 14px;padding: 20px 20px 20px 212px;
+            <span
+              style="font-size: 14px;padding: 20px 20px 20px 212px;
                                             font-family: Nunito-Regular, Nunito;
                                             font-weight: 400;
-                                            color: #000000;'>转账</span>
-            <div style='height: 20px;width: 100%'></div>
-            <div style='height: 1px;border: 1px solid #F1F1F2;width: 100%'></div>
+                                            color: #000000;"
+              >转账</span
+            >
+            <div style="height: 20px;width: 100%"></div>
+            <div
+              style="height: 1px;border: 1px solid #F1F1F2;width: 100%"
+            ></div>
           </v-col>
-          <v-col cols='1'></v-col>
+          <v-col cols="1"></v-col>
         </v-row>
-        <div style='height: 50px;width: 100%'></div>
+        <div style="height: 50px;width: 100%"></div>
         <v-row>
-          <v-col cols='1'></v-col>
-          <v-col cols='10' >
-            <span style='font-size: 14px;padding: 20px;
+          <v-col cols="1"></v-col>
+          <v-col cols="10">
+            <span
+              style="font-size: 14px;padding: 20px;
                           font-family: PingFangSC-Regular, PingFang SC;
                           font-weight: 400;
-                          color: #808080;'>订单信息</span>
+                          color: #808080;"
+              >订单信息</span
+            >
 
-            <span  style='font-size: 14px;padding: 20px 20px 20px 147px;
+            <span
+              style="font-size: 14px;padding: 20px 20px 20px 147px;
                                             font-family: Nunito-Regular, Nunito;
                                             font-weight: 400;
-                                            color: #000000;'>{{ dialog04.codeText }}余额</span>
-            <div style='height: 20px;width: 100%'></div>
-            <div style='height: 1px;border: 1px solid #F1F1F2;width: 100%'></div>
+                                            color: #000000;"
+              >{{ dialog04.codeText }}余额</span
+            >
+            <div style="height: 20px;width: 100%"></div>
+            <div
+              style="height: 1px;border: 1px solid #F1F1F2;width: 100%"
+            ></div>
           </v-col>
-          <v-col cols='1'></v-col>
+          <v-col cols="1"></v-col>
         </v-row>
-        <div style='height: 200px;width: 100%'></div>
+        <div style="height: 200px;width: 100%"></div>
         <v-row>
-          <v-col cols='7'></v-col>
-          <v-col cols='4'>
+          <v-col cols="7"></v-col>
+          <v-col cols="4">
             <v-btn
               style="background: linear-gradient(90deg, #00CFAC 20%, #5B7ADE 120%);color: #FFFFFF"
               depressed
@@ -1585,39 +1749,45 @@ color: #9F9FA4;'>
 
     <!-- d6 交易确认》如果验证码-->
     <v-dialog
-      content-class='rounded-xl'
+      content-class="rounded-xl"
       v-model="dialog6"
       width="400"
-      height='366'
+      height="366"
     >
-      <div
-        style='height: 366px;width: 400px;background: #FFFFFF;'>
-        <v-row style='height: 60px;width: 100%;margin: 0px'>
-          <span style='font-size: 24px;margin: 30px 33px 32px 31px ;
+      <div style="height: 366px;width: 400px;background: #FFFFFF;">
+        <v-row style="height: 60px;width: 100%;margin: 0px">
+          <span
+            style="font-size: 24px;margin: 30px 33px 32px 31px ;
             font-family: PingFang-SC-Semibold, PingFang-SC;
             font-weight: 600;
-            color: #000000;'>支付密码</span>
+            color: #000000;"
+            >支付密码</span
+          >
         </v-row>
-        <v-row style='height: 60px'></v-row>
+        <v-row style="height: 60px"></v-row>
 
-        <v-row  style='height: 40px;width: 100%;margin: 0px;'>
-          <span class="text-center"  style='font-size: 24px;margin-left: 116px;
+        <v-row style="height: 40px;width: 100%;margin: 0px;">
+          <span
+            class="text-center"
+            style="font-size: 24px;margin-left: 116px;
                         font-family: PingFang-SC-Semibold, PingFang-SC;
                         font-weight: 600;
-                        color: #000000;'>请输入支付密码</span>
+                        color: #000000;"
+            >请输入支付密码</span
+          >
         </v-row>
 
         <v-row>
-          <v-col cols='1'></v-col>
-          <v-col cols='10'>
-<!--     验证码 实现 -->
+          <v-col cols="1"></v-col>
+          <v-col cols="10">
+            <!--     验证码 实现 -->
             <div class="row-center captcha_input_wrapper">
               <input
                 autocomplete="off"
-                v-for="(item,index) in captchas"
+                v-for="(item, index) in captchas"
                 :key="index"
                 v-model="item.num"
-                :id="'captcha'+index"
+                :id="'captcha' + index"
                 @input="inputFinash(index)"
                 @focus="adjust(index)"
                 @keydown="inputDirection(index)"
@@ -1627,37 +1797,45 @@ color: #9F9FA4;'>
               />
             </div>
           </v-col>
-          <v-col cols='1'></v-col>
+          <v-col cols="1"></v-col>
         </v-row>
-        <div style='height: 30px'></div>
-        <span style='font-size: 14px;margin-left: 164px;
+        <div style="height: 30px"></div>
+        <span
+          style="font-size: 14px;margin-left: 164px;
                 font-family: PingFangSC-Regular, PingFang SC;
                 font-weight: 400;
                 color: #00CFAC;
-                line-height: 14px;'> 忘记密码?
+                line-height: 14px;"
+        >
+          忘记密码?
         </span>
-     </div>
+      </div>
     </v-dialog>
     <!-- d7 最终支付成功-->
     <v-dialog
-      content-class='rounded-xl'
+      content-class="rounded-xl"
       v-model="dialog7"
       width="400"
-      height='568'
+      height="568"
     >
-      <div style='height: 568px;width: 400px;background: #FFFFFF;'>
+      <div style="height: 568px;width: 400px;background: #FFFFFF;">
+        <v-row style="height: 60px"></v-row>
 
-
-        <v-row style='height: 60px'></v-row>
-
-        <v-row style='height: 100px' class='justify-center'>
-          <img class='justify-center' src='https://investors.oss-cn-beijing.aliyuncs.com/assets/wanchenglogo.png' height='80px' width='80px'/>
+        <v-row style="height: 100px" class="justify-center">
+          <img
+            class="justify-center"
+            src="https://investors.oss-cn-beijing.aliyuncs.com/assets/wanchenglogo.png"
+            height="80px"
+            width="80px"
+          />
         </v-row>
-        <v-row style='height: 60px' class='justify-center'>
-          <span style='font-size: 24px;
+        <v-row style="height: 60px" class="justify-center">
+          <span
+            style="font-size: 24px;
                       font-family: PingFang-SC-Semibold, PingFang-SC;
                       font-weight: 600;
-                      color: #000000;'>
+                      color: #000000;"
+          >
             支付成功
           </span>
         </v-row>
@@ -1676,7 +1854,6 @@ color: #9F9FA4;'>
                       color: #000000;'>
             {{dialog04.numText}}
           </span>
-
         </v-row>
         <div style='height: 80px'></div>
         <v-row>
@@ -1711,12 +1888,12 @@ color: #9F9FA4;'>
             <div style='height: 20px;width: 100%'></div>
             <div style='height: 1px;border: 1px solid #F1F1F2;width: 100%'></div>
           </v-col>
-          <v-col cols='1'></v-col>
+          <v-col cols="1"></v-col>
         </v-row>
-        <div style='height: 60px'></div>
+        <div style="height: 60px"></div>
         <v-row>
-          <v-col cols='3'></v-col>
-          <v-col cols='6'>
+          <v-col cols="3"></v-col>
+          <v-col cols="6">
             <v-btn
               style="background: #F1F1F2;color: #00CFAC"
               depressed
@@ -1729,34 +1906,34 @@ color: #9F9FA4;'>
               完成
             </v-btn>
           </v-col>
-          <v-col cols='3'></v-col>
+          <v-col cols="3"></v-col>
         </v-row>
-        <v-row  style='height: 40px;width: 100%;margin: 0px;'></v-row>
-
-
+        <v-row style="height: 40px;width: 100%;margin: 0px;"></v-row>
       </div>
     </v-dialog>
 
     <!-- d8  站内转账下一步 -->
     <v-dialog
-      content-class='rounded-xl'
+      content-class="rounded-xl"
       v-model="dialog8"
       width="400"
-      height='640'
+      height="640"
     >
-      <div
-        style='height: 640px;width: 400px;background: #FFFFFF;'>
-        <v-row style='height: 60px;width: 100%;margin: 0px'>
-          <span style='font-size: 24px;margin: 30px 33px 32px 31px ;
+      <div style="height: 640px;width: 400px;background: #FFFFFF;">
+        <v-row style="height: 60px;width: 100%;margin: 0px">
+          <span
+            style="font-size: 24px;margin: 30px 33px 32px 31px ;
             font-family: PingFang-SC-Semibold, PingFang-SC;
             font-weight: 600;
-            color: #000000;'>提现</span>
+            color: #000000;"
+            >提现</span
+          >
         </v-row>
-        <div style='height: 40px'></div>
-        <v-row style='height: 60px;width: 100%;margin: 0px'>
-          <v-col cols='2'></v-col>
-          <v-col cols='8'>
-            <v-menu offset-y >
+        <div style="height: 40px"></div>
+        <v-row style="height: 60px;width: 100%;margin: 0px">
+          <v-col cols="2"></v-col>
+          <v-col cols="8">
+            <v-menu offset-y>
               <template v-slot:activator="{ on, attrs }">
                 <v-btn
                   v-bind="attrs"
@@ -1767,16 +1944,19 @@ color: #9F9FA4;'>
                   bottom
                   rounded
                   block
-                  height='60'
+                  height="60"
                 >
-                  <img :src="xiala.imgurl"  style="height: 39px; width: 39px;">
-                  <span style='font-size: 20px;
+                  <img :src="xiala.imgurl" style="height: 39px; width: 39px;" />
+                  <span
+                    style="font-size: 20px;
                     font-family: Nunito-SemiBold, Nunito;
                     font-weight: 600;
                     color: #000000;
                     line-height: 26px;
-                    margin: 10px'>
-         {{ xiala.text }}</span>
+                    margin: 10px"
+                  >
+                    {{ xiala.text }}</span
+                  >
                 </v-btn>
               </template>
             </v-menu>
@@ -1856,7 +2036,7 @@ line-height: 20px;'>
               rounded
               x-large
               block
-              @click="zhanneizhuanzhangOK"
+              @click="zhanneizhuanzhang"
             >
               转账
             </v-btn>
@@ -1959,7 +2139,7 @@ export default {
     GetData: function() {
       // const token = localStorage.getItem('token')
       this.axios
-        .post('/t0/wallet/home', {}, { headers: { 'access-token': "yU1S628pQknyMg" } })
+        .post('/t0/wallet/home', {}, { headers: { "access-token": "yU1S628pQknyMg" } })
         .then(response => {
           console.log(response)
           this.apidata.USDT.num = response.data.w[0].NumAll
@@ -2209,7 +2389,7 @@ export default {
 /*}*/
 </style>
 
-<style lang='scss'>
+<style lang="scss">
 .row-center {
   display: flex;
   flex-direction: row;
@@ -2223,10 +2403,11 @@ export default {
   width: 45px;
   height: 45px;
   margin-right: 12px;
-  background: #F7F8FB;
+  background: #f7f8fb;
   border-radius: 6px;
   text-align: center;
-  color:rgb(27, 215, 167);
-  border:none;outline:medium;
+  color: rgb(27, 215, 167);
+  border: none;
+  outline: medium;
 }
 </style>
