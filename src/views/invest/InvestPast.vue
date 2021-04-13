@@ -149,7 +149,7 @@ export default {
               .post(
                       '/t0/invest/list',
                       {'user_id':'1','types':'now'},
-                      { headers: { 'access-token': 'vYqF5_ZO7fecxQ','Content-Type': 'application/json'} }
+                      { headers: { 'access-token': 'iOCXsrzgA_asAQ','Content-Type': 'application/json'} }
               )
               .then(response => {
                 console.log(response)
