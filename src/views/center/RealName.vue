@@ -26,6 +26,7 @@
           style="height: auto; min-height: 100vh; padding-top: 36px; padding-bottom: 120px"
         >
           <v-card
+            v-show="kycFlag1"
             height="1245px"
             width="514px"
             style="box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04); border-radius: 24px;"
@@ -89,8 +90,8 @@
               <div>
                 <v-text-field
                   autocomplete="off"
-                  v-model="certificateNum"
-                  label="请输入身份证号"
+                  v-text="certifyNum"
+                  label="证件号"
                   single-line
                   filled
                   dense
@@ -217,6 +218,126 @@
               >
             </div>
           </v-card>
+          <v-card
+            v-show="kycFlag2"
+            height="714px"
+            width="514px"
+            style="box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04); border-radius: 24px;"
+          >
+            <div style="padding: 32px">
+              <div
+                class="d-inline-flex justify-space-between"
+                style="width: 100%;"
+              >
+                <div style="font-size: 18px; font-weight: 600; color: #000000">
+                  KYC Lv2
+                </div>
+                <div
+                  class="text-right"
+                  style="font-size: 16px; font-weight: 600; color: #00CFAC;"
+                >
+                  审核成功
+                </div>
+              </div>
+              <v-card-subtitle
+                style="padding-left: 0; font-size: 12px; white-space: nowrap;
+                         font-weight: 500; color: #F69D2B;"
+              >
+                每日提币限额为10000USDT，通过身份验证后提现将无限制
+              </v-card-subtitle>
+              <div>
+                <v-select
+                  v-model="areaName"
+                  label="国家"
+                  hint="如中国"
+                  :items="areaNames"
+                  single-line
+                  filled
+                  dense
+                  rounded
+                ></v-select>
+              </div>
+              <div>
+                <v-select
+                  v-model="certificate"
+                  label="证件"
+                  hint="如身份证"
+                  :items="certificates"
+                  single-line
+                  filled
+                  dense
+                  rounded
+                ></v-select>
+              </div>
+              <div>
+                <v-text-field
+                  v-model="realName"
+                  readonly
+                  single-line
+                  filled
+                  dense
+                  rounded
+                ></v-text-field>
+              </div>
+              <div>
+                <v-text-field
+                  v-model="certifyNum"
+                  readonly
+                  single-line
+                  filled
+                  dense
+                  rounded
+                ></v-text-field>
+              </div>
+              <div>
+                <v-text-field
+                  v-model="address"
+                  readonly
+                  single-line
+                  filled
+                  dense
+                  rounded
+                ></v-text-field>
+              </div>
+              <div class="d-inline-flex">
+                <v-text-field
+                  v-model="birthYear"
+                  readonly
+                  single-line
+                  filled
+                  dense
+                  rounded
+                ></v-text-field>
+                <div style="width: 9px"></div>
+                <v-text-field
+                  v-model="birthMonth"
+                  readonly
+                  single-line
+                  filled
+                  dense
+                  rounded
+                ></v-text-field>
+                <div style="width: 9px"></div>
+                <v-text-field
+                  v-model="birthDay"
+                  readonly
+                  single-line
+                  filled
+                  dense
+                  rounded
+                ></v-text-field>
+              </div>
+              <div style="height: 60px"></div>
+              <v-btn
+                text
+                rounded
+                style="width: 450px; height: 56px;
+                background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);
+                border-radius: 28px; color: #FFFFFF"
+                >已认证</v-btn
+              >
+            </div>
+          </v-card>
           <div style="width: 32px"></div>
           <v-card
             height="217px"
@@ -282,9 +403,40 @@ export default {
       certificate: '身份证',
       certificates: ['身份证', '护照'],
       userName: '',
-      certificateNum: '',
+      certifyNum: '',
+      realName: '',
       address: '',
+      birthYear: '',
+      birthMonth: '',
+      birthDay: '',
+      kycFlag1: false,
+      kycFlag2: true,
     }
+  },
+  mounted: function() {
+    this.GetMyData() //需要触发的函数
+  },
+  methods: {
+    GetMyData: function() {
+      const token = localStorage.getItem('token')
+      this.axios
+        .post('/t0/getMyUserData', {}, { headers: { 'access-token': token } })
+        .then(response => {
+          this.loginVue = false //显示登录代码
+          this.userName = response.data.UserName
+          this.loginVue = false //显示登录代码
+          this.userId = 'UID ' + response.data.Uid
+          this.realName = response.data.UserRealName
+          this.phoneNum = response.data.PhoneNumber
+          this.email = response.data.Email
+          this.certifyNum = response.data.CertifyNum
+          this.address = response.data.Address
+          const birthDate = response.data.Birthday
+          this.birthYear = birthDate.slice(0, 4)
+          this.birthMonth = birthDate.slice(4, 6)
+          this.birthDay = birthDate.slice(6)
+        })
+    },
   },
 }
 </script>

@@ -81,12 +81,12 @@
                     <v-list-item-subtitle
                       style="font-size: 12px; color: #808080"
                     >
-                      上次登陆时间：2020-04-08 10:02:06
+                      上次登录时间: {{ lastLoginTime | formatDate }}
                     </v-list-item-subtitle>
                     <v-list-item-subtitle
+                      v-text="lastLoginIp"
                       style="font-size: 12px; color: #808080"
                     >
-                      上次登陆IP地址：40.83.126.105
                     </v-list-item-subtitle>
                   </v-list-item-content>
                 </v-list-item>
@@ -220,11 +220,11 @@
                   INVESTORS号是账号的唯一凭证，只能设置一次
                 </v-card-subtitle>
               </div>
-              <div style="width: 411px"></div>
+              <div style="width: 378px"></div>
               <div v-text="userId" style="padding-top: 44px"></div>
               <div style="width: 20px"></div>
               <v-btn
-                @click.stop="user_up2 = true"
+                @click="user_up2 = true"
                 text
                 style="width: 76px; height: 30px; margin-top: 39px; background: #F7F8FB;
                        border-radius: 15px; color: #00CFAC; font-size: 14px; font-weight: 600;"
@@ -280,7 +280,7 @@
               <div style="width: 700px"></div>
               <div style="margin-left: 32px; padding-top: 32px">
                 <v-btn
-                  @click.stop="addqianbao1 = true"
+                  @click="addqianbao1 = true"
                   text
                   outlined
                   style="width: 76px; height: 30px; background: #F7F8FB;
@@ -325,40 +325,42 @@
             <v-divider
               style="width: 896px; color: #F5F5F5; margin-left: 30px; margin-top: 20px;"
             ></v-divider>
-            <v-row style="padding-left: 32px; padding-top: 32px">
-              <v-col cols="2">
-                <div
-                  style="width: 28px; height: 20px; font-size: 14px; font-weight: 600; color: #000000; line-height: 20px;"
-                >
-                  HSF
-                </div>
-              </v-col>
-              <v-col cols="2">
-                <div
-                  style="width: 28px; height: 20px; font-size: 14px; font-weight: 600; color: #000000;
+            <div v-for="data in list" v-bind:key="data">
+              <v-row style="padding-left: 32px; padding-top: 32px">
+                <v-col cols="2">
+                  <div
+                    style="width: 48px; height: 20px; font-size: 14px; font-weight: 600; color: #000000; line-height: 20px;"
+                  >
+                    {{ data.CoinType }}
+                  </div>
+                </v-col>
+                <v-col cols="2">
+                  <div
+                    style="width: 28px; height: 20px; font-size: 14px; font-weight: 600; color: #000000;
                   line-height: 20px; white-space: nowrap"
-                >
-                  alan的HSF
-                </div>
-              </v-col>
-              <v-col cols="2">
-                <div
-                  style="width: 28px; height: 20px; font-size: 14px; font-weight: 600; color: #000000;
+                  >
+                    {{ data.Remark }}
+                  </div>
+                </v-col>
+                <v-col cols="2">
+                  <div
+                    style="width: 28px; height: 20px; font-size: 14px; font-weight: 600; color: #000000;
                   line-height: 20px; white-space: nowrap"
-                >
-                  3NQjuCBN9jA5fgJ6NAyi
-                </div>
-              </v-col>
-              <v-col cols="2" class="offset-4">
-                <div style="margin-left: 75px">
-                  <v-img
-                    style="width: 20px; height: 20px; cursor: pointer"
-                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/cancel.png"
-                    @click="deleteWallet()"
-                  ></v-img>
-                </div>
-              </v-col>
-            </v-row>
+                  >
+                    {{ data.Address }}
+                  </div>
+                </v-col>
+                <v-col cols="2" class="offset-4">
+                  <div style="margin-left: 75px">
+                    <v-img
+                      style="width: 20px; height: 20px; cursor: pointer"
+                      src="https://investors.oss-cn-beijing.aliyuncs.com/assets/cancel.png"
+                      @click="delWalletAddress(data.Address)"
+                    ></v-img>
+                  </div>
+                </v-col>
+              </v-row>
+            </div>
           </v-card>
           <div style="height: 120px"></div>
         </v-tab-item>
@@ -1187,7 +1189,6 @@
         <v-row style="height: 60px;width: 100%;margin: 0px">
           <span
             style="font-size: 24px;margin: 30px 33px 32px 45px ;
-            font-family: PingFang-SC-Semibold, PingFang-SC;
             font-weight: 600;
             color: #000000;"
             >绑定谷歌验证器</span
@@ -1247,7 +1248,6 @@
           </v-col>
           <v-col cols="1"></v-col>
         </v-row>
-
         <v-row>
           <v-col cols="1"></v-col>
           <v-col cols="10">
@@ -1380,7 +1380,6 @@
         <v-row style="height: 60px;width: 100%;margin: 0px">
           <span
             style="font-size: 24px;margin: 30px 33px 32px 38px ;
-            font-family: PingFang-SC-Semibold, PingFang-SC;
             font-weight: 600;
             color: #000000;"
             >启用谷歌认证</span
@@ -1483,10 +1482,9 @@
       height="544"
     >
       <div style="height: 544px;width: 450px;background: #FFFFFF;">
-        <v-row style="height: 60px;width: 100%;margin: 0px">
+        <v-row style="height: 60px;width: 100%;margin: 0">
           <span
             style="font-size: 24px;margin: 30px 33px 32px 45px ;
-            font-family: PingFang-SC-Semibold, PingFang-SC;
             font-weight: 600;
             color: #000000;"
             >设置INVESTORS帐号</span
@@ -1505,16 +1503,14 @@
               </v-col>
               <v-col cols="10">
                 <p
-                  style="font-size: 18px;padding: 0px;margin: 8px 3px 5px 8px;
-                  font-family: Nunito-SemiBold, Nunito;
+                  style="font-size: 18px;padding: 0;margin: 8px 3px 5px 8px;
                   font-weight: 600;
                   color: #000000;"
                 >
                   Cami Ho
                 </p>
                 <p
-                  style="font-size: 16px;padding: 0px;margin:  1px 2px 3px 8px;
-                          font-family: Nunito-Regular, Nunito;
+                  style="font-size: 16px;padding: 0;margin:  1px 2px 3px 8px;
                           font-weight: 400;
                           color: #808080;
                           line-height: 16px;"
@@ -1527,22 +1523,17 @@
               <v-text-field
                 autocomplete="off"
                 label="输入你的帐号"
-                v-model="checkCode"
+                v-model="updateUidValue"
                 single-line
                 filled
                 dense
                 rounded
               ></v-text-field>
             </v-row>
-            <v-row style="padding: 0px 15px 0px 15px">
-              <span
-                style="font-size: 12px;
-                            font-family: Nunito-Regular, Nunito;
-                            font-weight: 400;
-                            color: #6D6D72;"
-              >
+            <v-row style="padding: 0 15px 0 15px">
+              <span style="font-size: 12px;font-weight: 400;color: #6D6D72;">
                 ·INVESTORS号是账号的唯一凭证，只能设置一次。
-                <p style="padding: 0px">
+                <p style="padding: 0">
                   ·如果没有设置过INVESTORS号，INVESTORS好友会看到你在系统自动生成的INVESTORS号，但是不能通过系统生成的INVESTORS号找到你。
                 </p>
               </span>
@@ -1561,17 +1552,15 @@
               rounded
               large
               block
-              @click="gugeApi2"
+              @click="UpdateUid(updateUidValue)"
             >
-              下一步
+              确认
             </v-btn>
           </v-col>
           <v-col cols="1"></v-col>
         </v-row>
       </div>
     </v-dialog>
-
-    <!-- 添加钱包地址 addqianbao1 -->
     <v-dialog
       content-class="rounded-xl"
       v-model="addqianbao1"
@@ -1582,7 +1571,6 @@
         <v-row style="height: 60px;width: 100%;margin: 0px">
           <span
             style="font-size: 24px;margin: 30px 33px 32px 38px ;
-            font-family: PingFang-SC-Semibold, PingFang-SC;
             font-weight: 600;
             color: #000000;"
             >添加地址</span
@@ -1594,9 +1582,9 @@
             <div style="width: 100%;height: 70px"></div>
             <v-row style="padding: 10px;height: 50px">
               <v-select
-                v-model="areaCode3"
+                v-model="addCoinType"
                 label="币种"
-                :items="areaCodes3"
+                :items="addCoinTypes"
                 single-line
                 filled
                 dense
@@ -1608,7 +1596,7 @@
               <v-text-field
                 autocomplete="off"
                 label="请输入钱包地址"
-                v-model="checkCode"
+                v-model="addWalletAdd"
                 single-line
                 filled
                 dense
@@ -1618,8 +1606,7 @@
             <v-row style="height: 20px"></v-row>
             <v-row style="height: 20px;">
               <span
-                style="margin: 0px 0px 1px 16px;font-weight: 600;
-              color: #000000;"
+                style="margin: 0 0 1px 16px;font-weight: 600;color: #000000;"
               >
                 备注
               </span>
@@ -1628,7 +1615,7 @@
               <v-text-field
                 autocomplete="off"
                 label="请输入备注"
-                v-model="checkCode"
+                v-model="addRemark"
                 single-line
                 filled
                 dense
@@ -1649,9 +1636,9 @@
               rounded
               large
               block
-              @click="submit"
+              @click="addWalletAddress(addCoinType, addWalletAdd, addRemark)"
             >
-              绑定
+              添加
             </v-btn>
           </v-col>
           <v-col cols="1"></v-col>
@@ -1735,8 +1722,6 @@ export default {
       user_up2: false, //设置INVESTORS帐号
       addqianbao1: false, //添加钱包地址
       sendCodeVue2: true, // 控制发送验证码按钮显示
-      areaCode3: 'HSF', //下拉多选
-      areaCodes3: ['HSF', 'USDT'], //下拉多选
       dataObj: {
         //二维码
         gugeurl1: 'https://blog.csdn.net/weixin_43760328/rss/list', //谷歌提示页面1 二维码数据1
@@ -1746,10 +1731,32 @@ export default {
       },
       phoneNum: '',
       userId: '',
+      certifyNum: '',
+      certifyFront: '',
+      certifyBack: '',
+      list: '',
+      addCoinType: '',
+      addCoinTypes: ['HSF', 'USDT'], //下拉多选
+      addWalletAdd: '',
+      addRemark: '',
+      addWalletResult: '',
+      delWalletResult: '',
+      updateUidValue: '',
+      updateUidResult: '',
+      lastLoginTime: '',
+      lastLoginIp: '',
     }
   },
+  filters: {
+    formatDate(time) {
+      const date = new Date(time)
+      return formatDate(date, 'yyyy-MM-dd hh:mm')
+    },
+  },
   mounted: function() {
+    this.GetPresenceData()
     this.GetMyData() //需要触发的函数
+    this.GetWalletAddInfo()
   },
   methods: {
     sendCode2() {
@@ -1774,8 +1781,31 @@ export default {
       this.googleyz2 = false
       this.googleyz3 = true
     },
-    deleteWallet: function() {
-      alert('删除钱包地址')
+    addWalletAddress: function(addCoinType, addWalletAdd, addRemark) {
+      const token = localStorage.getItem('token')
+      this.axios
+        .post(
+          '/t0/addWalletAddInfo',
+          { coinType: addCoinType, walletAdd: addWalletAdd, remark: addRemark },
+          { headers: { 'access-token': token } }
+        )
+        .then(response => {
+          this.addWalletResult = response.data
+        })
+      alert(this.addWalletResult)
+    },
+    delWalletAddress: function(add) {
+      const token = localStorage.getItem('token')
+      this.axios
+        .post(
+          '/t0/delWalletAddInfo',
+          { walletAdd: add },
+          { headers: { 'access-token': token } }
+        )
+        .then(response => {
+          this.delWalletResult = response.data
+        })
+      alert(this.delWalletResult)
     },
     sendCode() {
       this.$refs.form.validate()
@@ -1956,13 +1986,84 @@ export default {
         .post('/t0/getMyUserData', {}, { headers: { 'access-token': token } })
         .then(response => {
           this.loginVue = false //显示登录代码
-          this.userId = 'UID' + response.data.UserId
+          this.userId = 'UID ' + response.data.Uid
           this.username = response.data.UserName
           this.phoneNum = response.data.PhoneNumber
           this.email = response.data.Email
+          this.certifyNum = response.data.CertifyNum
+          this.certifyFront = response.data.CertifyFront
+          this.certifyBack = response.data.CertifyBack
+        })
+    },
+    //查询状态数据
+    GetPresenceData: function() {
+      const token = localStorage.getItem('token')
+      this.axios
+        .post('/t0/getPresenceData', {}, { headers: { 'access-token': token } })
+        .then(response => {
+          this.lastLoginTime = response.data.CreatedTime
+          this.lastLoginIp = '上次登陆IP地址: ' + response.data.LastIp
+        })
+    },
+    //钱包地址信息
+    GetWalletAddInfo: function() {
+      const token = localStorage.getItem('token')
+      this.axios
+        .post(
+          '/t0/getWalletAddInfo',
+          {},
+          { headers: { 'access-token': token } }
+        )
+        .then(response => {
+          this.list = response.data
+        })
+    },
+    //修改Uid
+    UpdateUid: function(updateUidValue) {
+      const token = localStorage.getItem('token')
+      this.axios
+        .post(
+          '/t0/updateUid',
+          { uidValue: updateUidValue },
+          { headers: { 'access-token': token } }
+        )
+        .then(response => {
+          this.updateUidResult = response.data
+          alert(this.updateUidResult)
+          this.user_up2 = false
         })
     },
   },
+}
+//时间戳转化时间
+function formatDate(date, fmt) {
+  if (/(y+)/.test(fmt)) {
+    fmt = fmt.replace(
+      RegExp.$1,
+      (date.getFullYear() + '').substr(4 - RegExp.$1.length)
+    )
+  }
+  let o = {
+    'M+': date.getMonth() + 1,
+    'd+': date.getDate(),
+    'h+': date.getHours(),
+    'm+': date.getMinutes(),
+    's+': date.getSeconds(),
+  }
+  for (let k in o) {
+    if (new RegExp(`(${k})`).test(fmt)) {
+      let str = o[k] + ''
+      fmt = fmt.replace(
+        RegExp.$1,
+        RegExp.$1.length === 1 ? str : padLeftZero(str)
+      )
+    }
+  }
+  return fmt
+}
+
+function padLeftZero(str) {
+  return ('00' + str).substr(str.length)
 }
 </script>
 
