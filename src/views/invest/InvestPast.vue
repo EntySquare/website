@@ -45,499 +45,71 @@
     </div>
     <!--    <div class="container2" style="margin-top:-124px;" ref="point">-->
     <div class="container2" style="margin-top:-124px;" ref="point">
-      <router-link to="/investTab">
-        <v-card
-          class="mx-auto card"
-          style="box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04);"
-        >
-          <v-row>
-            <v-col>
-              <div>
-                <span class="card-green" style="padding-right: 12px"
-                  >248.2%</span
-                >
-                <span
-                  style="width: 56px;height: 24px;font-size: 14px;font-weight: 400;color: #B2B2B2;"
-                  >年化收益</span
-                >
-              </div>
-            </v-col>
-            <v-col class="d-inline-flex" style="padding-top: 30px">
-              <div style="font-size: 16px;font-weight: 400;color: #333333;">
-                项目周期
-              </div>
-              <div style="width: 8px"></div>
-              <b>10 天</b>
-              <v-icon color="#b3b3b3" class="ll"
-                >mdi-chevron-right</v-icon
-              ></v-col
-            >
-          </v-row>
-          <v-row>
-            <v-col>投资总额 <b>1,000,000 USDT</b></v-col>
-            <v-col>最低收入 <b>100 USDT</b></v-col>
-          </v-row>
-          <v-row>
-            <v-col>
-              <div class="d-inline-flex">
-                <div style="padding-right: 8px">融资进度</div>
-                <div
-                  style="display:inline-block;width:46px;height:18px;
-                    background: linear-gradient(225deg, #00E9D6 0%, #00CFAC 100%);
-                    border-radius: 4px;font-style:normal;text-align:center;
-                    line-height:18px;color:#fff;font-size:10px;font-weight:400;margin-top: 3px"
-                >
-                  进行中
+      <div v-for="vi in list" :key ="vi.ProjectName">
+        <router-link :to="{path:'/investTab',query:{projectname: vi.ProjectName}}">
+          <v-card
+            class="mx-auto card"
+            style="box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04);"
+          >
+            <v-row>
+              <v-col>
+                <div>
+                  <span class="card-green" style="padding-right: 12px">{{vi.AnnualizedIncome}}</span>
+                  <span style="width: 56px;height: 24px;font-size: 14px;font-weight: 400;color: #B2B2B2;">年化收益</span>
                 </div>
-                <div style="width: 452px"></div>
-                <div style="color:#00CFAC;font-size:14px;margin-top: 20px;">
-                  90%
+              </v-col>
+              <v-col class="d-inline-flex" style="padding-top: 30px">
+                <div style="font-size: 16px;font-weight: 400;color: #333333;">
+                  项目周期
                 </div>
-              </div>
-              <v-progress-linear
-                style="height:10px;width:600px;border-radius: 5px;"
-                v-model="valueDeterminate"
-                background-color="#F7F8FB"
-                color="#00CFAC"
-                class="unFinish"
-              ></v-progress-linear>
-            </v-col>
-          </v-row>
-        </v-card>
-      </router-link>
-      <v-card
-        class="mx-auto card"
-        style="box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04);"
-      >
-        <v-row>
-          <v-col>
-            <div>
-              <span class="card-green" style="padding-right: 12px">248.2%</span>
-              <span
-                style="width: 56px;height: 24px;font-size: 14px;font-weight: 400;color: #B2B2B2;"
-                >年化收益</span
+                <div style="width: 8px"></div>
+                <b>{{vi.Cycle}} 天</b>
+                <v-icon color="#b3b3b3" class="ll"
+                  >mdi-chevron-right</v-icon
+                ></v-col
               >
-            </div>
-          </v-col>
-          <v-col class="d-inline-flex" style="padding-top: 30px">
-            <div style="font-size: 16px;font-weight: 400;color: #333333;">
-              项目周期
-            </div>
-            <div style="width: 8px"></div>
-            <b>10 天</b>
-            <v-icon color="#b3b3b3" class="ll">mdi-chevron-right</v-icon></v-col
-          >
-        </v-row>
-        <v-row>
-          <v-col>投资总额 <b>1,000,000 USDT</b></v-col>
-          <v-col>最低收入 <b>100 USDT</b></v-col>
-        </v-row>
-        <v-row>
-          <v-col>
-            <div class="d-inline-flex">
-              <div style="padding-right: 8px">融资进度</div>
-              <div
-                style="display:inline-block;width:46px;height:18px;
-                    background: linear-gradient(290deg, #B2B2B2 0%, #F1F1F2 100%);
-                    border-radius: 4px;font-style:normal;text-align:center;
-                    line-height:18px;color:#fff;font-size:10px;font-weight:400;margin-top: 3px"
-              >
-                结束
-              </div>
-              <div style="width: 452px"></div>
-              <div style="color:#00CFAC;font-size:14px;margin-top: 20px;">
-                90%
-              </div>
-            </div>
-            <v-progress-linear
-              style="height:10px;width:600px;border-radius: 5px;"
-              rounded
-              v-model="valueDeterminate"
-              background-color="#F7F8FB"
-              color="#00CFAC"
-              class="finish"
-            ></v-progress-linear>
-          </v-col>
-        </v-row>
-      </v-card>
-      <v-card
-        class="mx-auto card"
-        style="box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04);"
-      >
-        <v-row>
-          <v-col>
-            <div>
-              <span class="card-green" style="padding-right: 12px">248.2%</span>
-              <span
-                style="width: 56px;height: 24px;font-size: 14px;font-weight: 400;color: #B2B2B2;"
-                >年化收益</span
-              >
-            </div>
-          </v-col>
-          <v-col class="d-inline-flex" style="padding-top: 30px">
-            <div style="font-size: 16px;font-weight: 400;color: #333333;">
-              项目周期
-            </div>
-            <div style="width: 8px"></div>
-            <b>10 天</b>
-            <v-icon color="#b3b3b3" class="ll">mdi-chevron-right</v-icon></v-col
-          >
-        </v-row>
-        <v-row>
-          <v-col>投资总额 <b>1,000,000 USDT</b></v-col>
-          <v-col>最低收入 <b>100 USDT</b></v-col>
-        </v-row>
-        <v-row>
-          <v-col>
-            <div class="d-inline-flex">
-              <div style="padding-right: 8px">融资进度</div>
-              <div
-                style="display:inline-block;width:46px;height:18px;
-                    background: linear-gradient(225deg, #00E9D6 0%, #00CFAC 100%);
-                    border-radius: 4px;font-style:normal;text-align:center;
-                    line-height:18px;color:#fff;font-size:10px;font-weight:400;margin-top: 3px"
-              >
-                完成
-              </div>
-              <div style="width: 452px"></div>
-              <div style="color:#00CFAC;font-size:14px;margin-top: 20px;">
-                90%
-              </div>
-            </div>
-            <v-progress-linear
-              style="height:10px;width:600px;border-radius: 5px;"
-              v-model="valueDeterminate"
-              background-color="#F7F8FB"
-              color="#00CFAC"
-              class="unFinish"
-            ></v-progress-linear>
-          </v-col>
-        </v-row>
-      </v-card>
-      <v-card
-        class="mx-auto card"
-        style="box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04);"
-      >
-        <v-row>
-          <v-col>
-            <div>
-              <span class="card-green" style="padding-right: 12px">248.2%</span>
-              <span
-                style="width: 56px;height: 24px;font-size: 14px;font-weight: 400;color: #B2B2B2;"
-                >年化收益</span
-              >
-            </div>
-          </v-col>
-          <v-col class="d-inline-flex" style="padding-top: 30px">
-            <div style="font-size: 16px;font-weight: 400;color: #333333;">
-              项目周期
-            </div>
-            <div style="width: 8px"></div>
-            <b>10 天</b>
-            <v-icon color="#b3b3b3" class="ll">mdi-chevron-right</v-icon></v-col
-          >
-        </v-row>
-        <v-row>
-          <v-col>投资总额 <b>1,000,000 USDT</b></v-col>
-          <v-col>最低收入 <b>100 USDT</b></v-col>
-        </v-row>
-        <v-row>
-          <v-col>
-            <div class="d-inline-flex">
-              <div style="padding-right: 8px">融资进度</div>
-              <div
-                style="display:inline-block;width:46px;height:18px;
-                    background: linear-gradient(225deg, #00E9D6 0%, #00CFAC 100%);
-                    border-radius: 4px;font-style:normal;text-align:center;
-                    line-height:18px;color:#fff;font-size:10px;font-weight:400;margin-top: 3px"
-              >
-                进行中
-              </div>
-              <div style="width: 452px"></div>
-              <div style="color:#00CFAC;font-size:14px;margin-top: 20px;">
-                90%
-              </div>
-            </div>
-            <v-progress-linear
-              style="height:10px;width:600px;border-radius: 5px;"
-              v-model="valueDeterminate"
-              background-color="#F7F8FB"
-              color="#00CFAC"
-              class="unFinish"
-            ></v-progress-linear>
-          </v-col>
-        </v-row>
-      </v-card>
-      <v-card
-        class="mx-auto card"
-        style="box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04);"
-      >
-        <v-row>
-          <v-col>
-            <div>
-              <span class="card-green" style="padding-right: 12px">248.2%</span>
-              <span
-                style="width: 56px;height: 24px;font-size: 14px;font-weight: 400;color: #B2B2B2;"
-                >年化收益</span
-              >
-            </div>
-          </v-col>
-          <v-col class="d-inline-flex" style="padding-top: 30px">
-            <div style="font-size: 16px;font-weight: 400;color: #333333;">
-              项目周期
-            </div>
-            <div style="width: 8px"></div>
-            <b>10 天</b>
-            <v-icon color="#b3b3b3" class="ll">mdi-chevron-right</v-icon></v-col
-          >
-        </v-row>
-        <v-row>
-          <v-col>投资总额 <b>1,000,000 USDT</b></v-col>
-          <v-col>最低收入 <b>100 USDT</b></v-col>
-        </v-row>
-        <v-row>
-          <v-col>
-            <div class="d-inline-flex">
-              <div style="padding-right: 8px">融资进度</div>
-              <div
-                style="display:inline-block;width:46px;height:18px;
-                    background: linear-gradient(225deg, #00E9D6 0%, #00CFAC 100%);
-                    border-radius: 4px;font-style:normal;text-align:center;
-                    line-height:18px;color:#fff;font-size:10px;font-weight:400;margin-top: 3px"
-              >
-                进行中
-              </div>
-              <div style="width: 452px"></div>
-              <div style="color:#00CFAC;font-size:14px;margin-top: 20px;">
-                90%
-              </div>
-            </div>
-            <v-progress-linear
-              style="height:10px;width:600px;border-radius: 5px;"
-              v-model="valueDeterminate"
-              background-color="#F7F8FB"
-              color="#00CFAC"
-              class="unFinish"
-            ></v-progress-linear>
-          </v-col>
-        </v-row>
-      </v-card>
-      <v-card
-        class="mx-auto card"
-        style="box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04);"
-      >
-        <v-row>
-          <v-col>
-            <div>
-              <span class="card-green" style="padding-right: 12px">248.2%</span>
-              <span
-                style="width: 56px;height: 24px;font-size: 14px;font-weight: 400;color: #B2B2B2;"
-                >年化收益</span
-              >
-            </div>
-          </v-col>
-          <v-col class="d-inline-flex" style="padding-top: 30px">
-            <div style="font-size: 16px;font-weight: 400;color: #333333;">
-              项目周期
-            </div>
-            <div style="width: 8px"></div>
-            <b>10 天</b>
-            <v-icon color="#b3b3b3" class="ll">mdi-chevron-right</v-icon></v-col
-          >
-        </v-row>
-        <v-row>
-          <v-col>投资总额 <b>1,000,000 USDT</b></v-col>
-          <v-col>最低收入 <b>100 USDT</b></v-col>
-        </v-row>
-        <v-row>
-          <v-col>
-            <div class="d-inline-flex">
-              <div style="padding-right: 8px">融资进度</div>
-              <div
-                style="display:inline-block;width:46px;height:18px;
-                    background: linear-gradient(225deg, #00E9D6 0%, #00CFAC 100%);
-                    border-radius: 4px;font-style:normal;text-align:center;
-                    line-height:18px;color:#fff;font-size:10px;font-weight:400;margin-top: 3px"
-              >
-                完成
-              </div>
-              <div style="width: 452px"></div>
-              <div style="color:#00CFAC;font-size:14px;margin-top: 20px;">
-                90%
-              </div>
-            </div>
-            <v-progress-linear
-              style="height:10px;width:600px;border-radius: 5px;"
-              v-model="valueDeterminate"
-              background-color="#F7F8FB"
-              color="#00CFAC"
-              class="unFinish"
-            ></v-progress-linear>
-          </v-col>
-        </v-row>
-      </v-card>
-      <v-card
-        class="mx-auto card"
-        style="box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04);"
-      >
-        <v-row>
-          <v-col>
-            <div>
-              <span class="card-green" style="padding-right: 12px">248.2%</span>
-              <span
-                style="width: 56px;height: 24px;font-size: 14px;font-weight: 400;color: #B2B2B2;"
-                >年化收益</span
-              >
-            </div>
-          </v-col>
-          <v-col class="d-inline-flex" style="padding-top: 30px">
-            <div style="font-size: 16px;font-weight: 400;color: #333333;">
-              项目周期
-            </div>
-            <div style="width: 8px"></div>
-            <b>10 天</b>
-            <v-icon color="#b3b3b3" class="ll">mdi-chevron-right</v-icon></v-col
-          >
-        </v-row>
-        <v-row>
-          <v-col>投资总额 <b>1,000,000 USDT</b></v-col>
-          <v-col>最低收入 <b>100 USDT</b></v-col>
-        </v-row>
-        <v-row>
-          <v-col>
-            <div class="d-inline-flex">
-              <div style="padding-right: 8px">融资进度</div>
-              <div
-                style="display:inline-block;width:46px;height:18px;
-                    background: linear-gradient(225deg, #00E9D6 0%, #00CFAC 100%);
-                    border-radius: 4px;font-style:normal;text-align:center;
-                    line-height:18px;color:#fff;font-size:10px;font-weight:400;margin-top: 3px"
-              >
-                完成
-              </div>
-              <div style="width: 452px"></div>
-              <div style="color:#00CFAC;font-size:14px;margin-top: 20px;">
-                90%
-              </div>
-            </div>
-            <v-progress-linear
-              style="height:10px;width:600px;border-radius: 5px;"
-              v-model="valueDeterminate"
-              background-color="#F7F8FB"
-              color="#00CFAC"
-              class="unFinish"
-            ></v-progress-linear>
-          </v-col>
-        </v-row>
-      </v-card>
-      <v-card
-        class="mx-auto card"
-        style="box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04);"
-      >
-        <v-row>
-          <v-col>
-            <div>
-              <span class="card-green" style="padding-right: 12px">248.2%</span>
-              <span
-                style="width: 56px;height: 24px;font-size: 14px;font-weight: 400;color: #B2B2B2;"
-                >年化收益</span
-              >
-            </div>
-          </v-col>
-          <v-col class="d-inline-flex" style="padding-top: 30px">
-            <div style="font-size: 16px;font-weight: 400;color: #333333;">
-              项目周期
-            </div>
-            <div style="width: 8px"></div>
-            <b>10 天</b>
-            <v-icon color="#b3b3b3" class="ll">mdi-chevron-right</v-icon></v-col
-          >
-        </v-row>
-        <v-row>
-          <v-col>投资总额 <b>1,000,000 USDT</b></v-col>
-          <v-col>最低收入 <b>100 USDT</b></v-col>
-        </v-row>
-        <v-row>
-          <v-col>
-            <div class="d-inline-flex">
-              <div style="padding-right: 8px">融资进度</div>
-              <div
-                style="display:inline-block;width:46px;height:18px;
-                    background: linear-gradient(225deg, #00E9D6 0%, #00CFAC 100%);
-                    border-radius: 4px;font-style:normal;text-align:center;
-                    line-height:18px;color:#fff;font-size:10px;font-weight:400;margin-top: 3px"
-              >
-                完成
-              </div>
-              <div style="width: 452px"></div>
-              <div style="color:#00CFAC;font-size:14px;margin-top: 20px;">
-                90%
-              </div>
-            </div>
-            <v-progress-linear
-              style="height:10px;width:600px;border-radius: 5px;"
-              v-model="valueDeterminate"
-              background-color="#F7F8FB"
-              color="#00CFAC"
-              class="unFinish"
-            ></v-progress-linear>
-          </v-col>
-        </v-row>
-      </v-card>
-      <v-card
-        class="mx-auto card"
-        style="box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04);"
-      >
-        <v-row>
-          <v-col>
-            <div>
-              <span class="card-green" style="padding-right: 12px">248.2%</span>
-              <span
-                style="width: 56px;height: 24px;font-size: 14px;font-weight: 400;color: #B2B2B2;"
-                >年化收益</span
-              >
-            </div>
-          </v-col>
-          <v-col class="d-inline-flex" style="padding-top: 30px">
-            <div style="font-size: 16px;font-weight: 400;color: #333333;">
-              项目周期
-            </div>
-            <div style="width: 8px"></div>
-            <b>10 天</b>
-            <v-icon color="#b3b3b3" class="ll">mdi-chevron-right</v-icon></v-col
-          >
-        </v-row>
-        <v-row>
-          <v-col>投资总额 <b>1,000,000 USDT</b></v-col>
-          <v-col>最低收入 <b>100 USDT</b></v-col>
-        </v-row>
-        <v-row>
-          <v-col>
-            <div class="d-inline-flex">
-              <div style="padding-right: 8px">融资进度</div>
-              <div
-                style="display:inline-block;width:46px;height:18px;
-                    background: linear-gradient(225deg, #00E9D6 0%, #00CFAC 100%);
-                    border-radius: 4px;font-style:normal;text-align:center;
-                    line-height:18px;color:#fff;font-size:10px;font-weight:400;margin-top: 3px"
-              >
-                完成
-              </div>
-              <div style="width: 452px"></div>
-              <div style="color:#00CFAC;font-size:14px;margin-top: 20px;">
-                90%
-              </div>
-            </div>
-            <v-progress-linear
-              style="height:10px;width:600px;border-radius: 5px;"
-              v-model="valueDeterminate"
-              background-color="#F7F8FB"
-              color="#00CFAC"
-              class="unFinish"
-            ></v-progress-linear>
-          </v-col>
-        </v-row>
-      </v-card>
+            </v-row>
+            <v-row>
+              <v-col>投资总额 <b>{{vi.Total}} USDT</b></v-col>
+              <v-col>最低收入 <b>{{vi.MinimumInvestment}} USDT</b></v-col>
+            </v-row>
+            <v-row>
+              <v-col>
+                <div class="d-inline-flex">
+                  <div style="padding-right: 8px">融资进度</div>
+                  <div
+                    style="display:inline-block;width:46px;height:18px;
+                      background: linear-gradient(225deg, #00E9D6 0%, #00CFAC 100%);
+                      border-radius: 4px;font-style:normal;text-align:center;
+                      line-height:18px;color:#fff;font-size:10px;font-weight:400;margin-top: 3px"
+                  >
+                    <div v-if = "vi.InProgress == 'inProgress'">
+                      进行中
+                    </div>
+                    <div v-if = "vi.InProgress == 'finished'">
+                      结束
+                    </div>
+                    <div v-if = "vi.InProgress == 'completed'">
+                      完成
+                    </div>
+                  </div>
+                  <div style="width: 452px"></div>
+                  <div style="color:#00CFAC;font-size:14px;margin-top: 20px;">
+                    {{vi.FinancingProgress}}%
+                  </div>
+                </div>
+                <v-progress-linear
+                  style="height:10px;width:600px;border-radius: 5px;"
+                  v-model="valueDeterminate"
+                  background-color="#F7F8FB"
+                  color="#00CFAC"
+                  class="unFinish"
+                ></v-progress-linear>
+              </v-col>
+            </v-row>
+          </v-card>
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -551,6 +123,7 @@ export default {
       upbtn: true,
       activeposition: 'fixed',
       top: 750,
+      list: '',
     }
   },
   components: {
@@ -558,6 +131,7 @@ export default {
     // TheHeader: Header,
   },
   mounted() {
+    this.GetData() //需要触发的函数
     window.addEventListener('scroll', this.scrollToTop)
     if (location.href.indexOf('#reloaded') === -1) {
       location.href = location.href + '#reloaded'
@@ -567,8 +141,21 @@ export default {
   destroyed() {
     window.removeEventListener('scroll', this.scrollToTop)
   },
-
   methods: {
+    //初始化调用
+    GetData: function() {
+      // const token = localStorage.getItem('token')
+      this.axios
+              .post(
+                      '/t0/invest/list',
+                      {'user_id':'1','types':'now'},
+                      { headers: { 'access-token': 'iOCXsrzgA_asAQ','Content-Type': 'application/json'} }
+              )
+              .then(response => {
+                console.log(response)
+                this.list = response.data.list
+              })
+    },
     // 点击图片回到顶部方法，加计时器是为了过渡顺滑
     backTop() {
       const that = this

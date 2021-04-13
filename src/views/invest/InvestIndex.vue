@@ -24,153 +24,60 @@
               ></v-select
             ></span>
           </div>
+          <div v-for="vi in list" :key ="vi.ProjectName">
           <div class="time">
             时间:2021-03-02
           </div>
           <!-- 未完成卡片 -->
           <router-link to="/investTab">
             <v-card
-              class="mx-auto card"
-              style="box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.04);"
+                    class="mx-auto card"
+                    style="box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.04);"
             >
               <v-row>
                 <v-col
-                  ><v-card-subtitle class="pb-0"
-                    ><span class="card-green">248.2%</span>
-                    年化收益</v-card-subtitle
-                  ></v-col
+                ><v-card-subtitle class="pb-0"
+                ><span class="card-green">{{vi.AnnualizedIncome}}</span>
+                  年化收益</v-card-subtitle
+                ></v-col
                 >
                 <v-col class="text1"
-                  >项目周期&nbsp;&nbsp;&nbsp; <b>10 天</b>
+                >项目周期&nbsp;&nbsp;&nbsp; <b>{{vi.Cycle}}</b>
                   <v-icon color="#b3b3b3" class="ll"
-                    >mdi-chevron-right</v-icon
+                  >mdi-chevron-right</v-icon
                   ></v-col
                 >
               </v-row>
               <v-row>
-                <v-col class="textleft">投资总额 <b>1,000,000 USDT</b></v-col>
-                <v-col>最低收入 <b>100 USDT</b></v-col>
+                <v-col class="textleft">投资总额 <b>{{vi.Total}} USDT</b></v-col>
+                <v-col>最低收入 <b>{{vi.MinimumInvestment}}  USDT</b></v-col>
               </v-row>
               <v-row>
                 <v-col class="textleft"
-                  >融资进度
+                >融资进度
                   <i
-                    style="display:inline-block;width:46px;height:18px;background: linear-gradient(225deg, #00E9D6 0%, #00CFAC 100%);border-radius: 4px;font-style:normal;text-align:center;line-height:18px;color:#fff;font-size:10px;font-weight:400;font-family: PingFangSC-Regular, PingFang SC;"
-                    >完成</i
+                          style="display:inline-block;width:46px;height:18px;background: linear-gradient(225deg, #00E9D6 0%, #00CFAC 100%);border-radius: 4px;font-style:normal;text-align:center;line-height:18px;color:#fff;font-size:10px;font-weight:400;font-family: PingFangSC-Regular, PingFang SC;"
+                  >完成</i
                   >
                 </v-col>
               </v-row>
               <v-list style="position: relative;"
-                ><v-progress-linear
-                  style="margin-top:10px;margin-left:8px;height:10px;width:600px;border-radius: 5px;"
-                  v-model="valueDeterminate"
-                  background-color="#F7F8FB"
-                  color="#00CFAC"
-                  class="unfinish"
-                ></v-progress-linear>
+              ><v-progress-linear
+                      style="margin-top:10px;margin-left:8px;height:10px;width:600px;border-radius: 5px;"
+                      v-model="valueDeterminate"
+                      background-color="#F7F8FB"
+                      color="#00CFAC"
+                      class="unfinish"
+              ></v-progress-linear>
                 <span
-                  style="position: absolute;top:-12px;right:30%;color:#00CFAC;font-size:14px;"
-                  >90%</span
+                        style="position: absolute;top:-12px;right:30%;color:#00CFAC;font-size:14px;"
+                >90%</span
                 ></v-list
               >
             </v-card>
           </router-link>
-          <!-- 完成卡片 -->
-          <v-card
-            class="mx-auto card"
-            style="box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.04);"
-          >
-            <v-row>
-              <v-col
-                ><v-card-subtitle class="pb-0"
-                  ><span class="card-green">248.2%</span>
-                  年化收益</v-card-subtitle
-                ></v-col
-              >
-              <v-col class="text1"
-                >项目周期&nbsp;&nbsp;&nbsp; <b>10 天</b>
-                <v-icon color="#b3b3b3" class="ll"
-                  >mdi-chevron-right</v-icon
-                ></v-col
-              >
-            </v-row>
-            <v-row>
-              <v-col class="textleft">投资总额 <b>1,000,000 USDT</b></v-col>
-              <v-col>最低收入 <b>100 USDT</b></v-col>
-            </v-row>
-            <v-row>
-              <v-col class="textleft"
-                >融资进度
-                <i
-                  style="display:inline-block;width:46px;height:18px;border-radius: 4px;font-style:normal;text-align:center;line-height:18px;color:#fff;font-size:10px;font-weight:400;font-family: PingFangSC-Regular, PingFang SC;background: linear-gradient(290deg, #B2B2B2 0%, #F1F1F2 100%);"
-                  >完成</i
-                >
-              </v-col>
-            </v-row>
-            <v-list style="position: relative;"
-              ><v-progress-linear
-                style="margin-top:10px;margin-left:8px;height:10px;width:600px;border-radius: 5px;"
-                v-model="valueDeterminate"
-                rounded
-                background-color="#F7F8FB"
-                color="#00CFAC"
-                class="finish"
-              ></v-progress-linear>
-              <span
-                style="position: absolute;top:-12px;right:30%;color:#00CFAC;font-size:14px;"
-                >90%</span
-              ></v-list
-            >
-          </v-card>
-          <!-- 未完成day2 -->
-          <div class="time">
-            时间:2021-03-01
           </div>
-          <v-card
-            class="mx-auto card"
-            style="box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.04);"
-          >
-            <v-row>
-              <v-col
-                ><v-card-subtitle class="pb-0"
-                  ><span class="card-green">248.2%</span>
-                  年化收益</v-card-subtitle
-                ></v-col
-              >
-              <v-col class="text1"
-                >项目周期&nbsp;&nbsp;&nbsp; <b>10 天</b>
-                <v-icon color="#b3b3b3" class="ll"
-                  >mdi-chevron-right</v-icon
-                ></v-col
-              >
-            </v-row>
-            <v-row>
-              <v-col class="textleft">投资总额 <b>1,000,000 USDT</b></v-col>
-              <v-col>最低收入 <b>100 USDT</b></v-col>
-            </v-row>
-            <v-row>
-              <v-col class="textleft"
-                >融资进度
-                <i
-                  style="display:inline-block;width:46px;height:18px;background: linear-gradient(225deg, #00E9D6 0%, #00CFAC 100%);border-radius: 4px;font-style:normal;text-align:center;line-height:18px;color:#fff;font-size:10px;font-weight:400;font-family: PingFangSC-Regular, PingFang SC;"
-                  >完成</i
-                >
-              </v-col>
-            </v-row>
-            <v-list style="position: relative;"
-              ><v-progress-linear
-                style="margin-top:10px;margin-left:8px;height:10px;width:600px;border-radius: 5px;"
-                v-model="valueDeterminate"
-                background-color="#F7F8FB"
-                color="#00CFAC"
-                class="unfinish"
-              ></v-progress-linear>
-              <span
-                style="position: absolute;top:-12px;right:30%;color:#00CFAC;font-size:14px;"
-                >90%</span
-              ></v-list
-            >
-          </v-card>
+
         </div>
       </div>
       <the-footer />
@@ -188,12 +95,32 @@ export default {
   data() {
     return {
       valueDeterminate: 90,
+      list: '',
     }
   },
   components: {
     // TheFooter: Footer,
     // TheHeader: Header,
   },
+  mounted() {
+    this.GetData() //需要触发的函数
+  },
+  methods: {
+    //初始化调用
+    GetData: function() {
+      // const token = localStorage.getItem('token')
+      this.axios
+              .post(
+                      '/t0/invest/list',
+                      {'user_id':'1','types':'past'},
+                      { headers: { 'access-token': 'iOCXsrzgA_asAQ','Content-Type': 'application/json'} }
+              )
+              .then(response => {
+                console.log(response)
+                this.list = response.data.list
+              })
+    },
+  }
 }
 </script>
 
