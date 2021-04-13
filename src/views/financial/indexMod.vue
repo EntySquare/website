@@ -53,7 +53,7 @@
                       cols="6"
                       style="font-size: 14px;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #1BD7A7;line-height: 14px;"
                     >
-                      <router-link to="/order">
+                      <router-link :to="{path:'/order',query:{userId: UserId}}">
                         <samp
                           style="font-size: 14px;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #1BD7A7;line-height: 14px;"
                         >
@@ -466,6 +466,7 @@ export default {
                 console.log(response)
                 this.accountInfo = response.data.account
                 this.list = response.data.list
+                this.UserId = '1'
               })
     },
     createcode() {
@@ -544,6 +545,7 @@ export default {
       areaCode: 'USTD',
       areaCodes: ['USTD', 'SHF'],
       dialog: false,
+      UserId:'',
       accountInfo: '',
       list: '',
       swiperOption: {
