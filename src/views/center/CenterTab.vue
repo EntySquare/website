@@ -2041,7 +2041,7 @@ export default {
         .post('/t0/getPresenceData', {}, { headers: { 'access-token': token } })
         .then(response => {
           let resp = response.data
-          this.lastLoginIp = '上次登陆IP地址: ' + resp[resp.length - 1].LastIp
+          this.lastLoginIp = '上次登陆IP地址:' + resp[resp.length - 1].LastIp
           this.lastLoginTime = resp[resp.length - 1].CreatedTime
           this.hisList = resp
           for (let i = 0; i < resp.length; i++) {
