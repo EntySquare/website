@@ -408,12 +408,12 @@
                     text
                     style="width: 76px; height: 30px; margin-top: 20px; background: #F7F8FB;
                        border-radius: 15px; color: #00CFAC; font-size: 14px; font-weight: 600;"
-                    @click="bindFlag = true"
+                    @click="bindEmailFlag = true"
                     >绑定
                   </v-btn>
                   <v-dialog
                     content-class="rounded-xl"
-                    v-model="bindFlag"
+                    v-model="bindEmailFlag"
                     width="400"
                     height="544"
                   >
@@ -467,6 +467,7 @@
                         height="56px"
                         text
                         rounded
+                        @click="BindEmail(bindEmailNum)"
                         style="color: #FFFFFF; background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);"
                         >确定</v-btn
                       >
@@ -744,6 +745,7 @@
                       <div style="height: 56px"></div>
                       <v-text-field
                         autocomplete="off"
+                        v-model="forgetPayLoginPwd"
                         label="输入登录密码"
                         single-line
                         filled
@@ -753,7 +755,7 @@
                       <v-text-field
                         autocomplete="off"
                         label="输入手机验证码"
-                        v-model="checkCode"
+                        v-model="forgetPayCheckCode"
                         single-line
                         filled
                         dense
@@ -775,6 +777,7 @@
                         <p>{{ authTime }} S</p>
                       </span>
                       <v-text-field
+                        v-model="payGoogleCheckCode"
                         autocomplete="off"
                         label="输入谷歌验证码"
                         single-line
@@ -789,6 +792,13 @@
                         height="56px"
                         text
                         rounded
+                        @click="
+                          ForgetPaymentPwd(
+                            forgetPayLoginPwd,
+                            forgetPayCheckCode,
+                            payGoogleCheckCode
+                          )
+                        "
                         style="color: #FFFFFF; background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);"
                         >确定</v-btn
                       >
@@ -851,13 +861,13 @@
                       <div
                         style="width: 318px;height: 24px;font-size: 18px;font-weight: 600;color: #000000;line-height: 24px;"
                       >
-                        183166***739
+                        {{ userName }}
                       </div>
                       <div style="height: 32px"></div>
                       <v-text-field
                         autocomplete="off"
                         label="请输入验证码"
-                        v-model="checkCode"
+                        v-model="updLoginPwdCheckCode"
                         single-line
                         filled
                         dense
@@ -878,12 +888,24 @@
                       >
                         <p>{{ authTime }} S</p>
                       </span>
-                      <div style="height: 60px"></div>
+                      <v-text-field
+                        autocomplete="off"
+                        label="请输入新密码"
+                        v-model="updNewLoginPwd"
+                        single-line
+                        filled
+                        dense
+                        rounded
+                      >
+                      </v-text-field>
                       <v-btn
                         width="340px"
                         height="56px"
                         text
                         rounded
+                        @click="
+                          UpdateLoginPwd(updLoginPwdCheckCode, updNewLoginPwd)
+                        "
                         style="color: #FFFFFF; background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);"
                         >确定</v-btn
                       >
@@ -1002,9 +1024,9 @@
                 >
                   <v-switch
                     v-model="checkSwitch"
-                    inset
                     style="width: 44px; height: 24px;"
-                    color="#5CBE52"
+                    color="#00CFAC"
+                    @click="CheckSwitch(checkSwitch)"
                   ></v-switch>
                 </div>
               </v-col>
@@ -1039,12 +1061,12 @@
                     text
                     style="width: 76px; height: 30px; margin-top: 20px; background: #F7F8FB;
                        border-radius: 15px; color: #00CFAC; font-size: 14px; font-weight: 600;"
-                    @click="fishFlag = true"
+                    @click="fishDialog = true"
                     >设置
                   </v-btn>
                   <v-dialog
                     content-class="rounded-xl"
-                    v-model="fishFlag"
+                    v-model="fishDialog"
                     width="400"
                     height="350"
                   >
@@ -1079,6 +1101,7 @@
                         height="56px"
                         text
                         rounded
+                        @click="SetFishCode(fishCode)"
                         style="color: #FFFFFF; background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);"
                         >确定</v-btn
                       >
@@ -1139,40 +1162,42 @@
             <v-divider
               style="width: 896px; color: #F5F5F5; margin-left: 30px; margin-top: 20px;"
             ></v-divider>
-            <v-row style="padding-left: 32px; padding-top: 32px">
-              <v-col cols="3">
-                <div
-                  style="font-size: 14px; font-weight: 400; color: #8A8A8A;
+            <div v-for="hisData in hisList" v-bind:key="hisData">
+              <v-row style="padding-left: 32px; padding-top: 32px">
+                <v-col cols="3">
+                  <div
+                    style="font-size: 14px; font-weight: 400; color: #8A8A8A;
                   line-height: 20px; white-space: nowrap"
-                >
-                  2021-03-09 17:53:32
-                </div>
-              </v-col>
-              <v-col cols="3">
-                <div
-                  style="font-size: 14px; font-weight: 400; color: #8A8A8A;
+                  >
+                    {{ hisData.CreatedTime | formatDate }}
+                  </div>
+                </v-col>
+                <v-col cols="3">
+                  <div
+                    style="font-size: 14px; font-weight: 400; color: #8A8A8A;
                   line-height: 20px; white-space: nowrap"
-                >
-                  103.35.74.89
-                </div>
-              </v-col>
-              <v-col cols="3">
-                <div
-                  style="font-size: 14px; font-weight: 400; color: #8A8A8A;
+                  >
+                    {{ hisData.LastIp }}
+                  </div>
+                </v-col>
+                <v-col cols="3">
+                  <div
+                    style="font-size: 14px; font-weight: 400; color: #8A8A8A;
                   line-height: 20px; white-space: nowrap"
-                >
-                  Hongkong
-                </div>
-              </v-col>
-              <v-col cols="3">
-                <div
-                  style="font-size: 14px; font-weight: 400; color: #8A8A8A;
+                  >
+                    {{ hisData.LastArea }}
+                  </div>
+                </v-col>
+                <v-col cols="3">
+                  <div
+                    style="font-size: 14px; font-weight: 400; color: #8A8A8A;
                   line-height: 20px;"
-                >
-                  web
-                </div>
-              </v-col>
-            </v-row>
+                  >
+                    {{ hisData.Device }}
+                  </div>
+                </v-col>
+              </v-row>
+            </div>
           </v-card>
           <div style="height: 120px"></div>
         </v-tab-item>
@@ -1391,7 +1416,7 @@
             <span
               style="font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 500;color: #000000;"
             >
-              4952***123@163.com
+              {{ userName }}
             </span>
             <div style="width: 100%;height: 70px"></div>
 
@@ -1399,7 +1424,7 @@
               <v-text-field
                 autocomplete="off"
                 label="请输入验证码"
-                v-model="checkCode"
+                v-model="bindGoogleCheckCode"
                 single-line
                 filled
                 dense
@@ -1426,7 +1451,7 @@
               <v-text-field
                 autocomplete="off"
                 label="输入谷歌验证码"
-                v-model="checkCode"
+                v-model="googleVerCode"
                 single-line
                 filled
                 dense
@@ -1440,14 +1465,7 @@
           <v-col cols="1"></v-col>
           <v-col cols="10">
             <samp
-              style="font-size: 12px;
-                        font-family: Nunito-Regular, Nunito;
-                        font-weight: 400;
-                        color: #A9A9A9;
-                        line-height: 16px;
-                        position:relative;
-                        left:4px;
-                        bottom:45px;font-weight: 600;"
+              style="font-size: 12px; font-weight: 400;color: #A9A9A9;line-height: 16px;position:relative;left:4px;bottom:45px;"
             >
               谷歌验证码每30秒变化一次，请您注意输入最新验证码
             </samp>
@@ -1465,7 +1483,7 @@
               rounded
               large
               block
-              @click="submit"
+              @click="BindGoogleCode(bindGoogleCheckCode, googleVerCode)"
             >
               绑定
             </v-btn>
@@ -1660,8 +1678,8 @@ export default {
       model: null,
       text: '1111',
       infoSwitch: true,
-      checkSwitch: false,
-      bindFlag: false,
+      checkSwitch: true,
+      bindEmailFlag: false,
       checkCode: '',
       email: '',
       emailRules: [
@@ -1672,7 +1690,7 @@ export default {
       ],
       sendCodeVue: true, // 控制发送验证码按钮显示
       authTime: 0, // 倒计时
-      fishFlag: false,
+      fishDialog: false,
       fishCode: '',
       updatePwdFlag: false,
       payPwdFlag: false,
@@ -1729,6 +1747,7 @@ export default {
         gugeurl3: 'https://132123123131223', //绑定谷歌验证 二维码
         text: 'https://blog.csdn.net/weixin_43760328/rss/list',
       },
+      userName: '',
       phoneNum: '',
       userId: '',
       certifyNum: '',
@@ -1745,6 +1764,24 @@ export default {
       updateUidResult: '',
       lastLoginTime: '',
       lastLoginIp: '',
+      lastLoginArea: '',
+      lastLoginDevice: '',
+      bindEmailNum: '',
+      bindEmailResult: '',
+      setPayPwdResult: '',
+      updatePayPwdResult: '',
+      forgetPayLoginPwd: '',
+      forgetPayCheckCode: '',
+      payGoogleCheckCode: '',
+      forgetPayPwdResult: '',
+      updLoginPwdCheckCode: '',
+      updNewLoginPwd: '',
+      updLoginPwdResult: '',
+      bindGoogleCheckCode: '',
+      googleVerCode: '',
+      googleBindResult: '',
+      fishCodeResult: '',
+      hisList: '',
     }
   },
   filters: {
@@ -1901,6 +1938,7 @@ export default {
           this.payPwdAffFlag = false
           this.setPayPwd = false
           this.updatePayPwd = true
+          this.SetPaymentPwd(code)
         }
       }
     },
@@ -1976,6 +2014,7 @@ export default {
         let code = this.newCaptchas.map(x => x.num).join('')
         if (code.length === 6) {
           this.payPwdNewFlag = false
+          this.UpdatePaymentPwd(code)
         }
       }
     },
@@ -1987,7 +2026,7 @@ export default {
         .then(response => {
           this.loginVue = false //显示登录代码
           this.userId = 'UID ' + response.data.Uid
-          this.username = response.data.UserName
+          this.userName = response.data.UserName
           this.phoneNum = response.data.PhoneNumber
           this.email = response.data.Email
           this.certifyNum = response.data.CertifyNum
@@ -2001,8 +2040,17 @@ export default {
       this.axios
         .post('/t0/getPresenceData', {}, { headers: { 'access-token': token } })
         .then(response => {
-          this.lastLoginTime = response.data.CreatedTime
-          this.lastLoginIp = '上次登陆IP地址: ' + response.data.LastIp
+          let resp = response.data
+          this.lastLoginIp = '上次登陆IP地址: ' + resp[resp.length - 1].LastIp
+          this.lastLoginTime = resp[resp.length - 1].CreatedTime
+          this.hisList = resp
+          for (let i = 0; i < resp.length; i++) {
+            if (resp[i].Device === 1) {
+              resp[i].Device = 'web'
+            } else if (response.data[i].Device === 2) {
+              resp[i].Device = 'app'
+            }
+          }
         })
     },
     //钱包地址信息
@@ -2031,6 +2079,162 @@ export default {
           this.updateUidResult = response.data
           alert(this.updateUidResult)
           this.user_up2 = false
+        })
+    },
+    //绑定邮箱
+    BindEmail: function(bindEmailNum) {
+      const token = localStorage.getItem('token')
+      this.axios
+        .post(
+          '/t0/bandEmail',
+          { email: bindEmailNum },
+          { headers: { 'access-token': token } }
+        )
+        .then(response => {
+          this.bindEmailResult = response.data
+          alert(this.bindEmailResult)
+          this.bindEmailFlag = false
+        })
+    },
+    //设置支付密码
+    SetPaymentPwd: function(password) {
+      const token = localStorage.getItem('token')
+      this.axios
+        .post(
+          '/t0/setPayPwd',
+          { payPwd: password },
+          { headers: { 'access-token': token } }
+        )
+        .then(response => {
+          this.setPayPwdResult = response.data
+          alert(this.setPayPwdResult)
+        })
+    },
+    //修改支付密码
+    UpdatePaymentPwd: function(password) {
+      const token = localStorage.getItem('token')
+      this.axios
+        .post(
+          '/t0/updatePayPwd',
+          { payPwd: password },
+          { headers: { 'access-token': token } }
+        )
+        .then(response => {
+          this.updatePayPwdResult = response.data
+          alert(this.updatePayPwdResult)
+        })
+    },
+    //忘记支付密码
+    ForgetPaymentPwd: function(
+      forgetPayLoginPwd,
+      forgetPayCheckCode,
+      payGoogleCheckCode
+    ) {
+      const token = localStorage.getItem('token')
+      this.axios
+        .post(
+          '/t0/forgetPayPwd',
+          {
+            loginPwd: forgetPayLoginPwd,
+            checkCode: forgetPayCheckCode,
+            googleCode: payGoogleCheckCode,
+          },
+          { headers: { 'access-token': token } }
+        )
+        .then(response => {
+          this.forgetPayPwdResult = response.data
+          alert(this.forgetPayPwdResult)
+          this.payPwdNewFlag = false
+        })
+    },
+    //修改登录密码
+    UpdateLoginPwd: function(updLoginPwdCheckCode, updNewLoginPwd) {
+      const token = localStorage.getItem('token')
+      this.axios
+        .post(
+          '/t0/updateLoginPwd',
+          {
+            loginPwd: updNewLoginPwd,
+            checkCode: updLoginPwdCheckCode,
+          },
+          { headers: { 'access-token': token } }
+        )
+        .then(response => {
+          this.updLoginPwdResult = response.data
+          alert(this.updLoginPwdResult)
+          this.updatePwdFlag = false
+        })
+    },
+    //绑定谷歌验证码
+    BindGoogleCode: function(bindGoogleCheckCode, googleVerCode) {
+      const token = localStorage.getItem('token')
+      this.axios
+        .post(
+          '/t0/googleSwitch',
+          {
+            checkCode: bindGoogleCheckCode,
+            verCode: googleVerCode,
+            googleVerFlag: 1,
+          },
+          { headers: { 'access-token': token } }
+        )
+        .then(response => {
+          this.googleBindResult = response.data
+          alert(this.googleBindResult)
+          this.googleyz3 = false
+        })
+    },
+    //手机、邮箱验证开关
+    CheckSwitch: function(checkSwitch) {
+      const token = localStorage.getItem('token')
+      let phoneVerFlag
+      let emailVerFlag
+      switch (checkSwitch) {
+        case true:
+          phoneVerFlag = 1
+          emailVerFlag = 1
+          break
+        case false:
+          phoneVerFlag = 0
+          emailVerFlag = 0
+          break
+        default:
+          break
+      }
+      // if (checkSwitch === true) {
+      //   phoneVerFlag = 1
+      //   emailVerFlag = 1
+      // } else {
+      //   phoneVerFlag = 0
+      //   emailVerFlag = 0
+      // }
+      this.axios
+        .post(
+          '/t0/phoneEmailCheckSwitch',
+          { PhoneVerFlag: phoneVerFlag, MailVerFlag: emailVerFlag },
+          { headers: { 'access-token': token } }
+        )
+        .then(response => {
+          this.googleBindResult = response.data
+          alert(this.googleBindResult)
+        })
+    },
+    //设置钓鱼码
+    SetFishCode: function(fishCode) {
+      const token = localStorage.getItem('token')
+      this.axios
+        .post(
+          '/t0/setFishCode',
+          {
+            FishVerFlag: 1,
+            FishCode: fishCode,
+          },
+          { headers: { 'access-token': token } }
+        )
+        .then(response => {
+          this.fishCodeResult = response.data
+          alert(this.fishCodeResult)
+          this.fishDialog = false
         })
     },
   },
