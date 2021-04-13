@@ -1,10 +1,10 @@
 <template>
-  <v-row style="background: #FAFBFC;">
-    <v-col cols="3"></v-col>
-    <v-col cols="6">
-      <v-col cols="12" style="height: 10px;width: 100%;"></v-col>
+  <v-row style='background: #FAFBFC;'>
+    <v-col cols='3'></v-col>
+    <v-col cols='6'>
 
-      <v-col cols="12" style="height: 0px"></v-col>
+      <v-col cols='12' style='height: 10px;width: 100%;'></v-col>
+
 
       <v-col cols="12" style="height: 40px">
         <p
@@ -416,122 +416,92 @@
             </v-row>
           </v-col>
         </v-row>
-        <v-col cols="12" style="height: 40px"></v-col>
-        <v-col cols="12">
-          <!--          <div v-for="v in choice.list">-->
-          <!--//收账-->
-          <div v-if="v.Types == 'enter'">
-            <v-row>
-              <v-expansion-panels flat>
-                <v-expansion-panel>
-                  <v-expansion-panel-header>
-                    <v-row>
-                      <!-- shoukuan2.png -->
-                      <v-col cols="1" style="">
-                        <v-img :src="v.ToFaceImg" height="48px" width="48px">
-                          <img
-                            src="https://investors.oss-cn-beijing.aliyuncs.com/assets/shoukuan1.png"
-                            height="18px"
-                            width="18px"
-                            style="margin:30px 0px 0px 30px"
-                          />
-                        </v-img>
-                      </v-col>
-                      <v-col cols="9" style="">
-                        <p
-                          style="font-size: 18px;font-family: Nunito-Bold, Nunito;font-weight: bold;color: #0C0C0C;line-height: 18px;margin-bottom: 8px"
-                        >
-                          {{ v.ToUserName }}
-                        </p>
-                        <p
-                          style="font-size: 18px;font-family: Nunito-Bold, Nunito;font-weight: bold;color: #1BD7A7;line-height: 18px;"
-                        >
-                          +{{ v.Num }} {{ v.CodeType }}
-                        </p>
-                      </v-col>
-                      <v-col cols="2" class="text-right" style="">
-                        <span
-                          style="font-size: 18px;
+        <v-col cols='12' style='height: 40px'></v-col>
+        <v-col cols='12'>
+          <div v-for="v in choice.list" v-bind:key='v'>
+            <!--//收账-->
+            <div v-if="v.Types == 'enter'">
+              <v-row>
+                <v-expansion-panels flat>
+                  <v-expansion-panel>
+                    <v-expansion-panel-header>
+                      <v-row>
+                        <!-- shoukuan2.png -->
+                        <v-col cols='1' style=''>
+                          <v-img :src="v.ToFaceImg" height='48px' width='48px'>
+                            <img src='https://investors.oss-cn-beijing.aliyuncs.com/assets/shoukuan1.png' height='18px' width='18px' style='margin:30px 0px 0px 30px'>
+                          </v-img>
+                        </v-col>
+                        <v-col cols='9' style=''>
+                          <p style='font-size: 18px;font-family: Nunito-Bold, Nunito;font-weight: bold;color: #0C0C0C;line-height: 18px;margin-bottom: 8px'>
+                            {{ v.ToUserName }}</p>
+                          <p style='font-size: 18px;font-family: Nunito-Bold, Nunito;font-weight: bold;color: #1BD7A7;line-height: 18px;'>
+                            +{{ v.Num }} {{ v.CodeType }}</p>
+                        </v-col>
+                        <v-col cols='2' class="text-right" style=''>
+              <span style='font-size: 18px;
                           font-family: Nunito-Regular, Nunito;
                           font-weight: 400;
                           color: #7F7F7F;
-                          line-height: 60px;"
-                          >{{ $moment(v.Times).format('YYYY.MM.DD') }}</span
-                        >
-                      </v-col>
-                    </v-row>
-                  </v-expansion-panel-header>
-                  <v-expansion-panel-content style="padding: 0px;">
-                    <v-row
-                      style="background: #F7F8FB;height: 96px;width: 100%;border-radius: 10px;margin: 0px"
-                    >
-                      <v-col
-                        cols="6"
-                        style="font-size: 12px;
+                          line-height: 60px;'>{{$moment(v.Times).format('YYYY.MM.DD')}}</span>
+                        </v-col>
+                      </v-row>
+
+                    </v-expansion-panel-header>
+                    <v-expansion-panel-content style='padding: 0px;'>
+                      <v-row style='background: #F7F8FB;height: 96px;width: 100%;border-radius: 10px;margin: 0px'>
+                        <v-col cols='6' style='font-size: 12px;
                                           font-family: PingFangSC-Regular, PingFang SC;
                                           font-weight: 400;
                                           color: #808080;
-                                         "
-                      >
-                        充值类型：{{ v.TypesText }}
-                      </v-col>
-                      <v-col
-                        cols="6"
-                        style="font-size: 12px;
+                                         '>
+                          充值类型：{{ v.TypesText }}
+                        </v-col>
+                        <v-col cols='6' style='font-size: 12px;
                                         font-family: PingFangSC-Regular, PingFang SC;
                                         font-weight: 400;
                                         color: #808080;
-                                       "
-                      >
-                        手续费:{{ v.ServiceCharge }} {{ v.CodeType }}</v-col
-                      >
+                                       '>
+                          手续费:{{ v.ServiceCharge }} {{ v.CodeType }}</v-col>
 
-                      <v-col cols="6">
-                        <span
-                          style="font-size: 12px;
+                        <v-col cols='6'>
+                    <span style='font-size: 12px;
                                 font-family: PingFangSC-Regular, PingFang SC;
                                 font-weight: 400;
                                 color: #808080;
-                                "
-                        >
-                          充值地址：
-                        </span>
-                        <span
-                          style="font-size: 12px;
+                                '>
+                      充值地址：
+                    </span>
+                          <span style='font-size: 12px;
                                 font-family: PingFangSC-Regular, PingFang SC;
                                 font-weight: 400;
                                 color: #1BD7A7;
-                                "
-                        >
-                          {{ v.To }}
-                        </span>
-                      </v-col>
-                      <v-col cols="6">
-                        <span
-                          style="font-size: 12px;
+                                '>
+                     {{ v.To }}
+                    </span>
+                        </v-col>
+                        <v-col cols='6'>
+                    <span style='font-size: 12px;
                                 font-family: PingFangSC-Regular, PingFang SC;
                                 font-weight: 400;
                                 color: #808080;
-                                "
-                        >
-                          交易id：
-                        </span>
-                        <span
-                          style="font-size: 12px;
+                                '>
+                      交易id：
+                    </span>
+                          <span style='font-size: 12px;
                                 font-family: PingFangSC-Regular, PingFang SC;
                                 font-weight: 400;
                                 color: #1BD7A7;
-                               "
-                        >
-                          {{ v.Hash }}
-                        </span>
-                      </v-col>
-                    </v-row>
-                  </v-expansion-panel-content>
-                </v-expansion-panel>
-              </v-expansion-panels>
-            </v-row>
-          </div>
+                               '>
+                    {{ v.Hash }}
+                    </span>
+                        </v-col>
+                      </v-row>
+                    </v-expansion-panel-content>
+                  </v-expansion-panel>
+                </v-expansion-panels>
+              </v-row>
+            </div>
 
           <!--//出账-->
           <div v-if="v.Types == 'out'">
@@ -600,57 +570,52 @@
                         手续费:{{ v.ServiceCharge }} {{ v.CodeType }}</v-col
                       >
 
-                      <v-col cols="6">
-                        <span
-                          style="font-size: 12px;
+                        <v-col cols='6'>
+                    <span style='font-size: 12px;
                                 font-family: PingFangSC-Regular, PingFang SC;
                                 font-weight: 400;
                                 color: #808080;
-                                "
-                        >
-                          充值地址：
-                        </span>
-                        <span
-                          style="font-size: 12px;
+                                '>
+                      充值地址：
+                    </span>
+                          <span style='font-size: 12px;
                                 font-family: PingFangSC-Regular, PingFang SC;
                                 font-weight: 400;
                                 color: #1BD7A7;
-                                "
-                        >
-                          {{ v.To }}
-                        </span>
-                      </v-col>
-                      <v-col cols="6">
-                        <span
-                          style="font-size: 12px;
+                                '>
+                     {{ v.To }}
+                    </span>
+                        </v-col>
+                        <v-col cols='6'>
+                    <span style='font-size: 12px;
                                 font-family: PingFangSC-Regular, PingFang SC;
                                 font-weight: 400;
                                 color: #808080;
-                                "
-                        >
-                          交易id：
-                        </span>
-                        <span
-                          style="font-size: 12px;
+                                '>
+                      交易id：
+                    </span>
+                          <span style='font-size: 12px;
                                 font-family: PingFangSC-Regular, PingFang SC;
                                 font-weight: 400;
                                 color: #1BD7A7;
-                               "
-                        >
-                          {{ v.Hash }}
-                        </span>
-                      </v-col>
-                    </v-row>
-                  </v-expansion-panel-content>
-                </v-expansion-panel>
-              </v-expansion-panels>
-            </v-row>
+                               '>
+                    {{ v.Hash }}
+                    </span>
+                        </v-col>
+                      </v-row>
+                    </v-expansion-panel-content>
+                  </v-expansion-panel>
+                </v-expansion-panels>
+              </v-row>
+            </div>
+
           </div>
-          <!--          </div>-->
+
         </v-col>
+
       </v-col>
 
-      <v-col cols="12" style="height: 400px"></v-col>
+      <v-col cols='12' style='height: 400px'></v-col>
     </v-col>
     <v-col cols="3"></v-col>
     <!-- d1 -->
@@ -682,8 +647,7 @@ export default {
             PayType: this.choice.PayType,
             Times: this.choice.Times,
           },
-          { headers: { 'access-token': 'qhLd3_4Xt3KnIw' } }
-        )
+          { headers: { 'access-token': "yU1S628pQknyMg" } })
         .then(response => {
           console.log('/t0/wallet/txhistory api 。。。。')
           this.choice.list = response.data.list

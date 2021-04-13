@@ -8,22 +8,14 @@ import axios from 'axios'
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
-const config_dev = {
-  // baseURL: 'https://investors.entysquare.com:8849',
-  baseURL: 'http://localhost:8848',
-  //baseURL: 'http://192.168.31.79:8848',
+const config = {
+  //baseURL: 'http://localhost:8848',
+  baseURL: 'http://192.168.31.79:8848',
   // timeout: 60 * 1000, // Timeout
   // withCredentials: true, // Check cross-site Access-Control
 }
 
-const config_run = {
-  baseURL: 'https://investors.entysquare.com:8849',
-  //baseURL: 'http://192.168.31.79:8848',
-  // timeout: 60 * 1000, // Timeout
-  // withCredentials: true, // Check cross-site Access-Control
-}
-
-const _axios = axios.create(config_run)
+const _axios = axios.create(config)
 
 _axios.interceptors.request.use(
   function(config) {
@@ -33,7 +25,7 @@ _axios.interceptors.request.use(
   function(error) {
     // Do something with request error
     return Promise.reject(error)
-  }
+  },
 )
 
 // Add a response interceptor
@@ -45,7 +37,7 @@ _axios.interceptors.response.use(
   function(error) {
     // Do something with response error
     return Promise.reject(error)
-  }
+  },
 )
 
 Plugin.install = function(Vue, options) {
