@@ -130,7 +130,7 @@
                 </span>
                 <div class="d-inline-flex">
                   <div style="font-size: 14px;font-weight: 400;color: #9F9FA4;">
-                    可用 0.000000 USDT
+                    可用 {{usdtAvliable}} USDT
                   </div>
                   <div style="width: 12px"></div>
                   <div style="font-size: 14px;font-weight: 400;color: #00CFAC;">
@@ -886,11 +886,18 @@ export default {
       this.axios
               .post(
                       '/t0/invest/passed',
-                      { "project_id": "1", "invest_number": this.investValue},
-                      { headers: { 'access-token': 'iOCXsrzgA_asAQ','Content-Type': 'application/json'} }
+                      { 'project_id':this.$route.query.projectid,'user_id':this.$route.query.userid,'invest_number': this.investValue},
+                      { headers: { 'access-token': '3UStfkWGsRNEUg','Content-Type': 'application/json'} }
               )
               .then(response => {
-                alert(response.data.success)
+                this.investBtnFlag = false
+                if(response.data.success == 'true') {
+                  alert(response.data.last)
+                }
+                else{
+                  alert(response.data.success)
+                }
+
               })
     },
     //初始化调用
@@ -899,12 +906,13 @@ export default {
       this.axios
               .post(
                       '/t0/invest/projectinfo',
-                      {'project_id':this.$route.query.projectid},
+                      {'project_id':this.$route.query.projectid,'user_id':this.$route.query.userid},
                       { headers: { 'access-token': '3UStfkWGsRNEUg','Content-Type': 'application/json'} }
               )
               .then(response => {
                 console.log(response)
                 this.info = response.data.projectInfo
+                this.usdtAvliable = response.data.usdtlast
               })
     },
     createcode() {
@@ -984,6 +992,7 @@ export default {
       investBtnFlag: false,
       investValue: '',
       info:'',
+      usdtAvliable:'',
     }
   },
 }

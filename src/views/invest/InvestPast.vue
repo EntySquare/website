@@ -46,7 +46,7 @@
     <!--    <div class="container2" style="margin-top:-124px;" ref="point">-->
     <div class="container2" style="margin-top:-124px;" ref="point">
       <div v-for="vi in list" :key ="vi.ProjectName">
-        <router-link :to="{path:'/investTab',query:{projectid: vi.ProjectId}}">
+        <router-link :to="{path:'/investTab',query:{projectid: vi.ProjectId,userid:UserId}}">
           <v-card
             class="mx-auto card"
             style="box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04);"
@@ -124,6 +124,7 @@ export default {
       activeposition: 'fixed',
       top: 750,
       list: '',
+      UserId: '',
     }
   },
   components: {
@@ -154,6 +155,7 @@ export default {
               .then(response => {
                 console.log(response)
                 this.list = response.data.list
+                this.UserId = '1'
               })
     },
     // 点击图片回到顶部方法，加计时器是为了过渡顺滑
