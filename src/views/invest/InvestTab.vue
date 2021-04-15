@@ -51,7 +51,7 @@
                 <div
                   style="font-size: 16px;font-weight: 400;color: #00CFAC;line-height: 16px;"
                 >
-                  {{info.LastAmount}} USDT
+                  {{info.Total-info.CompleteGoal}} USDT
                 </div>
               </div>
             </div>
@@ -149,7 +149,7 @@
                   <div
                     style="width: 48px;height: 22px;font-size: 16px;font-weight: 600;color: #FFFFFF;"
                   >
-                    投资
+                    <p   @click="investMoney()">投资</p>
                   </div>
                 </v-btn>
               </div>
@@ -882,14 +882,25 @@ export default {
     this.createcode()
   },
   methods: {
+    investMoney: function(){
+      this.axios
+              .post(
+                      '/t0/invest/passed',
+                      { "project_id": "1", "invest_number": this.investValue},
+                      { headers: { 'access-token': 'iOCXsrzgA_asAQ','Content-Type': 'application/json'} }
+              )
+              .then(response => {
+                alert(response.data.success)
+              })
+    },
     //初始化调用
     GetData: function() {
       // const token = localStorage.getItem('token')
       this.axios
               .post(
                       '/t0/invest/projectinfo',
-                      {'project_name':this.$route.query.projectname},
-                      { headers: { 'access-token': 'iOCXsrzgA_asAQ','Content-Type': 'application/json'} }
+                      {'project_name':this.$route.query.projectId},
+                      { headers: { 'access-token': '3UStfkWGsRNEUg','Content-Type': 'application/json'} }
               )
               .then(response => {
                 console.log(response)

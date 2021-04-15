@@ -46,7 +46,7 @@
     <!--    <div class="container2" style="margin-top:-124px;" ref="point">-->
     <div class="container2" style="margin-top:-124px;" ref="point">
       <div v-for="vi in list" :key ="vi.ProjectName">
-        <router-link :to="{path:'/investTab',query:{projectname: vi.ProjectName}}">
+        <router-link :to="{path:'/investTab',query:{projectname: vi.ProjectId}}">
           <v-card
             class="mx-auto card"
             style="box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04);"
@@ -83,19 +83,19 @@
                       border-radius: 4px;font-style:normal;text-align:center;
                       line-height:18px;color:#fff;font-size:10px;font-weight:400;margin-top: 3px"
                   >
-                    <div v-if = "vi.InProgress == 'inProgress'">
+                    <div v-if = "vi.InProgressFlag == 1">
                       进行中
                     </div>
-                    <div v-if = "vi.InProgress == 'finished'">
+                    <div v-if = "vi.InProgressFlag == 0">
                       结束
                     </div>
-                    <div v-if = "vi.InProgress == 'completed'">
+                    <div v-if = "vi.InProgressFlag == 2">
                       完成
                     </div>
                   </div>
                   <div style="width: 452px"></div>
                   <div style="color:#00CFAC;font-size:14px;margin-top: 20px;">
-                    {{vi.FinancingProgress}}%
+                    {{vi.CompleteGoal/vi.Total}}%
                   </div>
                 </div>
                 <v-progress-linear
@@ -149,7 +149,7 @@ export default {
               .post(
                       '/t0/invest/list',
                       {'user_id':'1','types':'now'},
-                      { headers: { 'access-token': 'iOCXsrzgA_asAQ','Content-Type': 'application/json'} }
+                      { headers: { 'access-token': '3UStfkWGsRNEUg','Content-Type': 'application/json'} }
               )
               .then(response => {
                 console.log(response)
