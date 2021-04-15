@@ -408,9 +408,9 @@
                             </v-img>
                           </div>
                           <div style="width: 8px"></div>
-                          <router-link to="/centerTab">
-                            <div style="cursor: pointer">退出</div>
-                          </router-link>
+                          <div @click="logout" style="cursor: pointer">
+                            退出
+                          </div>
                         </div>
                       </v-list-item-content>
                     </v-list-item>
@@ -473,6 +473,7 @@ export default {
       companyMenu: false,
       menuWhite: false,
       eyeFlag: 'mdi-eye',
+      logoutResult: '',
     }
   },
   mounted: function() {
@@ -494,6 +495,21 @@ export default {
       } else {
         this.eyeFlag = 'mdi-eye'
       }
+    },
+    //退出登录
+    logout: function() {
+      const token = localStorage.getItem('token')
+      const deviceId = 1
+      this.axios
+        .post(
+          '/r0/logout',
+          { Device: deviceId },
+          { headers: { 'access-token': token } }
+        )
+        .then(response => {
+          this.logoutResult = response.data
+          this.$router.go(0)
+        })
     },
   },
 }
