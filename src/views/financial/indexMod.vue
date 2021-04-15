@@ -127,7 +127,7 @@
             style="height: 205px;width: 100%;margin: 0px;padding: 0px"
           >
             <swiper class="swiper" :options="swiperOption">
-             <div v-for="vi in list" :key ="vi.ProjectName">
+             <div v-for="vi in list" :key ="vi.ProjectId">
               <swiper-slide>
                 <div style="height: 20px"></div>
                 <router-link :to="{path:'/investTab',query:{projectname: vi.ProjectName}}">
@@ -182,7 +182,7 @@
                       <span
                         style="font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;"
                       >
-                        期限{{vi.Cycle}}天 | 结算时间 {{vi.SettlementTime}}
+                        期限{{vi.Cycle}}天 | 结算时间 {{vi.BeginTimes}}
                       </span>
                       <div></div>
                     </v-row>
@@ -460,7 +460,7 @@ export default {
               .post(
                       '/t0/finance/minehome',
                       {'user_id': '1', 'types' : 'now'},
-                      { headers: { 'access-token': 'iOCXsrzgA_asAQ','Content-Type': 'application/json'} }
+                      { headers: { 'access-token': '3UStfkWGsRNEUg','Content-Type': 'application/json'} }
               )
               .then(response => {
                 console.log(response)

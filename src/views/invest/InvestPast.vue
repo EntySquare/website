@@ -46,7 +46,7 @@
     <!--    <div class="container2" style="margin-top:-124px;" ref="point">-->
     <div class="container2" style="margin-top:-124px;" ref="point">
       <div v-for="vi in list" :key ="vi.ProjectName">
-        <router-link :to="{path:'/investTab',query:{projectname: vi.ProjectId}}">
+        <router-link :to="{path:'/investTab',query:{projectid: vi.ProjectId}}">
           <v-card
             class="mx-auto card"
             style="box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04);"

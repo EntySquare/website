@@ -899,7 +899,7 @@ export default {
       this.axios
               .post(
                       '/t0/invest/projectinfo',
-                      {'project_name':this.$route.query.projectId},
+                      {'project_id':this.$route.query.projectid},
                       { headers: { 'access-token': '3UStfkWGsRNEUg','Content-Type': 'application/json'} }
               )
               .then(response => {
