@@ -482,6 +482,9 @@ export default {
   methods: {
     GetMyData: function() {
       const token = localStorage.getItem('token')
+      if (token === null || token === '') {
+        return
+      }
       this.axios
         .post('/r0/getMyUserData', {}, { headers: { 'access-token': token } })
         .then(response => {
@@ -508,6 +511,7 @@ export default {
         )
         .then(response => {
           this.logoutResult = response.data
+          localStorage.removeItem('token')
           this.$router.go(0)
         })
     },
