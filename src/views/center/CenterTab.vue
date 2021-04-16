@@ -220,7 +220,7 @@
                   INVESTORS号是账号的唯一凭证，只能设置一次
                 </v-card-subtitle>
               </div>
-              <div style="width: 378px"></div>
+              <div style="width: 395px"></div>
               <div v-text="userId" style="padding-top: 44px"></div>
               <div style="width: 20px"></div>
               <v-btn
