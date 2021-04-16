@@ -219,7 +219,7 @@ export default {
               .post(
                       '/t0/finance/settlelist',
                       {'time_limit':'month','user_id':this.$route.query.userId},
-                      { headers: { 'access-token': 'iOCXsrzgA_asAQ','Content-Type': 'application/json'} }
+                      { headers: { 'access-token': '3UStfkWGsRNEUg','Content-Type': 'application/json'} }
               )
               .then(response => {
                 console.log(response)
