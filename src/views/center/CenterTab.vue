@@ -1528,7 +1528,7 @@
                   font-weight: 600;
                   color: #000000;"
                 >
-                  Cami Ho
+                  {{ realName }}
                 </p>
                 <p
                   style="font-size: 16px;padding: 0;margin:  1px 2px 3px 8px;
@@ -1536,7 +1536,7 @@
                           color: #808080;
                           line-height: 16px;"
                 >
-                  帐号：
+                  帐号: {{ userId }}
                 </p>
               </v-col>
             </v-row>
@@ -2043,6 +2043,7 @@ export default {
           this.userName = response.data.UserName
           this.phoneNum = response.data.PhoneNumber
           this.email = response.data.Email
+          this.realName = response.data.UserRealName
           this.bindEmailStateShow(response.data.Email)
           this.payPwdStateShow(response.data.PayPwdFlag)
         })
