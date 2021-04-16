@@ -633,7 +633,9 @@ export default {
     SwiperSlide,
   },
   mounted: function() {
+
     this.GetData() //需要触发的函数
+    window.scroll(0, 0);//页面加载置顶
   },
   methods: {
     //页面数据渲染
@@ -641,15 +643,15 @@ export default {
       // const token = localStorage.getItem('token')
       this.axios
         .post(
-          '/t0/wallet/txhistory',
+          '/r0/wallet/txhistory',
           {
             CodeType: this.choice.CodeType,
             PayType: this.choice.PayType,
             Times: this.choice.Times,
           },
-          { headers: { 'access-token': "YmL7R3LYJKUrfw" } })
+          { headers: { 'access-token': "6d0Z7Kci2ttddg" } })
         .then(response => {
-          console.log('/t0/wallet/txhistory api 。。。。')
+          console.log('/r0/wallet/txhistory api 。。。。')
           this.choice.list = response.data.list
         })
     },

@@ -2231,7 +2231,7 @@ line-height: 20px;"
               rounded
               x-large
               block
-              @click="zhanneizhuanzhang"
+              @click="zhanneizhuanzhangOK"
             >
               转账
             </v-btn>
@@ -2259,6 +2259,7 @@ export default {
     VueQr,
   },
   mounted: function() {
+    window.scroll(0, 0);//页面加载置顶
     this.GetData() //需要触发的函数
     this.synk()
   },
@@ -2271,7 +2272,7 @@ export default {
     synk() {
       console.log('synk。。。')
       this.axios
-        .post('/t0/synk', {}, { headers: { 'access-token': 'YmL7R3LYJKUrfw' } })
+        .post('/t0/synk', {}, { headers: { 'access-token': '6d0Z7Kci2ttddg' } })
         .then(response => {
           //资产数据
           if (response.data.assets != null) {
@@ -2318,7 +2319,7 @@ export default {
       //           BaiZhu:this.dialog04.beizhu,
       //           PatTypes:this.dialog04.typesText,
       //         },
-      //         { headers: { 'access-token': "YmL7R3LYJKUrfw" } })
+      //         { headers: { 'access-token': "6d0Z7Kci2ttddg" } })
       //     .then(response => {
       //       console.log(response)
       //       if (response.data.data == "ok"){
@@ -2336,11 +2337,11 @@ export default {
         // alert("duihuan_usdt_to_hsf_num")
         this.axios
           .post(
-            '/t0/wallet/exchangeUsdtToHsf',
+            '/r0/wallet/exchangeUsdtToHsf',
             {
               Num: this.duihuan_usdt_to_hsf_num,
             },
-            { headers: { 'access-token': 'YmL7R3LYJKUrfw' } }
+            { headers: { 'access-token': '6d0Z7Kci2ttddg' } }
           )
           .then(response => {
             console.log(response)
@@ -2358,11 +2359,11 @@ export default {
         // alert("duihuan_hsf_to_usdt_num")
         this.axios
           .post(
-            '/t0/wallet/exchangeHsfToUsdt',
+            '/r0/wallet/exchangeHsfToUsdt',
             {
               Num: this.duihuan_hsf_to_usdt_num,
             },
-            { headers: { 'access-token': 'YmL7R3LYJKUrfw' } }
+            { headers: { 'access-token': '6d0Z7Kci2ttddg' } }
           )
           .then(response => {
             console.log(response)
@@ -2380,9 +2381,9 @@ export default {
       // const token = localStorage.getItem('token')
       this.axios
         .post(
-          '/t0/wallet/home',
+          '/r0/wallet/home',
           {},
-          { headers: { 'access-token': 'YmL7R3LYJKUrfw' } }
+          { headers: { 'access-token': '6d0Z7Kci2ttddg' } }
         )
         .then(response => {
           console.log(response)
@@ -2448,12 +2449,12 @@ export default {
       // const token = localStorage.getItem('token')
       this.axios
         .post(
-          '/t0/wallet/getToUserData',
+          '/r0/wallet/getToUserData',
           {
-            Phone: this.znzz_zhanghu,
+            Phone: this.znzz_zhanghu,//用户账号 或者 手机号
             CodeType: this.xiala.text,
           },
-          { headers: { 'access-token': 'YmL7R3LYJKUrfw' } }
+          { headers: { 'access-token': '6d0Z7Kci2ttddg' } }
         )
         .then(response => {
           console.log(response)
@@ -2499,7 +2500,7 @@ export default {
         if (code.length == 6) {
           this.axios
             .post(
-              '/t0/wallet/payFarm',
+              '/r0/wallet/payFarm',
               {
                 CodeCake: code,
                 To: this.dialog04.toText,
@@ -2508,7 +2509,7 @@ export default {
                 BaiZhu: this.dialog04.beizhu,
                 PatTypes: this.dialog04.typesText,
               },
-              { headers: { 'access-token': 'YmL7R3LYJKUrfw' } }
+              { headers: { 'access-token': '6d0Z7Kci2ttddg' } }
             )
             .then(response => {
               console.log(response)
