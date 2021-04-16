@@ -127,10 +127,10 @@
             style="height: 205px;width: 100%;margin: 0px;padding: 0px"
           >
             <swiper class="swiper" :options="swiperOption">
-             <div v-for="vi in list" :key ="vi.ProjectName">
+             <div v-for="vi in list" :key ="vi.ProjectId">
               <swiper-slide>
                 <div style="height: 20px"></div>
-                <router-link :to="{path:'/investTab',query:{projectname: vi.ProjectName}}">
+                <router-link :to="{path:'/investTab',query:{projectid: vi.ProjectId,userid:UserId}}">
                   <v-navigation-drawer
                     style="width: 800px;background: linear-gradient(30deg, #00DEB8 0%, #5B7ADE 100%, #5F80E8 100%);height: 190px;border-radius: 20px;box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.04);"
                   >
@@ -182,7 +182,7 @@
                       <span
                         style="font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;"
                       >
-                        期限{{vi.Cycle}}天 | 结算时间 {{vi.SettlementTime}}
+                        期限{{vi.Cycle}}天 | 结算时间 {{vi.BeginTimes}}
                       </span>
                       <div></div>
                     </v-row>
@@ -459,8 +459,8 @@ export default {
       this.axios
               .post(
                       '/t0/finance/minehome',
-                      {'user_id': '1', 'types' : 'now'},
-                      { headers: { 'access-token': 'iOCXsrzgA_asAQ','Content-Type': 'application/json'} }
+                      {'user_id': '1', 'types' : 'mine'},
+                      { headers: { 'access-token': '3UStfkWGsRNEUg','Content-Type': 'application/json'} }
               )
               .then(response => {
                 console.log(response)

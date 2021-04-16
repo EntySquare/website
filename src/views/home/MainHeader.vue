@@ -436,9 +436,9 @@
                                 </v-img>
                               </div>
                               <div style="width: 8px"></div>
-                              <router-link to="/centerTab">
-                                <div style="cursor: pointer">退出</div>
-                              </router-link>
+                              <div @click="logout" style="cursor: pointer">
+                                退出
+                              </div>
                             </div>
                           </v-list-item-content>
                         </v-list-item>
@@ -624,16 +624,6 @@ export default {
     return {
       loginVue: true, //登录or未登录显示控制
       username: '',
-      items: [
-        {
-          title: 'Foo',
-          path: 'foo',
-        },
-        {
-          title: 'Bar',
-          path: 'bar',
-        },
-      ],
       bgImg: {
         backgroundImage: 'url(' + imgUrl + ')',
         backgroundRepeat: 'no-repeat',
@@ -648,6 +638,7 @@ export default {
       eyeFlag: 'mdi-eye',
       productMenu: false,
       companyMenu: false,
+      logoutResult: '',
     }
   },
   mounted: function() {
@@ -662,6 +653,9 @@ export default {
     },
     GetMyData: function() {
       const token = localStorage.getItem('token')
+      if (token === null || token === '') {
+        return
+      }
       this.axios
         .post('/r0/getMyUserData', {}, { headers: { 'access-token': token } })
         .then(response => {
@@ -677,6 +671,22 @@ export default {
       } else {
         this.eyeFlag = 'mdi-eye'
       }
+    },
+    //退出登录
+    logout: function() {
+      const token = localStorage.getItem('token')
+      const deviceId = 1
+      this.axios
+        .post(
+          '/r0/logout',
+          { Device: deviceId },
+          { headers: { 'access-token': token } }
+        )
+        .then(response => {
+          this.logoutResult = response.data
+          localStorage.removeItem('token')
+          this.$router.go(0)
+        })
     },
   },
 }

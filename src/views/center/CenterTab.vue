@@ -220,7 +220,7 @@
                   INVESTORS号是账号的唯一凭证，只能设置一次
                 </v-card-subtitle>
               </div>
-              <div style="width: 378px"></div>
+              <div style="width: 395px"></div>
               <div v-text="userId" style="padding-top: 44px"></div>
               <div style="width: 20px"></div>
               <v-btn
@@ -1782,6 +1782,7 @@ export default {
       googleBindResult: '',
       fishCodeResult: '',
       hisList: '',
+      realName: '',
     }
   },
   filters: {
@@ -2021,17 +2022,17 @@ export default {
     //查询个人数据
     GetMyData: function() {
       const token = localStorage.getItem('token')
+      if (token === null || token === '') {
+        return
+      }
       this.axios
-        .post('/t0/getMyUserData', {}, { headers: { 'access-token': token } })
+        .post('/r0/getMyUserData', {}, { headers: { 'access-token': token } })
         .then(response => {
           this.loginVue = false //显示登录代码
           this.userId = 'UID ' + response.data.Uid
           this.userName = response.data.UserName
           this.phoneNum = response.data.PhoneNumber
           this.email = response.data.Email
-          this.certifyNum = response.data.CertifyNum
-          this.certifyFront = response.data.CertifyFront
-          this.certifyBack = response.data.CertifyBack
         })
     },
     //查询状态数据
@@ -2071,8 +2072,8 @@ export default {
       const token = localStorage.getItem('token')
       this.axios
         .post(
-          '/t0/updateUid',
-          { uidValue: updateUidValue },
+          '/r0/modifyUid',
+          { Uid: updateUidValue },
           { headers: { 'access-token': token } }
         )
         .then(response => {
