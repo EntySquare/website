@@ -56,7 +56,7 @@
                     >
                     </v-list-item-title>
                     <div class="d-inline-flex" style="font-size: 14px;">
-                      <p v-text="userId" style="margin-top: 2px"></p>
+                      <p style="margin-top: 2px">UID: {{ userId }}</p>
                       <div style="width: 8px"></div>
                       <div
                         class="text-center"
@@ -221,7 +221,7 @@
                 </v-card-subtitle>
               </div>
               <div style="width: 395px"></div>
-              <div v-text="userId" style="padding-top: 44px"></div>
+              <div style="padding-top: 44px">UID:{{ userId }}</div>
               <div style="width: 20px"></div>
               <v-btn
                 @click="user_up2 = true"
@@ -401,7 +401,7 @@
                   style="float: right; padding-right: 32px"
                 >
                   <div style="padding-top: 24px; font-size: 14px">
-                    未绑定
+                    {{ emailBindState }}
                   </div>
                   <div style="width: 20px"></div>
                   <v-btn
@@ -409,7 +409,7 @@
                     style="width: 76px; height: 30px; margin-top: 20px; background: #F7F8FB;
                        border-radius: 15px; color: #00CFAC; font-size: 14px; font-weight: 600;"
                     @click="bindEmailFlag = true"
-                    >绑定
+                    >{{ bindEmailBtnState }}
                   </v-btn>
                   <v-dialog
                     content-class="rounded-xl"
@@ -429,7 +429,7 @@
                       <div style="height: 56px"></div>
                       <v-text-field
                         autocomplete="off"
-                        v-model="email"
+                        v-model="bindEmailNum"
                         :rules="emailRules"
                         label="请输入邮箱"
                         single-line
@@ -440,7 +440,7 @@
                       <v-text-field
                         autocomplete="off"
                         label="请输入验证码"
-                        v-model="checkCode"
+                        v-model="emailCheckCode"
                         single-line
                         filled
                         dense
@@ -450,7 +450,7 @@
                       <span
                         style="color: #00CFAC;width: 100%; position: absolute; margin-top: -55px;
                         margin-left: 240px; font-size: 14px; font-weight: 600; cursor: pointer"
-                        @click="sendCode()"
+                        @click="sendCode"
                         v-show="sendCodeVue"
                         >发送验证码
                       </span>
@@ -467,7 +467,7 @@
                         height="56px"
                         text
                         rounded
-                        @click="BindEmail(bindEmailNum)"
+                        @click="bindEmail(bindEmailNum, emailCheckCode)"
                         style="color: #FFFFFF; background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);"
                         >确定</v-btn
                       >
@@ -499,7 +499,7 @@
                   style="float: right; padding-right: 32px"
                 >
                   <div style="padding-top: 24px; font-size: 14px">
-                    未设置
+                    {{ payPwdState }}
                   </div>
                   <div style="width: 20px"></div>
                   <v-btn
@@ -793,7 +793,7 @@
                         text
                         rounded
                         @click="
-                          ForgetPaymentPwd(
+                          forgetPaymentPwd(
                             forgetPayLoginPwd,
                             forgetPayCheckCode,
                             payGoogleCheckCode
@@ -937,10 +937,13 @@
                   style="float: right; padding-right: 32px"
                 >
                   <div style="padding-top: 24px; font-size: 14px">
-                    UID:10086
+                    UID: {{ userId }}
                   </div>
                   <div style="width: 20px"></div>
                   <v-btn
+                    v-clipboard:copy="this.userId"
+                    v-clipboard:success="onCopy"
+                    v-clipboard:error="onError"
                     text
                     style="width: 76px; height: 30px; margin-top: 20px; background: #F7F8FB;
                        border-radius: 15px; color: #00CFAC; font-size: 14px; font-weight: 600;"
@@ -1023,10 +1026,10 @@
                   style="float: right; padding-right: 32px"
                 >
                   <v-switch
-                    v-model="checkSwitch"
+                    v-model="verSwitch"
                     style="width: 44px; height: 24px;"
                     color="#00CFAC"
-                    @click="CheckSwitch(checkSwitch)"
+                    @click="CheckSwitch(verSwitch)"
                   ></v-switch>
                 </div>
               </v-col>
@@ -1668,17 +1671,19 @@
 
 <script>
 import VueQr from 'vue-qr'
+import VueClipboard from 'vue-clipboard2'
 export default {
   name: 'CenterTab',
   components: {
     VueQr,
+    VueClipboard,
   },
   data() {
     return {
       model: null,
       text: '1111',
       infoSwitch: true,
-      checkSwitch: true,
+      verSwitch: true,
       bindEmailFlag: false,
       checkCode: '',
       email: '',
@@ -1688,6 +1693,7 @@ export default {
           /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(v) ||
           '邮箱格式不对',
       ],
+      emailCheckCode: '',
       sendCodeVue: true, // 控制发送验证码按钮显示
       authTime: 0, // 倒计时
       fishDialog: false,
@@ -1768,7 +1774,10 @@ export default {
       lastLoginDevice: '',
       bindEmailNum: '',
       bindEmailResult: '',
+      emailBindState: '',
+      bindEmailBtnState: '',
       setPayPwdResult: '',
+      verPayPwdResult: '',
       updatePayPwdResult: '',
       forgetPayLoginPwd: '',
       forgetPayCheckCode: '',
@@ -1783,6 +1792,8 @@ export default {
       fishCodeResult: '',
       hisList: '',
       realName: '',
+      payPwdState: '',
+      payPwdBtnState: '',
     }
   },
   filters: {
@@ -1846,13 +1857,12 @@ export default {
       alert(this.delWalletResult)
     },
     sendCode() {
-      this.$refs.form.validate()
       this.axios
         .post('/r0/checkCode', {
-          email: this.email,
+          email: this.bindEmailNum,
         })
         .then(response => {
-          if (response.data.errcode != null) {
+          if (response.status !== 200) {
             return
           }
           //成功逻辑
@@ -1977,7 +1987,7 @@ export default {
         let code = this.updateCaptchas.map(x => x.num).join('')
         if (code.length === 6) {
           this.payPwdUpdateFlag = false
-          this.payPwdNewFlag = true
+          this.verifyPayPwd(code)
         }
       }
     },
@@ -2015,7 +2025,7 @@ export default {
         let code = this.newCaptchas.map(x => x.num).join('')
         if (code.length === 6) {
           this.payPwdNewFlag = false
-          this.UpdatePaymentPwd(code)
+          this.updatePaymentPwd(code)
         }
       }
     },
@@ -2029,10 +2039,12 @@ export default {
         .post('/r0/getMyUserData', {}, { headers: { 'access-token': token } })
         .then(response => {
           this.loginVue = false //显示登录代码
-          this.userId = 'UID ' + response.data.Uid
+          this.userId = response.data.Uid
           this.userName = response.data.UserName
           this.phoneNum = response.data.PhoneNumber
           this.email = response.data.Email
+          this.bindEmailStateShow(response.data.Email)
+          this.payPwdStateShow(response.data.PayPwdFlag)
         })
     },
     //查询状态数据
@@ -2083,12 +2095,12 @@ export default {
         })
     },
     //绑定邮箱
-    BindEmail: function(bindEmailNum) {
+    bindEmail: function(bindEmailNum, emailCheckCode) {
       const token = localStorage.getItem('token')
       this.axios
         .post(
-          '/t0/bandEmail',
-          { email: bindEmailNum },
+          '/r0/bindEmail',
+          { Email: bindEmailNum, CheckCode: emailCheckCode },
           { headers: { 'access-token': token } }
         )
         .then(response => {
@@ -2102,7 +2114,7 @@ export default {
       const token = localStorage.getItem('token')
       this.axios
         .post(
-          '/t0/setPayPwd',
+          '/r0/center/setPayPassword',
           { payPwd: password },
           { headers: { 'access-token': token } }
         )
@@ -2111,12 +2123,30 @@ export default {
           alert(this.setPayPwdResult)
         })
     },
-    //修改支付密码
-    UpdatePaymentPwd: function(password) {
+    //原支付密码验证身份
+    verifyPayPwd: function(password) {
       const token = localStorage.getItem('token')
       this.axios
         .post(
-          '/t0/updatePayPwd',
+          '/r0/center/verPayPassword',
+          { payPwd: password },
+          { headers: { 'access-token': token } }
+        )
+        .then(response => {
+          this.verPayPwdResult = response.data
+          alert(this.verPayPwdResult)
+          if (response.data !== 'success') {
+            return
+          }
+          this.payPwdNewFlag = true
+        })
+    },
+    //修改支付密码
+    updatePaymentPwd: function(password) {
+      const token = localStorage.getItem('token')
+      this.axios
+        .post(
+          '/r0/center/newPayPassword',
           { payPwd: password },
           { headers: { 'access-token': token } }
         )
@@ -2126,7 +2156,7 @@ export default {
         })
     },
     //忘记支付密码
-    ForgetPaymentPwd: function(
+    forgetPaymentPwd: function(
       forgetPayLoginPwd,
       forgetPayCheckCode,
       payGoogleCheckCode
@@ -2134,18 +2164,24 @@ export default {
       const token = localStorage.getItem('token')
       this.axios
         .post(
-          '/t0/forgetPayPwd',
+          '/r0/center/forgetPayPwd',
           {
-            loginPwd: forgetPayLoginPwd,
-            checkCode: forgetPayCheckCode,
-            googleCode: payGoogleCheckCode,
+            Password: forgetPayLoginPwd,
+            CheckCode: forgetPayCheckCode,
+            GoogleKey: payGoogleCheckCode,
           },
           { headers: { 'access-token': token } }
         )
         .then(response => {
           this.forgetPayPwdResult = response.data
+          if (response.data !== 'success') {
+            this.forgetPayPwdFlag = false
+            alert(response.data)
+            return
+          }
           alert(this.forgetPayPwdResult)
-          this.payPwdNewFlag = false
+          this.forgetPayPwdFlag = false
+          this.payPwdNewFlag = true
         })
     },
     //修改登录密码
@@ -2153,10 +2189,10 @@ export default {
       const token = localStorage.getItem('token')
       this.axios
         .post(
-          '/t0/updateLoginPwd',
+          '/r0/center/updateLoginPwd',
           {
-            loginPwd: updNewLoginPwd,
-            checkCode: updLoginPwdCheckCode,
+            Password: updNewLoginPwd,
+            CheckCode: updLoginPwdCheckCode,
           },
           { headers: { 'access-token': token } }
         )
@@ -2186,11 +2222,11 @@ export default {
         })
     },
     //手机、邮箱验证开关
-    CheckSwitch: function(checkSwitch) {
+    CheckSwitch: function(verSwitch) {
       const token = localStorage.getItem('token')
       let phoneVerFlag
       let emailVerFlag
-      switch (checkSwitch) {
+      switch (verSwitch) {
         case true:
           phoneVerFlag = 1
           emailVerFlag = 1
@@ -2202,16 +2238,9 @@ export default {
         default:
           break
       }
-      // if (checkSwitch === true) {
-      //   phoneVerFlag = 1
-      //   emailVerFlag = 1
-      // } else {
-      //   phoneVerFlag = 0
-      //   emailVerFlag = 0
-      // }
       this.axios
         .post(
-          '/t0/phoneEmailCheckSwitch',
+          '/r0/phoneEmailCheckSwitch',
           { PhoneVerFlag: phoneVerFlag, MailVerFlag: emailVerFlag },
           { headers: { 'access-token': token } }
         )
@@ -2225,7 +2254,7 @@ export default {
       const token = localStorage.getItem('token')
       this.axios
         .post(
-          '/t0/setFishCode',
+          '/r0/center/setFishCode',
           {
             FishVerFlag: 1,
             FishCode: fishCode,
@@ -2237,6 +2266,36 @@ export default {
           alert(this.fishCodeResult)
           this.fishDialog = false
         })
+    },
+    //邮箱绑定状态
+    bindEmailStateShow: function(email) {
+      if (email === '' || email === undefined || email === null) {
+        this.emailBindState = '未绑定'
+        this.bindEmailBtnState = '绑定'
+      } else {
+        this.emailBindState = '已绑定'
+        this.bindEmailBtnState = '修改'
+      }
+    },
+    //支付密码状态
+    payPwdStateShow: function(flag) {
+      if (flag === 1) {
+        this.payPwdState = '已设置'
+        this.setPayPwd = false
+        this.updatePayPwd = true
+      } else {
+        this.payPwdState = '未设置'
+        this.setPayPwd = true
+        this.updatePayPwd = false
+      }
+    },
+    // 复制成功
+    onCopy(e) {
+      console.log(e)
+    },
+    // 复制失败
+    onError(e) {
+      alert('失败')
     },
   },
 }
