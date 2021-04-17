@@ -591,10 +591,16 @@ export default {
     },
     uploadCertifyFront: function() {
       const selectedFile = this.$refs.refFile1.files[0]
+      console.log("1:"+selectedFile)
       this.srcFront = window.URL.createObjectURL(this.$refs.refFile1.files[0])
       let reader = new FileReader()
       reader.readAsDataURL(selectedFile)
-      reader.onload = function() {}
+      // console.log(reader.readAsDataURL(selectedFile))
+      reader.onloadend = function() {
+        // var strBase64 = reader.result.substring(84);
+        var strBase64 = reader.result.substring(0);
+        console.log(strBase64);
+      }
     },
     clickLoadBack() {
       this.$refs.refFile2.dispatchEvent(new MouseEvent('click'))

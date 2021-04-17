@@ -640,18 +640,18 @@ export default {
   methods: {
     //页面数据渲染
     GetData: function() {
-      // const token = localStorage.getItem('token')
+      const token = localStorage.getItem('token')
       this.axios
         .post(
-          '/r0/wallet/txhistory',
+          '/t0/wallet/txhistory',
           {
             CodeType: this.choice.CodeType,
             PayType: this.choice.PayType,
             Times: this.choice.Times,
           },
-          { headers: { 'access-token': "6d0Z7Kci2ttddg" } })
+          { headers: { 'access-token': token } })
         .then(response => {
-          console.log('/r0/wallet/txhistory api 。。。。')
+          console.log('/t0/wallet/txhistory api 。。。。')
           this.choice.list = response.data.list
         })
     },

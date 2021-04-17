@@ -108,12 +108,12 @@ export default {
   methods: {
     //初始化调用
     GetData: function() {
-      // const token = localStorage.getItem('token')
+      const token = localStorage.getItem('token')
       this.axios
               .post(
                       '/t0/invest/list',
                       {'user_id':'1','types':'past'},
-                      { headers: { 'access-token': 'iOCXsrzgA_asAQ','Content-Type': 'application/json'} }
+                      { headers: { 'access-token': token,'Content-Type': 'application/json'} }
               )
               .then(response => {
                 console.log(response)
