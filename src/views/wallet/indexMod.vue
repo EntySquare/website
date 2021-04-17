@@ -2231,7 +2231,7 @@ line-height: 20px;"
               rounded
               x-large
               block
-              @click="zhanneizhuanzhang"
+              @click="zhanneizhuanzhangOK"
             >
               转账
             </v-btn>
@@ -2259,8 +2259,9 @@ export default {
     VueQr,
   },
   mounted: function() {
+    window.scroll(0, 0);//页面加载置顶
     this.GetData() //需要触发的函数
-    this.synk()
+    // this.synk()
   },
   // created() {
   //   // 实现轮询
@@ -2270,8 +2271,9 @@ export default {
     //synk
     synk() {
       console.log('synk。。。')
+      const token = localStorage.getItem('token')
       this.axios
-        .post('/t0/synk', {}, { headers: { 'access-token': 'YmL7R3LYJKUrfw' } })
+        .post('/t0/synk', {}, { headers: { 'access-token': token } })
         .then(response => {
           //资产数据
           if (response.data.assets != null) {
@@ -2318,7 +2320,7 @@ export default {
       //           BaiZhu:this.dialog04.beizhu,
       //           PatTypes:this.dialog04.typesText,
       //         },
-      //         { headers: { 'access-token': "YmL7R3LYJKUrfw" } })
+      //         { headers: { 'access-token': "6d0Z7Kci2ttddg" } })
       //     .then(response => {
       //       console.log(response)
       //       if (response.data.data == "ok"){
@@ -2334,13 +2336,14 @@ export default {
         this.duihuan_hsf_to_usdt_num == ''
       ) {
         // alert("duihuan_usdt_to_hsf_num")
+        const token = localStorage.getItem('token')
         this.axios
           .post(
             '/t0/wallet/exchangeUsdtToHsf',
             {
               Num: this.duihuan_usdt_to_hsf_num,
             },
-            { headers: { 'access-token': 'YmL7R3LYJKUrfw' } }
+            { headers: { 'access-token': token } }
           )
           .then(response => {
             console.log(response)
@@ -2356,13 +2359,14 @@ export default {
         this.duihuan_usdt_to_hsf_num == ''
       ) {
         // alert("duihuan_hsf_to_usdt_num")
+        const token = localStorage.getItem('token')
         this.axios
           .post(
             '/t0/wallet/exchangeHsfToUsdt',
             {
               Num: this.duihuan_hsf_to_usdt_num,
             },
-            { headers: { 'access-token': 'YmL7R3LYJKUrfw' } }
+            { headers: { 'access-token': token } }
           )
           .then(response => {
             console.log(response)
@@ -2377,12 +2381,12 @@ export default {
     },
     //页面数据渲染
     GetData: function() {
-      // const token = localStorage.getItem('token')
+      const token = localStorage.getItem('token')
       this.axios
         .post(
           '/t0/wallet/home',
           {},
-          { headers: { 'access-token': 'YmL7R3LYJKUrfw' } }
+          { headers: { 'access-token': token } }
         )
         .then(response => {
           console.log(response)
@@ -2445,15 +2449,15 @@ export default {
       // console.log("提现地址：",this)
       console.log('转账币名：', this.xiala.text)
       console.log('转账账号：', this.znzz_zhanghu)
-      // const token = localStorage.getItem('token')
+      const token = localStorage.getItem('token')
       this.axios
         .post(
           '/t0/wallet/getToUserData',
           {
-            Phone: this.znzz_zhanghu,
+            Phone: this.znzz_zhanghu,//用户账号 或者 手机号
             CodeType: this.xiala.text,
           },
-          { headers: { 'access-token': 'YmL7R3LYJKUrfw' } }
+          { headers: { 'access-token': token } }
         )
         .then(response => {
           console.log(response)
@@ -2497,6 +2501,7 @@ export default {
       if (index == this.captchas.length - 1) {
         let code = this.captchas.map(x => x.num).join('')
         if (code.length == 6) {
+          const token = localStorage.getItem('token')
           this.axios
             .post(
               '/t0/wallet/payFarm',
@@ -2508,7 +2513,7 @@ export default {
                 BaiZhu: this.dialog04.beizhu,
                 PatTypes: this.dialog04.typesText,
               },
-              { headers: { 'access-token': 'YmL7R3LYJKUrfw' } }
+              { headers: { 'access-token': token } }
             )
             .then(response => {
               console.log(response)
@@ -2601,7 +2606,7 @@ export default {
         },
       },
       //验证码数据
-      activeInput: 0,
+      activeInput: 0,//修改密码
       captchas: [
         { num: '' },
         { num: '' },

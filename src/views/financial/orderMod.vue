@@ -214,12 +214,12 @@ export default {
   methods:{
     //初始化调用
     GetData: function() {
-      // const token = localStorage.getItem('token')
+      const token = localStorage.getItem('token')
       this.axios
               .post(
                       '/t0/finance/settlelist',
                       {'time_limit':'month','user_id':this.$route.query.userId},
-                      { headers: { 'access-token': '3UStfkWGsRNEUg','Content-Type': 'application/json'} }
+                      { headers: { 'access-token': token,'Content-Type': 'application/json'} }
               )
               .then(response => {
                 console.log(response)

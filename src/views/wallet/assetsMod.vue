@@ -633,12 +633,14 @@ export default {
     SwiperSlide,
   },
   mounted: function() {
+
     this.GetData() //需要触发的函数
+    window.scroll(0, 0);//页面加载置顶
   },
   methods: {
     //页面数据渲染
     GetData: function() {
-      // const token = localStorage.getItem('token')
+      const token = localStorage.getItem('token')
       this.axios
         .post(
           '/t0/wallet/txhistory',
@@ -647,7 +649,7 @@ export default {
             PayType: this.choice.PayType,
             Times: this.choice.Times,
           },
-          { headers: { 'access-token': "YmL7R3LYJKUrfw" } })
+          { headers: { 'access-token': token } })
         .then(response => {
           console.log('/t0/wallet/txhistory api 。。。。')
           this.choice.list = response.data.list

@@ -883,11 +883,12 @@ export default {
   },
   methods: {
     investMoney: function(){
+      const token = localStorage.getItem('token')
       this.axios
               .post(
                       '/t0/invest/passed',
                       { 'project_id':this.$route.query.projectid,'user_id':this.$route.query.userid,'invest_number': this.investValue},
-                      { headers: { 'access-token': '3UStfkWGsRNEUg','Content-Type': 'application/json'} }
+                      { headers: { 'access-token': token,'Content-Type': 'application/json'} }
               )
               .then(response => {
                 this.investBtnFlag = false
@@ -902,12 +903,12 @@ export default {
     },
     //初始化调用
     GetData: function() {
-      // const token = localStorage.getItem('token')
+      const token = localStorage.getItem('token')
       this.axios
               .post(
                       '/t0/invest/projectinfo',
                       {'project_id':this.$route.query.projectid,'user_id':this.$route.query.userid},
-                      { headers: { 'access-token': '3UStfkWGsRNEUg','Content-Type': 'application/json'} }
+                      { headers: { 'access-token': token,'Content-Type': 'application/json'} }
               )
               .then(response => {
                 console.log(response)

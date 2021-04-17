@@ -455,12 +455,12 @@ export default {
   },
   methods: {
     GetData: function() {
-      // const token = localStorage.getItem('token')
+      const token = localStorage.getItem('token')
       this.axios
               .post(
                       '/t0/finance/minehome',
                       {'user_id': '1', 'types' : 'mine'},
-                      { headers: { 'access-token': '3UStfkWGsRNEUg','Content-Type': 'application/json'} }
+                      { headers: { 'access-token': token,'Content-Type': 'application/json'} }
               )
               .then(response => {
                 console.log(response)
