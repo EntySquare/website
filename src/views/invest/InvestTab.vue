@@ -62,13 +62,18 @@
               <div
                 style="margin-top: 3px; width:46px;height:18px;background: linear-gradient(225deg, #00E9D6 0%, #00CFAC 100%);border-radius: 4px;text-align:center;color:#fff;font-size:10px;font-weight:400;"
               >
-                进行中
+                <div v-if = "info.Total-info.CompleteGoal == 0">
+                 已完成
+                </div>
+                <div v-else>
+                  进行中
+                </div>
               </div>
             </div>
             <div style="height: 20px"></div>
             <v-progress-linear
               style="height:10px;width:358px;border-radius: 5px;"
-              v-model="valueDeterminate"
+              :value="info.CompleteGoal/info.Total*100"
               background-color="#F7F8FB"
               color="#00CFAC"
               class="unFinish"

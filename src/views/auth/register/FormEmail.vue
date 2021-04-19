@@ -131,8 +131,7 @@ export default {
               alert('邮箱注册失败！')
               return
             }
-            this.$router.push('/login')
-            console.log(response)
+            this.loginByEmail()
           })
       }
     },
@@ -156,6 +155,27 @@ export default {
               window.clearInterval(this.timeInt)
             }
           }, 1000)
+        })
+    },
+    loginByEmail() {
+      this.axios
+        .post('r0/login', {
+          user_name: this.email,
+          password: this.password,
+          types: 'mailbox',
+          equipment: 1, //web
+        })
+        .then(response => {
+          console.log(response)
+          if (response.data.errcode != null) {
+            alert('登录失败！')
+            return
+          }
+          if (response.status === 200) {
+            this.userName = response.data.UserName
+            localStorage.setItem('token', response.data.Token)
+          }
+          this.$router.push('/')
         })
     },
   },

@@ -279,7 +279,7 @@
                         font-weight: 600;
                         color: #00CFAC;"
             >
-              999.000 HSF
+              {{accountInfo.Locked}} HSF
             </span>
             <span
               style="font-size: 18px;
@@ -287,7 +287,7 @@
                         font-weight: 600;
                         color: #000000;"
             >
-              /1,000.000 HSF
+              /{{accountInfo.Available}} HSF
             </span>
           </v-row>
           <v-row style="padding: 10px">

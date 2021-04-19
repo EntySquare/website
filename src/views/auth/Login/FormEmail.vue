@@ -2,7 +2,7 @@
   <v-tab-item>
     <v-form v-model="valid" ref="form" class="mt-4 form">
       <v-text-field
-      autocomplete="off"
+        autocomplete="off"
         v-model="email"
         :rules="emailRules"
         label="请输入邮箱"
@@ -13,7 +13,7 @@
       ></v-text-field>
 
       <v-text-field
-      autocomplete="off"
+        autocomplete="off"
         v-model="password"
         :rules="passwordRules"
         label="请输入密码"
@@ -25,13 +25,13 @@
         :type="show1 ? 'text' : 'password'"
         @click:append="show1 = !show1"
       ></v-text-field>
-<router-link to="/resetPwdEmail">
-      <div
-        style="font-size: 14px;font-weight: bold;color: #00CFAC;line-height: 20px;margin-left:10px; cursor: pointer"
-      >
-        忘记密码？
-      </div>
-</router-link>
+      <router-link to="/resetPwdEmail">
+        <div
+          style="font-size: 14px;font-weight: bold;color: #00CFAC;line-height: 20px;margin-left:10px; cursor: pointer"
+        >
+          忘记密码？
+        </div>
+      </router-link>
       <div class="card-bottom">
         <v-btn
           style="background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);"
@@ -63,7 +63,7 @@ export default {
   name: 'Login',
   data() {
     return {
-      show1:false,
+      show1: false,
       valid: false,
       email: '',
       emailRules: [
@@ -84,7 +84,6 @@ export default {
     submit() {
       this.$refs.form.validate()
       console.log(this.valid)
-
       if (this.valid) {
         return new Promise((resolve, reject) => {
           this.axios
@@ -96,25 +95,14 @@ export default {
             })
             .then(response => {
               console.log(response)
-              if(response.data.errcode != null){
-                alert("登录失败！");
+              if (response.data.errcode != null) {
+                alert('登录失败！')
                 return
               }
-              if (response.status == 200) {
-                // alert('登录成功,userid:' + response.data.UserId)
-                localStorage.setItem('token',response.data.Token);
+              if (response.status === 200) {
+                localStorage.setItem('token', response.data.Token)
               }
-              this.$router.push({
-                path: '/home/resource/',
-                query: {
-                  name: this.email,
-                },
-              })
-              // resolve(response.status)
-            })
-            .catch(error => {
-              console.log(error.response)
-              // reject(error)
+              this.$router.push('/')
             })
         })
       }

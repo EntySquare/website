@@ -81,12 +81,12 @@
                     <v-list-item-subtitle
                       style="font-size: 12px; color: #808080"
                     >
-                      上次登录时间: {{ lastLoginTime | formatDate }}
+                      上次登录时间: {{ lastLoginTime }}
                     </v-list-item-subtitle>
                     <v-list-item-subtitle
-                      v-text="lastLoginIp"
                       style="font-size: 12px; color: #808080"
                     >
+                      上次登录Ip: {{ lastLoginIp }}
                     </v-list-item-subtitle>
                   </v-list-item-content>
                 </v-list-item>
@@ -325,7 +325,7 @@
             <v-divider
               style="width: 896px; color: #F5F5F5; margin-left: 30px; margin-top: 20px;"
             ></v-divider>
-            <div v-for="data in list" v-bind:key="data">
+            <div v-for="data in addList" v-bind:key="data">
               <v-row style="padding-left: 32px; padding-top: 32px">
                 <v-col cols="2">
                   <div
@@ -339,7 +339,7 @@
                     style="width: 28px; height: 20px; font-size: 14px; font-weight: 600; color: #000000;
                   line-height: 20px; white-space: nowrap"
                   >
-                    {{ data.Remark }}
+                    {{ data.Remarks }}
                   </div>
                 </v-col>
                 <v-col cols="2">
@@ -990,7 +990,7 @@
                   style="float: right; padding-right: 32px"
                 >
                   <div style="padding-top: 24px; font-size: 14px">
-                    未绑定
+                    {{ googleState }}
                   </div>
                   <div style="width: 20px"></div>
                   <v-btn
@@ -1057,7 +1057,7 @@
                   style="float: right; padding-right: 32px"
                 >
                   <div style="padding-top: 24px; font-size: 14px">
-                    未设置
+                    {{ fishCodeState }}
                   </div>
                   <div style="width: 20px"></div>
                   <v-btn
@@ -1172,7 +1172,7 @@
                     style="font-size: 14px; font-weight: 400; color: #8A8A8A;
                   line-height: 20px; white-space: nowrap"
                   >
-                    {{ hisData.CreatedTime | formatDate }}
+                    {{ hisData.UpdateTime }}
                   </div>
                 </v-col>
                 <v-col cols="3">
@@ -1180,7 +1180,7 @@
                     style="font-size: 14px; font-weight: 400; color: #8A8A8A;
                   line-height: 20px; white-space: nowrap"
                   >
-                    {{ hisData.LastIp }}
+                    {{ hisData.Ip }}
                   </div>
                 </v-col>
                 <v-col cols="3">
@@ -1188,7 +1188,7 @@
                     style="font-size: 14px; font-weight: 400; color: #8A8A8A;
                   line-height: 20px; white-space: nowrap"
                   >
-                    {{ hisData.LastArea }}
+                    {{ hisData.Address }}
                   </div>
                 </v-col>
                 <v-col cols="3">
@@ -1196,7 +1196,7 @@
                     style="font-size: 14px; font-weight: 400; color: #8A8A8A;
                   line-height: 20px;"
                   >
-                    {{ hisData.Device }}
+                    {{ hisData.Equipment }}
                   </div>
                 </v-col>
               </v-row>
@@ -1759,7 +1759,7 @@ export default {
       certifyNum: '',
       certifyFront: '',
       certifyBack: '',
-      list: '',
+      addList: '',
       addCoinType: '',
       addCoinTypes: ['HSF', 'USDT'], //下拉多选
       addWalletAdd: '',
@@ -1794,6 +1794,10 @@ export default {
       realName: '',
       payPwdState: '',
       payPwdBtnState: '',
+      googleState: '',
+      googleBtnState: '',
+      fishCodeState: '',
+      fishCodeBtnState: '',
     }
   },
   filters: {
@@ -1803,9 +1807,9 @@ export default {
     },
   },
   mounted: function() {
-    this.GetPresenceData()
+    this.getLoginHisData()
     this.GetMyData() //需要触发的函数
-    this.GetWalletAddInfo()
+    this.getWalletAddInfo()
   },
   methods: {
     sendCode2() {
@@ -1834,8 +1838,8 @@ export default {
       const token = localStorage.getItem('token')
       this.axios
         .post(
-          '/t0/addWalletAddInfo',
-          { coinType: addCoinType, walletAdd: addWalletAdd, remark: addRemark },
+          '/r0/center/addWalletAddInfo',
+          { CoinType: addCoinType, Address: addWalletAdd, Remarks: addRemark },
           { headers: { 'access-token': token } }
         )
         .then(response => {
@@ -2046,38 +2050,46 @@ export default {
           this.realName = response.data.UserRealName
           this.bindEmailStateShow(response.data.Email)
           this.payPwdStateShow(response.data.PayPwdFlag)
+          this.googleStateShow(response.data.GoogleVerFlag)
+          this.fishCodeStateShow(response.data.FishVerFlag)
         })
     },
     //查询状态数据
-    GetPresenceData: function() {
+    getLoginHisData: function() {
       const token = localStorage.getItem('token')
       this.axios
-        .post('/t0/getPresenceData', {}, { headers: { 'access-token': token } })
+        .post(
+          '/r0/center/getLoginHistory',
+          {},
+          { headers: { 'access-token': token } }
+        )
         .then(response => {
           let resp = response.data
-          this.lastLoginIp = '上次登陆IP地址:' + resp[resp.length - 1].LastIp
-          this.lastLoginTime = resp[resp.length - 1].CreatedTime
+          this.lastLoginIp = resp[0].Ip
+          this.lastLoginTime = resp[0].UpdateTime.slice(0, 10)
           this.hisList = resp
           for (let i = 0; i < resp.length; i++) {
-            if (resp[i].Device === 1) {
-              resp[i].Device = 'web'
-            } else if (response.data[i].Device === 2) {
-              resp[i].Device = 'app'
+            let t = resp[i].UpdateTime
+            resp[i].UpdateTime = t.slice(0, 10) + ' ' + t.slice(11, 19)
+            if (resp[i].Equipment === '1') {
+              resp[i].Equipment = 'web'
+            } else if (response[i].Equipment === '2') {
+              resp[i].Equipment = 'app'
             }
           }
         })
     },
     //钱包地址信息
-    GetWalletAddInfo: function() {
+    getWalletAddInfo: function() {
       const token = localStorage.getItem('token')
       this.axios
         .post(
-          '/t0/getWalletAddInfo',
+          '/r0/center/getWalletAddInfo',
           {},
           { headers: { 'access-token': token } }
         )
         .then(response => {
-          this.list = response.data
+          this.addList = response.data
         })
     },
     //修改Uid
@@ -2208,11 +2220,10 @@ export default {
       const token = localStorage.getItem('token')
       this.axios
         .post(
-          '/t0/googleSwitch',
+          '/r0/center/googleVerify',
           {
-            checkCode: bindGoogleCheckCode,
-            verCode: googleVerCode,
-            googleVerFlag: 1,
+            CheckCode: bindGoogleCheckCode,
+            GoogleKey: googleVerCode,
           },
           { headers: { 'access-token': token } }
         )
@@ -2288,6 +2299,22 @@ export default {
         this.payPwdState = '未设置'
         this.setPayPwd = true
         this.updatePayPwd = false
+      }
+    },
+    //Google认证状态
+    googleStateShow: function(flag) {
+      if (flag === 1) {
+        this.googleState = '已设置'
+      } else {
+        this.googleState = '未设置'
+      }
+    },
+    //防钓鱼码状态
+    fishCodeStateShow: function(flag) {
+      if (flag === 1) {
+        this.fishCodeState = '已设置'
+      } else {
+        this.fishCodeState = '未设置'
       }
     },
     // 复制成功

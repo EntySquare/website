@@ -95,12 +95,12 @@
                   </div>
                   <div style="width: 452px"></div>
                   <div style="color:#00CFAC;font-size:14px;margin-top: 20px;">
-                    {{vi.CompleteGoal/vi.Total}}%
+                    {{vi.CompleteGoal/vi.Total*100}}%
                   </div>
                 </div>
                 <v-progress-linear
                   style="height:10px;width:600px;border-radius: 5px;"
-                  v-model="valueDeterminate"
+                  :value="vi.CompleteGoal/vi.Total*100"
                   background-color="#F7F8FB"
                   color="#00CFAC"
                   class="unFinish"
