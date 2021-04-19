@@ -141,12 +141,10 @@ export default {
           })
           .then(response => {
             if (response.data.errcode != null) {
-              alert('手机注册失败！')
               return
             }
-            alert('注册成功！跳转到登录页,userid:' + response.data.UserId)
-            this.$router.push('/')
-            console.log(response)
+            alert('注册成功!')
+            this.loginByPhone()
           })
       }
     },
@@ -170,6 +168,27 @@ export default {
               window.clearInterval(this.timeInt)
             }
           }, 1000)
+        })
+    },
+    loginByPhone() {
+      this.axios
+        .post('r0/login', {
+          user_name: this.phone,
+          password: this.password,
+          types: 'phone',
+          equipment: 1, //web
+        })
+        .then(response => {
+          console.log(response)
+          if (response.data.errcode != null) {
+            alert('登录失败！')
+            return
+          }
+          if (response.status === 200) {
+            this.userName = response.data.UserName
+            localStorage.setItem('token', response.data.Token)
+          }
+          this.$router.push('/')
         })
     },
   },

@@ -512,7 +512,7 @@ export default {
         .then(response => {
           this.logoutResult = response.data
           localStorage.removeItem('token')
-          this.$router.go(0)
+          this.$router.push('/')
         })
     },
   },

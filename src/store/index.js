@@ -8,12 +8,12 @@ export default new Vuex.Store({
     isLogin: true, // 登录还是注册
   },
   getters: {
-    isLogin (state) {
+    isLogin(state) {
       return state.isLogin
     },
   },
   mutations: {
-    setIsLogin (state, payload) {
+    setIsLogin(state, payload) {
       state.isLogin = payload
     },
   },

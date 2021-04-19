@@ -296,11 +296,12 @@
                         </div>
                         <div style="width: 8px"></div>
                         <div
-                          v-text="username"
                           style="font-size: 16px;
                           font-weight: bold;
                           color: #FFFFFF;"
-                        ></div>
+                        >
+                          {{ username }}
+                        </div>
                       </v-btn>
                     </template>
                     <v-card>
@@ -659,10 +660,8 @@ export default {
       this.axios
         .post('/r0/getMyUserData', {}, { headers: { 'access-token': token } })
         .then(response => {
-          // alert('已登录提示！,userid:' + response.data.UserId)
           this.loginVue = false //显示登录代码
-          this.username = response.data.UserName
-          // console.log(response)
+          this.username = response.data.UserName.toLowerCase()
         })
     },
     eyeShow: function() {
