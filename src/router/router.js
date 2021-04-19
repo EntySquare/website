@@ -12,10 +12,31 @@ const routes = [
     name: 'Home',
     component: Home,
   },
+
   {
     path: '/',
     component: AuthLayout,
     children: [
+      {
+        path: '/AboutUs',//关于我们
+        name: 'AboutUs',
+        component: () => import('../views/home/aboutUs.vue'),
+      },
+      {
+        path: '/JoinCommunity',//加入社区
+        name: 'JoinCommunity',
+        component: () => import('../views/home/joinCommunity.vue'),
+      },
+      {
+        path: '/EnterpriseNews',//企业动态
+        name: 'EnterpriseNews',
+        component: () => import('../views/home/enterpriseNews.vue'),
+      },
+      {
+        path: '/Community',//社区
+        name: 'Community',
+        component: () => import('../views/home/community.vue'),
+      },
       {
         path: '/login',
         name: 'Login',

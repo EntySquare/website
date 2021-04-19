@@ -5,138 +5,142 @@
       <v-col cols="12">
         <div
           class="text-center"
-          style="height: 70px;font-size: 32px;font-family: STHeiti;font-weight: 400;font-weight: bold;color: #000000;line-height: 43px;"
+          style="font-size: 32px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #000000;line-height: 43px;"
         >
-          公开·公平·透明
+          使命宣言
         </div>
       </v-col>
-      <v-col class="col-12" style="height: 60px;"></v-col>
-      <v-col class="col-12">
+      <v-col class="col-12" style="height: 20px;"></v-col>
+      <v-col cols="6" offset="3">
         <div align="center">
-          <p
+          <div
             class="text--disabled"
-            style="font-size: 16px;width: 32vw; min-width: 819px"
+            style="font-size: 24px;
+                  font-family: Nunito-Regular, Nunito;
+                  font-weight: 400;
+                  color: #808080;
+                  line-height: 32px;"
           >
-            investors的创新团队拥有顶尖金融机构和领先技术公司的背景，为企业、家族基金、个人用户提供投资和融资的专业平台，旨在为新的，创新的，去中心化的金融市场作出贡献。
-          </p>
+            <p>
+              为新的，创新的，去中心化的金融市场做出贡献，应用于加密金融生态
+            </p>
+            帮助全球用户更高效、灵活的融入智能加密金融世界
+          </div>
         </div>
       </v-col>
       <v-col cols="12" style="height: 120px;"></v-col>
       <v-col cols="12">
         <div align="center" style="display: inline-flex; align-items: center">
-          <router-link to="/investPast">
           <v-btn
             id="btn1"
             text
             rounded
             class="btn"
-            style="width: 280px;height: 312px;"
-            @mouseover="showBtnMore1()"
-            @mouseout="hideBtnMore1()"
+            style="width: 280px;height: 312px;box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.04);"
           >
             <div align="center">
               <img
-                src="https://investors.oss-cn-beijing.aliyuncs.com/assets/investors_btn1.png"
+                src="https://investors.oss-cn-beijing.aliyuncs.com/assets/dwjdlfowhlafwekfjhwajlcsadljh01.png"
                 style="width: 120px; height:120px;"
               />
               <p
                 style="color: black; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif; text-transform: lowercase; margin-top: 20px; font-size: 20px"
               >
-                investors投资
+                安全
               </p>
+              <div
+                style="font-size: 12px;
+font-family: PingFangSC-Regular, PingFang SC;
+font-weight: 400;
+color: #808080;
+line-height: 17px;"
+              >
+                全面采用冷钱包100%保证用户
+                <div style="height: 2px;"></div>
+                数字资产的安全
+              </div>
               <div
                 class="text-center"
                 id="btnMore1"
                 style="display: none; margin-top: 25px"
               >
-                <p
-                  style="color: #00CFAC; display:inline-flex; font-size: 16px; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif"
-                >
-                  了解更多
-                </p>
                 <div
                   style="display: inline-flex; margin-left: 3px; margin-bottom: 4px; vertical-align: middle"
                 >
                   <img
-                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/arrow_green.png"
+                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/dwjdlfowhlafwekfjhwajlcsadljh01.png"
                     style="width:14px; height: 14px;"
                   />
                 </div>
               </div>
             </div>
           </v-btn>
-            </router-link>
-          <router-link to="/financial">
-          <v-btn
-            id="btn2"
-            text
-            rounded
-            class="btn"
-            style="width: 280px;height: 312px; margin-left: 50px"
-            @mouseover="showBtnMore2()"
-            @mouseout="hideBtnMore2()"
-          >
-            <div align="center">
-              <img
-                src="https://investors.oss-cn-beijing.aliyuncs.com/assets/investors_btn2.png"
-                style="width: 120px; height:120px;"
-              />
-              <p
-                style="color: black; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif; text-transform: lowercase; margin-top: 20px; font-size: 20px"
-              >
-                investors理财
-              </p>
-              <div
-                class="text-center"
-                id="btnMore2"
-                style="display: none; margin-top: 25px"
-              >
+
+          <router-link to="#">
+            <v-btn
+              id="btn2"
+              text
+              rounded
+              class="btn"
+              style="width: 280px;height: 312px; margin-left: 50px;box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.04);"
+            >
+              <div align="center">
+                <img
+                  src="https://investors.oss-cn-beijing.aliyuncs.com/assets/dwjdlfowhlafwekfjhwajlcsadljh02.png"
+                  style="width: 120px; height:120px;"
+                />
                 <p
-                  style="color: #00CFAC; display:inline-flex; font-size: 16px; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif"
+                  style="color: black; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif; text-transform: lowercase; margin-top: 20px; font-size: 20px"
                 >
-                  了解更多
+                  经验
                 </p>
                 <div
-                  style="display: inline-flex; margin-left: 3px; margin-bottom: 4px; vertical-align: middle"
+                  style="font-size: 12px;
+font-family: PingFangSC-Regular, PingFang SC;
+font-weight: 400;
+color: #808080;
+line-height: 17px;"
                 >
-                  <img
-                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/arrow_green.png"
-                    style="width:14px; height: 14px;"
-                  />
+                  数以百万计的TPS和分佈式架构
+                  <div style="height: 2px;"></div>
+                  为您带来卓越的交易体验
                 </div>
               </div>
-            </div>
-          </v-btn>
-            </router-link>
+            </v-btn>
+          </router-link>
           <v-btn
             id="btn3"
             text
             rounded
             class="btn"
-            style="width: 280px;height: 312px; margin-left: 50px"
-            @mouseover="showBtnMore3()"
-            @mouseout="hideBtnMore3()"
+            style="width: 280px;height: 312px; margin-left: 50px;box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.04);"
           >
             <div align="center">
               <img
-                src="https://investors.oss-cn-beijing.aliyuncs.com/assets/investors_btn3.png"
+                src="https://investors.oss-cn-beijing.aliyuncs.com/assets/dwjdlfowhlafwekfjhwajlcsadljh03.png"
                 style="width: 120px; height:120px;"
               />
               <p
                 style="color: black; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif; text-transform: lowercase; margin-top: 20px; font-size: 20px"
               >
-                企业动态
+                创新
               </p>
+              <div
+                style="font-size: 12px;
+font-family: PingFangSC-Regular, PingFang SC;
+font-weight: 400;
+color: #808080;
+line-height: 17px;"
+              >
+                通过强大的全球的合作伙伴网络
+                <div style="height: 2px;"></div>
+                提供充足流动性
+              </div>
               <div
                 class="text-center"
                 id="btnMore3"
                 style="display: none; margin-top: 25px"
               >
-                <p
-                  style="color: #00CFAC; display:inline-flex; font-size: 16px; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif"
-                >
-                  了解更多
-                </p>
                 <div
                   style="display: inline-flex; margin-left: 3px; margin-bottom: 4px; vertical-align: middle"
                 >
@@ -152,271 +156,105 @@
       </v-col>
       <v-col cols="12" style="height: 120px;"></v-col>
       <v-col cols="12" class="text-center">
-        <v-col cols="12">
-          <div
-            style="font-size: 32px;font-family: STHeiti;font-weight: 400;font-weight: bold;color: #000000;line-height: 43px;"
-          >
-            合规优势
-          </div>
-        </v-col>
-        <v-col cols="12" style="height: 120px;"></v-col>
-        <v-col cols="12">
-          <div align="center" style="align-items: center">
-            <v-row class="bubble_left" style="text-align: center;">
-              <v-col cols="5">
-                <div>
-                  <img
-                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/bubble1.png"
-                    style="width: 50%; height: auto;"
-                  />
-                </div>
-              </v-col>
-              <v-col cols="7">
-                <div class="text-left" style="align-items: center">
-                  <p
-                    style="color: black; font-family: STHeiti; font-size: 24px; font-weight: bold;"
-                  >
-                    专业
-                  </p>
-                  <p
-                    class="text--disabled"
-                    style="color: black; font-family: STHeiti; font-size: 16px;"
-                  >
-                    核心团队来自高盛、Facebook、Google、UBS、AIA
-                  </p>
-                  <p
-                    class="text--disabled"
-                    style="color: black; font-family: STHeiti; font-size: 16px;"
-                  >
-                    总交易量超过2,500亿美元，月均交易量百亿美元
-                  </p>
-                  <p
-                    class="text--disabled"
-                    style="color: black; font-family: STHeiti; font-size: 16px;"
-                  >
-                    为全球知名大型机构、家族基金以及个人用户提供机构级服务
-                  </p>
-                </div>
-              </v-col>
-            </v-row>
-            <v-col cols="12" style="height: 60px;"></v-col>
-            <v-row class="bubble_right" style="align-items: center;">
-              <v-col cols="7">
-                <div align="right">
-                  <div class="text-left" style="width: 78%; max-width: 430px">
-                    <p
-                      style="color: black; font-family: STHeiti; font-size: 24px; font-weight: bold"
-                    >
-                      合规
-                    </p>
-                    <p
-                      class="text--disabled"
-                      style="color: black; font-family: STHeiti; font-size: 16px"
-                    >
-                      获得美国及加拿大MSB牌照（Money Service Business）
-                    </p>
-                    <p
-                      class="text--disabled"
-                      style="color: black; font-family: STHeiti; font-size: 16px"
-                    >
-                      拥有从事数字货币、外汇、期货等金融业务的资质
-                    </p>
-                    <p
-                      class="text--disabled"
-                      style="color: black; font-family: STHeiti; font-size: 16px"
-                    >
-                      实施严格的KYC认证与反洗钱策略
-                    </p>
-                  </div>
-                </div>
-              </v-col>
-              <v-col cols="5">
-                <div>
-                  <img
-                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/bubble2.png"
-                    style="width: 50%; height: auto; margin-right: 50px"
-                  />
-                </div>
-              </v-col>
-            </v-row>
-            <v-col cols="12" style="height: 60px;"></v-col>
-            <v-row class="bubble_left" style="text-align: center;">
-              <v-col cols="5">
-                <div>
-                  <img
-                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/bubble3.png"
-                    style="width: 50%; height: auto;"
-                  />
-                </div>
-              </v-col>
-              <v-col cols="7">
-                <div class="text-left" style="align-items: center">
-                  <p
-                    style="color: black; font-family: STHeiti; font-size: 24px; font-weight: bold;"
-                  >
-                    安全
-                  </p>
-                  <p
-                    class="text--disabled"
-                    style="color: black; font-family: STHeiti; font-size: 16px;"
-                  >
-                    与加密资产安全托管商Fireblocks、BitGo达成战略合作
-                  </p>
-                  <p
-                    class="text--disabled"
-                    style="color: black; font-family: STHeiti; font-size: 16px;"
-                  >
-                    采用业内领先的MPC技术，保障账户安全
-                  </p>
-                  <p
-                    class="text--disabled"
-                    style="color: black; font-family: STHeiti; font-size: 16px;"
-                  >
-                    25%的公司预算投入在信息安全体系中，远超行业平均水平
-                  </p>
-                </div>
-              </v-col>
-            </v-row>
-            <v-col cols="12" style="height: 60px;"></v-col>
-            <v-row class="bubble_right" style="align-items: center;">
-              <v-col cols="8">
-                <div align="right">
-                  <div class="text-left" style="max-width: 500px">
-                    <p
-                      style="color: black; font-family: STHeiti; font-size: 24px; font-weight: bold"
-                    >
-                      全球化
-                    </p>
-                    <p
-                      class="text--disabled"
-                      style="color: black; font-family: STHeiti; font-size: 16px"
-                    >
-                      业务覆盖全球，已为全球超80个国家/地区用户提供全年7*24小时服务
-                    </p>
-                    <p
-                      class="text--disabled"
-                      style="color: black; font-family: STHeiti; font-size: 16px"
-                    >
-                      在全球超过100个电子化交易平台进行交易
-                    </p>
-                    <p
-                      class="text--disabled"
-                      style="color: black; font-family: STHeiti; font-size: 16px"
-                    >
-                      总部位于韩国首尔，在英国、温哥华、新加坡设有分支机构
-                    </p>
-                  </div>
-                </div>
-              </v-col>
-              <v-col cols="4">
-                <div>
-                  <img
-                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/bubble4.png"
-                    style="width: 63%; height: auto; margin-right: 100px"
-                  />
-                </div>
-              </v-col>
-            </v-row>
-          </div>
-        </v-col>
-      </v-col>
-      <v-col cols="12" style="height: 120px;"></v-col>
-      <v-col cols="12" class="text-center" style="height: 45px;">
-        <div
-          style="height: 45px;
-font-size: 32px;
-font-family: PingFang-SC-Semibold, PingFang-SC;
-font-weight: 600;
-color: #000000;
-line-height: 45px;"
-        >
-          企业动态
-        </div>
-      </v-col>
-      <v-col cols="12" style="height: 120px;"></v-col>
-      <v-col cols="12" class="text-center">
-        <v-img
-          src="https://investors.oss-cn-beijing.aliyuncs.com/assets/qydt1.png"
-          style="width:100%;height:100%;"
-        >
-          <v-col cols='6' offset='3'>
-            <div style='height: 40px'></div>
-            <v-img src='
-https://investors.oss-cn-beijing.aliyuncs.com/assets/qiyedongtai001.png'
-                   style="width: 100%; height: auto;"></v-img>
-          </v-col>
-
-        </v-img>
-
-      </v-col>
-      <v-col cols="12" style="height: 120px;"></v-col>
-      <v-col class="col-12 text-center">
-        <v-col class="mb-12 text-center">
-          <div
-            style="height: 45px;
-font-size: 32px;
-font-family: Nunito-SemiBold, Nunito;
-font-weight: 600;
-color: #000000;
-line-height: 43px;"
-          >
-            投资机构
-          </div>
-        </v-col>
-
-        <v-col cols="12" style="height: 336px;">
+        <v-col cols="6" offset="3">
           <v-row>
-            <v-col cols="3"></v-col>
-            <v-col cols="6">
-              <v-row style="height: 150px;">
-                <v-col cols="3"
-                  ><img
-                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/hezuo_logo1.png"
-                    style="width:100%;height:auto;"
-                /></v-col>
-                <v-col cols="3"
-                  ><img
-                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/hezuo_logo2.png"
-                    style="width:100%;height:auto;"
-                /></v-col>
-                <v-col cols="3"
-                  ><img
-                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/hezuo_logo3.png"
-                    style="width:100%;height:auto;"
-                /></v-col>
-                <v-col cols="3"
-                  ><img
-                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/hezuo_logo4.png"
-                    style="width:100%;height:auto;"
-                /></v-col>
-              </v-row>
-              <v-row style="height: 30px;"></v-row>
-              <v-row style="height: 150px;">
-                <v-col cols="3"
-                  ><img
-                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/hezuo_logo5.png"
-                    style="width:100%;height:auto;"
-                /></v-col>
-                <v-col cols="3"
-                  ><img
-                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/hezuo_logo6.png"
-                    style="width:100%;height:auto;"
-                /></v-col>
-                <v-col cols="3"
-                  ><img
-                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/hezuo_logo7.png"
-                    style="width:100%;height:auto;"
-                /></v-col>
-                <v-col cols="3"
-                  ><img
-                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/hezuo_logo8.png"
-                    style="width:100%;height:auto;"
-                /></v-col>
-              </v-row>
+            <v-col cols="4">
+              <div
+                style="font-size: 48px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #00CFAC;line-height: 66px;"
+              >
+                180+
+              </div>
+              <div style="height: 20px"></div>
+              <div
+                style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;line-height: 22px;"
+              >
+                覆盖国家
+              </div>
             </v-col>
-            <v-col cols="3"></v-col>
+            <v-col cols="3">
+              <div
+                style="font-size: 48px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #00CFAC;line-height: 66px;"
+              >
+                $6.0亿+
+              </div>
+              <div style="height: 20px"></div>
+              <div
+                style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;line-height: 22px;"
+              >
+                资产管理
+              </div>
+            </v-col>
+            <v-col cols="5">
+              <div
+                style="font-size: 48px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #00CFAC;line-height: 66px;"
+              >
+                3,800,000+
+              </div>
+              <div style="height: 20px"></div>
+              <div
+                style="font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;line-height: 22px;"
+              >
+                服务客户
+              </div>
+            </v-col>
           </v-row>
         </v-col>
+        <div style="height: 100px"></div>
+        <v-col cols="10" offset="1">
+          <v-img
+            src="https://investors.oss-cn-beijing.aliyuncs.com/assets/cklsdjcslkfwl.png"
+            class="my-3"
+            contain
+            width="100%"
+          >
+            <v-col cols="6" offset="6" style="height: 40%"></v-col>
+            <v-col cols="6" offset="6" style="height: 60%">
+              <div
+                style="font-size: 32px;
+font-family: Nunito-SemiBold, Nunito;
+font-weight: 600;
+color: #FFFFFF;
+line-height: 43px;"
+                align="left"
+              >
+                公司介绍
+              </div>
+              <div style="height: 40px"></div>
+              <div style="height: 20px"></div>
+              <div
+                align="left"
+                style="
+width: 90%;
+font-size: 18px;
+font-family: Nunito-Regular, Nunito;
+font-weight: 400;
+color: #FFFFFF;
+line-height: 24px;"
+              >
+                <div style="height: 20px;width: 30px;float:left"></div>
+                investors成立于2021年，总部位于韩国首尔，业内领先的全球化加密金融智能服务提供商，企业创始人均来自高盛、Facebook、Google、UBS、AIA等世界著名公司的精英。investors业务覆盖全球，在全球超过100个电子化交易平台进行交易，在英国、中国、温哥华均设有分支机构，为500多家知名大型机构提供全年24小时全天候服务。
+              </div>
+              <div style="height: 20px"></div>
+              <div
+                align="left"
+                style="
+width: 90%;
+font-size: 18px;
+font-family: Nunito-Regular, Nunito;
+font-weight: 400;
+color: #FFFFFF;
+line-height: 24px;"
+              >
+                <div style="height: 20px;width: 30px;float:left"></div>
+                investors旨在为新的，创新的，去中心化的金融市场做出贡献，应用于加密金融生态，帮助全球用户更高效、灵活的融入智能加密金融世界，并持续为其创造长期价值。在2021年3月完成
+                2,800万美元融资，由全球尖端机构Hillstone领投，参与方有Polychain、Dragonfly、Fenbushi、Coinbase等著名投资机构。
+              </div>
+            </v-col>
+          </v-img>
+        </v-col>
+      </v-col>
+      <div style="height: 200px"></div>
+      <v-col class="col-12 text-center">
         <v-col cols="12" style="height: 120px;"> </v-col>
         <v-col class="mb-12 text-center">
           <div
@@ -430,49 +268,6 @@ line-height: 43px;"
             路线图
           </div>
         </v-col>
-
-        <!-- <v-row>
-          <v-col cols="3"></v-col>
-         <v-col cols="6" style="width: 100%;height: 311px;background: #F0F0FF;">
-             <swiper class="swiper" :options="swiperOption">
-               
-              <swiper-slide>
-                <div style="height:40px"></div>
-                <div style="width: 654px;height: 150px;background: #FFFFFF;padding:20px 20px 20px 20px;border-radius: 3px;">
-                  <div align="left" style="">investors App上线收益优先·满足跟高投资需求</div>
-                  <div align="left" style="">为用户创造更加安全、透明的加密金融生态</div>
-                  <div style="height:32px"></div>
-                  <div align="left" style="">investors</div>
-                  <div align="left" style="">首席执行官</div>
-                  <div align="right" style="">2012.03.05</div>
-                </div>
-              </swiper-slide>
-              <swiper-slide>
-                <div style="height:40px"></div>
-                <div style="width: 654px;height: 150px;background: #FFFFFF;padding:20px 20px 20px 20px;border-radius: 3px;">
-                  <div align="left" style="">investors App上线收益优先·满足跟高投资需求</div>
-                  <div align="left" style="">为用户创造更加安全、透明的加密金融生态</div>
-                  <div style="height:32px"></div>
-                  <div align="left" style="">investors</div>
-                  <div align="left" style="">首席执行官</div>
-                  <div align="right" style="">2012.03.05</div>
-                </div>
-              </swiper-slide>
-              <swiper-slide>Slide 3</swiper-slide>
-              <swiper-slide>Slide 4</swiper-slide>
-              <swiper-slide>Slide 5</swiper-slide>
-              <swiper-slide>Slide 6</swiper-slide>
-              <swiper-slide>Slide 7</swiper-slide>
-              <swiper-slide>Slide 8</swiper-slide>
-              <swiper-slide>Slide 9</swiper-slide>
-              <swiper-slide>Slide 10</swiper-slide>
-              
-              <div class="swiper-pagination" slot="pagination"></div>
-            </swiper>
-        </v-col>
-          <v-col cols="3"></v-col>
-    </v-row> -->
-
         <v-row>
           <v-col cols="3"></v-col>
           <v-col cols="6">
@@ -740,8 +535,147 @@ line-height: 43px;"
             <v-col cols="3"></v-col>
           </v-row>
         </v-col>
+        <div style="height: 120px"></div>
+        <div
+          style="height: 45px;
+font-size: 32px;
+font-family: Nunito-SemiBold, Nunito;
+font-weight: 600;
+color: #000000;
+line-height: 43px;"
+        >
+          我们的办事处
+        </div>
+        <div style="height: 100px"></div>
+        <v-col cols="6" offset="3" style="">
+          <v-row>
+            <v-col cols="2" style="">
+              <div style="height: 20px"></div>
+              <div style="height: 30%;">
+                <div
+                  style="font-size: 48px;
+font-family: Nunito-SemiBold, Nunito;
+font-weight: 600;
+color: #00CFAC;
+line-height: 66px;"
+                >
+                  400+
+                </div>
+                <div
+                  style="font-size: 16px;
+font-family: PingFangSC-Regular, PingFang SC;
+font-weight: 400;
+color: #000000;
+line-height: 22px;"
+                >
+                  团队成员
+                </div>
+              </div>
+              <div style="height: 10px"></div>
+              <div style="height: 30%;">
+                <div
+                  style="font-size: 48px;
+font-family: Nunito-SemiBold, Nunito;
+font-weight: 600;
+color: #00CFAC;
+line-height: 66px;"
+                >
+                  40+
+                </div>
+                <div
+                  style="font-size: 16px;
+font-family: PingFangSC-Regular, PingFang SC;
+font-weight: 400;
+color: #000000;
+line-height: 22px;"
+                >
+                  国籍
+                </div>
+              </div>
+              <div style="height: 10px"></div>
+              <div style="height: 30%;">
+                <div
+                  style="font-size: 48px;
+font-family: Nunito-SemiBold, Nunito;
+font-weight: 600;
+color: #00CFAC;
+line-height: 66px;"
+                >
+                  3
+                </div>
+                <div
+                  style="font-size: 16px;
+font-family: PingFangSC-Regular, PingFang SC;
+font-weight: 400;
+color: #000000;
+line-height: 22px;"
+                >
+                  办事处
+                </div>
+              </div>
+            </v-col>
+            <v-col cols="10">
+              <v-img
+                src="https://investors.oss-cn-beijing.aliyuncs.com/assets/ditu001.png"
+                class="my-3"
+                contain
+                width="100%"
+              >
+              </v-img>
+            </v-col>
+          </v-row>
+        </v-col>
       </v-col>
     </v-row>
+    <div style="height: 100px"></div>
+    <v-col
+      cols="6"
+      class="text-center"
+      offset="3"
+      style="height: 300px;width: 100%;background: #FFFFFF;border-radius: 36px;box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.04);"
+    >
+      <div style="height: 20px"></div>
+      <div
+        style="font-size: 32px;
+font-family: PingFang-SC-Semibold, PingFang-SC;
+font-weight: 600;
+color: #000000;
+line-height: 40px;"
+      >
+        让我们共建未来
+      </div>
+      <div style="height: 20px"></div>
+      <div
+        style="font-size: 12px;
+font-family: PingFang-SC-Semibold, PingFang-SC;
+font-weight: 600;
+color: #808080;
+line-height: 17px;"
+      >
+        借助investors平台，将您的财务自由带入全新高度。
+      </div>
+      <div style="height: 30px"></div>
+      <div
+        style="width: 60%;height: 50px;margin: 0 auto;background: #d8d8d8;border-radius: 24px;"
+      >
+        <input
+          style="outline:medium;height: 100%;width: 92%;color: #0C0C0C"
+          name="t2"
+          value=""
+          placeholder="输入您的邮箱号订阅我们的信息"
+        />
+        <v-btn
+          style="width: 136px;float:right;
+    height: 50px;
+    background: linear-gradient(204deg, #00FFBC 0%, #5B7ADE 100%);;
+    border-radius: 24px;color: #FFFFFF;margin-top: -50px"
+        >
+          提交
+        </v-btn>
+      </div>
+    </v-col>
+
+    <div style="height: 200px"></div>
   </v-container>
 </template>
 
@@ -832,40 +766,5 @@ export default {
 }
 .swiper-slide:nth-child(3n) {
   width: 70%;
-}
-.btn {
-  font-size: 20px;
-  border-radius: 26px;
-  text-align: center;
-  box-shadow: 14px 10px 40px 0 rgba(15, 15, 15, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  padding: 48px 0;
-}
-
-.bubble_left {
-  width: 100%;
-  height: 350px;
-  background: #ffffff;
-  border-radius: 175px 175px 175px 175px;
-  align-items: center;
-  max-width: 960px;
-  box-shadow: -1px 0px 40px 0px #ffffff, -30px 0px 40px 0 rgba(15, 15, 15, 0.1);
-  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-  transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
-}
-
-.bubble_right {
-  width: 100%;
-  height: 350px;
-  background: #ffffff;
-  border-radius: 175px 175px 175px 175px;
-  align-items: center;
-  max-width: 960px;
-  box-shadow: 1px 0px 40px 0px #ffffff, 30px 0px 40px 0 rgba(15, 15, 15, 0.1);
-  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-  transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
 }
 </style>
