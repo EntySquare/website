@@ -450,9 +450,9 @@ padding: 0px 0px 0px 40px"
                 line-height: 20px; cursor: pointer"
                 >站内转账</v-col
               >
+              <!--              @click="t1 = true"-->
               <v-col
                 cols="6"
-                @click="t1 = false"
                 style="font-size: 20px;
                   font-weight: 600;
                   color: #808080;
@@ -913,7 +913,6 @@ padding: 0px 0px 0px 40px"
                     <div
                       @click="txdz_code_num = apidata.HSF.numOk"
                       style="font-size: 14px;
-                  font-family: PingFang-SC-Semibold, PingFang-SC;
                   font-weight: 600;
                   color: #06D0AE;
                   line-height: 20px;"
@@ -927,8 +926,6 @@ padding: 0px 0px 0px 40px"
           </v-col>
           <v-col cols="1"> </v-col>
         </v-row>
-
-        <!--        <p style='margin: 20px'></p>-->
         <v-row style="width: 100%;margin: 0px;">
           <v-col cols="1"></v-col>
           <v-col cols="10">
