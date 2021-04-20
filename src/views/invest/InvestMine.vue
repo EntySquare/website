@@ -4,7 +4,7 @@
       <div class="container2" style="padding-top: 80px;">
         <router-link to="/investPast">
           <v-img
-            src="../../assets/invest_icon.png"
+            src="https://investors.oss-cn-beijing.aliyuncs.com/assets/invest/my_project_icon.png"
             style="width:36px;vertical-align:bottom;display:inline-block"
           />
         </router-link>
@@ -76,10 +76,10 @@
               </div>
               <v-progress-linear
                 style="height:10px;width:600px;border-radius: 5px;"
-                v-model="valueDeterminate"
                 background-color="#F7F8FB"
-                color="#00CFAC"
+                color="linear-gradient(90deg, #00E9D6 0%, #00CFAC 100%);"
                 class="unFinish"
+                v-bind:value="progressValue1"
               ></v-progress-linear>
             </v-col>
           </v-row>
@@ -126,16 +126,16 @@
               </div>
               <div style="width: 452px"></div>
               <div style="color:#00CFAC;font-size:14px;margin-top: 20px;">
-                90%
+                60%
               </div>
             </div>
             <v-progress-linear
               style="height:10px;width:600px;border-radius: 5px;"
               rounded
-              v-model="valueDeterminate"
               background-color="#F7F8FB"
               color="#00CFAC"
               class="finish"
+              v-bind:value="progressValue2"
             ></v-progress-linear>
           </v-col>
         </v-row>
@@ -186,10 +186,10 @@
             </div>
             <v-progress-linear
               style="height:10px;width:600px;border-radius: 5px;"
-              v-model="valueDeterminate"
               background-color="#F7F8FB"
               color="#00CFAC"
               class="unFinish"
+              v-bind:value="progressValue3"
             ></v-progress-linear>
           </v-col>
         </v-row>
@@ -203,7 +203,9 @@ export default {
   name: 'InvestMine',
   data() {
     return {
-      valueDeterminate: 90,
+      progressValue1: '90',
+      progressValue2: '60',
+      progressValue3: '90',
       top: 750,
     }
   },

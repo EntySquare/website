@@ -14,9 +14,9 @@
           <div style="padding: 39px 40px 49px 40px">
             <div class="d-inline-flex">
               <div
-                style="font-size: 48px;font-family: Nunito-ExtraBold, Nunito;font-weight: 800;color: #00CFAC;line-height: 48px;"
+                style="font-size: 48px; font-weight: 800;color: #00CFAC;line-height: 48px;"
               >
-                {{info.AnnualizedIncome}}%
+                %
               </div>
               <div style="width: 12px"></div>
               <div
@@ -37,7 +37,8 @@
                 <div
                   style="font-size: 16px;font-weight: 400;color: #333333;line-height: 16px;"
                 >
-                  {{info.Total}} USDT
+                  <!--                  {{ info.Total }} USDT-->
+                  USDT
                 </div>
               </div>
               <div style="width: 64px"></div>
@@ -51,7 +52,7 @@
                 <div
                   style="font-size: 16px;font-weight: 400;color: #00CFAC;line-height: 16px;"
                 >
-                  {{info.Total-info.CompleteGoal}} USDT
+                  USDT
                 </div>
               </div>
             </div>
@@ -62,10 +63,7 @@
               <div
                 style="margin-top: 3px; width:46px;height:18px;background: linear-gradient(225deg, #00E9D6 0%, #00CFAC 100%);border-radius: 4px;text-align:center;color:#fff;font-size:10px;font-weight:400;"
               >
-                <div v-if = "info.Total-info.CompleteGoal == 0">
-                 已完成
-                </div>
-                <div v-else>
+                <div>
                   进行中
                 </div>
               </div>
@@ -73,7 +71,6 @@
             <div style="height: 20px"></div>
             <v-progress-linear
               style="height:10px;width:358px;border-radius: 5px;"
-              :value="info.CompleteGoal/info.Total*100"
               background-color="#F7F8FB"
               color="#00CFAC"
               class="unFinish"
@@ -82,9 +79,9 @@
             <v-btn
               width="340px"
               height="56px"
-              text
+              depressed
               rounded
-              @click="investBtnFlag = true"
+              @click="investDialogFlag = true"
               style="color: #FFFFFF; background: linear-gradient(90deg, #00CFAC 0%, #5B7ADE 100%);"
             >
               <div
@@ -95,7 +92,7 @@
             </v-btn>
             <v-dialog
               content-class="rounded-xl"
-              v-model="investBtnFlag"
+              v-model="investDialogFlag"
               width="400"
               height="350"
             >
@@ -135,12 +132,17 @@
                 </span>
                 <div class="d-inline-flex">
                   <div style="font-size: 14px;font-weight: 400;color: #9F9FA4;">
-                    可用 {{usdtAvliable}} USDT
+                    可用USDT
                   </div>
                   <div style="width: 12px"></div>
-                  <div style="font-size: 14px;font-weight: 400;color: #00CFAC;">
-                    充值
-                  </div>
+                  <router-link to="/wallet">
+                    <div
+                      style="font-size: 14px;font-weight: 400;
+                  color: #00CFAC; cursor: pointer"
+                    >
+                      充值
+                    </div>
+                  </router-link>
                 </div>
                 <div style="height: 40px"></div>
                 <v-btn
@@ -148,13 +150,14 @@
                   height="56px"
                   text
                   rounded
-                  @click="investBtnFlag = true"
                   style="color: #FFFFFF; background: linear-gradient(90deg, #00CFAC 0%, #5B7ADE 100%);"
                 >
                   <div
-                    style="width: 48px;height: 22px;font-size: 16px;font-weight: 600;color: #FFFFFF;"
+                    style="width: 48px;height: 22px;font-size: 16px;font-weight: 600;
+                    color: #FFFFFF;"
+                    @click="investMoney()"
                   >
-                    <p   @click="investMoney()">投资</p>
+                    投资
                   </div>
                 </v-btn>
               </div>
@@ -173,13 +176,12 @@
           <div>
             <div class="d-inline-flex">
               <div>
-                <router-link to="/">
-                  <v-img
-                    width="32px"
-                    height="32px"
-                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/invest/arrow_green_dark.png"
-                  ></v-img>
-                </router-link>
+                <v-img
+                  width="32px"
+                  height="32px"
+                  src="https://investors.oss-cn-beijing.aliyuncs.com/assets/invest/arrow_green_dark.png"
+                  @click="clickBack()"
+                ></v-img>
               </div>
               <div style="width: 16px"></div>
               <div
@@ -203,7 +205,7 @@
               <div class="d-inline-flex" style="width: 12px;"></div>
               <span
                 style="width: 40px;height: 16px;font-size: 16px;font-weight: 600;color: #FFFFFF;line-height: 16px;"
-                >{{info.Cycle}}天</span
+                >天</span
               >
               <div class="d-inline-flex" style="width: 34px;"></div>
               <span
@@ -213,7 +215,7 @@
               <div class="d-inline-flex" style="width: 12px;"></div>
               <span
                 style="width: 40px;height: 16px;font-size: 16px;font-weight: 600;color: #FFFFFF;line-height: 16px;"
-                >{{info.MinimumInvestment}} USDT</span
+                >USDT</span
               >
             </div>
           </div>
@@ -748,124 +750,153 @@
         </v-tab-item>
         <v-tab-item :value="`tab-4`">
           <div>
-            <v-col cols='6' offset='3' style='background: #FAFBFC;height: 1811px;padding: 0px 24px 0px 24px'>
-              <div style='height: 60px'></div>
-              <div style='width: 196px;
+            <v-col
+              cols="6"
+              offset="3"
+              style="background: #FAFBFC;height: 1811px;padding: 0px 24px 0px 24px"
+            >
+              <div style="height: 60px"></div>
+              <div
+                style="width: 196px;
                           height: 24px;
                           font-size: 24px;
-                          font-family: PingFang-SC-Semibold, PingFang-SC;
                           font-weight: 600;
                           color: #000000;
-                          line-height: 24px;'>
+                          line-height: 24px;"
+              >
                 常见问题
               </div>
-              <div style='height: 24px'></div>
-              <div  style='background: #FFFFFF;border-radius: 18px;height: 1582px;padding: 0px 24px 0px 24px'>
-                <div style='height: 38px'></div>
-                <div style='width: 198px;height: 18px;font-size: 18px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;line-height: 18px;'>
+              <div style="height: 24px"></div>
+              <div
+                style="background: #FFFFFF;border-radius: 18px;height: 1582px;padding: 0px 24px 0px 24px"
+              >
+                <div style="height: 38px"></div>
+                <div
+                  style="width: 198px;height: 18px;font-size: 18px; font-weight: 500;color: #000000;line-height: 18px;"
+                >
                   投资需要满足什么条件？
                 </div>
-                <div style='height: 38px'></div>
-                <div style='
-                            width: 100%;
-                            height: 50px;
-                            font-size: 18px;
-                            font-family: PingFangSC-Regular, PingFang SC;
-                            font-weight: 400;
-                            color: #808080;
-                            line-height: 25px;'>
+                <div style="height: 38px"></div>
+                <div
+                  style="
+                        width: 100%;
+                        height: 50px;
+                        font-size: 18px;
+                        font-weight: 400;
+                        color: #808080;
+                        line-height: 25px;"
+                >
                   当您的资产账户满足最小起购条件，即可购买投资产品。同时，我们建议您仔细阅读投资规则说明。以确保您完全理解了投资的收益与风险。
                 </div>
-                <div style='height: 38px'></div>
-                <div style='width: 100%;
+                <div style="height: 38px"></div>
+                <div
+                  style="width: 100%;
                             height: 1px;
-                            border: 1px solid #F1F1F2;'>
-                </div>
-                <div style='height: 38px'></div>
-                <div style='width: 100%;height: 18px;font-size: 18px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;line-height: 18px;'>
+                            border: 1px solid #F1F1F2;"
+                ></div>
+                <div style="height: 38px"></div>
+                <div
+                  style="width: 100%;height: 18px;font-size: 18px; font-weight: 500;color: #000000;line-height: 18px;"
+                >
                   购买后能在立项前撤销吗？
                 </div>
-                <div style='height: 38px'></div>
-                <div style='
+                <div style="height: 38px"></div>
+                <div
+                  style="
                             width: 100%;
                             height: 50px;
                             font-size: 18px;
-                            font-family: PingFangSC-Regular, PingFang SC;
                             font-weight: 400;
                             color: #808080;
-                            line-height: 25px;'>
+                            line-height: 25px;"
+                >
                   当您购买成功后可以撤销，持有到期后自动回款结算。
                 </div>
-                <div style='height: 38px'></div>
-                <div style='width: 100%;
+                <div style="height: 38px"></div>
+                <div
+                  style="width: 100%;
                             height: 1px;
-                            border: 1px solid #F1F1F2;'>
-                </div>
-                <div style='height: 38px'></div>
+                            border: 1px solid #F1F1F2;"
+                ></div>
+                <div style="height: 38px"></div>
 
-                <div style='width: 100%;height: 18px;font-size: 18px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;line-height: 18px;'>
+                <div
+                  style="width: 100%;height: 18px;font-size: 18px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;line-height: 18px;"
+                >
                   什么时候以什么方式回款？
                 </div>
-                <div style='height: 38px'></div>
-                <div style='
+                <div style="height: 38px"></div>
+                <div
+                  style="
                             width: 100%;
                             height: 50px;
                             font-size: 18px;
                             font-family: PingFangSC-Regular, PingFang SC;
                             font-weight: 400;
                             color: #808080;
-                            line-height: 25px;'>
-                  产品立项确定后16:30 (UTC+8) 前收到您的回款。回款将直接转入您的HSF账户，不需要手动操作。
+                            line-height: 25px;"
+                >
+                  产品立项确定后16:30 (UTC+8)
+                  前收到您的回款。回款将直接转入您的HSF账户，不需要手动操作。
                 </div>
-                <div style='height: 38px'></div>
-                <div style='width: 100%;
+                <div style="height: 38px"></div>
+                <div
+                  style="width: 100%;
                             height: 1px;
-                            border: 1px solid #F1F1F2;'>
-                </div>
-                <div style='height: 38px'></div>
+                            border: 1px solid #F1F1F2;"
+                ></div>
+                <div style="height: 38px"></div>
 
-                <div style='width: 100%;height: 18px;font-size: 18px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;line-height: 18px;'>
+                <div
+                  style="width: 100%;height: 18px;font-size: 18px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;line-height: 18px;"
+                >
                   产品购买截至时间
                 </div>
-                <div style='height: 38px'></div>
-                <div style='
+                <div style="height: 38px"></div>
+                <div
+                  style="
                             width: 100%;
                             height: 50px;
                             font-size: 18px;
-                            font-family: PingFangSC-Regular, PingFang SC;
                             font-weight: 400;
                             color: #808080;
-                            line-height: 25px;'>
-                  产品购买到期日前一天在23:59:59之前都可以下单。比如到期日8月2号持仓期限为1天的投资产品，购买截至时间就是8月1号23:59:59 之前，产品还有剩余可够量，用户都可以下单购买。
+                            line-height: 25px;"
+                >
+                  产品购买到期日前一天在23:59:59之前都可以下单。比如到期日8月2号持仓期限为1天的投资产品，购买截至时间就是8月1号23:59:59
+                  之前，产品还有剩余可够量，用户都可以下单购买。
                 </div>
-                <div style='height: 38px'></div>
-                <div style='width: 100%;
+                <div style="height: 38px"></div>
+                <div
+                  style="width: 100%;
                             height: 1px;
-                            border: 1px solid #F1F1F2;'>
-                </div>
-                <div style='height: 38px'></div>
+                            border: 1px solid #F1F1F2;"
+                ></div>
+                <div style="height: 38px"></div>
 
-                <div style='width: 100%;height: 18px;font-size: 18px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;line-height: 18px;'>
+                <div
+                  style="width: 100%;height: 18px;font-size: 18px; font-weight: 500;color: #000000;line-height: 18px;"
+                >
                   是否有最小投资金额与最大投资金额的限制？
                 </div>
-                <div style='height: 38px'></div>
-                <div style='
+                <div style="height: 38px"></div>
+                <div
+                  style="
                             width: 100%;
                             height: 50px;
                             font-size: 18px;
-                            font-family: PingFangSC-Regular, PingFang SC;
                             font-weight: 400;
                             color: #808080;
-                            line-height: 25px;'>
+                            line-height: 25px;"
+                >
                   最小投资金额即是1份产品投资的单价，最大投资金额即是该投资产品的剩余可购量。
                 </div>
-                <div style='height: 38px'></div>
-                <div style='width: 100%;
+                <div style="height: 38px"></div>
+                <div
+                  style="width: 100%;
                             height: 1px;
-                            border: 1px solid #F1F1F2;'>
-                </div>
-                <div style='height: 38px'></div>
-
+                            border: 1px solid #F1F1F2;"
+                ></div>
+                <div style="height: 38px"></div>
               </div>
             </v-col>
           </div>
@@ -886,40 +917,68 @@ export default {
     this.GetData() //需要触发的函数
     this.createcode()
   },
+  data() {
+    return {
+      tab: 'tab-1',
+      tabTrans: null,
+      tabProduct: null,
+      valueDeterminate: 90,
+      investBtnFlag: '',
+      investDialogFlag: '',
+      investValue: '',
+      info: '',
+      usdtAvliable: '',
+    }
+  },
   methods: {
-    investMoney: function(){
+    investMoney: function() {
       const token = localStorage.getItem('token')
       this.axios
-              .post(
-                      '/t0/invest/passed',
-                      { 'project_id':this.$route.query.projectid,'user_id':this.$route.query.userid,'invest_number': this.investValue},
-                      { headers: { 'access-token': token,'Content-Type': 'application/json'} }
-              )
-              .then(response => {
-                this.investBtnFlag = false
-                if(response.data.success == 'true') {
-                  alert(response.data.last)
-                }
-                else{
-                  alert(response.data.success)
-                }
-
-              })
+        .post(
+          '/t0/invest/passed',
+          {
+            project_id: this.$route.query.projectid,
+            user_id: this.$route.query.userid,
+            invest_number: this.investValue,
+          },
+          {
+            headers: {
+              'access-token': token,
+              'Content-Type': 'application/json',
+            },
+          }
+        )
+        .then(response => {
+          this.investBtnFlag = false
+          if (response.data.success === 'true') {
+            alert(response.data.last)
+          } else {
+            alert(response.data.success)
+          }
+        })
     },
     //初始化调用
     GetData: function() {
       const token = localStorage.getItem('token')
       this.axios
-              .post(
-                      '/t0/invest/projectinfo',
-                      {'project_id':this.$route.query.projectid,'user_id':this.$route.query.userid},
-                      { headers: { 'access-token': token,'Content-Type': 'application/json'} }
-              )
-              .then(response => {
-                console.log(response)
-                this.info = response.data.projectInfo
-                this.usdtAvliable = response.data.usdtlast
-              })
+        .post(
+          '/t0/invest/projectinfo',
+          {
+            project_id: this.$route.query.projectid,
+            user_id: this.$route.query.userid,
+          },
+          {
+            headers: {
+              'access-token': token,
+              'Content-Type': 'application/json',
+            },
+          }
+        )
+        .then(response => {
+          console.log(response)
+          this.info = response.data.projectInfo
+          this.usdtAvliable = response.data.usdtlast
+        })
     },
     createcode() {
       console.log('createcode（）：。。。')
@@ -988,18 +1047,9 @@ export default {
         ],
       })
     },
-  },
-  data() {
-    return {
-      tab: 'tab-1',
-      tabTrans: null,
-      tabProduct: null,
-      valueDeterminate: 90,
-      investBtnFlag: false,
-      investValue: '',
-      info:'',
-      usdtAvliable:'',
-    }
+    clickBack() {
+      this.$router.go(-1)
+    },
   },
 }
 </script>

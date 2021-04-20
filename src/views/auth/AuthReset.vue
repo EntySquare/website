@@ -1,17 +1,16 @@
 <template>
   <v-card class="wrap">
-     <v-row style="height: 30px;">
-    </v-row>
-
-    <div class="d-flex justify-lg-center" style="font-size: 28px;
-font-family: PingFang-SC-Semibold, PingFang-SC;
+    <v-row style="height: 30px;"> </v-row>
+    <div
+      class="d-flex justify-lg-center"
+      style="font-size: 28px;
 font-weight: 600;
 color: #000000;
-line-height: 28px;">
+line-height: 28px;"
+    >
       重置密码
     </div>
-    <v-row style="height: 60px;">
-    </v-row>
+    <v-row style="height: 60px;"> </v-row>
     <v-form v-model="valid" ref="form" class="mt-4 form">
       <v-row>
         <v-col cols="4">
@@ -22,7 +21,6 @@ line-height: 28px;">
             :items="areaCodes"
             single-line
             filled
-            dense
             rounded
           ></v-select>
         </v-col>
@@ -33,7 +31,6 @@ line-height: 28px;">
             label="请输入手机号"
             single-line
             filled
-            dense
             rounded
           ></v-text-field>
         </v-col>
@@ -44,19 +41,20 @@ line-height: 28px;">
         v-model="checkCode"
         single-line
         filled
-        dense
         rounded
       ></v-text-field>
       <span
-         style="color: #00CFAC; position: absolute; top: 43%; right: 60px; cursor: pointer"
+        style="color: #00CFAC; position: absolute; top: 42%; right: 60px; cursor: pointer"
         @click="sendCode()"
         v-show="sendCodeVue"
         ><p>发送验证码</p>
       </span>
 
       <span
-        v-show="!sendCodeVue"  style="color: #00CFAC; position: absolute; top: 43%; right: 60px; cursor: pointer">
-        <p>{{ authTime }} S</p>
+        v-show="!sendCodeVue"
+        style="color: #00CFAC; position: absolute; top: 42%; right: 60px; cursor: pointer"
+      >
+        <p>{{ authTime }} s</p>
       </span>
       <v-text-field
         v-model="password"
@@ -67,11 +65,10 @@ line-height: 28px;">
         label="请输入密码"
         single-line
         filled
-        dense
         rounded
       ></v-text-field>
       <v-text-field
-        v-model="password"
+        v-model="passwordAff"
         :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
         :type="show1 ? 'text' : 'password'"
         @click:append="show1 = !show1"
@@ -79,13 +76,12 @@ line-height: 28px;">
         label="请再次输入密码"
         single-line
         filled
-        dense
         rounded
       ></v-text-field>
 
       <div class="card-bottom">
         <v-btn
-          style="background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);"
+          style="background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%); height: 56px"
           depressed
           bottom
           rounded
@@ -93,17 +89,8 @@ line-height: 28px;">
           block
           @click="submit"
         >
-          重置密码
+          <div style="color: #FFFFFF">重置密码</div>
         </v-btn>
-
-        <div class="text-center mt-1">
-          <!-- <span style="color: #7F7F7F ;font-size: 14px; margin-right:0.5em">
-            还未创建账号?
-          </span>
-          <span style="color: #00CFAC ;font-size: 14px;">
-            注册
-          </span> -->
-        </div>
       </div>
     </v-form>
   </v-card>
@@ -128,30 +115,32 @@ export default {
         v => /^(\d){11}$/.test(v) || '手机号是11位',
       ],
       password: '',
+      passwordAff: '',
       passwordRules: [
         v => !!v || '密码必须输入',
         v => !/^(\s)+$/.test(v) || '密码不能有空格',
         v => /^[\da-zA-Z]{6,12}$/.test(v) || '密码为6-12位',
       ],
-      
     }
   },
   methods: {
     submit() {
-      this.$refs.form.validate()
-      console.log(this.valid)
+      if (this.password !== this.passwordAff) {
+        alert('密码不一致！')
+        return
+      }
       if (this.valid) {
         this.axios
           .post('/r0/resetMatch', {
             phoneNum: this.phone,
-            password: this.password,
-            email:"",
-            code: this.checkCode
+            password: this.passwordAff,
+            email: '',
+            code: this.checkCode,
           })
           .then(response => {
-            if(response.data.errcode != null){
+            if (response.data.errcode != null) {
               alert('修改失败！')
-                return
+              return
             }
             alert('修改成功！,userid:' + response.data.UserId)
             this.$router.push('/')
@@ -166,8 +155,8 @@ export default {
           phone_num: this.phone,
         })
         .then(response => {
-          if(response.data.errcode != null){
-                return
+          if (response.data.errcode != null) {
+            return
           }
           //成功逻辑
           this.sendCodeVue = false // 控制显示隐藏

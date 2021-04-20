@@ -8,7 +8,6 @@
         label="请输入邮箱"
         single-line
         filled
-        dense
         rounded
       ></v-text-field>
       <v-text-field
@@ -17,14 +16,13 @@
         v-model="checkCode"
         single-line
         filled
-        dense
         rounded
       ></v-text-field>
       <span
-        style="color: #00CFAC; position: absolute; top: 19%; right: 25px; cursor: pointer"
+        style="color: #00CFAC; font-size: 14px; position: absolute; top: 26%; right: 25px; cursor: pointer"
         @click="sendCode()"
         v-show="sendCodeVue"
-        ><p>发送验证码</p>
+        >发送验证码
       </span>
 
       <span
@@ -40,25 +38,15 @@
         label="请输入密码"
         single-line
         filled
-        dense
         rounded
         :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
         :type="show1 ? 'text' : 'password'"
         @click:append="show1 = !show1"
       >
       </v-text-field>
-      <!-- <v-text-field
-        v-model="password"
-        :rules="passwordRules"
-        label="请再次输入密码"
-        single-line
-        filled
-        dense
-        rounded
-      ></v-text-field> -->
       <div class="card-bottom">
         <v-btn
-          style="background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%); font-size: 16px"
+          style="background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%); font-size: 16px; height: 56px"
           depressed
           bottom
           rounded
@@ -66,17 +54,8 @@
           block
           @click="submit"
         >
-          注册
+          <div style="font-size: 16px; color: #FFFFFF">注册</div>
         </v-btn>
-
-        <div class="text-center mt-1">
-          <span style="color: #7F7F7F ;font-size: 14px; margin-right:0.5em">
-            还未创建账号?
-          </span>
-          <span style="color: #00CFAC ;font-size: 14px;">
-            注册
-          </span>
-        </div>
       </div>
     </v-form>
   </v-tab-item>

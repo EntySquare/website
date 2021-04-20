@@ -27,7 +27,7 @@
         >
           <v-card
             v-show="kycPage1"
-            height="1245px"
+            height="1205px"
             width="514px"
             style="box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04); border-radius: 24px;"
           >
@@ -249,7 +249,7 @@
           </v-card>
           <v-card
             v-show="kycPage2"
-            height="714px"
+            height="674px"
             width="514px"
             style="box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04); border-radius: 24px;"
           >
@@ -369,7 +369,7 @@
           </v-card>
           <div style="width: 32px"></div>
           <v-card
-            height="217px"
+            height="257px"
             width="414px"
             class="mx-auto"
             style="box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04); border-radius: 24px;"
@@ -393,7 +393,7 @@
                 确保正确的国家/地区、身份证/护照号码、姓名、出生日期和地址信息。提交信息均为真实信息，绝无盗取他人信息行为。
               </div>
             </div>
-            <div style="height: 72px"></div>
+            <div style="height: 22px"></div>
             <div
               class="d-inline-flex"
               style="padding-left: 32px; padding-top: 36px"
@@ -449,6 +449,26 @@ export default {
       addressInput: '',
       birthYearInput: '',
       birthYearsInput: [
+        '1950',
+        '1951',
+        '1952',
+        '1953',
+        '1954',
+        '1955',
+        '1956',
+        '1957',
+        '1958',
+        '1959',
+        '1960',
+        '1961',
+        '1962',
+        '1963',
+        '1964',
+        '1965',
+        '1966',
+        '1967',
+        '1968',
+        '1969',
         '1970',
         '1971',
         '1972',
@@ -460,6 +480,32 @@ export default {
         '1978',
         '1979',
         '1980',
+        '1981',
+        '1982',
+        '1983',
+        '1984',
+        '1985',
+        '1986',
+        '1987',
+        '1988',
+        '1989',
+        '1990',
+        '1991',
+        '1992',
+        '1993',
+        '1994',
+        '1995',
+        '1996',
+        '1997',
+        '1998',
+        '1999',
+        '2000',
+        '2001',
+        '2002',
+        '2003',
+        '2004',
+        '2005',
+        '2006',
       ],
       birthMonthInput: '',
       birthMonthsInput: [
@@ -578,7 +624,7 @@ export default {
         })
     },
     kycShow: function() {
-      if (this.isKycFlag === 0) {
+      if (this.isKycFlag === 1) {
         this.kycPage1 = false
         this.kycPage2 = true
       } else {
@@ -591,15 +637,13 @@ export default {
     },
     uploadCertifyFront: function() {
       const selectedFile = this.$refs.refFile1.files[0]
-      console.log("1:"+selectedFile)
       this.srcFront = window.URL.createObjectURL(this.$refs.refFile1.files[0])
       let reader = new FileReader()
       reader.readAsDataURL(selectedFile)
       // console.log(reader.readAsDataURL(selectedFile))
       reader.onloadend = function() {
         // var strBase64 = reader.result.substring(84);
-        var strBase64 = reader.result.substring(0);
-        console.log(strBase64);
+        let strBase64 = reader.result.substring(0)
       }
     },
     clickLoadBack() {

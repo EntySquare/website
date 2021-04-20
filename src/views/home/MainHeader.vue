@@ -117,19 +117,115 @@
                 </v-col>
                 <v-col cols="1">
                   <div
-                    style="width: 50px; display: inline-flex; white-space: nowrap"
+                    style="width: 50px; display: inline-flex; white-space: nowrap; cursor: pointer"
+                    @click="getHsfInfo"
                   >
-                    <router-link to="/product">
-                      <p class="titleFont">获取HSF</p>
-                    </router-link>
+                    <p class="titleFont">获取HSF</p>
                   </div>
                 </v-col>
+                <v-dialog
+                  content-class="rounded-xl"
+                  v-model="hsfDialogShow"
+                  width="600"
+                  height="432"
+                >
+                  <div
+                    style="height: 432px;width: 600px;background: #FFFFFF;padding: 50px 67px 50px 67px"
+                  >
+                    <div class="d-inline-flex">
+                      <div
+                        style="width: 56px; height: 56px;margin-left: 210px "
+                      >
+                        <v-img
+                          src="https://investors.oss-cn-beijing.aliyuncs.com/assets/hsf_logo.png"
+                        ></v-img>
+                      </div>
+                      <div
+                        style="width: 20px; height: 20px; margin-left: 200px; cursor: pointer"
+                        @click="closeHsfDialog"
+                      >
+                        <v-img
+                          src="https://investors.oss-cn-beijing.aliyuncs.com/assets/close_icon.png"
+                        ></v-img>
+                      </div>
+                    </div>
+                    <div style="height: 16px"></div>
+                    <div class="d-flex justify-center">HSF合约地址</div>
+                    <div style="height: 8px"></div>
+                    <div class="d-flex justify-center">
+                      0xe4815ae53b124e7263f08dcdbbb757d41ed658c6
+                    </div>
+                    <div style="height: 6px"></div>
+                    <div
+                      style="height: 124px; width: 466px; background: #FAFAFA; border-radius: 4px;"
+                    >
+                      <div style="padding: 20px; font-size: 12px;">
+                        <div style="height: 12px">
+                          <div class="d-inline">HSF价格</div>
+                          <div class="d-inline" style="float: right">
+                            $1000,00
+                          </div>
+                        </div>
+                        <div style="height: 12px"></div>
+                        <div style="height: 12px">
+                          <div class="d-inline">HSF流通量</div>
+                          <div class="d-inline" style="float: right">
+                            206,550.000
+                          </div>
+                        </div>
+                        <div style="height: 12px"></div>
+                        <div style="height: 12px">
+                          <div class="d-inline">HSF总量</div>
+                          <div class="d-inline" style="float: right">
+                            1,000.000,00
+                          </div>
+                        </div>
+                        <div style="height: 12px"></div>
+                        <div style="height: 12px">
+                          <div class="d-inline">HSF流通市值</div>
+                          <div class="d-inline" style="float: right">
+                            $557,385.985
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div style="height: 32px"></div>
+                    <div style="margin-left: 65px; height: 40px">
+                      <a
+                        href="https://www.binance.com/zh-CN/trade/BTC_USDT?layout=basic"
+                      >
+                        <v-btn
+                          text
+                          rounded
+                          style="
+                        width: 152px; height: 40px; background: #00CFAC; border-radius: 20px;"
+                        >
+                          <div style="color: #FFFFFF; font-size: 16px">
+                            币安
+                          </div>
+                        </v-btn>
+                      </a>
+                      <router-link to="/wallet">
+                        <v-btn
+                          text
+                          rounded
+                          style="width: 152px; height: 40px; border-radius: 20px; border: 1px solid #00CFAC;
+                          margin-left: 32px"
+                        >
+                          <div style="color: #00CFAC; font-size: 16px">
+                            兑换
+                          </div>
+                        </v-btn>
+                      </router-link>
+                    </div>
+                  </div>
+                </v-dialog>
                 <v-col cols="1">
                   <div
                     style="width: 50px; display: inline-flex; margin-left: 30px"
                   >
                     <router-link to="/product">
-                      <p class="titleFont">资源</p>
+                      <p class="titleFont">公告</p>
                     </router-link>
                   </div>
                 </v-col>
@@ -249,7 +345,7 @@
                   <router-link to="/investList">
                     <div
                       class="titleFont"
-                      style="font-size:16px;"
+                      style="font-size:16px; min-width: 32px"
                       @click="setIsLogin(true)"
                     >
                       订单
@@ -259,7 +355,7 @@
                   <router-link to="/wallet">
                     <div
                       class="titleFont"
-                      style="font-size:16px;"
+                      style="font-size:16px; min-width: 32px"
                       @click="setIsLogin(true)"
                     >
                       资金
@@ -477,23 +573,21 @@
                 </router-link>
               </div>
               <div style="display: inline-flex;">
-                <v-btn
-                  style="background-color: #FFFFFF;
+                <router-link to="/login">
+                  <v-btn
+                    style="background-color: #FFFFFF;
                 font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
                 width: 144px;
                 height: 56px;
                 box-shadow: none;
                 border-radius: 175px 175px 175px 175px"
-                >
-                  <router-link to="/login">
-                    <div
-                      style="color: #00CFAC; font-size:16px"
-                      @click="setIsLogin(false)"
-                    >
+                    @click="setIsLogin(false)"
+                  >
+                    <div style="color: #00CFAC; font-size:16px">
                       注册
                     </div>
-                  </router-link>
-                </v-btn>
+                  </v-btn>
+                </router-link>
               </div>
               <div style="display: inline-flex; margin-left: 50px;">
                 <v-img
@@ -520,7 +614,7 @@
       <v-row>
         <v-col cols="2"></v-col>
         <v-col cols="7">
-          <div class="text-left">
+          <div id="mainTitle1" class="text-left">
             <p
               style="color: #FFFFFF; font-size: 78px; font-weight: bold; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif"
             >
@@ -533,7 +627,7 @@
       <v-row>
         <v-col cols="2"></v-col>
         <v-col cols="7">
-          <div class="text-left" style="height: 100px;">
+          <div id="mainTitle2" class="text-left" style="height: 100px;">
             <p style="color: #FFFFFF; font-size: 36px">
               investors使区块链生态系统能够发挥其全部潜力。
             </p>
@@ -546,43 +640,46 @@
         <v-col cols="7">
           <div style="display: inline-flex; float: left">
             <!-- 未登录 按钮显示 -->
-            <v-btn
-              v-show="loginVue"
-              text
-              rounded
-              class="white"
-              style="text-align: center;
+            <div id="mainBtn1">
+              <v-btn
+                v-show="loginVue"
+                text
+                rounded
+                class="white"
+                style="text-align: center;
             border-radius: 175px 175px 175px 175px;
             width: 200px;
             height: 70px;
             margin-right: 8%"
-            >
-              <router-link to="/login">
-                <div style="color: #00CFAC; font-size: 16px">立即注册</div>
-              </router-link>
-            </v-btn>
-            <!-- 未登录 按钮显示 -->
-
+              >
+                <router-link to="/login">
+                  <div style="color: #00CFAC; font-size: 16px">立即注册</div>
+                </router-link>
+              </v-btn>
+            </div>
             <!-- 已登录 按钮显示 -->
-            <v-btn
-              v-show="!loginVue"
-              text
-              rounded
-              class="white"
-              style="text-align: center;
+            <div id="mainBtn2">
+              <v-btn
+                v-show="!loginVue"
+                text
+                rounded
+                class="white"
+                style="text-align: center;
             border-radius: 175px 175px 175px 175px;
             width: 200px;
             height: 70px;
             margin-right: 8%"
-            >
-              <router-link to="/financial">
-                <div style="color: #00CFAC; font-size: 16px">理财</div>
-              </router-link>
-            </v-btn>
+              >
+                <router-link to="/financial">
+                  <div style="color: #00CFAC; font-size: 16px">理财</div>
+                </router-link>
+              </v-btn>
+            </div>
+            <div style="width: 32px"></div>
             <!-- 已登录 按钮显示 -->
-
-            <v-btn
-              style="background: transparent;
+            <div id="mainBtn3">
+              <v-btn
+                style="background: transparent;
             border:4px white solid;
             border-radius: 175px 175px 175px 175px;
             width: 200px;
@@ -590,11 +687,12 @@
             margin-right: 10%;
             box-shadow: none;
             text-align: center"
-            >
-              <router-link to="https://www.hillstonetoken.com/">
-                <div style="color: #FFFFFF; font-size: 16px">白皮书</div>
-              </router-link>
-            </v-btn>
+              >
+                <router-link to="https://www.hillstonetoken.com/">
+                  <div style="color: #FFFFFF; font-size: 16px">白皮书</div>
+                </router-link>
+              </v-btn>
+            </div>
           </div>
         </v-col>
         <v-col cols="3"></v-col>
@@ -640,6 +738,7 @@ export default {
       productMenu: false,
       companyMenu: false,
       logoutResult: '',
+      hsfDialogShow: '',
     }
   },
   mounted: function() {
@@ -686,6 +785,33 @@ export default {
           localStorage.removeItem('token')
           this.$router.go(0)
         })
+    },
+    //获取HSF
+    getHsfInfo() {
+      this.hsfDialogShow = true
+      document.getElementById('mainTitle1').style.display = 'none'
+      document.getElementById('mainTitle2').style.display = 'none'
+      document.getElementById('mainBtn3').style.display = 'none'
+      if (this.loginVue === false) {
+        //已登录
+        document.getElementById('mainBtn2').style.display = 'none'
+      } else {
+        //未登录
+        document.getElementById('mainBtn1').style.display = 'none'
+      }
+      this.$router.go(-1)
+    },
+    //关闭获取HSF弹框
+    closeHsfDialog() {
+      this.hsfDialogShow = false
+      document.getElementById('mainTitle1').style.display = 'block'
+      document.getElementById('mainTitle2').style.display = 'block'
+      document.getElementById('mainBtn3').style.display = 'block'
+      if (this.loginVue === false) {
+        document.getElementById('mainBtn2').style.display = 'block'
+      } else {
+        document.getElementById('mainBtn1').style.display = 'block'
+      }
     },
   },
 }

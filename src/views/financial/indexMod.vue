@@ -26,7 +26,7 @@
                     font-weight: 400;
                     color: #808080;"
                 >
-                  INVESTORS理财产品提供了一种无需压力即可赚取
+                  investors理财产品提供了一种无需压力即可赚取
                 </p>
                 <p
                   style="font-size: 14px;
@@ -53,7 +53,9 @@
                       cols="6"
                       style="font-size: 14px;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #1BD7A7;line-height: 14px;"
                     >
-                      <router-link :to="{path:'/order',query:{userId: UserId}}">
+                      <router-link
+                        :to="{ path: '/order', query: { userId: UserId } }"
+                      >
                         <samp
                           style="font-size: 14px;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #1BD7A7;line-height: 14px;"
                         >
@@ -71,7 +73,7 @@
                     <span
                       style="font-size: 48px;font-family: Nunito-Bold, Nunito;font-weight: bold;color: #000000;line-height: 48px;"
                     >
-                      {{accountInfo.Available}}
+                      {{ accountInfo.Available }}
                     </span>
                   </v-row>
                   <div style="height: 45px;width: 100%"></div>
@@ -85,7 +87,7 @@
                       <p
                         style="font-size: 20px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #000000;margin: 0px"
                       >
-                        {{accountInfo.Locked}}
+                        {{ accountInfo.Locked }}
                       </p>
                     </v-col>
                     <v-col cols="6">
@@ -97,7 +99,7 @@
                       <p
                         style="font-size: 20px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #000000;margin: 0px"
                       >
-                        {{accountInfo.Revenue}}
+                        {{ accountInfo.Revenue }}
                       </p>
                     </v-col>
                   </v-row>
@@ -127,72 +129,80 @@
             style="height: 205px;width: 100%;margin: 0px;padding: 0px"
           >
             <swiper class="swiper" :options="swiperOption">
-             <div v-for="vi in list" :key ="vi.ProjectId">
-              <swiper-slide>
-                <div style="height: 20px"></div>
-                <router-link :to="{path:'/investTab',query:{projectid: vi.ProjectId,userid:UserId}}">
-                  <v-navigation-drawer
-                    style="width: 800px;background: linear-gradient(30deg, #00DEB8 0%, #5B7ADE 100%, #5F80E8 100%);height: 190px;border-radius: 20px;box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.04);"
+              <div v-for="vi in list" :key="vi.ProjectId">
+                <swiper-slide>
+                  <div style="height: 20px"></div>
+                  <router-link
+                    :to="{
+                      path: '/investTab',
+                      query: { projectid: vi.ProjectId, userid: UserId },
+                    }"
                   >
-                    <v-row style="padding: 36px 0px 0px 50px">
-                      <div class="d-inline-flex" style="width: 100%;">
-                        <div
-                          style="width: 160px;
+                    <v-navigation-drawer
+                      style="width: 800px;background: linear-gradient(30deg, #00DEB8 0%, #5B7ADE 100%, #5F80E8 100%);height: 190px;border-radius: 20px;box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.04);"
+                    >
+                      <v-row style="padding: 36px 0px 0px 50px">
+                        <div class="d-inline-flex" style="width: 100%;">
+                          <div
+                            style="width: 160px;
                       height: 20px;font-size: 20px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #FFFFFF;"
-                        >
-                          定期优选
-                        </div>
-                        <!--                     <img-->
-                        <!--                       src="https://investors.oss-cn-beijing.aliyuncs.com/assets/jiantou001.png"-->
-                        <!--                       style="width:36px;height:36px;margin: -23px 0px 0px 105px;"/>-->
-                        <v-btn
-                          style="border-radius: 0px 18px 0px 8px;margin: -23px 0px 0px 105px;
+                          >
+                            定期优选
+                          </div>
+                          <!--                     <img-->
+                          <!--                       src="https://investors.oss-cn-beijing.aliyuncs.com/assets/jiantou001.png"-->
+                          <!--                       style="width:36px;height:36px;margin: -23px 0px 0px 105px;"/>-->
+                          <v-btn
+                            style="border-radius: 0px 18px 0px 8px;margin: -23px 0px 0px 105px;
                        background: linear-gradient(316deg, #2F5E85 0%, #202A32 100%);
                         color: #FFFFFF;"
-                          elevation="0"
-                        >
-                          可抵押
-                        </v-btn>
-                      </div>
-                      <div style="height: 40px"></div>
-                      <p
-                        style="width: 95%;
+                            elevation="0"
+                          >
+                            可抵押
+                          </v-btn>
+                        </div>
+                        <div style="height: 40px"></div>
+                        <p
+                          style="width: 95%;
                               height: 48px;
                               font-size: 38px;
                               font-family: Nunito-ExtraBold, Nunito;
                               font-weight: 800;
                               color: #FFFFFF;margin: 0px;padding: 0px"
-                      >
-                        <span style="font-size: 38px;margin: 0px;padding: 0px"
-                          >{{vi.AnnualizedIncome}}</span
                         >
-                        <span style='font-size: 28px;margin: 0px;padding: 0px'>.2%</span>
-                        <span
-                          style="font-size: 14px;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #FFFFFF;;margin: 0px;padding: 0px 0px 0px 5px"
-                        >
-                          年化收益
-                          <img
-                            src="https://investors.oss-cn-beijing.aliyuncs.com/assets/jiantou001.png"
-                            style="width:36px;height:36px;float:right;margin:15px 0px 0px 0px"
-                          />
-                        </span>
-                      </p>
+                          <span
+                            style="font-size: 38px;margin: 0px;padding: 0px"
+                            >{{ vi.AnnualizedIncome }}</span
+                          >
+                          <span style="font-size: 28px;margin: 0px;padding: 0px"
+                            >.2%</span
+                          >
+                          <span
+                            style="font-size: 14px;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #FFFFFF;;margin: 0px;padding: 0px 0px 0px 5px"
+                          >
+                            年化收益
+                            <img
+                              src="https://investors.oss-cn-beijing.aliyuncs.com/assets/jiantou001.png"
+                              style="width:36px;height:36px;float:right;margin:15px 0px 0px 0px"
+                            />
+                          </span>
+                        </p>
 
-                      <div style="height: 15px;width: 100%"></div>
-                      <span
-                        style="font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;"
-                      >
-                        期限{{vi.Cycle}}天 | 结算时间 {{vi.BeginTimes}}
-                      </span>
-                      <div></div>
-                    </v-row>
-                  </v-navigation-drawer>
-                </router-link>
-                <div style='height: 20px'></div>
-              </swiper-slide>
-             </div>
+                        <div style="height: 15px;width: 100%"></div>
+                        <span
+                          style="font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;"
+                        >
+                          期限{{ vi.Cycle }}天 | 结算时间 {{ vi.BeginTimes }}
+                        </span>
+                        <div></div>
+                      </v-row>
+                    </v-navigation-drawer>
+                  </router-link>
+                  <div style="height: 20px"></div>
+                </swiper-slide>
+              </div>
             </swiper>
-        </v-col>
+          </v-col>
 
           <v-col cols="12" style="padding-left: 0px">
             <span
@@ -262,7 +272,7 @@
           </div>
           <div style="height: 10px;width: 100%"></div>
           <div style="width: 545px">
-            <v-slider color="#00CFAC" thumb-color="#00CFAC"></v-slider>
+            <v-slider color="#00CFAC" track-color="#F7F8FB"></v-slider>
           </div>
           <v-row style="padding: 10px">
             <span
@@ -279,7 +289,7 @@
                         font-weight: 600;
                         color: #00CFAC;"
             >
-              {{accountInfo.Locked}} HSF
+              {{ accountInfo.Locked }} HSF
             </span>
             <span
               style="font-size: 18px;
@@ -287,7 +297,7 @@
                         font-weight: 600;
                         color: #000000;"
             >
-              /{{accountInfo.Available}} HSF
+              /{{ accountInfo.Available }} HSF
             </span>
           </v-row>
           <v-row style="padding: 10px">
@@ -316,18 +326,17 @@
           <div style="height: 100px"></div>
           <v-row
             style="background: #FFFFFF;height: 96px;
-
-          border-radius: 16px;"
+            border-radius: 16px;"
           >
             <v-col cols="6">
               <v-btn
+                depressed
                 class="float-xl-right"
                 style="background: rgb(235 236 239);
-            width: 340px;
-            height: 65px;
-            border-radius: 175px 175px 175px 175px;
-            box-shadow: none;
-            text-align: center"
+                width: 340px;
+                height: 65px;
+                border-radius: 175px;
+                margin-top: 5px;"
               >
                 <router-link to="/#">
                   <div style="color: #808080; font-size: 16px">撤销质押</div>
@@ -336,17 +345,15 @@
             </v-col>
             <v-col cols="6">
               <v-btn
+                depressed
                 style="background: linear-gradient(90deg, #00CFAC 0%, #5B7ADE 100%);;
-            width: 340px;
-            height: 65px;
-            border-radius: 175px 175px 175px 175px;
-            margin-right: 10%;
-            box-shadow: none;
-            text-align: center"
+                width: 340px;
+                height: 65px;
+                border-radius: 175px;
+                margin-top: 5px;"
+                @click="diyaHSF = true"
               >
-                <router-link to="/#">
-                  <div style="color: #FFFFFF; font-size: 16px">预约补仓</div>
-                </router-link>
+                <div style="color: #FFFFFF; font-size: 16px">预约补仓</div>
               </v-btn>
             </v-col>
           </v-row>
@@ -365,7 +372,6 @@
           <v-row style="height: 60px;width: 100%;margin: 0px">
             <span
               style="font-size: 24px;margin: 30px 33px 32px 38px ;
-            font-family: PingFang-SC-Semibold, PingFang-SC;
             font-weight: 600;
             color: #000000;"
               >质押HSF</span
@@ -374,40 +380,38 @@
           <v-row>
             <v-col cols="1"></v-col>
             <v-col cols="10">
-              <div style="height: 30px"></div>
+              <div style="height: 10px"></div>
               <v-text-field
-                label="最小投资100HSF"
+                label="最小质押100HSF"
                 single-line
                 filled
                 rounded
               ></v-text-field>
               <span
-                style="font-size: 14px;
-                        font-family: PingFang-SC-Semibold, PingFang-SC;
-                        font-weight: 600;
-                        color: #000000;position:relative;left:249px;bottom:70px;"
+                style="font-size: 14px;font-weight: 600;
+                color: #000000; position:relative; left:228px;
+                bottom:70px;"
               >
-                <span>HSF</span><span style="color: #4c4c4c"> | </span
-                ><span style="color: #00CFAC"> 全部 </span>
+                <span style="padding-right: 10px">HSF</span>
+                <span style="color: #b2b2b2">|</span>
+                <span style="color: #00CFAC; padding-left: 10px">全部</span>
               </span>
               <div style="width: 100%;position:relative;left:7px;bottom:39px;">
                 <span
                   style="font-size: 14px;
-                          font-family: Nunito-Regular, Nunito;
                           font-weight: 400;
                           color: #9F9FA4;"
                 >
                   可用：0.000000 HSF
                 </span>
-                <span style="width: 4px"> </span>
-                <span
-                  style="font-size: 14px;
-                          font-family: Nunito-Regular, Nunito;
-                          font-weight: 400;
-                          color: #00CFAC;"
-                >
-                  充值
-                </span>
+                <router-link to="/wallet">
+                  <span
+                    style="font-size: 14px;font-weight: 400;
+                  color: #00CFAC;margin-left: 10px; cursor: pointer"
+                  >
+                    充值
+                  </span>
+                </router-link>
               </div>
             </v-col>
             <v-col cols="1"></v-col>
@@ -417,15 +421,16 @@
             <v-col cols="1"></v-col>
             <v-col cols="10">
               <v-btn
-                style="background: linear-gradient(90deg, #00CFAC 0%, #5B7ADE 100%);color: #FFFFFF"
+                style="background: linear-gradient(90deg, #00CFAC 0%, #5B7ADE 100%);
+                color: #FFFFFF; height: 56px"
                 depressed
                 bottom
                 rounded
                 large
                 block
-                @click="submit"
+                @click="submitPledge"
               >
-                抵押
+                质押
               </v-btn>
             </v-col>
             <v-col cols="1"></v-col>
@@ -457,17 +462,22 @@ export default {
     GetData: function() {
       const token = localStorage.getItem('token')
       this.axios
-              .post(
-                      '/t0/finance/minehome',
-                      {'user_id': '1', 'types' : 'mine'},
-                      { headers: { 'access-token': token,'Content-Type': 'application/json'} }
-              )
-              .then(response => {
-                console.log(response)
-                this.accountInfo = response.data.account
-                this.list = response.data.list
-                this.UserId = '1'
-              })
+        .post(
+          '/t0/finance/minehome',
+          { user_id: '1', types: 'mine' },
+          {
+            headers: {
+              'access-token': token,
+              'Content-Type': 'application/json',
+            },
+          }
+        )
+        .then(response => {
+          console.log(response)
+          this.accountInfo = response.data.account
+          this.list = response.data.list
+          this.UserId = '1'
+        })
     },
     createcode() {
       var myChart = echarts.init(document.getElementById('main'))
@@ -495,7 +505,7 @@ export default {
           {
             type: 'category',
             boundaryGap: false,
-            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+            data: ['1天', '', '', '180天', '', '', '360天'],
           },
         ],
         yAxis: [
@@ -545,7 +555,7 @@ export default {
       areaCode: 'USTD',
       areaCodes: ['USTD', 'SHF'],
       dialog: false,
-      UserId:'',
+      UserId: '',
       accountInfo: '',
       list: '',
       swiperOption: {

@@ -34,19 +34,24 @@
       </div>
       <!-- 返回顶部按钮 -->
       <!-- style="position:fixed;bottom:100px;right:10%;background: #00d5b5;width:40px;height:40px;text-align:center;border-radius: 50%;" -->
-      <div
-        style="right:10%;background: #00d5b5;width:40px;height:40px;text-align:center;border-radius: 50%;"
-        :style="{ position: activeposition, top: top + 'px' }"
-        v-show="upbtn"
-        @click="backTop"
-      >
-        <v-icon color="#fff" style="font-size:40px;">mdi-arrow-up</v-icon>
-      </div>
+      <!--      <div-->
+      <!--        style="right:10%;background: #00d5b5;width:40px;height:40px;text-align:center;border-radius: 50%;"-->
+      <!--        :style="{ position: activeposition, top: top + 'px' }"-->
+      <!--        v-show="upbtn"-->
+      <!--        @click="backTop"-->
+      <!--      >-->
+      <!--        <v-icon color="#fff" style="font-size:40px;">mdi-arrow-up</v-icon>-->
+      <!--      </div>-->
     </div>
     <!--    <div class="container2" style="margin-top:-124px;" ref="point">-->
     <div class="container2" style="margin-top:-124px;" ref="point">
-      <div v-for="vi in list" :key ="vi.ProjectName">
-        <router-link :to="{path:'/investTab',query:{projectid: vi.ProjectId,userid:UserId}}">
+      <div v-for="vi in list" :key="vi.ProjectName">
+        <router-link
+          :to="{
+            path: '/investTab',
+            query: { projectid: vi.ProjectId, userid: UserId },
+          }"
+        >
           <v-card
             class="mx-auto card"
             style="box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04);"
@@ -54,8 +59,13 @@
             <v-row>
               <v-col>
                 <div>
-                  <span class="card-green" style="padding-right: 12px">{{vi.AnnualizedIncome}}</span>
-                  <span style="width: 56px;height: 24px;font-size: 14px;font-weight: 400;color: #B2B2B2;">年化收益</span>
+                  <span class="card-green" style="padding-right: 12px">{{
+                    vi.AnnualizedIncome
+                  }}</span>
+                  <span
+                    style="width: 56px;height: 24px;font-size: 14px;font-weight: 400;color: #B2B2B2;"
+                    >年化收益</span
+                  >
                 </div>
               </v-col>
               <v-col class="d-inline-flex" style="padding-top: 30px">
@@ -63,15 +73,19 @@
                   项目周期
                 </div>
                 <div style="width: 8px"></div>
-                <b>{{vi.Cycle}} 天</b>
+                <b>{{ vi.Cycle }} 天</b>
                 <v-icon color="#b3b3b3" class="ll"
                   >mdi-chevron-right</v-icon
                 ></v-col
               >
             </v-row>
             <v-row>
-              <v-col>投资总额 <b>{{vi.Total}} USDT</b></v-col>
-              <v-col>最低收入 <b>{{vi.MinimumInvestment}} USDT</b></v-col>
+              <v-col
+                >投资总额 <b>{{ vi.Total }} USDT</b></v-col
+              >
+              <v-col
+                >最低收入 <b>{{ vi.MinimumInvestment }} USDT</b></v-col
+              >
             </v-row>
             <v-row>
               <v-col>
@@ -83,24 +97,24 @@
                       border-radius: 4px;font-style:normal;text-align:center;
                       line-height:18px;color:#fff;font-size:10px;font-weight:400;margin-top: 3px"
                   >
-                    <div v-if = "vi.InProgressFlag == 1">
+                    <div v-if="vi.InProgressFlag == 1">
                       进行中
                     </div>
-                    <div v-if = "vi.InProgressFlag == 0">
+                    <div v-if="vi.InProgressFlag == 0">
                       结束
                     </div>
-                    <div v-if = "vi.InProgressFlag == 2">
+                    <div v-if="vi.InProgressFlag == 2">
                       完成
                     </div>
                   </div>
                   <div style="width: 452px"></div>
                   <div style="color:#00CFAC;font-size:14px;margin-top: 20px;">
-                    {{vi.CompleteGoal/vi.Total*100}}%
+                    {{ (vi.CompleteGoal / vi.Total) * 100 }}%
                   </div>
                 </div>
                 <v-progress-linear
                   style="height:10px;width:600px;border-radius: 5px;"
-                  :value="vi.CompleteGoal/vi.Total*100"
+                  :value="(vi.CompleteGoal / vi.Total) * 100"
                   background-color="#F7F8FB"
                   color="#00CFAC"
                   class="unFinish"
@@ -133,64 +147,69 @@ export default {
   },
   mounted() {
     this.GetData() //需要触发的函数
-    window.addEventListener('scroll', this.scrollToTop)
-    if (location.href.indexOf('#reloaded') === -1) {
-      location.href = location.href + '#reloaded'
-      location.reload()
-    }
+    // window.addEventListener('scroll', this.scrollToTop)
+    // if (location.href.indexOf('#reloaded') === -1) {
+    //   location.href = location.href + '#reloaded'
+    //   location.reload()
+    // }
   },
   destroyed() {
-    window.removeEventListener('scroll', this.scrollToTop)
+    //window.removeEventListener('scroll', this.scrollToTop)
   },
   methods: {
     //初始化调用
     GetData: function() {
       const token = localStorage.getItem('token')
       this.axios
-              .post(
-                      '/t0/invest/list',
-                      {'user_id':'1','types':'now'},
-                      { headers: { 'access-token': token,'Content-Type': 'application/json'} }
-              )
-              .then(response => {
-                console.log(response)
-                this.list = response.data.list
-                this.UserId = '1'
-              })
+        .post(
+          '/t0/invest/list',
+          { user_id: '1', types: 'now' },
+          {
+            headers: {
+              'access-token': token,
+              'Content-Type': 'application/json',
+            },
+          }
+        )
+        .then(response => {
+          console.log(response)
+          this.list = response.data.list
+          this.UserId = '1'
+        })
     },
     // 点击图片回到顶部方法，加计时器是为了过渡顺滑
-    backTop() {
-      const that = this
-      let timer = setInterval(() => {
-        let ispeed = Math.floor(-that.scrollTop / 5)
-        document.documentElement.scrollTop = document.body.scrollTop =
-          that.scrollTop + ispeed
-        if (that.scrollTop === 0) {
-          clearInterval(timer)
-        }
-      }, 16)
-    },
+    // backTop() {
+    //   const that = this
+    //   let timer = setInterval(() => {
+    //     let ispeed = Math.floor(-that.scrollTop / 5)
+    //     document.documentElement.scrollTop = document.body.scrollTop =
+    //       that.scrollTop + ispeed
+    //     if (that.scrollTop === 0) {
+    //       clearInterval(timer)
+    //     }
+    //   }, 16)
+    // },
     // 为了计算距离顶部的高度，当高度大于200显示回顶部图标，小于200则隐藏
-    scrollToTop() {
-      const that = this
-      let scrollTop =
-        window.pageYOffset ||
-        document.documentElement.scrollTop ||
-        document.body.scrollTop
-      that.scrollTop = scrollTop
-      //   项目长度
-      let boxlength = that.$refs.point.clientHeight
-      if (that.scrollTop > boxlength - 500) {
-        // that.upbtn = false
-        that.upbtn = true
-        ;(that.activeposition = 'absolute'), (that.top = boxlength + 230)
-      } else if (that.scrollTop > 200) {
-        that.upbtn = true
-        ;(that.activeposition = 'fixed'), (that.top = 750)
-      } else {
-        that.upbtn = false
-      }
-    },
+    // scrollToTop() {
+    //   const that = this
+    //   let scrollTop =
+    //     window.pageYOffset ||
+    //     document.documentElement.scrollTop ||
+    //     document.body.scrollTop
+    //   that.scrollTop = scrollTop
+    //   //   项目长度
+    //   let boxlength = that.$refs.point.clientHeight
+    //   if (that.scrollTop > boxlength - 500) {
+    //     // that.upbtn = false
+    //     that.upbtn = true
+    //     ;(that.activeposition = 'absolute'), (that.top = boxlength + 230)
+    //   } else if (that.scrollTop > 200) {
+    //     that.upbtn = true
+    //     ;(that.activeposition = 'fixed'), (that.top = 750)
+    //   } else {
+    //     that.upbtn = false
+    //   }
+    // },
   },
 }
 </script>

@@ -29,7 +29,7 @@
             height="283px"
             width="960px"
             class="mx-auto"
-            style="top: 28px; box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04); border-radius: 24px;"
+            style="top: 80px; box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04); border-radius: 24px;"
           >
             <v-card-title style="padding: 32px">
               <div style="font-size: 18px; font-weight: bold; color: #000000">
@@ -203,7 +203,7 @@
             height="217px"
             width="960px"
             class="mx-auto"
-            style="top: 28px; box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04); border-radius: 24px;"
+            style="top: 80px; box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04); border-radius: 24px;"
           >
             <div class="d-inline-flex">
               <div>
@@ -217,12 +217,10 @@
                   </div>
                 </v-card-title>
                 <v-card-subtitle style="padding-left: 32px; font-size: 14px">
-                  INVESTORS号是账号的唯一凭证，只能设置一次
+                  investors号是账号的唯一凭证，只能设置一次
                 </v-card-subtitle>
               </div>
-              <div style="width: 395px"></div>
-              <div style="padding-top: 44px">UID:{{ userId }}</div>
-              <div style="width: 20px"></div>
+              <div style="width: 520px"></div>
               <v-btn
                 @click="user_up2 = true"
                 text
@@ -232,7 +230,7 @@
               </v-btn>
             </div>
             <v-divider
-              style="width: 896px; color: #F5F5F5; margin-left: 30px"
+              style="width: 896px; color: #F7F7F7; margin-left: 30px"
             ></v-divider>
             <div class="d-inline-flex">
               <div>
@@ -255,9 +253,8 @@
               <router-link to="/realName">
                 <v-btn
                   text
-                  outlined
                   style="width: 76px; height: 30px; margin-top: 39px; background: #F7F8FB;
-                       border-radius: 15px; color: #00CFAC; border: 1px solid #00CFAC; font-size: 14px; font-weight: 600"
+                       border-radius: 15px; color: #00CFAC; font-size: 14px; font-weight: 600"
                   >认证
                 </v-btn>
               </router-link>
@@ -268,7 +265,7 @@
             height="390px"
             width="960px"
             class="mx-auto"
-            style="top: 28px; box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04); border-radius: 24px;"
+            style="top: 80px; box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04); border-radius: 24px;"
           >
             <div class="d-inline-flex">
               <v-card-title style="padding-top: 32px; padding-left: 32px">
@@ -282,9 +279,8 @@
                 <v-btn
                   @click="addqianbao1 = true"
                   text
-                  outlined
                   style="width: 76px; height: 30px; background: #F7F8FB;
-                       border-radius: 15px; color: #00CFAC; border: 1px solid #00CFAC; font-size: 14px; font-weight: 600"
+                       border-radius: 15px; color: #00CFAC; font-size: 14px; font-weight: 600"
                 >
                   添加
                 </v-btn>
@@ -434,7 +430,6 @@
                         label="请输入邮箱"
                         single-line
                         filled
-                        dense
                         rounded
                       ></v-text-field>
                       <v-text-field
@@ -443,12 +438,11 @@
                         v-model="emailCheckCode"
                         single-line
                         filled
-                        dense
                         rounded
                       >
                       </v-text-field>
                       <span
-                        style="color: #00CFAC;width: 100%; position: absolute; margin-top: -55px;
+                        style="color: #00CFAC;width: 100%; position: absolute; margin-top: -67px;
                         margin-left: 240px; font-size: 14px; font-weight: 600; cursor: pointer"
                         @click="sendCode"
                         v-show="sendCodeVue"
@@ -456,12 +450,12 @@
                       </span>
                       <span
                         v-show="!sendCodeVue"
-                        style="color: #00CFAC; position: absolute; margin-top: -57px;
+                        style="color: #00CFAC; position: absolute; margin-top: -69px;
                         margin-left: 240px; cursor: pointer"
                       >
                         <p>{{ authTime }} S</p>
                       </span>
-                      <div style="height: 196px"></div>
+                      <div style="height: 156px"></div>
                       <v-btn
                         width="340px"
                         height="56px"
@@ -549,7 +543,7 @@
                       >
                         支付密码是保障您资产安全的重要凭证，请妥善保管。
                       </div>
-                      <div style="height: 40px"></div>
+                      <div style="height: 60px"></div>
                       <div class="row-center captcha_input_wrapper">
                         <input
                           autocomplete="off"
@@ -598,7 +592,7 @@
                       >
                         支付密码是保障您资产安全的重要凭证，请妥善保管。
                       </div>
-                      <div style="height: 40px"></div>
+                      <div style="height: 60px"></div>
                       <div class="row-center captcha_input_wrapper">
                         <input
                           autocomplete="off"
@@ -708,7 +702,7 @@
                       >
                         支付密码是保障您资产安全的重要凭证，请妥善保管。
                       </div>
-                      <div style="height: 40px"></div>
+                      <div style="height: 60px"></div>
                       <div class="row-center captcha_input_wrapper">
                         <input
                           autocomplete="off"
@@ -749,7 +743,6 @@
                         label="输入登录密码"
                         single-line
                         filled
-                        dense
                         rounded
                       ></v-text-field>
                       <v-text-field
@@ -758,12 +751,11 @@
                         v-model="forgetPayCheckCode"
                         single-line
                         filled
-                        dense
                         rounded
                       >
                       </v-text-field>
                       <span
-                        style="color: #00CFAC;width: 100%; position: absolute; margin-top: -55px;
+                        style="color: #00CFAC;width: 100%; position: absolute; margin-top: -67px;
                         margin-left: 240px; font-size: 14px; font-weight: 600; cursor: pointer"
                         @click="sendCode()"
                         v-show="sendCodeVue"
@@ -771,7 +763,7 @@
                       </span>
                       <span
                         v-show="!sendCodeVue"
-                        style="color: #00CFAC; position: absolute; margin-top: -57px;
+                        style="color: #00CFAC; position: absolute; margin-top: -69px;
                         margin-left: 240px; cursor: pointer"
                       >
                         <p>{{ authTime }} S</p>
@@ -782,11 +774,10 @@
                         label="输入谷歌验证码"
                         single-line
                         filled
-                        dense
                         rounded
                       >
                       </v-text-field>
-                      <div style="height: 122px"></div>
+                      <div style="height: 62px"></div>
                       <v-btn
                         width="340px"
                         height="56px"
@@ -870,12 +861,11 @@
                         v-model="updLoginPwdCheckCode"
                         single-line
                         filled
-                        dense
                         rounded
                       >
                       </v-text-field>
                       <span
-                        style="color: #00CFAC;width: 100%; position: absolute; margin-top: -55px;
+                        style="color: #00CFAC;width: 100%; position: absolute; margin-top: -67px;
                         margin-left: 240px; font-size: 14px; font-weight: 600; cursor: pointer"
                         @click="sendCode()"
                         v-show="sendCodeVue"
@@ -883,7 +873,7 @@
                       </span>
                       <span
                         v-show="!sendCodeVue"
-                        style="color: #00CFAC; position: absolute; margin-top: -57px;
+                        style="color: #00CFAC; position: absolute; margin-top: -69px;
                         margin-left: 240px; cursor: pointer"
                       >
                         <p>{{ authTime }} S</p>
@@ -894,10 +884,10 @@
                         v-model="updNewLoginPwd"
                         single-line
                         filled
-                        dense
                         rounded
                       >
                       </v-text-field>
+                      <div style="height: 80px"></div>
                       <v-btn
                         width="340px"
                         height="56px"
@@ -927,7 +917,7 @@
                   <v-card-subtitle
                     style="padding-left: 32px; font-size: 14px; white-space: nowrap"
                   >
-                    INVESTORS号是账号的唯一凭证，只能设置一次
+                    investors号是账号的唯一凭证，只能设置一次
                   </v-card-subtitle>
                 </div>
               </v-col>
@@ -941,13 +931,16 @@
                   </div>
                   <div style="width: 20px"></div>
                   <v-btn
-                    v-clipboard:copy="this.userId"
-                    v-clipboard:success="onCopy"
-                    v-clipboard:error="onError"
                     text
                     style="width: 76px; height: 30px; margin-top: 20px; background: #F7F8FB;
                        border-radius: 15px; color: #00CFAC; font-size: 14px; font-weight: 600;"
-                    >复制
+                  >
+                    <span
+                      v-clipboard:copy="userId"
+                      v-clipboard:success="onCopy"
+                      v-clipboard:error="onError"
+                      >复制</span
+                    >
                   </v-btn>
                 </div>
               </v-col>
@@ -980,7 +973,7 @@
                   <v-card-subtitle
                     style="padding-left: 32px; font-size: 14px; white-space: nowrap"
                   >
-                    登錄、修改密碼、提現等安全驗證時用以收取短信驗證。
+                    登录、修改密码、提现等安全验证时用以收取短信验证。
                   </v-card-subtitle>
                 </div>
               </v-col>
@@ -1095,10 +1088,9 @@
                         label="输入0-9之间的4位数字"
                         single-line
                         filled
-                        dense
                         rounded
                       ></v-text-field>
-                      <div style="height: 60px"></div>
+                      <div style="height: 30px"></div>
                       <v-btn
                         width="340px"
                         height="56px"
@@ -1240,47 +1232,53 @@
             <v-row>
               <v-col slot="6">
                 <img
-                  src="https://investors.oss-cn-beijing.aliyuncs.com/assets/heiseshanjiao1.png"
+                  src="https://investors.oss-cn-beijing.aliyuncs.com/assets/userCenter/google_store_icon.png"
                   style="height: 48px; width: 168px;"
                 />
               </v-col>
               <v-col slot="6">
                 <img
-                  src="https://investors.oss-cn-beijing.aliyuncs.com/assets/heisepingguo1.png"
+                  src="https://investors.oss-cn-beijing.aliyuncs.com/assets/userCenter/ios_store_icon.png"
                   style="height: 48px; width: 168px;"
                 />
               </v-col>
             </v-row>
             <v-row>
               <v-col slot="6">
-                <vue-qr
-                  ref="Qrcode"
-                  :text="dataObj.gugeurl1"
-                  :callback="test"
-                  qid="testQrId"
-                  margin="15"
-                  size="170"
-                ></vue-qr>
+                <div style="width: 120px; height: 120px; margin-left: 24px">
+                  <v-img
+                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/userCenter/google_qr_code.png"
+                  >
+                  </v-img>
+                </div>
+                <!--                <vue-qr-->
+                <!--                  ref="Qrcode"-->
+                <!--                  :text="dataObj.gugeurl1"-->
+                <!--                  :callback="test"-->
+                <!--                  qid="testQrId"-->
+                <!--                  margin="15"-->
+                <!--                  size="170"-->
+                <!--                ></vue-qr>-->
               </v-col>
               <v-col slot="6">
-                <vue-qr
-                  ref="Qrcode"
-                  :text="dataObj.gugeurl2"
-                  :callback="test"
-                  qid="testQrId"
-                  margin="15"
-                  size="170"
-                ></vue-qr>
+                <div style="width: 120px; height: 120px; margin-left: 24px">
+                  <v-img
+                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/userCenter/ios_qr_code.png"
+                  >
+                  </v-img>
+                </div>
               </v-col>
             </v-row>
           </v-col>
           <v-col cols="1"></v-col>
         </v-row>
+        <div style="height: 60px"></div>
         <v-row>
           <v-col cols="1"></v-col>
           <v-col cols="10">
             <v-btn
-              style="background: linear-gradient(90deg, #00CFAC 0%, #5B7ADE 100%);color: #FFFFFF"
+              style="background: linear-gradient(270deg, rgb(0, 255, 188) 0%, rgb(41, 196, 203) 100%);
+              color: #FFFFFF; height: 56px"
               depressed
               bottom
               rounded
@@ -1288,7 +1286,7 @@
               block
               @click="gugeApi1"
             >
-              下一步
+              <div style="font-size: 16px">下一步</div>
             </v-btn>
           </v-col>
           <v-col cols="1"></v-col>
@@ -1300,13 +1298,12 @@
       content-class="rounded-xl"
       v-model="googleyz2"
       width="450"
-      height="544"
+      height="584"
     >
-      <div style="height: 544px;width: 450px;background: #FFFFFF;">
+      <div style="height: 584px;width: 450px;background: #FFFFFF;">
         <v-row style="height: 60px;width: 100%;margin: 0px">
           <span
             style="font-size: 24px;margin: 30px 33px 32px 45px ;
-            font-family: PingFang-SC-Semibold, PingFang-SC;
             font-weight: 600;
             color: #000000;"
             >复制密钥</span
@@ -1316,13 +1313,10 @@
         <v-row>
           <v-col cols="1"></v-col>
           <v-col cols="10">
-            <span
-              style="font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 500;color: #000000;"
-            >
+            <span style="font-size: 14px; font-weight: 500;color: #000000;">
               使用谷歌验证器扫描屏幕中的二维码，或复制粘贴密钥到谷歌验证器中。若已完成，请跳转到下一步
             </span>
             <div style="width: 100%;height: 30px"></div>
-
             <v-row style="padding: 0px 0px 0px 100px;">
               <vue-qr
                 ref="Qrcode"
@@ -1347,6 +1341,7 @@
               filled
               rounded
               height="50"
+              readonly
             >
               <template v-slot:append>
                 <v-fade-transition leave-absolute>
@@ -1382,7 +1377,8 @@
           <v-col cols="1"></v-col>
           <v-col cols="10">
             <v-btn
-              style="background: linear-gradient(90deg, #00CFAC 0%, #5B7ADE 100%);color: #FFFFFF"
+              style="background: linear-gradient(270deg, rgb(0, 255, 188) 0%, rgb(41, 196, 203) 100%);
+              color: #FFFFFF; height: 56px"
               depressed
               bottom
               rounded
@@ -1416,13 +1412,10 @@
         <v-row>
           <v-col cols="1"></v-col>
           <v-col cols="10">
-            <span
-              style="font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 500;color: #000000;"
-            >
+            <span style="font-size: 16px; font-weight: 500; color: #000000;">
               {{ userName }}
             </span>
-            <div style="width: 100%;height: 70px"></div>
-
+            <div style="width: 100%;height: 40px"></div>
             <v-row style="padding: 10px;height: 50px">
               <v-text-field
                 autocomplete="off"
@@ -1430,17 +1423,16 @@
                 v-model="bindGoogleCheckCode"
                 single-line
                 filled
-                dense
                 rounded
               ></v-text-field>
             </v-row>
             <span
               style="color: #00CFAC; position:relative;
-                        left:276px;
-                        bottom:20px;font-weight: 600;"
+                        left:276px; font-size: 14px;
+                        bottom:11px;font-weight: 600;"
               @click="sendCode2()"
               v-show="sendCodeVue2"
-              ><p>发送验证码</p>
+              >发送验证码
             </span>
             <span
               v-show="!sendCodeVue2"
@@ -1450,6 +1442,7 @@
             >
               <p>{{ authTime }} S</p>
             </span>
+            <div style="height: 30px"></div>
             <v-row style="padding: 10px">
               <v-text-field
                 autocomplete="off"
@@ -1457,7 +1450,6 @@
                 v-model="googleVerCode"
                 single-line
                 filled
-                dense
                 rounded
               ></v-text-field>
             </v-row>
@@ -1475,12 +1467,13 @@
           </v-col>
           <v-col cols="1"></v-col>
         </v-row>
-        <div style="height: 100px;width: 100%"></div>
+        <div style="height: 60px;width: 100%"></div>
         <v-row>
           <v-col cols="1"></v-col>
           <v-col cols="10">
             <v-btn
-              style="background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);color: #FFFFFF"
+              style="background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);
+              color: #FFFFFF; height: 56px"
               depressed
               bottom
               rounded
@@ -1508,7 +1501,7 @@
             style="font-size: 24px;margin: 30px 33px 32px 45px ;
             font-weight: 600;
             color: #000000;"
-            >设置INVESTORS帐号</span
+            >设置investors帐号</span
           >
         </v-row>
         <v-row style="height: 20px"></v-row>
@@ -1547,19 +1540,19 @@
                 v-model="updateUidValue"
                 single-line
                 filled
-                dense
                 rounded
+                hint="输入0到9之间的6位数字"
               ></v-text-field>
             </v-row>
             <v-row style="padding: 0 15px 0 15px">
               <span style="font-size: 12px;font-weight: 400;color: #6D6D72;">
-                ·INVESTORS号是账号的唯一凭证，只能设置一次。
+                ·investors号是账号的唯一凭证，只能设置一次。
                 <p style="padding: 0">
-                  ·如果没有设置过INVESTORS号，INVESTORS好友会看到你在系统自动生成的INVESTORS号，但是不能通过系统生成的INVESTORS号找到你。
+                  ·如果没有设置过investors号，investors好友会看到你在系统自动生成的investors号，但是不能通过系统生成的investors号找到你。
                 </p>
               </span>
             </v-row>
-            <v-row style="height: 90px"></v-row>
+            <v-row style="height: 60px"></v-row>
           </v-col>
           <v-col cols="1"></v-col>
         </v-row>
@@ -1567,7 +1560,8 @@
           <v-col cols="1"></v-col>
           <v-col cols="10">
             <v-btn
-              style="background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);color: #FFFFFF"
+              style="background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);
+              color: #FFFFFF; height: 56px"
               depressed
               bottom
               rounded
@@ -1589,7 +1583,7 @@
       height="544"
     >
       <div style="height: 544px;width: 450px;background: #FFFFFF;">
-        <v-row style="height: 60px;width: 100%;margin: 0px">
+        <v-row style="height: 30px;width: 100%;margin: 0px">
           <span
             style="font-size: 24px;margin: 30px 33px 32px 38px ;
             font-weight: 600;
@@ -1608,11 +1602,10 @@
                 :items="addCoinTypes"
                 single-line
                 filled
-                dense
                 rounded
               ></v-select>
             </v-row>
-            <v-row style="height: 20px"></v-row>
+            <v-row style="height: 40px"></v-row>
             <v-row style="padding: 10px;height: 50px">
               <v-text-field
                 autocomplete="off"
@@ -1620,16 +1613,15 @@
                 v-model="addWalletAdd"
                 single-line
                 filled
-                dense
                 rounded
               ></v-text-field>
             </v-row>
-            <v-row style="height: 20px"></v-row>
+            <v-row style="height: 40px"></v-row>
             <v-row style="height: 20px;">
               <span
                 style="margin: 0 0 1px 16px;font-weight: 600;color: #000000;"
               >
-                备注
+                备注 (选填)
               </span>
             </v-row>
             <v-row style="padding: 10px">
@@ -1639,19 +1631,19 @@
                 v-model="addRemark"
                 single-line
                 filled
-                dense
                 rounded
               ></v-text-field>
             </v-row>
           </v-col>
           <v-col cols="1"></v-col>
         </v-row>
-        <div style="height: 100px;width: 100%"></div>
+        <div style="height: 40px; width: 100%"></div>
         <v-row>
           <v-col cols="1"></v-col>
           <v-col cols="10">
             <v-btn
-              style="background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);color: #FFFFFF"
+              style="background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);
+              height: 56px; color: #FFFFFF"
               depressed
               bottom
               rounded
@@ -1671,12 +1663,13 @@
 
 <script>
 import VueQr from 'vue-qr'
+import Vue from 'vue'
 import VueClipboard from 'vue-clipboard2'
+Vue.use(VueClipboard)
 export default {
   name: 'CenterTab',
   components: {
     VueQr,
-    VueClipboard,
   },
   data() {
     return {
@@ -2319,11 +2312,11 @@ export default {
     },
     // 复制成功
     onCopy(e) {
-      console.log(e)
+      alert('复制成功')
     },
     // 复制失败
     onError(e) {
-      alert('失败')
+      alert('复制失败')
     },
   },
 }

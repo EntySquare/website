@@ -10,7 +10,6 @@
             :items="areaCodes"
             single-line
             filled
-            dense
             rounded
           ></v-select>
         </v-col>
@@ -22,7 +21,6 @@
             label="请输入手机号"
             single-line
             filled
-            dense
             rounded
           ></v-text-field>
         </v-col>
@@ -34,7 +32,6 @@
         label="请输入密码"
         single-line
         filled
-        dense
         rounded
         :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
         :type="show1 ? 'text' : 'password'"
@@ -42,32 +39,24 @@
       ></v-text-field>
       <router-link to="/resetPwd">
         <div
-          style="font-size: 14px;font-weight: bold;color: #00CFAC;line-height: 20px;margin-left:10px; cursor: pointer"
+          style="font-size: 14px;font-weight: bold;color: #00CFAC;line-height: 20px;margin-left:10px;
+          margin-top:-10px; cursor: pointer"
         >
           忘记密码？
         </div>
       </router-link>
       <div class="card-bottom">
         <v-btn
-          style="background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);"
+          style="background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%); height: 56px; margin-bottom: 20px"
           depressed
           bottom
           rounded
           large
           block
-          @click="submit"
+          @click="loginByPhone"
         >
-          登录
+          <div style="font-size: 16px; color: #FFFFFF">登录</div>
         </v-btn>
-
-        <div class="text-center mt-1">
-          <span style="color: #7F7F7F ;font-size: 14px; margin-right:0.5em">
-            还未创建账号?
-          </span>
-          <span style="color: #00CFAC ;font-size: 14px;">
-            注册
-          </span>
-        </div>
       </div>
     </v-form>
   </v-tab-item>
@@ -97,7 +86,7 @@ export default {
     }
   },
   methods: {
-    submit() {
+    loginByPhone() {
       this.$refs.form.validate()
       console.log(this.valid)
       if (this.valid) {

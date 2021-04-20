@@ -31,10 +31,10 @@
         <v-row>
           <v-col cols="12" style="width:100%">
             <v-tabs v-model="model" slider-size="5" grow color="#00FFBC">
-              <v-tab :href="`#tab-1`">
+              <v-tab :href="`#tab-1`" style="color: #00CFAC">
                 手机号
               </v-tab>
-              <v-tab :href="`#tab-2`">
+              <v-tab :href="`#tab-2`" style="color: #ff0000">
                 邮箱
               </v-tab>
             </v-tabs>
@@ -77,7 +77,6 @@
                 <v-row style="">
                   <v-col
                     cols="3"
-                    align="left"
                     style="font-size: 14px;font-family: PingFang-SC-Semibold, PingFang-SC;font-weight: 600;color: #00CFAC;line-height: 20px;margin-left:10px;"
                     >忘记密码？</v-col
                   >
@@ -92,20 +91,10 @@
                     large
                     block
                   >
-                    登录
+                    <div style="color: #FFFFFF">登录</div>
                   </v-btn>
                 </v-row>
-
-                <v-row style="">
-                  <v-col cols="12" class="text-center">
-                    <span style="color: #7F7F7F ;font-size: 14px;"
-                      >还未创建账号?</span
-                    >
-                    <span style="color: #00CFAC ;font-size: 14px;">注册</span>
-                  </v-col>
-                </v-row>
               </v-tab-item>
-
               <v-tab-item :value="`tab-2`">
                 <v-row style="height:32px"> </v-row>
                 <v-row>
@@ -176,7 +165,7 @@ export default {
   components: {
     countryCodeSelector,
   },
-  data () {
+  data() {
     return {
       items: ['Foo', 'Bar', 'Fizz', 'Buzz'],
       model: 'tab-2',

@@ -2,82 +2,108 @@
   <div>
     <main>
       <the-header />
-      <div class="main" style="background: #FAFBFC;">
+      <div class="main" style="background: #FAFBFC; height: 100vh">
         <div class="container2">
-          <div class="ptitle">
+          <div class="ptitle d-inline-flex">
             <router-link to="/investPast">
-              <img src="@/assets/arrow_green.png" class="gbicon" />
+              <img
+                src="@/assets/arrow_green.png"
+                class="gbicon"
+                style="margin-top: 10px"
+              />
             </router-link>
             <h2>往期项目</h2>
-            <span
-              style="font-size: 12px;font-family: PingFangSC-Regular, PingFang SC;color: #1BD7A7;"
-              >时间
+            <div style="width: 682px"></div>
+            <div class="d-inline-flex">
               <v-select
-                :items="[
-                  '2021-10-10',
-                  '2021-10-11',
-                  '2021-10-12',
-                  '2021-10-13',
-                ]"
-                style="width:20px;display:inline-block;"
+                label="时间"
+                :items="['7天内', '30天内', '6个月', '一年内']"
                 solo
-              ></v-select
-            ></span>
+                dense
+                flat
+                style="font-size: 12px; color: #1BD7A7; width: 106px; height: 28px"
+                color="#1BD7A7"
+              ></v-select>
+            </div>
           </div>
-          <div v-for="vi in list" :key ="vi.ProjectName">
-          <div class="time">
-            时间:2021-03-02
-          </div>
-          <!-- 未完成卡片 -->
-          <router-link to="/investTab">
-            <v-card
-                    class="mx-auto card"
-                    style="box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.04);"
+          <div class="d-flex justify-center" v-show="dataNoneShow">
+            <div
+              class="d-flex justify-center"
+              style="width: 200px; height: 200px; margin-top: 280px"
             >
-              <v-row>
-                <v-col
-                ><v-card-subtitle class="pb-0"
-                ><span class="card-green">{{vi.AnnualizedIncome}}</span>
-                  年化收益</v-card-subtitle
-                ></v-col
-                >
-                <v-col class="text1"
-                >项目周期&nbsp;&nbsp;&nbsp; <b>{{vi.Cycle}}</b>
-                  <v-icon color="#b3b3b3" class="ll"
-                  >mdi-chevron-right</v-icon
-                  ></v-col
-                >
-              </v-row>
-              <v-row>
-                <v-col class="textleft">投资总额 <b>{{vi.Total}} USDT</b></v-col>
-                <v-col>最低收入 <b>{{vi.MinimumInvestment}}  USDT</b></v-col>
-              </v-row>
-              <v-row>
-                <v-col class="textleft"
-                >融资进度
-                  <i
-                          style="display:inline-block;width:46px;height:18px;background: linear-gradient(225deg, #00E9D6 0%, #00CFAC 100%);border-radius: 4px;font-style:normal;text-align:center;line-height:18px;color:#fff;font-size:10px;font-weight:400;font-family: PingFangSC-Regular, PingFang SC;"
-                  >完成</i
-                  >
-                </v-col>
-              </v-row>
-              <v-list style="position: relative;"
-              ><v-progress-linear
-                      style="margin-top:10px;margin-left:8px;height:10px;width:600px;border-radius: 5px;"
-                      v-model="valueDeterminate"
-                      background-color="#F7F8FB"
-                      color="#00CFAC"
-                      class="unfinish"
-              ></v-progress-linear>
-                <span
-                        style="position: absolute;top:-12px;right:30%;color:#00CFAC;font-size:14px;"
-                >90%</span
-                ></v-list
+              <v-img
+                src="https://investors.oss-cn-beijing.aliyuncs.com/assets/invest/past_project_none.png"
               >
-            </v-card>
-          </router-link>
+              </v-img>
+              <div
+                style="position: absolute; margin-top: 200px; font-size: 14px;
+                color: #9F9FA4; font-weight: 400"
+              >
+                暂无记录
+              </div>
+            </div>
           </div>
-
+          <div
+            v-show="dataCardShow"
+            v-for="vi in dataList"
+            v-bind:key="vi.ProjectName"
+          >
+            <div class="time">
+              时间:2021-03-02
+            </div>
+            <!-- 未完成卡片 -->
+            <router-link to="/investTab">
+              <v-card
+                class="mx-auto card"
+                style="box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04);"
+              >
+                <v-row>
+                  <v-col
+                    ><v-card-subtitle class="pb-0"
+                      ><span class="card-green">{{ vi.AnnualizedIncome }}</span>
+                      年化收益</v-card-subtitle
+                    ></v-col
+                  >
+                  <v-col class="text1"
+                    >项目周期&nbsp;&nbsp;&nbsp; <b>{{ vi.Cycle }}</b>
+                    <v-icon color="#b3b3b3" class="ll"
+                      >mdi-chevron-right</v-icon
+                    ></v-col
+                  >
+                </v-row>
+                <v-row>
+                  <v-col class="textleft"
+                    >投资总额 <b>{{ vi.Total }} USDT</b></v-col
+                  >
+                  <v-col
+                    >最低收入 <b>{{ vi.MinimumInvestment }} USDT</b></v-col
+                  >
+                </v-row>
+                <v-row>
+                  <v-col class="textleft"
+                    >融资进度
+                    <i
+                      style="display:inline-block;width:46px;height:18px;background: linear-gradient(225deg, #00E9D6 0%, #00CFAC 100%);border-radius: 4px;font-style:normal;text-align:center;line-height:18px;color:#fff;font-size:10px;font-weight:400;font-family: PingFangSC-Regular, PingFang SC;"
+                      >完成</i
+                    >
+                  </v-col>
+                </v-row>
+                <v-list style="position: relative;"
+                  ><v-progress-linear
+                    style="margin-top:10px;margin-left:8px;height:10px;width:600px;border-radius: 5px;"
+                    v-model="valueDeterminate"
+                    background-color="#F7F8FB"
+                    color="#00CFAC"
+                    class="unfinish"
+                  ></v-progress-linear>
+                  <span
+                    style="position: absolute;top:-12px;right:30%;color:#00CFAC;font-size:14px;"
+                    >90%</span
+                  ></v-list
+                >
+              </v-card>
+            </router-link>
+          </div>
         </div>
       </div>
       <the-footer />
@@ -95,7 +121,9 @@ export default {
   data() {
     return {
       valueDeterminate: 90,
-      list: '',
+      dataList: '',
+      dataCardShow: '',
+      dataNoneShow: '',
     }
   },
   components: {
@@ -110,17 +138,28 @@ export default {
     GetData: function() {
       const token = localStorage.getItem('token')
       this.axios
-              .post(
-                      '/t0/invest/list',
-                      {'user_id':'1','types':'past'},
-                      { headers: { 'access-token': token,'Content-Type': 'application/json'} }
-              )
-              .then(response => {
-                console.log(response)
-                this.list = response.data.list
-              })
+        .post(
+          '/t0/invest/list',
+          { user_id: '1', types: 'past' },
+          {
+            headers: {
+              'access-token': token,
+              'Content-Type': 'application/json',
+            },
+          }
+        )
+        .then(response => {
+          this.dataList = response.data.list
+          if (this.dataList === null || this.dataList === '') {
+            this.dataCardShow = false
+            this.dataNoneShow = true
+          } else {
+            this.dataCardShow = true
+            this.dataNoneShow = false
+          }
+        })
     },
-  }
+  },
 }
 </script>
 
@@ -140,14 +179,11 @@ export default {
     width: 100%;
     h2 {
       margin-left: 20px;
-      display: inline-block;
       height: 32px;
       font-size: 32px;
-      font-family: PingFang-SC-Semibold, PingFang-SC;
       font-weight: 600;
       color: #000000;
       line-height: 32px;
-      border-radius: 0%;
     }
     .gbicon {
       transform: rotateY(180deg);
