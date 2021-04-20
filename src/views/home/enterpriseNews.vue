@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div style="height: 150px;background: #5F80E8">
+    <div style="height: 150px;background: linear-gradient(90deg, rgb(0, 207, 172) 0%, rgb(91, 122, 222) 100%);">
       <MainHeader />
     </div>
     <div style="background: #FAFBFC">

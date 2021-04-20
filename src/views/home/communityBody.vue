@@ -667,7 +667,7 @@ line-height: 17px;"
         <v-btn
           style="width: 136px;float:right;
     height: 50px;
-    background: linear-gradient(204deg, #00FFBC 0%, #5B7ADE 100%);;
+    background: linear-gradient(270deg, rgb(0, 255, 188) 0%, rgb(41, 196, 203) 100%);
     border-radius: 24px;color: #FFFFFF;margin-top: -50px"
         >
           提交

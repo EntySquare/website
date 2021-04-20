@@ -168,7 +168,7 @@
                                 src="https://investors.oss-cn-beijing.aliyuncs.com/assets/headMenu/com_select_icon1.png"
                               ></v-img>
                             </div>
-                            <router-link to="/company/about">
+                            <router-link to="/AboutUs">
                               <div
                                 style="margin-top: 18px; font-size: 12px; font-weight: 400; color: #000000; line-height: 12px"
                               >
@@ -187,7 +187,7 @@
                                 src="https://investors.oss-cn-beijing.aliyuncs.com/assets/headMenu/com_select_icon2.png"
                               ></v-img>
                             </div>
-                            <router-link to="/company/cooperation">
+                            <router-link to="/Community">
                               <div
                                 style="margin-top: 18px; font-size: 12px; font-weight: 400; color: #000000; line-height: 12px"
                               >
@@ -206,7 +206,7 @@
                                 src="https://investors.oss-cn-beijing.aliyuncs.com/assets/headMenu/com_select_icon3.png"
                               ></v-img>
                             </div>
-                            <router-link to="/company/state">
+                            <router-link to="/EnterpriseNews">
                               <div
                                 style="margin-top: 18px; font-size: 12px; font-weight: 400; color: #000000; line-height: 12px"
                               >
@@ -225,7 +225,7 @@
                                 src="https://investors.oss-cn-beijing.aliyuncs.com/assets/headMenu/com_select_icon4.png"
                               ></v-img>
                             </div>
-                            <router-link to="/company/contact">
+                            <router-link to="/JoinCommunity">
                               <div
                                 style="margin-top: 18px; font-size: 12px; font-weight: 400; color: #000000; line-height: 12px"
                               >
