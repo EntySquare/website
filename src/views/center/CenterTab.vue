@@ -2097,6 +2097,9 @@ export default {
         )
         .then(response => {
           this.updateUidResult = response.data
+          if (response.data !== 'success') {
+            alert(this.updateUidResult)
+          }
           this.user_up2 = false
           this.GetMyData()
         })
