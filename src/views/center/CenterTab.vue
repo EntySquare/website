@@ -1541,7 +1541,7 @@
                 single-line
                 filled
                 rounded
-                hint="输入0到9之间的6位数字"
+                hint="*6位，必须包含字母和数字"
               ></v-text-field>
             </v-row>
             <v-row style="padding: 0 15px 0 15px">
@@ -1837,9 +1837,8 @@ export default {
         )
         .then(response => {
           this.addWalletResult = response.data
-          alert(this.addWalletResult)
           this.addqianbao1 = false
-          this.$router.go(0)
+          this.getWalletAddInfo()
         })
     },
     delWalletAddress: function(add) {
@@ -1852,8 +1851,8 @@ export default {
         )
         .then(response => {
           this.delWalletResult = response.data
+          this.getWalletAddInfo()
         })
-      alert(this.delWalletResult)
     },
     sendCode() {
       this.axios
@@ -2098,8 +2097,8 @@ export default {
         )
         .then(response => {
           this.updateUidResult = response.data
-          alert(this.updateUidResult)
           this.user_up2 = false
+          this.GetMyData()
         })
     },
     //绑定邮箱

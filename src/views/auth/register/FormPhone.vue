@@ -39,12 +39,11 @@
         v-show="sendCodeVue"
         >发送验证码
       </span>
-
       <span
         v-show="!sendCodeVue"
-        style="color: #00CFAC; position: absolute; top: 21%; right: 19px; cursor: pointer"
+        style="color: #00CFAC; position: absolute; top: 113px; right: 29px; cursor: pointer"
       >
-        <p>{{ authTime }} S</p>
+        {{ authTime }} s
       </span>
       <v-text-field
         autocomplete="off"

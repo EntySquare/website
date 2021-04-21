@@ -27,9 +27,9 @@
 
       <span
         v-show="!sendCodeVue"
-        style="color: #00CFAC; position: absolute; top: 19%; right: 25px; cursor: pointer"
+        style="color: #00CFAC; position: absolute; top: 103px; right: 25px; cursor: pointer"
       >
-        <p>{{ authTime }} S</p>
+        {{ authTime }} s
       </span>
       <v-text-field
         autocomplete="off"
