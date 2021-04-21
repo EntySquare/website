@@ -10,7 +10,7 @@ line-height: 28px;"
     >
       重置密码
     </div>
-    <v-row style="height: 60px;"> </v-row>
+    <v-row style="height: 30px;"> </v-row>
     <v-form v-model="valid" ref="form" class="mt-4 form">
       <v-row>
         <v-col cols="4">
@@ -44,7 +44,7 @@ line-height: 28px;"
         rounded
       ></v-text-field>
       <span
-        style="color: #00CFAC; position: absolute; top: 42%; right: 60px; cursor: pointer"
+        style="color: #00CFAC; position: absolute; top: 210px; right: 60px; cursor: pointer"
         @click="sendCode()"
         v-show="sendCodeVue"
         ><p>发送验证码</p>
@@ -52,7 +52,7 @@ line-height: 28px;"
 
       <span
         v-show="!sendCodeVue"
-        style="color: #00CFAC; position: absolute; top: 42%; right: 60px; cursor: pointer"
+        style="color: #00CFAC; position: absolute; top: 210px; right: 60px; cursor: pointer"
       >
         <p>{{ authTime }} s</p>
       </span>

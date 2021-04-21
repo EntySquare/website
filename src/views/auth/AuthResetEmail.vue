@@ -1,16 +1,16 @@
 <template>
   <v-card class="wrap">
-    <v-row style="height: 30px;">
-    </v-row>
-    <div class="d-flex justify-lg-center" style="font-size: 28px;
-font-family: PingFang-SC-Semibold, PingFang-SC;
+    <v-row style="height: 30px;"> </v-row>
+    <div
+      class="d-flex justify-lg-center"
+      style="font-size: 28px;
 font-weight: 600;
 color: #000000;
-line-height: 28px;">
+line-height: 28px;"
+    >
       重置密码
     </div>
-    <v-row style="height: 60px;">
-    </v-row>
+    <v-row style="height: 30px;"> </v-row>
     <v-form v-model="valid" ref="form" class="mt-4 form">
       <v-row>
         <v-col cols="12">
@@ -20,7 +20,6 @@ line-height: 28px;">
             label="请输入邮箱"
             single-line
             filled
-            dense
             rounded
           ></v-text-field>
         </v-col>
@@ -30,18 +29,19 @@ line-height: 28px;">
         v-model="checkCode"
         single-line
         filled
-        dense
         rounded
       ></v-text-field>
       <span
-         style="color: #00CFAC; position: absolute; top: 43%; right: 60px; cursor: pointer"
+        style="color: #00CFAC; position: absolute; top: 210px; right: 60px; cursor: pointer"
         @click="sendCode()"
         v-show="sendCodeVue"
         ><p>发送验证码</p>
       </span>
 
       <span
-        v-show="!sendCodeVue"  style="color: #00CFAC; position: absolute; top: 43%; right: 60px; cursor: pointer">
+        v-show="!sendCodeVue"
+        style="color: #00CFAC; position: absolute; top: 210px; right: 60px; cursor: pointer"
+      >
         <p>{{ authTime }} S</p>
       </span>
       <v-text-field
@@ -50,7 +50,6 @@ line-height: 28px;">
         label="请输入密码"
         single-line
         filled
-        dense
         rounded
       ></v-text-field>
       <v-text-field
@@ -59,13 +58,12 @@ line-height: 28px;">
         label="请再次输入密码"
         single-line
         filled
-        dense
         rounded
       ></v-text-field>
 
       <div class="card-bottom">
         <v-btn
-          style="background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);"
+          style="background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%); height: 56px; color: #FFFFFF"
           depressed
           bottom
           rounded
@@ -123,13 +121,13 @@ export default {
         this.axios
           .post('/r0/resetMatch', {
             password: this.password,
-            email:this.email,
-            code: this.checkCode
+            email: this.email,
+            code: this.checkCode,
           })
           .then(response => {
-            if(response.data.errcode != null){
+            if (response.data.errcode != null) {
               alert('修改失败！')
-                return
+              return
             }
             alert('修改成功！,userid:' + response.data.UserId)
             this.$router.push('/')
@@ -144,8 +142,8 @@ export default {
           email: this.email,
         })
         .then(response => {
-          if(response.data.errcode != null){
-                return
+          if (response.data.errcode != null) {
+            return
           }
           //成功逻辑
           this.sendCodeVue = false // 控制显示隐藏

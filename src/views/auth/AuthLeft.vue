@@ -4,7 +4,7 @@
       加密资产理财
     </div>
     <div class="main-title">
-      马上加入 investor
+      马上加入 investors
     </div>
     <p class="sub-feature">
       <img

@@ -362,7 +362,7 @@
         </v-tab-item>
         <v-tab-item :value="`tab-2`">
           <v-card
-            height="498px"
+            height="648px"
             width="960px"
             class="mx-auto"
             style="top: 28px; box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04); border-radius: 24px;"
@@ -401,11 +401,20 @@
                   </div>
                   <div style="width: 20px"></div>
                   <v-btn
+                    v-show="bindEmailBtnDisable"
                     text
                     style="width: 76px; height: 30px; margin-top: 20px; background: #F7F8FB;
                        border-radius: 15px; color: #00CFAC; font-size: 14px; font-weight: 600;"
                     @click="bindEmailFlag = true"
-                    >{{ bindEmailBtnState }}
+                    >设置
+                  </v-btn>
+                  <v-btn
+                    disabled
+                    v-show="!bindEmailBtnDisable"
+                    text
+                    style="width: 76px; height: 30px; margin-top: 20px; background: #F7F8FB;
+                       border-radius: 15px; color: #00CFAC; font-size: 14px; font-weight: 600;"
+                    >设置
                   </v-btn>
                   <v-dialog
                     content-class="rounded-xl"
@@ -462,6 +471,111 @@
                         text
                         rounded
                         @click="bindEmail(bindEmailNum, emailCheckCode)"
+                        style="color: #FFFFFF; background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);"
+                        >确定</v-btn
+                      >
+                    </div>
+                  </v-dialog>
+                </div>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="6">
+                <div>
+                  <v-card-title style="padding-left: 32px">
+                    <div
+                      style="font-size: 16px; font-weight: bold; color: #000000"
+                    >
+                      手机号
+                    </div>
+                  </v-card-title>
+                  <v-card-subtitle
+                    style="padding-left: 32px; font-size: 14px; white-space: nowrap"
+                  >
+                    用于登录，找回密码以及收取短信验证码
+                  </v-card-subtitle>
+                </div>
+              </v-col>
+              <v-col cols="3" offset="3">
+                <div
+                  class="d-inline-flex"
+                  style="float: right; padding-right: 32px"
+                >
+                  <div style="padding-top: 24px; font-size: 14px">
+                    {{ bindPhoneState }}
+                  </div>
+                  <div style="width: 20px"></div>
+                  <v-btn
+                    v-show="bindPhoneBtnState"
+                    text
+                    style="width: 76px; height: 30px; margin-top: 20px; background: #F7F8FB;
+                       border-radius: 15px; color: #00CFAC; font-size: 14px; font-weight: 600;"
+                    @click="bindPhoneFlag = true"
+                    >设置
+                  </v-btn>
+                  <v-btn
+                    disabled
+                    v-show="!bindPhoneBtnState"
+                    text
+                    style="width: 76px; height: 30px; margin-top: 20px; background: #F7F8FB;
+                       border-radius: 15px; color: #00CFAC; font-size: 14px; font-weight: 600;"
+                    >设置
+                  </v-btn>
+                  <v-dialog
+                    content-class="rounded-xl"
+                    v-model="bindPhoneFlag"
+                    width="400"
+                    height="544"
+                  >
+                    <div
+                      style="height: 544px;width: 400px;background: #FFFFFF; padding: 30px"
+                    >
+                      <div
+                        style="width: 120px; height: 24px; font-size: 24px;
+                        font-weight: 600; color: #000000; line-height: 24px;"
+                      >
+                        绑定手机号
+                      </div>
+                      <div style="height: 56px"></div>
+                      <v-text-field
+                        autocomplete="off"
+                        v-model="bindPhoneNum"
+                        :rules="phoneRules"
+                        label="请输入手机号"
+                        single-line
+                        filled
+                        rounded
+                      ></v-text-field>
+                      <v-text-field
+                        autocomplete="off"
+                        label="请输入验证码"
+                        v-model="phoneCheckCode"
+                        single-line
+                        filled
+                        rounded
+                      >
+                      </v-text-field>
+                      <span
+                        style="color: #00CFAC;width: 100%; position: absolute; margin-top: -67px;
+                        margin-left: 240px; font-size: 14px; font-weight: 600; cursor: pointer"
+                        @click="sendCode"
+                        v-show="sendCodeVue"
+                        >发送验证码
+                      </span>
+                      <span
+                        v-show="!sendCodeVue"
+                        style="color: #00CFAC; position: absolute; margin-top: -69px;
+                        margin-left: 240px; cursor: pointer"
+                      >
+                        <p>{{ authTime }} S</p>
+                      </span>
+                      <div style="height: 156px"></div>
+                      <v-btn
+                        width="340px"
+                        height="56px"
+                        text
+                        rounded
+                        @click="bindPhone(bindPhoneNum, phoneCheckCode)"
                         style="color: #FFFFFF; background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%);"
                         >确定</v-btn
                       >
@@ -1686,6 +1800,11 @@ export default {
           /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(v) ||
           '邮箱格式不对',
       ],
+      phoneRules: [
+        v => !!v || '手机号必须输入',
+        v => /^(\d)+$/.test(v) || '手机号是数字',
+        v => /^(\d){11}$/.test(v) || '手机号是11位',
+      ],
       emailCheckCode: '',
       sendCodeVue: true, // 控制发送验证码按钮显示
       authTime: 0, // 倒计时
@@ -1766,9 +1885,11 @@ export default {
       lastLoginArea: '',
       lastLoginDevice: '',
       bindEmailNum: '',
+      bindPhoneNum: '',
       bindEmailResult: '',
+      bindPhoneResult: '',
       emailBindState: '',
-      bindEmailBtnState: '',
+      bindEmailBtnDisable: '',
       setPayPwdResult: '',
       verPayPwdResult: '',
       updatePayPwdResult: '',
@@ -1791,6 +1912,10 @@ export default {
       googleBtnState: '',
       fishCodeState: '',
       fishCodeBtnState: '',
+      bindPhoneState: '',
+      bindPhoneBtnState: '',
+      bindPhoneFlag: '',
+      phoneCheckCode: '',
     }
   },
   filters: {
@@ -2043,6 +2168,7 @@ export default {
           this.email = response.data.Email
           this.realName = response.data.UserRealName
           this.bindEmailStateShow(response.data.Email)
+          this.bindPhoneStateShow(response.data.PhoneNumber)
           this.payPwdStateShow(response.data.PayPwdFlag)
           this.googleStateShow(response.data.GoogleVerFlag)
           this.fishCodeStateShow(response.data.FishVerFlag)
@@ -2117,6 +2243,22 @@ export default {
           this.bindEmailResult = response.data
           alert(this.bindEmailResult)
           this.bindEmailFlag = false
+          this.GetMyData()
+        })
+    },
+    //绑定手机号
+    bindPhone: function(bindPhoneNum, phoneCheckCode) {
+      const token = localStorage.getItem('token')
+      this.axios
+        .post(
+          '/r0/bindPhone',
+          { PhoneNumber: bindPhoneNum, CheckCode: phoneCheckCode },
+          { headers: { 'access-token': token } }
+        )
+        .then(response => {
+          this.bindPhoneResult = response.data
+          alert(this.bindPhoneResult)
+          this.bindPhoneFlag = false
           this.GetMyData()
         })
     },
@@ -2282,10 +2424,20 @@ export default {
     bindEmailStateShow: function(email) {
       if (email === '' || email === undefined || email === null) {
         this.emailBindState = '未绑定'
-        this.bindEmailBtnState = '绑定'
+        this.bindEmailBtnDisable = true
       } else {
         this.emailBindState = '已绑定'
-        this.bindEmailBtnState = '修改'
+        this.bindEmailBtnDisable = false
+      }
+    },
+    //手机绑定状态
+    bindPhoneStateShow: function(phone) {
+      if (phone === '' || phone === undefined || phone === null) {
+        this.bindPhoneState = '未绑定'
+        this.bindPhoneBtnState = true
+      } else {
+        this.bindPhoneState = '已绑定'
+        this.bindPhoneBtnState = false
       }
     },
     //支付密码状态

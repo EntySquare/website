@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div style="height: 150px;background: linear-gradient(90deg, rgb(0, 207, 172) 0%, rgb(91, 122, 222) 100%);">
+    <div
+      style="height: 150px;background: linear-gradient(90deg, rgb(0, 207, 172) 0%, rgb(91, 122, 222) 100%);"
+    >
       <MainHeader />
     </div>
     <div style="background: #FAFBFC">
@@ -256,7 +258,7 @@ line-height: 18px;"
             </div>
             <div style="height: 20px"></div>
             <div
-              style="font-size: 12px;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #808080;line-height: 17px;"
+              style="font-size: 12px; font-weight: 400;color: #808080;line-height: 17px;"
             >
               金融投资者们都在看的企业简报 与深度分析
             </div>
@@ -264,17 +266,18 @@ line-height: 18px;"
             <div
               style="width: 100%;height: 40px;margin: 0 auto;background: #D8D8D8;border-radius: 24px;"
             >
-              <input
-                style="outline:medium;height: 100%;width: 100%;color: #0C0C0C"
-                name="t2"
-                value=""
-                placeholder="nane@email.com"
-              />
+              <v-text-field
+                autocomplete="off"
+                label="nane@email.com"
+                rounded
+                filled
+                dense
+                single-line
+                style="height: 100%;width: 100%;color: #0C0C0C"
+              >
+              </v-text-field>
               <v-btn
-                style="width: 40px;float:right;
-    height: 40px;
-    background: linear-gradient(204deg, #00FFBC 0%, #5B7ADE 100%);;;
-    border-radius: 24px;color: #FFFFFF;margin-top: -40px"
+                style="width: 40px;float:right; height: 40px; background: linear-gradient(204deg, #00FFBC 0%, #5B7ADE 100%); border-radius: 24px;color: #FFFFFF;margin-top: -40px"
               >
                 提交
               </v-btn>

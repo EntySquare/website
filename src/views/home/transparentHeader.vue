@@ -111,20 +111,114 @@
                 </v-col>
                 <v-col cols="1">
                   <div
-                    style="width: 50px; display: inline-flex; white-space: nowrap"
+                    style="width: 50px; display: inline-flex; white-space: nowrap; cursor: pointer"
+                    @click="getHsfInfo"
                   >
-                    <router-link to="/product">
-                      <p class="titleFont">获取HSF</p>
-                    </router-link>
+                    <p class="titleFont">获取HSF</p>
                   </div>
+                  <v-dialog
+                    content-class="rounded-xl"
+                    v-model="hsfDialogShow"
+                    width="600"
+                    height="432"
+                  >
+                    <div
+                      style="height: 432px;width: 600px;background: #FFFFFF;padding: 50px 67px 50px 67px"
+                    >
+                      <div class="d-inline-flex">
+                        <div
+                          style="width: 56px; height: 56px;margin-left: 210px "
+                        >
+                          <v-img
+                            src="https://investors.oss-cn-beijing.aliyuncs.com/assets/hsf_logo.png"
+                          ></v-img>
+                        </div>
+                        <div
+                          style="width: 20px; height: 20px; margin-left: 200px; cursor: pointer"
+                          @click="closeHsfDialog"
+                        >
+                          <v-img
+                            src="https://investors.oss-cn-beijing.aliyuncs.com/assets/close_icon.png"
+                          ></v-img>
+                        </div>
+                      </div>
+                      <div style="height: 16px"></div>
+                      <div class="d-flex justify-center">HSF合约地址</div>
+                      <div style="height: 8px"></div>
+                      <div class="d-flex justify-center">
+                        0xe4815ae53b124e7263f08dcdbbb757d41ed658c6
+                      </div>
+                      <div style="height: 6px"></div>
+                      <div
+                        style="height: 124px; width: 466px; background: #FAFAFA; border-radius: 4px;"
+                      >
+                        <div style="padding: 20px; font-size: 12px;">
+                          <div style="height: 12px">
+                            <div class="d-inline">HSF价格</div>
+                            <div class="d-inline" style="float: right">
+                              $1000,00
+                            </div>
+                          </div>
+                          <div style="height: 12px"></div>
+                          <div style="height: 12px">
+                            <div class="d-inline">HSF流通量</div>
+                            <div class="d-inline" style="float: right">
+                              206,550.000
+                            </div>
+                          </div>
+                          <div style="height: 12px"></div>
+                          <div style="height: 12px">
+                            <div class="d-inline">HSF总量</div>
+                            <div class="d-inline" style="float: right">
+                              1,000.000,00
+                            </div>
+                          </div>
+                          <div style="height: 12px"></div>
+                          <div style="height: 12px">
+                            <div class="d-inline">HSF流通市值</div>
+                            <div class="d-inline" style="float: right">
+                              $557,385.985
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div style="height: 32px"></div>
+                      <div style="margin-left: 65px; height: 40px">
+                        <a
+                          href="https://www.binance.com/zh-CN/trade/BTC_USDT?layout=basic"
+                        >
+                          <v-btn
+                            text
+                            rounded
+                            style="
+                        width: 152px; height: 40px; background: #00CFAC; border-radius: 20px;"
+                          >
+                            <div style="color: #FFFFFF; font-size: 16px">
+                              币安
+                            </div>
+                          </v-btn>
+                        </a>
+                        <router-link to="/wallet">
+                          <v-btn
+                            text
+                            rounded
+                            style="width: 152px; height: 40px; border-radius: 20px; border: 1px solid #00CFAC;
+                          margin-left: 32px"
+                          >
+                            <div style="color: #00CFAC; font-size: 16px">
+                              兑换
+                            </div>
+                          </v-btn>
+                        </router-link>
+                      </div>
+                    </div>
+                  </v-dialog>
                 </v-col>
                 <v-col cols="1">
                   <div
                     style="width: 50px; display: inline-flex; margin-left: 30px"
                   >
-                    <router-link to="/product">
-                      <p class="titleFont">资源</p>
-                    </router-link>
+                    <p class="titleFont">公告</p>
                   </div>
                 </v-col>
                 <v-col cols="1">
@@ -535,6 +629,7 @@ export default {
       productMenu: false,
       companyMenu: false,
       logoutResult: '',
+      hsfDialogShow: '',
     }
   },
   mounted: function() {
@@ -583,6 +678,14 @@ export default {
           localStorage.removeItem('token')
           this.$router.go(0)
         })
+    },
+    //获取HSF
+    getHsfInfo() {
+      this.hsfDialogShow = true
+    },
+    //关闭获取HSF弹框
+    closeHsfDialog() {
+      this.hsfDialogShow = false
     },
   },
 }

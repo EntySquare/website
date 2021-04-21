@@ -107,7 +107,7 @@ font-weight: 400;
 color: #000000;
 line-height: 33px;"
         >
-          INVESTORS的管理团队自高盛、Facebook、Google、UBS、AIA等世界著名公司的精英，国际化的背景保证了INVESTORS的跨界思维和开放包容，可更从容地应对全球市场变化。
+          investors的管理团队自高盛、Facebook、Google、UBS、AIA等世界著名公司的精英，国际化的背景保证了investors的跨界思维和开放包容，可更从容地应对全球市场变化。
         </div>
       </v-col>
       <v-col cols="3"></v-col>

@@ -641,13 +641,11 @@ padding: 0px 0px 0px 40px"
           </v-col>
           <v-col cols="1"> </v-col>
         </v-row>
-        <v-row style="width: 100%;margin: 0px;">
+        <v-row style="width: 100%;margin: 0;">
           <v-col cols="1"></v-col>
           <v-col cols="10">
-            <span
-              style="font-size: 12px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #7F7F7F;"
-            >
-              站内转账，实时到账，零手续费。备份</span
+            <span style="font-size: 12px; font-weight: 400;color: #7F7F7F;">
+              站内转账，实时到账，零手续费</span
             >
           </v-col>
           <v-col cols="1"></v-col>
@@ -1356,7 +1354,7 @@ color: #9F9FA4;"
                       <span
                         style="font-size: 12px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;margin-bottom: 12px"
                       >
-                        INVESTORS
+                        investors
                       </span>
                       <p style="padding: 0px;margin-bottom: 2px"></p>
                       <span
@@ -1429,7 +1427,7 @@ color: #9F9FA4;"
                       <span
                         style="font-size: 12px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;margin-bottom: 12px"
                       >
-                        INVESTORS
+                        investors
                       </span>
                       <p style="padding: 0px;margin-bottom: 2px"></p>
                       <span
@@ -1571,17 +1569,13 @@ color: #808080;margin-bottom: 12px"
                   class="text-right"
                 >
                   <span
-                    style="font-size: 12px;
-font-weight: 400;
-color: #808080;margin-bottom: 12px"
+                    style="font-size: 12px; font-weight: 400; color: #808080;margin-bottom: 12px"
                   >
                     ≈ $0.00
                   </span>
-                  <p style="padding: 0px;margin-bottom: 2px"></p>
+                  <p style="padding: 0;margin-bottom: 2px"></p>
                   <span
-                    style="font-size: 16px;
-font-weight: 600;
-color: #9F9FA4;"
+                    style="font-size: 16px; font-weight: 600; color: #9F9FA4;"
                   >
                     {{
                       duihuan_hsf_to_usdt_num * duihuan_hsf_to_usdt_num_yunsuan
@@ -1598,7 +1592,6 @@ color: #9F9FA4;"
           <v-col cols="1"></v-col>
           <span
             style="font-size: 14px;
-          font-family: Nunito-Regular, Nunito;
           font-weight: 400;
           color: #808080;
           line-height: 32px;"
@@ -1607,7 +1600,6 @@ color: #9F9FA4;"
           </span>
           <span
             style="font-size: 14px;
-          font-family: Nunito-Regular, Nunito;
           font-weight: 400;
           color: #000000;
           line-height: 32px;"

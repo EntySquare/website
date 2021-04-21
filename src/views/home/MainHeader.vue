@@ -448,7 +448,7 @@
                               </div>
                             </v-btn>
                           </router-link>
-                          <div style="width: 10px"></div>
+                          <div style="width: 20px"></div>
                           <router-link to="/wallet">
                             <v-btn
                               text
@@ -506,7 +506,14 @@
                               </div>
                               <div style="width: 8px"></div>
                               <router-link to="/centerTab">
-                                <div style="cursor: pointer">个人中心</div>
+                                <div
+                                  id="center1"
+                                  @mouseover="changeColor('center1')"
+                                  @mouseout="recoverColor('center1')"
+                                  style="cursor: pointer"
+                                >
+                                  个人中心
+                                </div>
                               </router-link>
                             </div>
                             <div style="height: 16px"></div>
@@ -519,7 +526,14 @@
                               </div>
                               <div style="width: 8px"></div>
                               <router-link to="/centerTab">
-                                <div style="cursor: pointer">安全中心</div>
+                                <div
+                                  id="center2"
+                                  @mouseover="changeColor('center2')"
+                                  @mouseout="recoverColor('center2')"
+                                  style="cursor: pointer"
+                                >
+                                  安全中心
+                                </div>
                               </router-link>
                             </div>
                             <div style="height: 16px"></div>
@@ -531,7 +545,13 @@
                                 </v-img>
                               </div>
                               <div style="width: 8px"></div>
-                              <div @click="logout" style="cursor: pointer">
+                              <div
+                                id="center3"
+                                @mouseover="changeColor('center3')"
+                                @mouseout="recoverColor('center3')"
+                                @click="logout"
+                                style="cursor: pointer"
+                              >
                                 退出
                               </div>
                             </div>
@@ -809,6 +829,12 @@ export default {
       } else {
         document.getElementById('mainBtn1').style.display = 'block'
       }
+    },
+    changeColor(id) {
+      document.getElementById(id).style.color = '#00CFAC'
+    },
+    recoverColor(id) {
+      document.getElementById(id).style.color = '#000000'
     },
   },
 }
