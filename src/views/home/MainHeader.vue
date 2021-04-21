@@ -224,9 +224,7 @@
                   <div
                     style="width: 50px; display: inline-flex; margin-left: 30px"
                   >
-                    <router-link to="/product">
-                      <p class="titleFont">公告</p>
-                    </router-link>
+                    <p class="titleFont">公告</p>
                   </div>
                 </v-col>
                 <v-col cols="1">
@@ -659,27 +657,28 @@
             </div>
             <!-- 已登录 按钮显示 -->
             <div id="mainBtn2">
-              <v-btn
-                v-show="!loginVue"
-                text
-                rounded
-                class="white"
-                style="text-align: center;
+              <router-link to="/financial">
+                <v-btn
+                  v-show="!loginVue"
+                  text
+                  rounded
+                  class="white"
+                  style="text-align: center;
             border-radius: 175px 175px 175px 175px;
             width: 200px;
             height: 70px;
             margin-right: 8%"
-              >
-                <router-link to="/financial">
+                >
                   <div style="color: #00CFAC; font-size: 16px">理财</div>
-                </router-link>
-              </v-btn>
+                </v-btn>
+              </router-link>
             </div>
             <div style="width: 32px"></div>
             <!-- 已登录 按钮显示 -->
             <div id="mainBtn3">
-              <v-btn
-                style="background: transparent;
+              <a href="https://www.hillstonetoken.com/">
+                <v-btn
+                  style="background: transparent;
             border:4px white solid;
             border-radius: 175px 175px 175px 175px;
             width: 200px;
@@ -687,11 +686,10 @@
             margin-right: 10%;
             box-shadow: none;
             text-align: center"
-              >
-                <router-link to="https://www.hillstonetoken.com/">
+                >
                   <div style="color: #FFFFFF; font-size: 16px">白皮书</div>
-                </router-link>
-              </v-btn>
+                </v-btn>
+              </a>
             </div>
           </div>
         </v-col>
@@ -799,7 +797,6 @@ export default {
         //未登录
         document.getElementById('mainBtn1').style.display = 'none'
       }
-      this.$router.go(-1)
     },
     //关闭获取HSF弹框
     closeHsfDialog() {

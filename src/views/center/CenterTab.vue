@@ -1737,7 +1737,7 @@ export default {
       googleyz2: false, //谷歌验证页面1
       googleyz3: false, //谷歌验证页面1
       user_up2: false, //设置INVESTORS帐号
-      addqianbao1: false, //添加钱包地址
+      addqianbao1: '', //添加钱包地址
       sendCodeVue2: true, // 控制发送验证码按钮显示
       dataObj: {
         //二维码
@@ -1837,15 +1837,17 @@ export default {
         )
         .then(response => {
           this.addWalletResult = response.data
+          alert(this.addWalletResult)
+          this.addqianbao1 = false
+          this.$router.go(0)
         })
-      alert(this.addWalletResult)
     },
     delWalletAddress: function(add) {
       const token = localStorage.getItem('token')
       this.axios
         .post(
-          '/t0/delWalletAddInfo',
-          { walletAdd: add },
+          '/r0/center/delWalletAddInfo',
+          { Address: add },
           { headers: { 'access-token': token } }
         )
         .then(response => {
@@ -2113,6 +2115,7 @@ export default {
           this.bindEmailResult = response.data
           alert(this.bindEmailResult)
           this.bindEmailFlag = false
+          this.GetMyData()
         })
     },
     //设置支付密码
@@ -2127,6 +2130,7 @@ export default {
         .then(response => {
           this.setPayPwdResult = response.data
           alert(this.setPayPwdResult)
+          this.GetMyData()
         })
     },
     //原支付密码验证身份
@@ -2251,7 +2255,6 @@ export default {
         )
         .then(response => {
           this.googleBindResult = response.data
-          alert(this.googleBindResult)
         })
     },
     //设置钓鱼码
@@ -2270,6 +2273,7 @@ export default {
           this.fishCodeResult = response.data
           alert(this.fishCodeResult)
           this.fishDialog = false
+          this.GetMyData()
         })
     },
     //邮箱绑定状态

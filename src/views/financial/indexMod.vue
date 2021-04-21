@@ -240,7 +240,7 @@
             text-align: center"
               >
                 <router-link to="/#">
-                  <div style="color: #00CFAC; font-size: 16px">稳健</div>
+                  <div style="color: #00CFAC; font-size: 16px">优先</div>
                 </router-link>
               </v-btn>
             </v-col>
@@ -255,7 +255,7 @@
             text-align: center"
               >
                 <router-link to="/#">
-                  <div style="color: #808080; font-size: 16px">稳健</div>
+                  <div style="color: #808080; font-size: 16px">劣后</div>
                 </router-link>
               </v-btn>
             </v-col>
