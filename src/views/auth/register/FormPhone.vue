@@ -58,7 +58,8 @@
         :type="show1 ? 'text' : 'password'"
         @click:append="show1 = !show1"
       ></v-text-field>
-      <div class="card-bottom">
+      <div style="height: 20px"></div>
+      <div>
         <v-btn
           style="background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%); height: 56px"
           depressed

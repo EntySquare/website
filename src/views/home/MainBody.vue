@@ -25,129 +25,131 @@
       <v-col cols="12">
         <div align="center" style="display: inline-flex; align-items: center">
           <router-link to="/investPast">
-          <v-btn
-            id="btn1"
-            text
-            rounded
-            class="btn"
-            style="width: 280px;height: 312px;"
-            @mouseover="showBtnMore1()"
-            @mouseout="hideBtnMore1()"
-          >
-            <div align="center">
-              <img
-                src="https://investors.oss-cn-beijing.aliyuncs.com/assets/investors_btn1.png"
-                style="width: 120px; height:120px;"
-              />
-              <p
-                style="color: black; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif; text-transform: lowercase; margin-top: 20px; font-size: 20px"
-              >
-                investors投资
-              </p>
-              <div
-                class="text-center"
-                id="btnMore1"
-                style="display: none; margin-top: 25px"
-              >
+            <v-btn
+              id="btn1"
+              text
+              rounded
+              class="btn"
+              style="width: 280px;height: 312px;"
+              @mouseover="showBtnMore1()"
+              @mouseout="hideBtnMore1()"
+            >
+              <div align="center">
+                <img
+                  src="https://investors.oss-cn-beijing.aliyuncs.com/assets/investors_btn1.png"
+                  style="width: 120px; height:120px;"
+                />
                 <p
-                  style="color: #00CFAC; display:inline-flex; font-size: 16px; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif"
+                  style="color: black; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif; text-transform: lowercase; margin-top: 20px; font-size: 20px"
                 >
-                  了解更多
+                  investors投资
                 </p>
                 <div
-                  style="display: inline-flex; margin-left: 3px; margin-bottom: 4px; vertical-align: middle"
+                  class="text-center"
+                  id="btnMore1"
+                  style="display: none; margin-top: 25px"
                 >
-                  <img
-                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/arrow_green.png"
-                    style="width:14px; height: 14px;"
-                  />
+                  <p
+                    style="color: #00CFAC; display:inline-flex; font-size: 16px; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif"
+                  >
+                    了解更多
+                  </p>
+                  <div
+                    style="display: inline-flex; margin-left: 3px; margin-bottom: 4px; vertical-align: middle"
+                  >
+                    <img
+                      src="https://investors.oss-cn-beijing.aliyuncs.com/assets/arrow_green.png"
+                      style="width:14px; height: 14px;"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          </v-btn>
-            </router-link>
+            </v-btn>
+          </router-link>
           <router-link to="/financial">
-          <v-btn
-            id="btn2"
-            text
-            rounded
-            class="btn"
-            style="width: 280px;height: 312px; margin-left: 50px"
-            @mouseover="showBtnMore2()"
-            @mouseout="hideBtnMore2()"
-          >
-            <div align="center">
-              <img
-                src="https://investors.oss-cn-beijing.aliyuncs.com/assets/investors_btn2.png"
-                style="width: 120px; height:120px;"
-              />
-              <p
-                style="color: black; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif; text-transform: lowercase; margin-top: 20px; font-size: 20px"
-              >
-                investors理财
-              </p>
-              <div
-                class="text-center"
-                id="btnMore2"
-                style="display: none; margin-top: 25px"
-              >
+            <v-btn
+              id="btn2"
+              text
+              rounded
+              class="btn"
+              style="width: 280px;height: 312px; margin-left: 50px"
+              @mouseover="showBtnMore2()"
+              @mouseout="hideBtnMore2()"
+            >
+              <div align="center">
+                <img
+                  src="https://investors.oss-cn-beijing.aliyuncs.com/assets/investors_btn2.png"
+                  style="width: 120px; height:120px;"
+                />
                 <p
-                  style="color: #00CFAC; display:inline-flex; font-size: 16px; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif"
+                  style="color: black; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif; text-transform: lowercase; margin-top: 20px; font-size: 20px"
                 >
-                  了解更多
+                  investors理财
                 </p>
                 <div
-                  style="display: inline-flex; margin-left: 3px; margin-bottom: 4px; vertical-align: middle"
+                  class="text-center"
+                  id="btnMore2"
+                  style="display: none; margin-top: 25px"
                 >
-                  <img
-                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/arrow_green.png"
-                    style="width:14px; height: 14px;"
-                  />
+                  <p
+                    style="color: #00CFAC; display:inline-flex; font-size: 16px; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif"
+                  >
+                    了解更多
+                  </p>
+                  <div
+                    style="display: inline-flex; margin-left: 3px; margin-bottom: 4px; vertical-align: middle"
+                  >
+                    <img
+                      src="https://investors.oss-cn-beijing.aliyuncs.com/assets/arrow_green.png"
+                      style="width:14px; height: 14px;"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          </v-btn>
-            </router-link>
-          <v-btn
-            id="btn3"
-            text
-            rounded
-            class="btn"
-            style="width: 280px;height: 312px; margin-left: 50px"
-            @mouseover="showBtnMore3()"
-            @mouseout="hideBtnMore3()"
-          >
-            <div align="center">
-              <img
-                src="https://investors.oss-cn-beijing.aliyuncs.com/assets/investors_btn3.png"
-                style="width: 120px; height:120px;"
-              />
-              <p
-                style="color: black; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif; text-transform: lowercase; margin-top: 20px; font-size: 20px"
-              >
-                企业动态
-              </p>
-              <div
-                class="text-center"
-                id="btnMore3"
-                style="display: none; margin-top: 25px"
-              >
+            </v-btn>
+          </router-link>
+          <router-link to="/EnterpriseNews">
+            <v-btn
+              id="btn3"
+              text
+              rounded
+              class="btn"
+              style="width: 280px;height: 312px; margin-left: 50px"
+              @mouseover="showBtnMore3()"
+              @mouseout="hideBtnMore3()"
+            >
+              <div align="center">
+                <img
+                  src="https://investors.oss-cn-beijing.aliyuncs.com/assets/investors_btn3.png"
+                  style="width: 120px; height:120px;"
+                />
                 <p
-                  style="color: #00CFAC; display:inline-flex; font-size: 16px; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif"
+                  style="color: black; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif; text-transform: lowercase; margin-top: 20px; font-size: 20px"
                 >
-                  了解更多
+                  企业动态
                 </p>
                 <div
-                  style="display: inline-flex; margin-left: 3px; margin-bottom: 4px; vertical-align: middle"
+                  class="text-center"
+                  id="btnMore3"
+                  style="display: none; margin-top: 25px"
                 >
-                  <img
-                    src="https://investors.oss-cn-beijing.aliyuncs.com/assets/arrow_green.png"
-                    style="width:14px; height: 14px;"
-                  />
+                  <p
+                    style="color: #00CFAC; display:inline-flex; font-size: 16px; font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif"
+                  >
+                    了解更多
+                  </p>
+                  <div
+                    style="display: inline-flex; margin-left: 3px; margin-bottom: 4px; vertical-align: middle"
+                  >
+                    <img
+                      src="https://investors.oss-cn-beijing.aliyuncs.com/assets/arrow_green.png"
+                      style="width:14px; height: 14px;"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          </v-btn>
+            </v-btn>
+          </router-link>
         </div>
       </v-col>
       <v-col cols="12" style="height: 120px;"></v-col>
@@ -339,15 +341,15 @@ line-height: 45px;"
           src="https://investors.oss-cn-beijing.aliyuncs.com/assets/qydt1.png"
           style="width:100%;height:100%;"
         >
-          <v-col cols='6' offset='3'>
-            <div style='height: 40px'></div>
-            <v-img src='
-https://investors.oss-cn-beijing.aliyuncs.com/assets/qiyedongtai001.png'
-                   style="width: 100%; height: auto;"></v-img>
+          <v-col cols="6" offset="3">
+            <div style="height: 40px"></div>
+            <v-img
+              src="
+https://investors.oss-cn-beijing.aliyuncs.com/assets/qiyedongtai001.png"
+              style="width: 100%; height: auto;"
+            ></v-img>
           </v-col>
-
         </v-img>
-
       </v-col>
       <v-col cols="12" style="height: 120px;"></v-col>
       <v-col class="col-12 text-center">

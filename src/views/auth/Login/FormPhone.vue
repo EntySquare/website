@@ -45,7 +45,8 @@
           忘记密码？
         </div>
       </router-link>
-      <div class="card-bottom">
+      <div style="height: 60px"></div>
+      <div>
         <v-btn
           style="background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%); height: 56px; margin-bottom: 20px"
           depressed

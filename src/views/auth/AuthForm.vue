@@ -45,10 +45,10 @@
           grow
           style="padding-bottom: 20px"
         >
-          <v-tab>
+          <v-tab style="color: #00CFAC">
             手机号
           </v-tab>
-          <v-tab>
+          <v-tab style="color: grey">
             邮箱
           </v-tab>
         </v-tabs>
