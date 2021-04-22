@@ -26,16 +26,22 @@
               ></v-select>
             </div>
           </div>
-          <div class="d-flex justify-center" v-show="dataNoneShow">
+          <div
+            id="noneData"
+            v-show="!dataCardShow"
+            class="d-flex justify-center"
+          >
             <div
               class="d-flex justify-center"
               style="width: 200px; height: 200px; margin-top: 280px"
             >
               <v-img
+                v-show="!dataCardShow"
                 src="https://investors.oss-cn-beijing.aliyuncs.com/assets/invest/past_project_none.png"
               >
               </v-img>
               <div
+                v-show="!dataCardShow"
                 style="position: absolute; margin-top: 200px; font-size: 14px;
                 color: #9F9FA4; font-weight: 400"
               >
@@ -43,11 +49,7 @@
               </div>
             </div>
           </div>
-          <div
-            v-show="dataCardShow"
-            v-for="vi in dataList"
-            v-bind:key="vi.ProjectName"
-          >
+          <div v-show="dataCardShow" v-for="v in dataList" v-bind:key="v">
             <div class="time">
               时间:2021-03-02
             </div>
@@ -60,12 +62,12 @@
                 <v-row>
                   <v-col
                     ><v-card-subtitle class="pb-0"
-                      ><span class="card-green">{{ vi.AnnualizedIncome }}</span>
+                      ><span class="card-green">{{ v.AnnualizedIncome }}%</span>
                       年化收益</v-card-subtitle
                     ></v-col
                   >
                   <v-col class="text1"
-                    >项目周期&nbsp;&nbsp;&nbsp; <b>{{ vi.Cycle }}</b>
+                    >项目周期&nbsp;<b>{{ v.Cycle }}</b>
                     <v-icon color="#b3b3b3" class="ll"
                       >mdi-chevron-right</v-icon
                     ></v-col
@@ -73,10 +75,10 @@
                 </v-row>
                 <v-row>
                   <v-col class="textleft"
-                    >投资总额 <b>{{ vi.Total }} USDT</b></v-col
+                    >投资总额 <b>{{ v.Total }} USDT</b></v-col
                   >
                   <v-col
-                    >最低收入 <b>{{ vi.MinimumInvestment }} USDT</b></v-col
+                    >最低收入 <b>{{ v.MinimumInvestment }} USDT</b></v-col
                   >
                 </v-row>
                 <v-row>
@@ -123,12 +125,7 @@ export default {
       valueDeterminate: 90,
       dataList: '',
       dataCardShow: '',
-      dataNoneShow: '',
     }
-  },
-  components: {
-    // TheFooter: Footer,
-    // TheHeader: Header,
   },
   mounted() {
     this.GetData() //需要触发的函数
@@ -139,8 +136,8 @@ export default {
       const token = localStorage.getItem('token')
       this.axios
         .post(
-          '/t0/invest/list',
-          { user_id: '1', types: 'past' },
+          '/r0/invest/list',
+          { types: 'past' },
           {
             headers: {
               'access-token': token,
@@ -149,13 +146,15 @@ export default {
           }
         )
         .then(response => {
-          this.dataList = response.data.list
-          if (this.dataList === null || this.dataList === '') {
+          let respData = response.data.list
+          if (respData === '' || respData === null || respData === undefined) {
             this.dataCardShow = false
-            this.dataNoneShow = true
+            document.getElementById('noneData').style.position = 'relative'
+            alert('查询往期项目信息失败！')
           } else {
             this.dataCardShow = true
-            this.dataNoneShow = false
+            document.getElementById('noneData').style.position = 'absolute'
+            this.dataList = respData
           }
         })
     },
@@ -163,7 +162,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 .main {
   display: flex;
   justify-content: center;

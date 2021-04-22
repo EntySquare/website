@@ -16,7 +16,7 @@
               <div
                 style="font-size: 48px; font-weight: 800;color: #00CFAC;line-height: 48px;"
               >
-                %
+                {{ annualValue }}%
               </div>
               <div style="width: 12px"></div>
               <div
@@ -38,7 +38,7 @@
                   style="font-size: 16px;font-weight: 400;color: #333333;line-height: 16px;"
                 >
                   <!--                  {{ info.Total }} USDT-->
-                  USDT
+                  {{ totalValue }} USDT
                 </div>
               </div>
               <div style="width: 64px"></div>
@@ -52,7 +52,7 @@
                 <div
                   style="font-size: 16px;font-weight: 400;color: #00CFAC;line-height: 16px;"
                 >
-                  USDT
+                  {{ surplusValue }} USDT
                 </div>
               </div>
             </div>
@@ -74,6 +74,7 @@
               background-color="#F7F8FB"
               color="#00CFAC"
               class="unFinish"
+              v-bind:value="progressValue"
             ></v-progress-linear>
             <div style="height: 60px"></div>
             <v-btn
@@ -205,7 +206,7 @@
               <div class="d-inline-flex" style="width: 12px;"></div>
               <span
                 style="width: 40px;height: 16px;font-size: 16px;font-weight: 600;color: #FFFFFF;line-height: 16px;"
-                >天</span
+                >{{ cycleValue }}天</span
               >
               <div class="d-inline-flex" style="width: 34px;"></div>
               <span
@@ -215,7 +216,7 @@
               <div class="d-inline-flex" style="width: 12px;"></div>
               <span
                 style="width: 40px;height: 16px;font-size: 16px;font-weight: 600;color: #FFFFFF;line-height: 16px;"
-                >USDT</span
+                >{{ minMumValue }}USDT</span
               >
             </div>
           </div>
@@ -928,6 +929,12 @@ export default {
       investValue: '',
       info: '',
       usdtAvliable: '',
+      cycleValue: '',
+      minMumValue: '',
+      annualValue: '',
+      totalValue: '',
+      surplusValue: '',
+      progressValue: '',
     }
   },
   methods: {
@@ -962,10 +969,9 @@ export default {
       const token = localStorage.getItem('token')
       this.axios
         .post(
-          '/t0/invest/projectinfo',
+          '/r0/invest/projectInfo',
           {
             project_id: this.$route.query.projectid,
-            user_id: this.$route.query.userid,
           },
           {
             headers: {
@@ -976,12 +982,22 @@ export default {
         )
         .then(response => {
           console.log(response)
-          this.info = response.data.projectInfo
-          this.usdtAvliable = response.data.usdtlast
+          let pInfo = response.data.projectInfo
+          if (pInfo === '' || pInfo === null || pInfo === undefined) {
+            alert('查询投资信息失败')
+          } else {
+            this.cycleValue = pInfo.Cycle
+            this.minMumValue = pInfo.MinimumInvestment
+            this.annualValue = pInfo.AnnualizedIncome
+            this.totalValue = pInfo.Total
+            this.surplusValue = pInfo.Total - pInfo.CompleteGoal
+            this.progressValue = (pInfo.CompleteGoal / pInfo.Total) * 100
+          }
+          //this.info = pInfo
+          //this.usdtAvliable = response.data.usdtlast
         })
     },
     createcode() {
-      console.log('createcode（）：。。。')
       var myChart = echarts.init(document.getElementById('main'))
       console.log('数据：', myChart)
       myChart.setOption({
