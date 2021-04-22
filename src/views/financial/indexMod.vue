@@ -1,6 +1,6 @@
 <template>
   <div style="background: #FAFBFC;">
-    <v-row style="margin: 0px;padding: 0px;background: #FAFBFC">
+    <v-row style="margin: 0; padding: 0; background: #FAFBFC">
       <v-img
         src="https://investors.oss-cn-beijing.aliyuncs.com/assets/licaiyetou.png"
         height="343"
@@ -14,7 +14,6 @@
               <v-col cols="6">
                 <p
                   style="font-size: 32px;
-                  font-family: Nunito-SemiBold, Nunito;
                   font-weight: 600;
                   color: #000000;"
                 >
@@ -22,7 +21,6 @@
                 </p>
                 <p
                   style="font-size: 14px;
-                    font-family: PingFangSC-Regular, PingFang SC;
                     font-weight: 400;
                     color: #808080;"
                 >
@@ -57,7 +55,7 @@
                         :to="{ path: '/order', query: { userId: UserId } }"
                       >
                         <samp
-                          style="font-size: 14px;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #1BD7A7;line-height: 14px;"
+                          style="font-size: 14px; font-weight: 400;color: #1BD7A7;line-height: 14px;"
                         >
                           到期订单 〉
                         </samp>
@@ -66,12 +64,12 @@
                   </v-row>
                   <v-row>
                     <span
-                      style="font-size: 23px;font-family: Nunito-Bold, Nunito;font-weight: bold;color: #000000;line-height: 48px;margin: 0px 8px 0px 8px"
+                      style="font-size: 23px; font-weight: bold;color: #000000;line-height: 48px;margin: 0px 8px 0px 8px"
                     >
                       $
                     </span>
                     <span
-                      style="font-size: 48px;font-family: Nunito-Bold, Nunito;font-weight: bold;color: #000000;line-height: 48px;"
+                      style="font-size: 48px; font-weight: bold;color: #000000;line-height: 48px;"
                     >
                       {{ accountInfo.Available }}
                     </span>
@@ -110,120 +108,207 @@
           <v-col cols="3" style=""></v-col>
         </v-row>
       </v-img>
-
-      <v-row style="width: 100%;height: 1600px">
-        <v-col cols="3"></v-col>
-        <v-col cols="6" style="">
-          <div style="height: 50px;width: 100%"></div>
+      <v-row style="height: 1600px">
+        <v-col cols="6" offset="3">
+          <div style="height: 50px;"></div>
           <span
             style="font-size: 32px;
-            font-family: Nunito-SemiBold, Nunito;
             font-weight: 600;
             color: #000000;"
           >
             我的理财
           </span>
-          <div style="height: 50px;width: 100%"></div>
-          <v-col
-            cols="12"
-            style="height: 205px;width: 100%;margin: 0px;padding: 0px"
-          >
-            <swiper class="swiper" :options="swiperOption">
-              <div v-for="vi in list" :key="vi.ProjectId">
-                <swiper-slide>
-                  <div style="height: 20px"></div>
-                  <router-link
-                    :to="{
-                      path: '/investTab',
-                      query: { projectid: vi.ProjectId, userid: UserId },
-                    }"
-                  >
-                    <v-navigation-drawer
-                      style="width: 800px;background: linear-gradient(30deg, #00DEB8 0%, #5B7ADE 100%, #5F80E8 100%);height: 190px;border-radius: 20px;box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.04);"
+          <div style="height: 30px;"></div>
+          <v-col cols="12" style="height: 205px; margin: 0; padding: 0">
+            <div v-show="!navigationFlag" style="height: 200px">
+              <swiper class="swiper" :options="swiperOption">
+                <div v-for="vi in list" v-bind:key="vi.ProjectId">
+                  <swiper-slide>
+                    <div style="height: 20px"></div>
+                    <router-link
+                      :to="{
+                        path: '/financialTab',
+                        query: { projectid: vi.ProjectId, userid: UserId },
+                      }"
                     >
-                      <v-row style="padding: 36px 0px 0px 50px">
-                        <div class="d-inline-flex" style="width: 100%;">
-                          <div
-                            style="width: 160px;
-                      height: 20px;font-size: 20px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #FFFFFF;"
-                          >
-                            定期优选
+                      <v-navigation-drawer
+                        style="width: 800px;background: linear-gradient(63deg, #00DEB8 0%, #21B7C5 100%); height: 188px;border-radius: 20px;box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04);"
+                      >
+                        <v-row style="padding: 36px 0 36px 50px">
+                          <div class="d-inline-flex" style="width: 492px;">
+                            <div
+                              style="width: 160px; height: 20px;font-size: 20px; font-weight: 600;color: #FFFFFF; padding: 10px 0 20px 0"
+                            >
+                              定期优选
+                            </div>
+                            <v-btn
+                              style="border-radius: 0 18px 0 8px; margin: -24px 0 0 186px; background: linear-gradient(316deg, #2F5E85 0%, #202A32 100%); color: #FFFFFF;"
+                              elevation="0"
+                            >
+                              可质押
+                            </v-btn>
                           </div>
-                          <!--                     <img-->
-                          <!--                       src="https://investors.oss-cn-beijing.aliyuncs.com/assets/jiantou001.png"-->
-                          <!--                       style="width:36px;height:36px;margin: -23px 0px 0px 105px;"/>-->
-                          <v-btn
-                            style="border-radius: 0px 18px 0px 8px;margin: -23px 0px 0px 105px;
-                       background: linear-gradient(316deg, #2F5E85 0%, #202A32 100%);
-                        color: #FFFFFF;"
-                            elevation="0"
-                          >
-                            可抵押
-                          </v-btn>
-                        </div>
-                        <div style="height: 40px"></div>
-                        <p
-                          style="width: 95%;
+                          <div style="height: 40px"></div>
+                          <div
+                            style="width: 95%;
                               height: 48px;
                               font-size: 38px;
-                              font-family: Nunito-ExtraBold, Nunito;
                               font-weight: 800;
                               color: #FFFFFF;margin: 0px;padding: 0px"
-                        >
+                          >
+                            <span
+                              style="font-size: 38px;margin: 0px;padding: 0"
+                              >{{ vi.AnnualizedIncome }}</span
+                            >
+                            <span
+                              style="font-size: 28px;margin: 0px;padding: 0px"
+                              >%</span
+                            >
+                            <span
+                              style="font-size: 14px; font-weight: 400;color: #FFFFFF;;margin: 0px;padding: 0px 0px 0px 5px"
+                            >
+                              年化收益
+                              <img
+                                src="https://investors.oss-cn-beijing.aliyuncs.com/assets/jiantou001.png"
+                                style="width:36px;height:36px;float:right;margin:15px 0px 0px 0px"
+                              />
+                            </span>
+                          </div>
+
+                          <div style="height: 15px;width: 100%"></div>
                           <span
-                            style="font-size: 38px;margin: 0px;padding: 0px"
-                            >{{ vi.AnnualizedIncome }}</span
+                            style="font-size: 14px; font-weight: 400;color: #FFFFFF;"
                           >
-                          <span style="font-size: 28px;margin: 0px;padding: 0px"
-                            >.2%</span
-                          >
-                          <span
-                            style="font-size: 14px;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #FFFFFF;;margin: 0px;padding: 0px 0px 0px 5px"
-                          >
-                            年化收益
-                            <img
-                              src="https://investors.oss-cn-beijing.aliyuncs.com/assets/jiantou001.png"
-                              style="width:36px;height:36px;float:right;margin:15px 0px 0px 0px"
-                            />
+                            期限{{ vi.Cycle }}天 | 结算时间
+                            {{ vi.BeginTimes }}
                           </span>
-                        </p>
-
-                        <div style="height: 15px;width: 100%"></div>
-                        <span
-                          style="font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;"
-                        >
-                          期限{{ vi.Cycle }}天 | 结算时间 {{ vi.BeginTimes }}
-                        </span>
-                        <div></div>
-                      </v-row>
-                    </v-navigation-drawer>
-                  </router-link>
-                  <div style="height: 20px"></div>
-                </swiper-slide>
-              </div>
-            </swiper>
-          </v-col>
-
-          <v-col cols="12" style="padding-left: 0px">
-            <span
-              style="font-size: 16px;
-                        font-family: PingFangSC-Regular, PingFang SC;
-                        font-weight: 400;
-                        color: #000000;
-                       "
+                        </v-row>
+                      </v-navigation-drawer>
+                    </router-link>
+                    <div style="height: 20px"></div>
+                  </swiper-slide>
+                </div>
+              </swiper>
+            </div>
+            <v-card
+              v-show="navigationFlag"
+              style="width: 960px; height: 200px; background: #FFFFFF; box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.04); border-radius: 18px;"
             >
-              ◎ 定期优选-质押中
-            </span>
+              <div
+                class="d-inline-flex"
+                style="padding: 28px 57px 30px 57px; width: 100%"
+              >
+                <div>
+                  <div style="width: 72px; height: 72px">
+                    <v-img
+                      src="https://investors.oss-cn-beijing.aliyuncs.com/assets/financial/financial_noData1.png"
+                    >
+                    </v-img>
+                  </div>
+                  <div style="height: 15px"></div>
+                  <div
+                    class="text-center"
+                    style="width: 82px; height: 20px; font-size: 12px; font-weight: 500; color: #000000; line-height: 20px;"
+                  >
+                    充值USDT钱包
+                  </div>
+                </div>
+                <div
+                  class="d-flex justify-center"
+                  style="width: 168px; height: 72px"
+                >
+                  <div style="width: 16px; height: 16px; margin-top: 30px">
+                    <v-img
+                      src="https://investors.oss-cn-beijing.aliyuncs.com/assets/financial/arrow_right_green.png"
+                    >
+                    </v-img>
+                  </div>
+                </div>
+                <div>
+                  <div style="width: 72px; height: 72px">
+                    <v-img
+                      src="https://investors.oss-cn-beijing.aliyuncs.com/assets/financial/financial_noData1.png"
+                    >
+                    </v-img>
+                  </div>
+                  <div style="height: 15px"></div>
+                  <div
+                    class="text-center"
+                    style="width: 160px; height: 60px; font-size: 12px; font-weight: 500; color: #000000; line-height: 20px; margin-left: -39px"
+                  >
+                    首先去投资推荐，对项目的判断⾃⾏决定在不同的投资产品中进行选择投资
+                  </div>
+                </div>
+                <div
+                  class="d-flex justify-center"
+                  style="width: 168px; height: 72px"
+                >
+                  <div style="width: 16px; height: 16px; margin-top: 30px">
+                    <v-img
+                      src="https://investors.oss-cn-beijing.aliyuncs.com/assets/financial/arrow_right_green.png"
+                    >
+                    </v-img>
+                  </div>
+                </div>
+                <div>
+                  <div style="width: 72px; height: 72px">
+                    <v-img
+                      src="https://investors.oss-cn-beijing.aliyuncs.com/assets/financial/financial_noData2.png"
+                    >
+                    </v-img>
+                  </div>
+                  <div style="height: 15px"></div>
+                  <div
+                    class="text-center"
+                    style="width: 160px; height: 60px; font-size: 12px; font-weight: 500; color: #000000; line-height: 20px; margin-left: -39px"
+                  >
+                    项目总投资额达到70%宣告成功，平台给投资用户分配HSF作为投资凭证
+                  </div>
+                </div>
+                <div
+                  class="d-flex justify-center"
+                  style="width: 168px; height: 72px"
+                >
+                  <div style="width: 16px; height: 16px; margin-top: 30px">
+                    <v-img
+                      src="https://investors.oss-cn-beijing.aliyuncs.com/assets/financial/arrow_right_green.png"
+                    >
+                    </v-img>
+                  </div>
+                </div>
+                <div>
+                  <div style="width: 72px; height: 72px">
+                    <v-img
+                      src="https://investors.oss-cn-beijing.aliyuncs.com/assets/financial/financial_noData3.png"
+                    >
+                    </v-img>
+                  </div>
+                  <div style="height: 15px"></div>
+                  <div
+                    class="text-center"
+                    style="width: 160px; height: 60px; font-size: 12px; font-weight: 500; color: #000000; line-height: 20px; margin-left: -39px"
+                  >
+                    生成我的理财项目，选择优先池或劣后池进行质押平台币HSF
+                  </div>
+                </div>
+              </div>
+            </v-card>
+          </v-col>
+          <v-col cols="12" style="padding-left: 0">
+            <div class="d-inline-flex">
+              <div style="width: 24px; height: 24px">
+                <v-img
+                  src="https://investors.oss-cn-beijing.aliyuncs.com/assets/financial/alarm.png"
+                ></v-img>
+              </div>
+              <div style="font-size: 16px; font-weight: 400; color: #000000;">
+                定期优选-质押中
+              </div>
+            </div>
           </v-col>
           <div style="height: 30px;width: 100%"></div>
           <v-col cols="12" style="padding-left: 0px">
-            <span
-              style="font-size: 32px;
-                        font-family: PingFang-SC-Semibold, PingFang-SC;
-                        font-weight: 600;
-                        color: #000000;
-                       "
-            >
+            <span style="font-size: 32px; font-weight: 600; color: #000000;">
               理财定制
             </span>
           </v-col>
@@ -239,9 +324,7 @@
             box-shadow: none;
             text-align: center"
               >
-                <router-link to="/#">
-                  <div style="color: #00CFAC; font-size: 16px">优先</div>
-                </router-link>
+                <div style="color: #00CFAC; font-size: 16px">优先</div>
               </v-btn>
             </v-col>
             <v-col cols="3">
@@ -254,16 +337,13 @@
             box-shadow: none;
             text-align: center"
               >
-                <router-link to="/#">
-                  <div style="color: #808080; font-size: 16px">劣后</div>
-                </router-link>
+                <div style="color: #808080; font-size: 16px">劣后</div>
               </v-btn>
             </v-col>
           </v-row>
           <div style="height: 70px;width: 100%"></div>
           <div
             style="font-size: 20px;
-                      font-family: PingFang-SC-Medium, PingFang-SC;
                       font-weight: 500;
                       color: #808080;
                       line-height: 28px;"
@@ -320,13 +400,13 @@
           </v-row>
           <v-row style="height: 30px"></v-row>
           <v-row style="height: 559px;">
-            <div id="main" style="width: 100%;height:100%;"></div>
+            <div id="main" style="width: 960px;height:100%;"></div>
           </v-row>
 
           <div style="height: 100px"></div>
           <v-row
             style="background: #FFFFFF;height: 96px;
-            border-radius: 16px;"
+            border-radius: 16px; width: 960px;"
           >
             <v-col cols="6">
               <v-btn
@@ -346,7 +426,7 @@
             <v-col cols="6">
               <v-btn
                 depressed
-                style="background: linear-gradient(90deg, #00CFAC 0%, #5B7ADE 100%);;
+                style="background: linear-gradient(63deg, #00DEB8 0%, #21B7C5 100%);
                 width: 340px;
                 height: 65px;
                 border-radius: 175px;
@@ -358,7 +438,6 @@
             </v-col>
           </v-row>
         </v-col>
-        <v-col cols="3"></v-col>
       </v-row>
       <div style="height: 40px;width: 100%"></div>
       <!-- 添加钱包地址 addqianbao1 -->
@@ -463,7 +542,7 @@ export default {
       const token = localStorage.getItem('token')
       this.axios
         .post(
-          '/t0/finance/minehome',
+          '/r0/finance/minehome',
           { user_id: '1', types: 'mine' },
           {
             headers: {
@@ -473,8 +552,12 @@ export default {
           }
         )
         .then(response => {
-          console.log(response)
           this.accountInfo = response.data.account
+          let respData = response.data.list
+          if (respData === '' || respData === undefined || respData === null) {
+            this.navigationFlag = false
+            return
+          }
           this.list = response.data.list
           this.UserId = '1'
         })
@@ -566,11 +649,10 @@ export default {
           clickable: true,
         },
         on: {
-          slideChange: function() {
-            // alert('改变了，activeIndex为'+this.activeIndex);
-          },
+          slideChange: function() {},
         },
       },
+      navigationFlag: '',
     }
   },
 }
@@ -582,7 +664,7 @@ export default {
 }
 
 .swiper-slide:nth-child(1n) {
-  width: 40%;
+  width: 480px;
 }
 .swiper-slide:nth-child(2n) {
   width: 40%;

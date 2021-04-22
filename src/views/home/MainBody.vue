@@ -365,7 +365,6 @@ line-height: 43px;"
             投资机构
           </div>
         </v-col>
-
         <v-col cols="12" style="height: 336px;">
           <v-row>
             <v-col cols="3"></v-col>

@@ -45,7 +45,7 @@
     </div>
     <!--    <div class="container2" style="margin-top:-124px;" ref="point">-->
     <div class="container2" style="margin-top:-124px;" ref="point">
-      <div v-for="vi in list" :key="vi.ProjectName">
+      <div v-for="vi in list" :key="vi">
         <router-link
           :to="{
             path: '/investTab',
@@ -59,9 +59,9 @@
             <v-row>
               <v-col>
                 <div>
-                  <span class="card-green" style="padding-right: 12px">{{
-                    vi.AnnualizedIncome
-                  }}</span>
+                  <span class="card-green" style="padding-right: 12px"
+                    >{{ vi.AnnualizedIncome }}%</span
+                  >
                   <span
                     style="width: 56px;height: 24px;font-size: 14px;font-weight: 400;color: #B2B2B2;"
                     >年化收益</span
@@ -162,8 +162,8 @@ export default {
       const token = localStorage.getItem('token')
       this.axios
         .post(
-          '/t0/invest/list',
-          { user_id: '1', types: 'now' },
+          '/r0/invest/list',
+          { types: 'now' },
           {
             headers: {
               'access-token': token,
@@ -172,9 +172,12 @@ export default {
           }
         )
         .then(response => {
-          console.log(response)
-          this.list = response.data.list
-          this.UserId = '1'
+          let dataList = response.data.list
+          if (dataList === '' || dataList === null || dataList === undefined) {
+            alert('查询项目信息失败！')
+            return
+          }
+          this.list = dataList
         })
     },
     // 点击图片回到顶部方法，加计时器是为了过渡顺滑

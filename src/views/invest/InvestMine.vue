@@ -77,7 +77,7 @@
               <v-progress-linear
                 style="height:10px;width:600px;border-radius: 5px;"
                 background-color="#F7F8FB"
-                color="linear-gradient(90deg, #00E9D6 0%, #00CFAC 100%);"
+                color="#00CFAC"
                 class="unFinish"
                 v-bind:value="progressValue1"
               ></v-progress-linear>
@@ -209,20 +209,20 @@ export default {
       top: 750,
     }
   },
-  mounted() {
-    window.addEventListener('scroll', this.scrollToTop)
-    if (location.href.indexOf('#reloaded') === -1) {
-      location.href = location.href + '#reloaded'
-      location.reload()
-    }
-  },
-  destroyed() {
-    window.removeEventListener('scroll', this.scrollToTop)
-  },
+  // mounted() {
+  //   // window.addEventListener('scroll', this.scrollToTop)
+  //   // if (location.href.indexOf('#reloaded') === -1) {
+  //   //   location.href = location.href + '#reloaded'
+  //   //   location.reload()
+  //   // }
+  // },
+  // destroyed() {
+  //   window.removeEventListener('scroll', this.scrollToTop)
+  // },
 }
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 .banner {
   background: url('../../assets/invest_bg.png') no-repeat center top;
 }

@@ -12,11 +12,31 @@
           style="background: #FFFFFF;box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04);border-radius: 24px;"
         >
           <div style="padding: 39px 40px 49px 40px">
+            <div
+              class="d-inline-flex justify-space-around"
+              style="width: 100%; padding-bottom: 64px"
+            >
+              <span
+                @click="priorityShow()"
+                style="height: 20px;font-size: 20px;font-weight: 600;color: #000000;line-height: 20px; cursor: pointer"
+              >
+                优先
+              </span>
+              <span style="width: 2px; height: 18px; color: #F1F1F2;">
+                |
+              </span>
+              <span
+                @click="inferiorShow()"
+                style="height: 20px;font-size: 20px;font-weight: 600;color: #808080;line-height: 20px; cursor: pointer"
+              >
+                劣后
+              </span>
+            </div>
             <div class="d-inline-flex">
               <div
                 style="font-size: 48px; font-weight: 800;color: #00CFAC;line-height: 48px;"
               >
-                {{ annualValue }}%
+                %
               </div>
               <div style="width: 12px"></div>
               <div
@@ -31,14 +51,13 @@
                 <div
                   style="font-size: 16px;font-weight: 400;color: #333333;line-height: 16px;"
                 >
-                  投资总额
+                  质押总额
                 </div>
                 <div style="height: 18px"></div>
                 <div
                   style="font-size: 16px;font-weight: 400;color: #333333;line-height: 16px;"
                 >
-                  <!--                  {{ info.Total }} USDT-->
-                  {{ totalValue }} USDT
+                  HSF
                 </div>
               </div>
               <div style="width: 64px"></div>
@@ -46,36 +65,16 @@
                 <div
                   style="font-size: 16px;font-weight: 400;color: #333333;line-height: 16px;"
                 >
-                  剩余可购
+                  剩余质押
                 </div>
                 <div style="height: 18px"></div>
                 <div
                   style="font-size: 16px;font-weight: 400;color: #00CFAC;line-height: 16px;"
                 >
-                  {{ surplusValue }} USDT
+                  HSF
                 </div>
               </div>
             </div>
-            <div style="height: 36px"></div>
-            <div class="d-inline-flex">
-              <div>融资进度</div>
-              <div style="width: 8px"></div>
-              <div
-                style="margin-top: 3px; width:46px;height:18px;background: linear-gradient(225deg, #00E9D6 0%, #00CFAC 100%);border-radius: 4px;text-align:center;color:#fff;font-size:10px;font-weight:400;"
-              >
-                <div>
-                  进行中
-                </div>
-              </div>
-            </div>
-            <div style="height: 20px"></div>
-            <v-progress-linear
-              style="height:10px;width:358px;border-radius: 5px;"
-              background-color="#F7F8FB"
-              color="#00CFAC"
-              class="unFinish"
-              v-bind:value="progressValue"
-            ></v-progress-linear>
             <div style="height: 60px"></div>
             <v-btn
               width="340px"
@@ -83,12 +82,12 @@
               depressed
               rounded
               @click="investDialogFlag = true"
-              style="color: #FFFFFF; background: linear-gradient(90deg, #00CFAC 0%, #5B7ADE 100%);"
+              style="color: #FFFFFF; background: linear-gradient(63deg, #00DEB8 0%, #21B7C5 100%);"
             >
               <div
                 style="width: 48px;height: 22px;font-size: 16px;font-weight: 600;color: #FFFFFF;"
               >
-                去投资
+                去质押
               </div>
             </v-btn>
             <v-dialog
@@ -104,8 +103,18 @@
                   style="width: 144px; height: 24px; font-size: 24px;
                         font-weight: 600; color: #000000; line-height: 24px; margin-top: 15px"
                 >
-                  投资USDT
+                  质押HSF
                 </div>
+                <v-tabs
+                  height="78px"
+                  slider-size="5"
+                  slider-color="black"
+                  color="black"
+                  center-active
+                >
+                  <v-tab>优先</v-tab>
+                  <v-tab>劣后</v-tab>
+                </v-tabs>
                 <div style="height: 48px"></div>
                 <v-text-field
                   autocomplete="off"
@@ -119,7 +128,7 @@
                 <span
                   style="color: #000000;width: 100%; position: absolute; margin-top: -68px;
                         margin-left: 235px; font-size: 14px; font-weight: 600;"
-                  >USDT
+                  >HSF
                 </span>
                 <span
                   style="color: grey;width: 100%; position: absolute; margin-top: -69px;
@@ -133,13 +142,12 @@
                 </span>
                 <div class="d-inline-flex">
                   <div style="font-size: 14px;font-weight: 400;color: #9F9FA4;">
-                    可用USDT
+                    可用HSF
                   </div>
                   <div style="width: 12px"></div>
                   <router-link to="/wallet">
                     <div
-                      style="font-size: 14px;font-weight: 400;
-                  color: #00CFAC; cursor: pointer"
+                      style="font-size: 14px;font-weight: 400; color: #00CFAC; cursor: pointer"
                     >
                       充值
                     </div>
@@ -151,14 +159,14 @@
                   height="56px"
                   text
                   rounded
-                  style="color: #FFFFFF; background: linear-gradient(90deg, #00CFAC 0%, #5B7ADE 100%);"
+                  style="color: #FFFFFF; background: linear-gradient(63deg, #00DEB8 0%, #21B7C5 100%);"
                 >
                   <div
                     style="width: 48px;height: 22px;font-size: 16px;font-weight: 600;
                     color: #FFFFFF;"
                     @click="investMoney()"
                   >
-                    投资
+                    质押
                   </div>
                 </v-btn>
               </div>
@@ -201,12 +209,12 @@
             <div>
               <span
                 style="width: 64px;height: 16px;font-size: 16px;font-weight: 400;color: rgba(255, 255, 255, 0.8);line-height: 16px;"
-                >投资期限</span
+                >质押期限</span
               >
               <div class="d-inline-flex" style="width: 12px;"></div>
               <span
                 style="width: 40px;height: 16px;font-size: 16px;font-weight: 600;color: #FFFFFF;line-height: 16px;"
-                >{{ cycleValue }}天</span
+                >天</span
               >
               <div class="d-inline-flex" style="width: 34px;"></div>
               <span
@@ -216,7 +224,7 @@
               <div class="d-inline-flex" style="width: 12px;"></div>
               <span
                 style="width: 40px;height: 16px;font-size: 16px;font-weight: 600;color: #FFFFFF;line-height: 16px;"
-                >{{ minMumValue }}USDT</span
+                >HSF</span
               >
             </div>
           </div>
@@ -374,11 +382,11 @@
                 style="width: 100%;height: 286px;background: #FFFFFF;border-radius: 18px;padding: 35px 24px 35px 24px"
               >
                 <div
-                  style="width: 100%;font-size: 18px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;"
+                  style="width: 100%;font-size: 18px; font-weight: 500;color: #000000;"
                 >
                   交易规则
                   <div
-                    style="float:right;color: #0AC6B1;font-size: 14px;font-weight: 400;"
+                    style="float:right; color: #0AC6B1; font-size: 14px; font-weight: 400; cursor: pointer"
                   >
                     买入-收益-撤销等详细规则 ➔
                   </div>
@@ -510,11 +518,11 @@
                       </div>
                       <div style="height: 18px"></div>
                       <div class="transRulesText">
-                        100 USDT
+                        100 HSF
                       </div>
                       <div style="height: 56px"></div>
                       <div class="transRulesText" style="color: #808080;">
-                        投资期限
+                        质押期限
                       </div>
                       <div style="height: 18px"></div>
                       <div class="transRulesText">
@@ -929,12 +937,6 @@ export default {
       investValue: '',
       info: '',
       usdtAvliable: '',
-      cycleValue: '',
-      minMumValue: '',
-      annualValue: '',
-      totalValue: '',
-      surplusValue: '',
-      progressValue: '',
     }
   },
   methods: {
@@ -969,9 +971,10 @@ export default {
       const token = localStorage.getItem('token')
       this.axios
         .post(
-          '/r0/invest/projectInfo',
+          '/t0/invest/projectinfo',
           {
             project_id: this.$route.query.projectid,
+            user_id: this.$route.query.userid,
           },
           {
             headers: {
@@ -982,22 +985,12 @@ export default {
         )
         .then(response => {
           console.log(response)
-          let pInfo = response.data.projectInfo
-          if (pInfo === '' || pInfo === null || pInfo === undefined) {
-            alert('查询投资信息失败')
-          } else {
-            this.cycleValue = pInfo.Cycle
-            this.minMumValue = pInfo.MinimumInvestment
-            this.annualValue = pInfo.AnnualizedIncome
-            this.totalValue = pInfo.Total
-            this.surplusValue = pInfo.Total - pInfo.CompleteGoal
-            this.progressValue = (pInfo.CompleteGoal / pInfo.Total) * 100
-          }
-          //this.info = pInfo
-          //this.usdtAvliable = response.data.usdtlast
+          this.info = response.data.projectInfo
+          this.usdtAvliable = response.data.usdtlast
         })
     },
     createcode() {
+      console.log('createcode（）：。。。')
       var myChart = echarts.init(document.getElementById('main'))
       console.log('数据：', myChart)
       myChart.setOption({
@@ -1066,6 +1059,9 @@ export default {
     clickBack() {
       this.$router.go(-1)
     },
+    //优先劣后显示
+    priorityShow() {},
+    inferiorShow() {},
   },
 }
 </script>
