@@ -669,7 +669,7 @@ export default {
       const token = localStorage.getItem('token')
       this.axios
         .post(
-          '/t0/wallet/txhistory',
+          '/r0/wallet/txhistory',
           {
             CodeType: this.choice.CodeType,
             PayType: this.choice.PayType,

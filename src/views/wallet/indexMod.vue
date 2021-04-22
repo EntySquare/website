@@ -345,7 +345,7 @@ padding: 0px 0px 0px 40px"
               <v-row>
                 <!-- shoukuan2.png -->
                 <v-col cols="1" style="">
-                  <v-img :src="v.ToFaceImg" height="48px" width="48px">
+                  <v-img :src="v.ToFaceImg" height="50px" width="50px">
                     <img
                       src="https://investors.oss-cn-beijing.aliyuncs.com/assets/shoukuan1.png"
                       height="18px"
@@ -657,7 +657,12 @@ padding: 0px 0px 0px 40px"
             <span
               style="font-size: 14px; font-weight: 400;color: #7F7F7F;line-height: 14px;"
             >
-              ·可用余额 0.03005498 USD
+               <div v-if="xiala.text == 'USDT'">
+                ·可用余额:   {{ apidata.USDT.numOk }} USDT
+                  </div>
+                  <div v-if="xiala.text == 'HSF'">
+                ·可用余额:  {{ apidata.HSF.numOk }}  HSF
+                  </div>
             </span>
             <p style="margin: 16px"></p>
             <span
@@ -668,13 +673,13 @@ padding: 0px 0px 0px 40px"
             <span
               style="font-size: 14px; font-weight: 400;color: #5B7ADE;line-height: 14px;"
             >
-              0.00001 USDT
+              0.00000 {{xiala.text}}
             </span>
             <p style="margin: 16px"></p>
             <span
               style="font-size: 14px; font-weight: 400;color: #7F7F7F;line-height: 14px;"
             >
-              ·最小提币金额：0.0001 USDT
+              ·最小提币金额：0.0001 {{xiala.text}}
             </span>
 
             <p style="margin: 16px"></p>
@@ -930,7 +935,13 @@ padding: 0px 0px 0px 40px"
             <span
               style="font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #7F7F7F;line-height: 14px;"
             >
-              ·可用余额 0.03005498 USD
+
+                <div v-if="xiala.text == 'USDT'">
+                  ·可用余额: {{ apidata.USDT.numOk }} USDT
+                  </div>
+                  <div v-if="xiala.text == 'HSF'">
+                  ·可用余额:{{ apidata.HSF.numOk }} HSF
+                  </div>
             </span>
             <p style="margin: 14px"></p>
             <span
@@ -941,13 +952,13 @@ padding: 0px 0px 0px 40px"
             <span
               style="font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #5B7ADE;line-height: 14px;"
             >
-              0.00001 USDT
+              0.00001 {{xiala.text}}
             </span>
             <p style="margin: 14px"></p>
             <span
               style="font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #7F7F7F;line-height: 14px;"
             >
-              ·最小提币金额：0.0001 USDT
+              ·最小提币金额：0.0001 {{xiala.text}}
             </span>
 
             <p style="margin: 14px"></p>
@@ -2217,7 +2228,7 @@ export default {
     GetData: function() {
       const token = localStorage.getItem('token')
       this.axios
-        .post('/t0/wallet/home', {}, { headers: { 'access-token': token } })
+        .post('/r0/wallet/home', {}, { headers: { 'access-token': token } })
         .then(response => {
           console.log(response)
           this.apidata.USDT.num = response.data.w[0].NumAll
@@ -2282,7 +2293,7 @@ export default {
       const token = localStorage.getItem('token')
       this.axios
         .post(
-          '/t0/wallet/getToUserData',
+          '/r0/wallet/getToUserData',
           {
             Phone: this.znzz_zhanghu, //用户账号 或者 手机号
             CodeType: this.xiala.text,
@@ -2334,7 +2345,7 @@ export default {
           const token = localStorage.getItem('token')
           this.axios
             .post(
-              '/t0/wallet/payFarm',
+              '/r0/wallet/payFarm',
               {
                 CodeCake: code,
                 To: this.dialog04.toText,
@@ -2351,7 +2362,7 @@ export default {
                 this.dialog6 = false
                 this.dialog7 = true
               } else {
-                alert('验证码有误！')
+                alert('操作失败！')
               }
             })
           // this.dialog6 = false
