@@ -33,7 +33,7 @@
             <th
               align="left"
               valign="top"
-              style="width: 178px;height: 45px;font-size: 18px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #FFFFFF;line-height: 16px;"
+              style="width: 178px;height: 45px;font-size: 18px; font-weight: 600;color: #FFFFFF;line-height: 16px;"
             >
               公司
             </th>
@@ -53,13 +53,15 @@
             </th>
           </tr>
           <tr>
-            <td
-              align="left"
-              valign="top"
-              style="width: 158px;height: 35px;font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #FFFFFF;line-height: 14px;"
-            >
-              关于我们
-            </td>
+            <router-link to="/company/about">
+              <td
+                align="left"
+                valign="top"
+                style="width: 158px;height: 35px;font-size: 14px; font-weight: 400;color: #FFFFFF;line-height: 14px;"
+              >
+                关于我们
+              </td>
+            </router-link>
             <td
               align="left"
               valign="top"

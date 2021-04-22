@@ -18,22 +18,22 @@ const routes = [
     component: AuthLayout,
     children: [
       {
-        path: '/AboutUs',//关于我们
+        path: '/AboutUs', //关于我们
         name: 'AboutUs',
         component: () => import('../views/home/aboutUs.vue'),
       },
       {
-        path: '/JoinCommunity',//加入社区
+        path: '/JoinCommunity', //加入社区
         name: 'JoinCommunity',
         component: () => import('../views/home/joinCommunity.vue'),
       },
       {
-        path: '/EnterpriseNews',//企业动态
+        path: '/EnterpriseNews', //企业动态
         name: 'EnterpriseNews',
         component: () => import('../views/home/enterpriseNews.vue'),
       },
       {
-        path: '/Community',//社区
+        path: '/Community', //社区
         name: 'Community',
         component: () => import('../views/home/community.vue'),
       },
@@ -154,6 +154,11 @@ const routes = [
         path: '/company/state',
         name: 'CompanyState',
         component: () => import('../views/company/CompanyState.vue'),
+      },
+      {
+        path: '/financialTab/',
+        name: 'financialTab',
+        component: () => import('../views/financial/financialTab.vue'),
       },
     ],
   },
