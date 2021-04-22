@@ -147,6 +147,7 @@ export default {
   },
   mounted() {
     this.GetData() //需要触发的函数
+    this.backTop()
     // window.addEventListener('scroll', this.scrollToTop)
     // if (location.href.indexOf('#reloaded') === -1) {
     //   location.href = location.href + '#reloaded'
@@ -179,6 +180,10 @@ export default {
           }
           this.list = dataList
         })
+    },
+    backTop() {
+      document.body.scrollTop = 0
+      document.documentElement.scrollTop = 0
     },
     // 点击图片回到顶部方法，加计时器是为了过渡顺滑
     // backTop() {
