@@ -2108,10 +2108,11 @@ export default {
     this.GetData() //需要触发的函数
     // this.synk()
   },
-  // created() {
-  //   // 实现轮询
-  //   this.synk()
-  // },
+  created () {
+    this.timer = setInterval(() =>{
+      this.GetData()
+    },1000* 10)
+  },
   methods: {
     //synk
     synk() {
@@ -2361,6 +2362,7 @@ export default {
               if (response.data.data == 'ok') {
                 this.dialog6 = false
                 this.dialog7 = true
+                this.GetData()
               } else {
                 alert('操作失败！')
               }
