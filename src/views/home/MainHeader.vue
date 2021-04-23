@@ -126,6 +126,7 @@
                 <v-dialog
                   content-class="rounded-xl"
                   v-model="hsfDialogShow"
+                  persistent
                   width="600"
                   height="432"
                 >
