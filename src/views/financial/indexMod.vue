@@ -119,7 +119,7 @@
             我的理财
           </span>
           <div style="height: 30px;"></div>
-          <v-col cols="12" style="height: 205px; margin: 0; padding: 0">
+          <v-col cols="12" style="width: 960px; height: 205px; margin: 0; padding: 0">
             <div v-show="!navigationFlag" style="height: 200px">
               <swiper class="swiper" :options="swiperOption">
                 <div v-for="vi in list" v-bind:key="vi.ProjectId">
@@ -665,11 +665,12 @@ export default {
 
 .swiper-slide:nth-child(1n) {
   width: 480px;
+  padding-right: 30px;
 }
-.swiper-slide:nth-child(2n) {
-  width: 40%;
-}
-.swiper-slide:nth-child(3n) {
-  width: 40%;
-}
+/*.swiper-slide:nth-child(2n) {*/
+/*  width: 480px;*/
+/*}*/
+/*.swiper-slide:nth-child(3n) {*/
+/*  width: 480px;*/
+/*}*/
 </style>

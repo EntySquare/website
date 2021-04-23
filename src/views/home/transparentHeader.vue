@@ -413,13 +413,13 @@
                               class="d-inline-flex"
                               style="font-size: 20px; font-weight: bold"
                             >
-                              <div>0.28802000 USDT</div>
+                              <div>$ {{ USDT_ALL }} USDT</div>
                             </div>
                           </v-list-item-title>
                         </v-list-item>
                         <v-list-item>
                           <v-list-item-subtitle>
-                            <div>$ 0.28802000</div>
+                            <div>$ {{ HSF_ALL }} HSF</div>
                           </v-list-item-subtitle>
                         </v-list-item>
                         <v-list-item>
@@ -652,8 +652,9 @@ export default {
         .then(response => {
           // alert('已登录提示！,userid:' + response.data.UserId)
           this.loginVue = false //显示登录代码
-          this.username = response.data.UserName
-          // console.log(response)
+          this.username = response.data.Phone
+          this.HSF_ALL = response.data.HSF
+          this.USDT_ALL = response.data.USDT
         })
     },
     eyeShow: function() {

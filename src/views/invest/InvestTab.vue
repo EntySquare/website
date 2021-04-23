@@ -152,11 +152,11 @@
                   text
                   rounded
                   style="color: #FFFFFF; background: linear-gradient(90deg, #00CFAC 0%, #5B7ADE 100%);"
+                  @click="investMoney()"
                 >
                   <div
                     style="width: 48px;height: 22px;font-size: 16px;font-weight: 600;
                     color: #FFFFFF;"
-                    @click="investMoney()"
                   >
                     投资
                   </div>
@@ -942,7 +942,7 @@ export default {
       const token = localStorage.getItem('token')
       this.axios
         .post(
-          '/t0/invest/passed',
+          '/r0/invest/passed',
           {
             project_id: this.$route.query.projectid,
             user_id: this.$route.query.userid,
