@@ -150,7 +150,6 @@ export default {
           if (respData === '' || respData === null || respData === undefined) {
             this.dataCardShow = false
             document.getElementById('noneData').style.position = 'relative'
-            alert('查询往期项目信息失败！')
           } else {
             this.dataCardShow = true
             document.getElementById('noneData').style.position = 'absolute'

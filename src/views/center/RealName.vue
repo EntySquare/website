@@ -423,6 +423,7 @@
 </template>
 
 <script>
+import util from '/src/util/common.js'
 export default {
   name: 'RealName',
   data() {
@@ -584,7 +585,7 @@ export default {
           this.certifyNum = response.data.CertifyNum
           this.address = response.data.Address
           let t = new Date(response.data.Birthday)
-          let birthDate = formatDate(t, 'yyyy-MM-dd')
+          let birthDate = util.formatDate(t, 'yyyy-MM-dd')
           this.birthYear = birthDate.slice(0, 4)
           this.birthMonth = birthDate.slice(5, 7)
           this.birthDay = birthDate.slice(8)
@@ -675,37 +676,6 @@ export default {
     //   fileDom.click()
     // },
   },
-}
-
-//时间戳转化时间
-function formatDate(date, fmt) {
-  if (/(y+)/.test(fmt)) {
-    fmt = fmt.replace(
-      RegExp.$1,
-      (date.getFullYear() + '').substr(4 - RegExp.$1.length)
-    )
-  }
-  let o = {
-    'M+': date.getMonth() + 1,
-    'd+': date.getDate(),
-    'h+': date.getHours(),
-    'm+': date.getMinutes(),
-    's+': date.getSeconds(),
-  }
-  for (let k in o) {
-    if (new RegExp(`(${k})`).test(fmt)) {
-      let str = o[k] + ''
-      fmt = fmt.replace(
-        RegExp.$1,
-        RegExp.$1.length === 1 ? str : padLeftZero(str)
-      )
-    }
-  }
-  return fmt
-}
-
-function padLeftZero(str) {
-  return ('00' + str).substr(str.length)
 }
 </script>
 
