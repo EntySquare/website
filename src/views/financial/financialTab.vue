@@ -402,9 +402,9 @@
                 <div
                   style="width: 100%;height: 18px;font-size: 18px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #000000;line-height: 18px;"
                 >
-                  {{finance.CreatedTime}}
-                  至
                   {{finance.BeginTimes}}
+                  至
+                  {{finance.EndTimes}}
                 </div>
                 <div style="height: 27px"></div>
                 <v-divider></v-divider>
@@ -920,6 +920,7 @@
 
 <script>
 import * as echarts from 'echarts'
+import util from '/src/util/common'
 export default {
   name: 'InvestTab',
   components: {
@@ -952,7 +953,7 @@ export default {
         Address: '',
         Flag: '',
         BeginTimes: '',
-        CreatedTime: '',
+        EndTimes: '',
       },
       invest: {
         ProjectId: '',
@@ -1018,11 +1019,21 @@ export default {
           this.finance.Cycle = response.data.finance.Cycle
           this.finance.ProjectName = response.data.finance.ProjectName
           // this.finance.Cycle = response.data.finance.Cycle
-          this.invest.CompleteGoal  = response.data.invest.CompleteGoal
-          this.invest.Total   = response.data.invest.Total
-          this.invest.AnnualizedIncome   = response.data.invest.AnnualizedIncome
-          this.finance.BeginTimes   = response.data.finance.BeginTimes
-          this.finance.CreatedTime   = response.data.finance.CreatedTime
+          this.invest.CompleteGoal = response.data.invest.CompleteGoal
+          this.invest.Total = response.data.invest.Total
+          this.invest.AnnualizedIncome = response.data.invest.AnnualizedIncome
+          alert(response.data.finance.BeginTimes)
+          let begin = new Date(response.data.finance.BeginTimes)
+          let end = new Date(
+            response.data.finance.BeginTimes +
+              response.data.finance.Cycle * 24 * 3600 * 1000
+          )
+          this.finance.BeginTimes = util.formatDate(
+            begin,
+            'yyyy-MM-dd hh:mm:ss'
+          )
+          this.finance.EndTimes = util.formatDate(end, 'yyyy-MM-dd hh:mm:ss')
+          this.finance.CreatedTime = response.data.finance.CreatedTime
         })
     },
     createcode() {
