@@ -86,7 +86,7 @@
                 investDialogFlag = true
                 selectUSDTBalance()
               "
-              style="color: #FFFFFF; background: linear-gradient(90deg, #00CFAC 0%, #5B7ADE 100%);"
+              style="color: #FFFFFF; background: linear-gradient(63deg, #00DEB8 0%, #21B7C5 100%);"
             >
               <div
                 style="width: 48px;height: 22px;font-size: 16px;font-weight: 600;color: #FFFFFF;"
@@ -113,7 +113,7 @@
                 <v-text-field
                   autocomplete="off"
                   v-model="investValue"
-                  label="最小投资总额100"
+                  label="最小投资额 1"
                   single-line
                   filled
                   rounded
@@ -130,13 +130,17 @@
                   >|
                 </span>
                 <span
+                  @click="inputAllBalance()"
                   style="color: #00CFAC;width: 100%; position: absolute; margin-top: -68px;
                         margin-left: 295px; font-size: 14px; font-weight: 600; cursor: pointer"
                   >全部
                 </span>
                 <div class="d-inline-flex">
                   <div style="font-size: 14px;font-weight: 400;color: #9F9FA4;">
-                    可用USDT
+                    可用USDT:
+                  </div>
+                  <div style="font-size: 14px;font-weight: 400;color: #9F9FA4;">
+                    {{ availableBalance }}
                   </div>
                   <div style="width: 12px"></div>
                   <router-link to="/wallet">
@@ -154,7 +158,7 @@
                   height="56px"
                   text
                   rounded
-                  style="color: #FFFFFF; background: linear-gradient(90deg, #00CFAC 0%, #5B7ADE 100%);"
+                  style="color: #FFFFFF; background: linear-gradient(63deg, #00DEB8 0%, #21B7C5 100%);"
                   @click="investMoney()"
                 >
                   <div
@@ -381,52 +385,53 @@
                 >
                   交易规则
                   <div
-                    style="float:right;color: #0AC6B1;font-size: 14px;font-weight: 400;"
+                    style="float:right;color: #0AC6B1;font-size: 14px;font-weight: 400; cursor: pointer"
+                    @click="tab = 'tab-2'"
                   >
                     买入-收益-撤销等详细规则 ➔
                   </div>
                 </div>
                 <div style="height: 38px"></div>
                 <div
-                  style="height: 25px;font-size: 18px;font-family: Nunito-Regular, Nunito;font-weight: 500;color: #808080;line-height: 24px"
+                  style="height: 25px;font-size: 18px; font-weight: 500;color: #808080;line-height: 24px"
                 >
                   本期买入
                 </div>
                 <div style="height: 18px"></div>
                 <div
-                  style="width: 100%;height: 18px;font-size: 18px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #000000;line-height: 18px;"
+                  style="width: 100%;height: 18px;font-size: 18px; font-weight: 600;color: #000000;line-height: 18px;"
                 >
-                  2021-02-25 10:00:00至2021-03-03 17:00:00
+                  {{ beginTime }} 至 {{ endTime }}
                 </div>
                 <div style="height: 27px"></div>
                 <v-divider></v-divider>
                 <div style="height: 31px"></div>
                 <div
-                  style="width: 100%;font-size: 18px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;"
+                  style="width: 100%;font-size: 18px; font-weight: 500;color: #000000;"
                 >
                   产品档案
                   <div
-                    style="float:right;color: #0AC6B1;font-size: 14px;font-weight: 400;"
+                    style="float:right;color: #0AC6B1;font-size: 14px;font-weight: 400; cursor: pointer"
+                    @click="tab = 'tab-3'"
                   >
                     产品类型、特点、项目方介绍、资金 ➔
                   </div>
                 </div>
               </div>
               <div style="height: 24px"></div>
-              <!-- 质押HSF浮动 则线图 -->
               <div
                 style="width: 100%;height: 800px;background: #FFFFFF;border-radius: 18px;padding: 35px 24px 35px 24px"
               >
                 <div
                   style="width: 208px;height: 32px;font-size: 18px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;line-height: 32px;"
                 >
-                  质押HSF浮动
+                  USDT投资浮动
                 </div>
                 <div style="height: 40px;"></div>
                 <div
                   style="font-size: 24px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #00CFAC;line-height: 24px;"
                 >
-                  3.00 HSF 1天
+                  1USDT ≈ 1HSF
                 </div>
                 <div style="height: 30px"></div>
                 <div style="height: 559px;width: 100%;">
@@ -438,21 +443,14 @@
                 </div>
               </div>
               <div style="height: 24px"></div>
-              <!-- 长见问题 -->
               <div
-                style="width: 100%;height: 90px;background: #FFFFFF;border-radius: 18px;padding: 35px 24px 35px 24px"
+                style="width: 100%;height: 90px;background: #FFFFFF;border-radius: 18px;padding: 35px 24px 35px 24px; cursor: pointer"
+                @click="tab = 'tab-4'"
               >
                 <div
-                  style="width: 100%;
-                            height: 18px;
-                            font-size: 18px;
-                            font-family: PingFang-SC-Medium, PingFang-SC;
-                            font-weight: 500;
-                            color: #000000;
-                            line-height: 18px;"
+                  style="width: 100%; height: 18px; font-size: 18px; font-weight: 500; color: #000000; line-height: 18px;"
                 >
                   常见问题
-
                   <img
                     src="https://investors.oss-cn-beijing.aliyuncs.com/assets/jiantouhui1.png"
                     style="width:24px;height:24px;float:right;"
@@ -912,6 +910,7 @@
 
 <script>
 import * as echarts from 'echarts'
+import util from '/src/util/common.js'
 export default {
   name: 'InvestTab',
   components: {
@@ -919,7 +918,7 @@ export default {
   },
   mounted: function() {
     this.GetData() //需要触发的函数
-    this.createcode()
+    this.lineChart()
   },
   data() {
     return {
@@ -938,6 +937,9 @@ export default {
       totalValue: '',
       surplusValue: '',
       progressValue: '',
+      availableBalance: '',
+      beginTime: '',
+      endTime: '',
     }
   },
   methods: {
@@ -948,7 +950,6 @@ export default {
           '/r0/invest/passed',
           {
             project_id: this.$route.query.projectid,
-            user_id: this.$route.query.userid,
             invest_number: this.investValue,
           },
           {
@@ -993,6 +994,12 @@ export default {
             this.minMumValue = pInfo.MinimumInvestment
             this.annualValue = pInfo.AnnualizedIncome
             this.totalValue = pInfo.Total
+            let begin = new Date(pInfo.BeginTimes)
+            let end = new Date(
+              pInfo.BeginTimes + pInfo.Cycle * 24 * 3600 * 1000
+            )
+            this.beginTime = util.formatDate(begin, 'yyyy-MM-dd hh:mm:ss')
+            this.endTime = util.formatDate(end, 'yyyy-MM-dd hh:mm:ss')
             this.surplusValue = pInfo.Total - pInfo.CompleteGoal
             this.progressValue = (pInfo.CompleteGoal / pInfo.Total) * 100
           }
@@ -1000,53 +1007,54 @@ export default {
           //this.usdtAvliable = response.data.usdtlast
         })
     },
-    createcode() {
-      var myChart = echarts.init(document.getElementById('main'))
-      console.log('数据：', myChart)
+    lineChart() {
+      let data = []
+      for (let i = 0; i <= 500; i++) {
+        data.push(i)
+      }
+      let myChart = echarts.init(document.getElementById('main'))
       myChart.setOption({
         color: ['#00CFAC'],
-        title: {
-          text: '',
-        },
         tooltip: {
           trigger: 'axis',
           axisPointer: {
             type: 'cross',
             label: {
-              backgroundColor: '#6a7985',
+              backgroundColor: '#00CFAC',
             },
           },
         },
         grid: {
-          left: '1%',
-          right: '4%',
-          bottom: '2%',
+          width: 'auto',
+          height: 'auto',
           containLabel: true,
         },
         xAxis: [
           {
-            type: 'category',
-            boundaryGap: false,
-            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+            type: 'value',
+            data: ['100', '200', '300', '400', '500'],
+            name: 'HSF',
           },
         ],
         yAxis: [
           {
             type: 'value',
+            data: ['100', '200', '300', '400', '500'],
+            name: 'USDT',
           },
         ],
+        legend: {
+          data: ['投资收益比例图'],
+        },
         series: [
           {
-            name: 'Line 1',
+            name: '投资收益比例',
             type: 'line',
-            stack: '总量',
-            smooth: true,
             lineStyle: {
-              width: 10,
+              width: 1,
             },
-            showSymbol: false,
             areaStyle: {
-              opacity: 0.9,
+              opacity: 1,
               color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
                 {
                   offset: 0,
@@ -1060,8 +1068,9 @@ export default {
             },
             emphasis: {
               focus: 'series',
+              scale: true,
             },
-            data: [123, 223, 183, 380, 300, 450, 500],
+            data: data,
           },
         ],
       })
@@ -1086,13 +1095,16 @@ export default {
           console.log(response)
           let bInfo = response.data.balanceInfo
           if (bInfo === '' || bInfo === null || bInfo === undefined) {
-            alert('查询投资信息失败')
+            alert('查询投资余额失败')
           } else {
-            this.progressValue = bInfo.Balance
+            this.availableBalance = bInfo.Balance
           }
           //this.info = pInfo
           //this.usdtAvliable = response.data.usdtlast
         })
+    },
+    inputAllBalance() {
+      this.investValue = this.availableBalance
     },
   },
 }
