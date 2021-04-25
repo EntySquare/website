@@ -119,7 +119,10 @@
             我的理财
           </span>
           <div style="height: 30px;"></div>
-          <v-col cols="12" style="width: 960px; height: 205px; margin: 0; padding: 0">
+          <v-col
+            cols="12"
+            style="width: 960px; height: 205px; margin: 0; padding: 0"
+          >
             <div v-show="!navigationFlag" style="height: 200px">
               <swiper class="swiper" :options="swiperOption">
                 <div v-for="vi in list" v-bind:key="vi.ProjectId">
@@ -555,8 +558,10 @@ export default {
           this.accountInfo = response.data.account
           let respData = response.data.list
           if (respData === '' || respData === undefined || respData === null) {
-            this.navigationFlag = false
+            this.navigationFlag = true
             return
+          } else {
+            this.navigationFlag = false
           }
           this.list = response.data.list
           this.UserId = '1'
@@ -652,7 +657,7 @@ export default {
           slideChange: function() {},
         },
       },
-      navigationFlag: '',
+      navigationFlag: true,
     }
   },
 }

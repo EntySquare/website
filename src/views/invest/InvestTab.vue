@@ -82,7 +82,10 @@
               height="56px"
               depressed
               rounded
-              @click="investDialogFlag = true"
+              @click="
+                investDialogFlag = true
+                selectUSDTBalance()
+              "
               style="color: #FFFFFF; background: linear-gradient(90deg, #00CFAC 0%, #5B7ADE 100%);"
             >
               <div
@@ -1065,6 +1068,31 @@ export default {
     },
     clickBack() {
       this.$router.go(-1)
+    },
+    selectUSDTBalance() {
+      const token = localStorage.getItem('token')
+      this.axios
+        .post(
+          '/r0/invest/availableBalance',
+          {},
+          {
+            headers: {
+              'access-token': token,
+              'Content-Type': 'application/json',
+            },
+          }
+        )
+        .then(response => {
+          console.log(response)
+          let bInfo = response.data.balanceInfo
+          if (bInfo === '' || bInfo === null || bInfo === undefined) {
+            alert('查询投资信息失败')
+          } else {
+            this.progressValue = bInfo.Balance
+          }
+          //this.info = pInfo
+          //this.usdtAvliable = response.data.usdtlast
+        })
     },
   },
 }
