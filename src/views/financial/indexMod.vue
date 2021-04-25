@@ -352,7 +352,7 @@
           </div>
           <div style="height: 10px;width: 100%"></div>
           <div style="width: 545px">
-            <v-slider color="#00CFAC" track-color="#F7F8FB"></v-slider>
+            <v-slider color="#00CFAC" track-color="#F7F8FB" v-model='IncomeCalculation'></v-slider>
           </div>
           <v-row style="padding: 10px">
             <span
@@ -395,7 +395,7 @@
                         font-weight: 600;
                         color: #00CFAC;"
             >
-              3.00 HSF 1天
+              {{ IncomeCalculation }} USDT
             </span>
           </v-row>
           <v-row style="height: 30px"></v-row>
@@ -543,7 +543,7 @@ export default {
       this.axios
         .post(
           '/r0/finance/minehome',
-          { user_id: '1', types: 'mine' },
+          {},
           {
             headers: {
               'access-token': token,
@@ -588,7 +588,7 @@ export default {
           {
             type: 'category',
             boundaryGap: false,
-            data: ['1天', '', '', '180天', '', '', '360天'],
+            data: ['1天', '180天','180天','180天'],
           },
         ],
         yAxis: [
@@ -607,7 +607,7 @@ export default {
             },
             showSymbol: false,
             areaStyle: {
-              opacity: 0.9,
+              opacity: 1.9,
               color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
                 {
                   offset: 0,
@@ -622,7 +622,7 @@ export default {
             emphasis: {
               focus: 'series',
             },
-            data: [123, 223, 183, 380, 300, 450, 500],
+            data: [200,50,0,0],
           },
         ],
       })
@@ -631,6 +631,7 @@ export default {
 
   data() {
     return {
+      IncomeCalculation:0, //收益计算
       diyaHSF: false,
       sheet: false,
       t1: true, //对话框初始画面

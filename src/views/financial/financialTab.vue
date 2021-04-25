@@ -36,7 +36,7 @@
               <div
                 style="font-size: 48px; font-weight: 800;color: #00CFAC;line-height: 48px;"
               >
-                %
+                {{ invest.AnnualizedIncome }} %
               </div>
               <div style="width: 12px"></div>
               <div
@@ -57,7 +57,7 @@
                 <div
                   style="font-size: 16px;font-weight: 400;color: #333333;line-height: 16px;"
                 >
-                  HSF
+                  {{ invest.CompleteGoal }} HSF
                 </div>
               </div>
               <div style="width: 64px"></div>
@@ -71,6 +71,7 @@
                 <div
                   style="font-size: 16px;font-weight: 400;color: #00CFAC;line-height: 16px;"
                 >
+                  {{ invest.CompleteGoal - invest.Total }}
                   HSF
                 </div>
               </div>
@@ -97,7 +98,7 @@
               height="350"
             >
               <div
-                style="height: 350px;width: 400px;background: #FFFFFF; padding: 25px 25px 30px 30px"
+                style="height: 450px;width: 400px;background: #FFFFFF; padding: 25px 25px 30px 30px"
               >
                 <div
                   style="width: 144px; height: 24px; font-size: 24px;
@@ -194,9 +195,9 @@
               </div>
               <div style="width: 16px"></div>
               <div
-                style="width: 96px;height: 32px;font-size: 32px;font-weight: 600;color: #FFFFFF;line-height: 32px;"
+                style="width: 296px;height: 32px;font-size: 32px;font-weight: 600;color: #FFFFFF;line-height: 32px;"
               >
-                盈利宝
+                {{ finance.ProjectName }}
               </div>
             </div>
             <div style="height: 105px"></div>
@@ -214,7 +215,7 @@
               <div class="d-inline-flex" style="width: 12px;"></div>
               <span
                 style="width: 40px;height: 16px;font-size: 16px;font-weight: 600;color: #FFFFFF;line-height: 16px;"
-                >天</span
+                >{{ finance.Cycle }}天</span
               >
               <div class="d-inline-flex" style="width: 34px;"></div>
               <span
@@ -224,7 +225,7 @@
               <div class="d-inline-flex" style="width: 12px;"></div>
               <span
                 style="width: 40px;height: 16px;font-size: 16px;font-weight: 600;color: #FFFFFF;line-height: 16px;"
-                >HSF</span
+                >1 HSF</span
               >
             </div>
           </div>
@@ -401,7 +402,9 @@
                 <div
                   style="width: 100%;height: 18px;font-size: 18px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #000000;line-height: 18px;"
                 >
-                  2021-02-25 10:00:00至2021-03-03 17:00:00
+                  {{finance.CreatedTime}}
+                  至
+                  {{finance.BeginTimes}}
                 </div>
                 <div style="height: 27px"></div>
                 <v-divider></v-divider>
@@ -937,6 +940,34 @@ export default {
       investValue: '',
       info: '',
       usdtAvliable: '',
+      finance: {
+        FinanceId: '',
+        ProjectId: '',
+        ProjectName: '',
+        Cycle: '',
+        StartOver: '',
+        Institution: '',
+        InstitutionFlag: '',
+        Bounces: '',
+        Address: '',
+        Flag: '',
+        BeginTimes: '',
+        CreatedTime: '',
+      },
+      invest: {
+        ProjectId: '',
+        ProjectName: '',
+        AnnualizedIncome: '',
+        Cycle: '',
+        Total: '',
+        MinimumInvestment: '',
+        InProgressFlag: '',
+        CompleteGoal: '',
+        Address: '',
+        Flag: '',
+        BeginTimes: '',
+        CreatedTime: '',
+      },
     }
   },
   methods: {
@@ -967,14 +998,13 @@ export default {
         })
     },
     //初始化调用
-    GetData: function() {
+    GetData() {
       const token = localStorage.getItem('token')
       this.axios
         .post(
-          '/t0/invest/projectinfo',
+          '/r0/finance/getFinance',
           {
             project_id: this.$route.query.projectid,
-            user_id: this.$route.query.userid,
           },
           {
             headers: {
@@ -985,8 +1015,14 @@ export default {
         )
         .then(response => {
           console.log(response)
-          this.info = response.data.projectInfo
-          this.usdtAvliable = response.data.usdtlast
+          this.finance.Cycle = response.data.finance.Cycle
+          this.finance.ProjectName = response.data.finance.ProjectName
+          // this.finance.Cycle = response.data.finance.Cycle
+          this.invest.CompleteGoal  = response.data.invest.CompleteGoal
+          this.invest.Total   = response.data.invest.Total
+          this.invest.AnnualizedIncome   = response.data.invest.AnnualizedIncome
+          this.finance.BeginTimes   = response.data.finance.BeginTimes
+          this.finance.CreatedTime   = response.data.finance.CreatedTime
         })
     },
     createcode() {
