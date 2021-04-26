@@ -1048,11 +1048,11 @@ export default {
           this.highResult.HsfLastToPlaced = response.data.highResult.HsfLastToPlaced
           this.invest.AnnualizedIncome = response.data.invest.AnnualizedIncome
           // alert(response.data.finance.BeginTimes)
-          let begin = new Date(response.data.finance.BeginTimes)
+          let begin = new Date(response.data.finance.BeginTimes  * 1000)
           let end = new Date(
-            response.data.finance.BeginTimes +
-              response.data.finance.Cycle * 24 * 3600 * 1000
+            response.data.finance.BeginTimes  * 1000 + response.data.finance.Cycle * 24 * 3600 * 1000
           )
+          // pInfo.BeginTimes * 1000 + pInfo.Cycle * 24 * 3600 * 1000
           this.finance.BeginTimes = util.formatDate(
             begin,
             'yyyy-MM-dd hh:mm:ss'
