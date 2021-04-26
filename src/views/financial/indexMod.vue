@@ -355,7 +355,11 @@
           </div>
           <div style="height: 10px;width: 100%"></div>
           <div style="width: 545px">
-            <v-slider color="#00CFAC" track-color="#F7F8FB" v-model='IncomeCalculation'></v-slider>
+            <v-slider
+              color="#00CFAC"
+              track-color="#F7F8FB"
+              v-model="IncomeCalculation"
+            ></v-slider>
           </div>
           <v-row style="padding: 10px">
             <span
@@ -644,7 +648,7 @@ export default {
 
   data() {
     return {
-      IncomeCalculation:0, //收益计算
+      IncomeCalculation: 0, //收益计算
       diyaHSF: false,
       sheet: false,
       t1: true, //对话框初始画面

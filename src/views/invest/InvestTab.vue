@@ -213,7 +213,7 @@
               <div class="d-inline-flex" style="width: 12px;"></div>
               <span
                 style="width: 40px;height: 16px;font-size: 16px;font-weight: 600;color: #FFFFFF;line-height: 16px;"
-                >{{ cycleValue }}天</span
+                >{{ cycleValue }} 天</span
               >
               <div class="d-inline-flex" style="width: 34px;"></div>
               <span
@@ -223,7 +223,7 @@
               <div class="d-inline-flex" style="width: 12px;"></div>
               <span
                 style="width: 40px;height: 16px;font-size: 16px;font-weight: 600;color: #FFFFFF;line-height: 16px;"
-                >{{ minMumValue }}USDT</span
+                >{{ minMumValue }} USDT</span
               >
             </div>
           </div>
@@ -258,11 +258,11 @@
             <v-col
               cols="6"
               offset="3"
-              style="background: #FAFBFC;height: 1800px;padding: 0px 24px 0px 24px"
+              style="background: #FAFBFC;height: 1800px;padding: 0 24px 0 24px"
             >
               <div style="height:80px;width: 100%"></div>
               <div
-                style="width: 72px;height: 24px;font-size: 24px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;line-height: 24px;"
+                style="width: 72px;height: 24px;font-size: 24px; font-weight: 500;color: #000000;line-height: 24px;"
               >
                 盈利宝
               </div>
@@ -272,7 +272,7 @@
                 style="width: 100%;height: 329px;background: #FFFFFF;border-radius: 18px;padding: 40px 30px 30px 30px"
               >
                 <div
-                  style="width: 72px;height: 18px;font-size: 18px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;line-height: 18px;"
+                  style="width: 72px;height: 18px;font-size: 18px; font-weight: 500;color: #000000;line-height: 18px;"
                 >
                   项目亮点
                 </div>
@@ -288,13 +288,13 @@
                       </v-col>
                       <v-col cols="10" style="">
                         <div
-                          style="width: 172px;height: 24px;font-size: 18px;font-family: Nunito-Regular, Nunito;font-weight: 600;color: #000000;line-height: 24px;"
+                          style="width: 172px;height: 24px;font-size: 18px; font-weight: 600;color: #000000;line-height: 24px;"
                         >
                           加密资产
                         </div>
                         <div style="height: 13px"></div>
                         <div
-                          style="width: 233px;height: 16px;font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 600;color: #808080;line-height: 16px;"
+                          style="width: 233px;height: 16px;font-size: 16px; font-weight: 600;color: #808080;line-height: 16px;"
                         >
                           灵活期限 随心定制
                         </div>
@@ -311,13 +311,13 @@
                       </v-col>
                       <v-col cols="10" style="">
                         <div
-                          style="width: 172px;height: 24px;font-size: 18px;font-family: Nunito-Regular, Nunito;font-weight: 600;color: #000000;line-height: 24px;"
+                          style="width: 172px;height: 24px;font-size: 18px; font-weight: 600;color: #000000;line-height: 24px;"
                         >
                           去中性化金融
                         </div>
                         <div style="height: 13px"></div>
                         <div
-                          style="width: 233px;height: 16px;font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 600;color: #808080;line-height: 16px;"
+                          style="width: 233px;height: 16px;font-size: 16px; font-weight: 600;color: #808080;line-height: 16px;"
                         >
                           闪电赎回
                         </div>
@@ -337,13 +337,13 @@
                       </v-col>
                       <v-col cols="10" style="">
                         <div
-                          style="width: 172px;height: 24px;font-size: 18px;font-family: Nunito-Regular, Nunito;font-weight: 600;color: #000000;line-height: 24px;"
+                          style="width: 172px;height: 24px;font-size: 18px; font-weight: 600;color: #000000;line-height: 24px;"
                         >
                           价格透明
                         </div>
                         <div style="height: 13px"></div>
                         <div
-                          style="width: 233px;height: 16px;font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 600;color: #808080;line-height: 16px;"
+                          style="width: 233px;height: 16px;font-size: 16px; font-weight: 600;color: #808080;line-height: 16px;"
                         >
                           价格实时 链上查询
                         </div>
@@ -360,13 +360,13 @@
                       </v-col>
                       <v-col cols="10" style="">
                         <div
-                          style="width: 172px;height: 24px;font-size: 18px;font-family: Nunito-Regular, Nunito;font-weight: 600;color: #000000;line-height: 24px;"
+                          style="width: 172px;height: 24px;font-size: 18px; font-weight: 600;color: #000000;line-height: 24px;"
                         >
                           安全合规
                         </div>
                         <div style="height: 13px"></div>
                         <div
-                          style="width: 233px;height: 16px;font-size: 16px;font-family: Nunito-Regular, Nunito;font-weight: 600;color: #808080;line-height: 16px;"
+                          style="width: 233px;height: 16px;font-size: 16px; font-weight: 600;color: #808080;line-height: 16px;"
                         >
                           合规监管，安全存储
                         </div>
@@ -381,7 +381,7 @@
                 style="width: 100%;height: 286px;background: #FFFFFF;border-radius: 18px;padding: 35px 24px 35px 24px"
               >
                 <div
-                  style="width: 100%;font-size: 18px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;"
+                  style="width: 100%;font-size: 18px; font-weight: 500;color: #000000;"
                 >
                   交易规则
                   <div
@@ -423,13 +423,13 @@
                 style="width: 100%;height: 800px;background: #FFFFFF;border-radius: 18px;padding: 35px 24px 35px 24px"
               >
                 <div
-                  style="width: 208px;height: 32px;font-size: 18px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;line-height: 32px;"
+                  style="width: 208px;height: 32px;font-size: 18px; font-weight: 500;color: #000000;line-height: 32px;"
                 >
                   USDT投资浮动
                 </div>
                 <div style="height: 40px;"></div>
                 <div
-                  style="font-size: 24px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #00CFAC;line-height: 24px;"
+                  style="font-size: 24px; font-weight: 600;color: #00CFAC;line-height: 24px;"
                 >
                   1USDT ≈ 1HSF
                 </div>
@@ -503,24 +503,20 @@
                       </div>
                       <div style="height: 18px"></div>
                       <div class="transRulesText">
-                        2021-02-25 10:00:00至2021-03-03 17:00:00
+                        {{ beginTime }} 至 {{ endTime }}
                       </div>
                       <div style="height: 56px"></div>
                       <div class="transRulesText" style="color: #808080;">
                         最低投入
                       </div>
                       <div style="height: 18px"></div>
-                      <div class="transRulesText">
-                        100 USDT
-                      </div>
+                      <div class="transRulesText">{{ minMumValue }} USDT</div>
                       <div style="height: 56px"></div>
                       <div class="transRulesText" style="color: #808080;">
                         投资期限
                       </div>
                       <div style="height: 18px"></div>
-                      <div class="transRulesText">
-                        10天
-                      </div>
+                      <div class="transRulesText">{{ cycleValue }} 天</div>
                       <div style="height: 56px"></div>
                       <div class="transRulesText" style="color: #808080;">
                         风险等级
@@ -755,7 +751,7 @@
             <v-col
               cols="6"
               offset="3"
-              style="background: #FAFBFC;height: 1811px;padding: 0px 24px 0px 24px"
+              style="background: #FAFBFC;height: 1811px;padding: 0 24px 0 24px"
             >
               <div style="height: 60px"></div>
               <div
@@ -770,7 +766,7 @@
               </div>
               <div style="height: 24px"></div>
               <div
-                style="background: #FFFFFF;border-radius: 18px;height: 1582px;padding: 0px 24px 0px 24px"
+                style="background: #FFFFFF;border-radius: 18px;height: 1582px;padding: 0 24px 0 24px"
               >
                 <div style="height: 38px"></div>
                 <div
@@ -823,7 +819,7 @@
                 <div style="height: 38px"></div>
 
                 <div
-                  style="width: 100%;height: 18px;font-size: 18px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;line-height: 18px;"
+                  style="width: 100%;height: 18px;font-size: 18px; font-weight: 500;color: #000000;line-height: 18px;"
                 >
                   什么时候以什么方式回款？
                 </div>
@@ -833,7 +829,6 @@
                             width: 100%;
                             height: 50px;
                             font-size: 18px;
-                            font-family: PingFangSC-Regular, PingFang SC;
                             font-weight: 400;
                             color: #808080;
                             line-height: 25px;"
@@ -850,7 +845,7 @@
                 <div style="height: 38px"></div>
 
                 <div
-                  style="width: 100%;height: 18px;font-size: 18px;font-family: PingFang-SC-Medium, PingFang-SC;font-weight: 500;color: #000000;line-height: 18px;"
+                  style="width: 100%;height: 18px;font-size: 18px; font-weight: 500;color: #000000;line-height: 18px;"
                 >
                   产品购买截至时间
                 </div>
@@ -930,7 +925,6 @@ export default {
       investDialogFlag: '',
       investValue: '',
       info: '',
-      usdtAvliable: '',
       cycleValue: '',
       minMumValue: '',
       annualValue: '',
@@ -994,17 +988,15 @@ export default {
             this.minMumValue = pInfo.MinimumInvestment
             this.annualValue = pInfo.AnnualizedIncome
             this.totalValue = pInfo.Total
-            let begin = new Date(pInfo.BeginTimes)
+            let begin = new Date(pInfo.BeginTimes * 1000)
             let end = new Date(
-              pInfo.BeginTimes + pInfo.Cycle * 24 * 3600 * 1000
+              pInfo.BeginTimes * 1000 + pInfo.Cycle * 24 * 3600 * 1000
             )
             this.beginTime = util.formatDate(begin, 'yyyy-MM-dd hh:mm:ss')
             this.endTime = util.formatDate(end, 'yyyy-MM-dd hh:mm:ss')
             this.surplusValue = pInfo.Total - pInfo.CompleteGoal
             this.progressValue = (pInfo.CompleteGoal / pInfo.Total) * 100
           }
-          //this.info = pInfo
-          //this.usdtAvliable = response.data.usdtlast
         })
     },
     lineChart() {
@@ -1099,8 +1091,6 @@ export default {
           } else {
             this.availableBalance = bInfo.Balance
           }
-          //this.info = pInfo
-          //this.usdtAvliable = response.data.usdtlast
         })
     },
     inputAllBalance() {

@@ -58,7 +58,7 @@
                               src="https://investors.oss-cn-beijing.aliyuncs.com/assets/headMenu/product_menu1.png"
                             ></v-img>
                           </div>
-                          <router-link to="/investPast">
+                          <router-link to="/investMain">
                             <div
                               style="margin-top: 18px; font-weight: 400; color: #000000; line-height: 12px"
                             >
@@ -556,8 +556,8 @@ export default {
       eyeFlag: 'mdi-eye',
       logoutResult: '',
       hsfDialogShow: '',
-      HSF_ALL:"",
-      USDT_ALL:"",
+      HSF_ALL: '',
+      USDT_ALL: '',
     }
   },
   mounted: function() {

@@ -1,10 +1,10 @@
 <template>
-  <div style="background: #FAFBFC; height: 100vh">
+  <div style="background: #FAFBFC; height: 2844px">
     <div class="banner" style="height: 343px;width:100%;">
       <div class="container2" style="padding-top: 80px;">
-        <router-link to="/investMain">
-          <v-img
-            src="https://investors.oss-cn-beijing.aliyuncs.com/assets/invest/my_project_icon.png"
+        <router-link to="/investMine">
+          <img
+            src="../../assets/invest_icon.png"
             style="width:36px;vertical-align:bottom;display:inline-block"
           />
         </router-link>
@@ -12,7 +12,7 @@
           style="font-size:32px;font-weight: 600;color: #FFF;
                 display:inline-block;margin-left:10px;line-height:36px"
         >
-          我的项目
+          投资推荐
         </div>
         <router-link to="/investPast">
           <div
@@ -22,10 +22,30 @@
             <v-icon color="#fff" style="font-size:16px">mdi-arrow-right</v-icon>
           </div>
         </router-link>
+        <div
+          style="color:#fff;font-weight: 500;font-size: 20px;
+              padding-top:40px;width:50px;padding-bottom: 15px"
+        >
+          USDT
+        </div>
+        <div
+          style="width: 44px; border-bottom:4px solid #fff; margin-left: 3px"
+        ></div>
       </div>
+      <!-- 返回顶部按钮 -->
+      <!-- style="position:fixed;bottom:100px;right:10%;background: #00d5b5;width:40px;height:40px;text-align:center;border-radius: 50%;" -->
+      <!--      <div-->
+      <!--        style="right:10%;background: #00d5b5;width:40px;height:40px;text-align:center;border-radius: 50%;"-->
+      <!--        :style="{ position: activeposition, top: top + 'px' }"-->
+      <!--        v-show="upbtn"-->
+      <!--        @click="backTop"-->
+      <!--      >-->
+      <!--        <v-icon color="#fff" style="font-size:40px;">mdi-arrow-up</v-icon>-->
+      <!--      </div>-->
     </div>
-    <div class="container2" style="margin-top:-171px;">
-      <div v-for="vi in myList" :key="vi">
+    <!--    <div class="container2" style="margin-top:-124px;" ref="point">-->
+    <div class="container2" style="margin-top:-124px;" ref="point">
+      <div v-for="vi in list" :key="vi">
         <router-link
           :to="{
             path: '/investTab',
@@ -73,9 +93,9 @@
                   <div style="padding-right: 8px">融资进度</div>
                   <div
                     style="display:inline-block;width:46px;height:18px;
-                    background: linear-gradient(225deg, #00E9D6 0%, #00CFAC 100%);
-                    border-radius: 4px;font-style:normal;text-align:center;
-                    line-height:18px;color:#fff;font-size:10px;font-weight:400;margin-top: 3px"
+                      background: linear-gradient(225deg, #00E9D6 0%, #00CFAC 100%);
+                      border-radius: 4px;font-style:normal;text-align:center;
+                      line-height:18px;color:#fff;font-size:10px;font-weight:400;margin-top: 3px"
                   >
                     <div v-if="vi.InProgressFlag === 1">
                       进行中
@@ -89,15 +109,15 @@
                   </div>
                   <div style="width: 452px"></div>
                   <div style="color:#00CFAC;font-size:14px;margin-top: 20px;">
-                    {{ (vi.CompleteGoal / vi.Total) * 100 }} %
+                    {{ (vi.CompleteGoal / vi.Total) * 100 }}%
                   </div>
                 </div>
                 <v-progress-linear
                   style="height:10px;width:600px;border-radius: 5px;"
+                  :value="(vi.CompleteGoal / vi.Total) * 100"
                   background-color="#F7F8FB"
                   color="#00CFAC"
                   class="unFinish"
-                  v-bind:value="(vi.CompleteGoal / vi.Total) * 100"
                 ></v-progress-linear>
               </v-col>
             </v-row>
@@ -110,15 +130,32 @@
 
 <script>
 export default {
-  name: 'InvestMine',
+  name: 'invest',
   data() {
     return {
+      valueDeterminate: 90,
+      upbtn: true,
+      activeposition: 'fixed',
       top: 750,
-      myList: '',
+      list: '',
+      UserId: '',
     }
   },
+  components: {
+    // TheFooter: Footer,
+    // TheHeader: Header,
+  },
   mounted() {
-    this.GetData()
+    this.GetData() //需要触发的函数
+    this.backTop()
+    // window.addEventListener('scroll', this.scrollToTop)
+    // if (location.href.indexOf('#reloaded') === -1) {
+    //   location.href = location.href + '#reloaded'
+    //   location.reload()
+    // }
+  },
+  destroyed() {
+    //window.removeEventListener('scroll', this.scrollToTop)
   },
   methods: {
     //初始化调用
@@ -126,8 +163,8 @@ export default {
       const token = localStorage.getItem('token')
       this.axios
         .post(
-          '/r0/invest/myList',
-          {},
+          '/r0/invest/list',
+          { types: 'now' },
           {
             headers: {
               'access-token': token,
@@ -138,23 +175,50 @@ export default {
         .then(response => {
           let dataList = response.data.list
           if (dataList === '' || dataList === null || dataList === undefined) {
-            alert('查询我的项目信息失败！')
+            alert('查询项目信息失败！')
             return
           }
-          this.myList = dataList
+          this.list = dataList
         })
     },
+    backTop() {
+      document.body.scrollTop = 0
+      document.documentElement.scrollTop = 0
+    },
+    // 点击图片回到顶部方法，加计时器是为了过渡顺滑
+    // backTop() {
+    //   const that = this
+    //   let timer = setInterval(() => {
+    //     let ispeed = Math.floor(-that.scrollTop / 5)
+    //     document.documentElement.scrollTop = document.body.scrollTop =
+    //       that.scrollTop + ispeed
+    //     if (that.scrollTop === 0) {
+    //       clearInterval(timer)
+    //     }
+    //   }, 16)
+    // },
+    // 为了计算距离顶部的高度，当高度大于200显示回顶部图标，小于200则隐藏
+    // scrollToTop() {
+    //   const that = this
+    //   let scrollTop =
+    //     window.pageYOffset ||
+    //     document.documentElement.scrollTop ||
+    //     document.body.scrollTop
+    //   that.scrollTop = scrollTop
+    //   //   项目长度
+    //   let boxlength = that.$refs.point.clientHeight
+    //   if (that.scrollTop > boxlength - 500) {
+    //     // that.upbtn = false
+    //     that.upbtn = true
+    //     ;(that.activeposition = 'absolute'), (that.top = boxlength + 230)
+    //   } else if (that.scrollTop > 200) {
+    //     that.upbtn = true
+    //     ;(that.activeposition = 'fixed'), (that.top = 750)
+    //   } else {
+    //     that.upbtn = false
+    //   }
+    // },
   },
-  // mounted() {
-  //   // window.addEventListener('scroll', this.scrollToTop)
-  //   // if (location.href.indexOf('#reloaded') === -1) {
-  //   //   location.href = location.href + '#reloaded'
-  //   //   location.reload()
-  //   // }
-  // },
-  // destroyed() {
-  //   window.removeEventListener('scroll', this.scrollToTop)
-  // },
 }
 </script>
 

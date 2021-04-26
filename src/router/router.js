@@ -131,9 +131,9 @@ const routes = [
         component: () => import('../views/center/RealName.vue'),
       },
       {
-        path: '/investIndex/',
-        name: 'investIndex',
-        component: () => import('../views/invest/InvestIndex.vue'),
+        path: '/investPast/',
+        name: 'investPast',
+        component: () => import('../views/invest/InvestPast.vue'),
       },
       {
         path: '/investTab/',
@@ -141,9 +141,9 @@ const routes = [
         component: () => import('../views/invest/InvestTab.vue'),
       },
       {
-        path: '/investPast/',
-        name: 'investPast',
-        component: () => import('../views/invest/InvestPast.vue'),
+        path: '/investMain/',
+        name: 'investMain',
+        component: () => import('../views/invest/InvestMain.vue'),
       },
       {
         path: '/investMine/',
