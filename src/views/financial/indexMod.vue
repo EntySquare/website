@@ -125,8 +125,7 @@
           >
             <div v-show="!navigationFlag" style="height: 200px">
               <swiper class="swiper" :options="swiperOption">
-                <div v-for="vi in list" v-bind:key="vi.ProjectId">
-                  <swiper-slide>
+                <swiper-slide v-for="vi in list" v-bind:key="vi.ProjectId">
                     <div style="height: 20px"></div>
                     <router-link
                       :to="{
@@ -189,8 +188,8 @@
                       </v-navigation-drawer>
                     </router-link>
                     <div style="height: 20px"></div>
-                  </swiper-slide>
-                </div>
+                </swiper-slide>
+
               </swiper>
             </div>
             <v-card
@@ -383,17 +382,18 @@
                         font-family: Nunito-SemiBold, Nunito;
                         font-weight: 400;
                         color: #808080;"
-            > <div style="height: 20px;width: 30px;float:left"></div>
-                已质押:
+            >
+              <div style="height: 20px;width: 30px;float:left"></div>
+              已质押:
             </span>
             <span
-                style="font-size: 18px;
+              style="font-size: 18px;
                         font-family: Nunito-SemiBold, Nunito;
                         font-weight: 600;
                         color: #00CFAC;"
             >
-            {{ accountInfo.Locked }} HSF
-              </span>
+              {{ accountInfo.Locked }} HSF
+            </span>
           </v-row>
           <v-row style="padding: 10px">
             <span
@@ -605,7 +605,7 @@ export default {
           {
             type: 'category',
             boundaryGap: false,
-            data: ['1天', '180天','180天','180天'],
+            data: ['1天', '180天', '180天', '180天'],
           },
         ],
         yAxis: [
@@ -639,7 +639,7 @@ export default {
             emphasis: {
               focus: 'series',
             },
-            data: [0,0,0,0],
+            data: [0, 0, 0, 0],
           },
         ],
       })
@@ -685,6 +685,15 @@ export default {
   width: 480px;
   padding-right: 30px;
 }
+.swiper-slide:nth-child(2n) {
+  width: 480px;
+  padding-right: 30px;
+}
+
+//.swiper-slide:nth-child(3n) {
+//  width: 480px;
+//  padding-right: 30px;
+//}
 /*.swiper-slide:nth-child(2n) {*/
 /*  width: 480px;*/
 /*}*/
