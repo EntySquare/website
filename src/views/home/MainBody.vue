@@ -24,7 +24,7 @@
       <v-col cols="12" style="height: 120px;"></v-col>
       <v-col cols="12">
         <div align="center" style="display: inline-flex; align-items: center">
-          <router-link to="/investPast">
+          <router-link to="/investMain">
             <v-btn
               id="btn1"
               text

@@ -2,7 +2,7 @@
   <div style="background: #FAFBFC; height: 100vh">
     <div class="banner" style="height: 343px;width:100%;">
       <div class="container2" style="padding-top: 80px;">
-        <router-link to="/investPast">
+        <router-link to="/investMain">
           <v-img
             src="https://investors.oss-cn-beijing.aliyuncs.com/assets/invest/my_project_icon.png"
             style="width:36px;vertical-align:bottom;display:inline-block"
@@ -14,7 +14,7 @@
         >
           我的项目
         </div>
-        <router-link to="/investIndex">
+        <router-link to="/investPast">
           <div
             style="font-size: 18px;color: #FFF;display:inline-block;float:right;"
           >

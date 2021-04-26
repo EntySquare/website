@@ -213,7 +213,7 @@
               <div class="d-inline-flex" style="width: 12px;"></div>
               <span
                 style="width: 40px;height: 16px;font-size: 16px;font-weight: 600;color: #FFFFFF;line-height: 16px;"
-                >{{ cycleValue }}天</span
+                >{{ cycleValue }} 天</span
               >
               <div class="d-inline-flex" style="width: 34px;"></div>
               <span
@@ -223,7 +223,7 @@
               <div class="d-inline-flex" style="width: 12px;"></div>
               <span
                 style="width: 40px;height: 16px;font-size: 16px;font-weight: 600;color: #FFFFFF;line-height: 16px;"
-                >{{ minMumValue }}USDT</span
+                >{{ minMumValue }} USDT</span
               >
             </div>
           </div>
@@ -503,24 +503,20 @@
                       </div>
                       <div style="height: 18px"></div>
                       <div class="transRulesText">
-                        2021-02-25 10:00:00至2021-03-03 17:00:00
+                        {{ beginTime }} 至 {{ endTime }}
                       </div>
                       <div style="height: 56px"></div>
                       <div class="transRulesText" style="color: #808080;">
                         最低投入
                       </div>
                       <div style="height: 18px"></div>
-                      <div class="transRulesText">
-                        100 USDT
-                      </div>
+                      <div class="transRulesText">{{ minMumValue }} USDT</div>
                       <div style="height: 56px"></div>
                       <div class="transRulesText" style="color: #808080;">
                         投资期限
                       </div>
                       <div style="height: 18px"></div>
-                      <div class="transRulesText">
-                        10天
-                      </div>
+                      <div class="transRulesText">{{ cycleValue }} 天</div>
                       <div style="height: 56px"></div>
                       <div class="transRulesText" style="color: #808080;">
                         风险等级

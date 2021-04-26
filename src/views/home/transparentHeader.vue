@@ -60,7 +60,7 @@
                                 src="https://investors.oss-cn-beijing.aliyuncs.com/assets/headMenu/product_menu1.png"
                               ></v-img>
                             </div>
-                            <router-link to="/investPast">
+                            <router-link to="/investMain">
                               <div
                                 style="margin-top: 18px; font-size: 12px; font-weight: 400; color: #000000; line-height: 12px"
                               >
