@@ -57,7 +57,7 @@
                 <div
                   style="font-size: 16px;font-weight: 400;color: #333333;line-height: 16px;"
                 >
-                  {{ invest.CompleteGoal }} HSF
+                  {{ highResult.HsfHasBeenPlaced }} HSF
                 </div>
               </div>
               <div style="width: 64px"></div>
@@ -71,7 +71,7 @@
                 <div
                   style="font-size: 16px;font-weight: 400;color: #00CFAC;line-height: 16px;"
                 >
-                  {{ invest.CompleteGoal - invest.Total }}
+                  {{ highResult.HsfLastToPlaced }}
                   HSF
                 </div>
               </div>
@@ -969,6 +969,16 @@ export default {
         BeginTimes: '',
         CreatedTime: '',
       },
+      highResult: {
+        Class: '',
+        HsfHasBeenPlaced: '',
+        HsfLastToPlaced: '',
+      },
+      lowResult: {
+        Class: '',
+        HsfHasBeenPlaced: '',
+        HsfLastToPlaced: '',
+      },
     }
   },
   methods: {
@@ -1019,8 +1029,8 @@ export default {
           this.finance.Cycle = response.data.finance.Cycle
           this.finance.ProjectName = response.data.finance.ProjectName
           // this.finance.Cycle = response.data.finance.Cycle
-          this.invest.CompleteGoal = response.data.invest.CompleteGoal
-          this.invest.Total = response.data.invest.Total
+          this.highResult.HsfHasBeenPlaced = response.data.highResult.HsfHasBeenPlaced
+          this.highResult.HsfLastToPlaced = response.data.highResult.HsfLastToPlaced
           this.invest.AnnualizedIncome = response.data.invest.AnnualizedIncome
           alert(response.data.finance.BeginTimes)
           let begin = new Date(response.data.finance.BeginTimes)
