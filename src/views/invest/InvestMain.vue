@@ -49,7 +49,7 @@
         <router-link
           :to="{
             path: '/investTab',
-            query: { projectid: vi.ProjectId, userid: UserId },
+            query: { projectid: vi.ProjectId },
           }"
         >
           <v-card
