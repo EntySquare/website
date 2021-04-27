@@ -515,10 +515,53 @@
               </v-menu>
             </div>
             <div style="margin-top: 12px; margin-left: 10px">
-              <v-img
-                src="https://investors.oss-cn-beijing.aliyuncs.com/assets/download_icon_black.png"
-                style="width: 20px;"
-              ></v-img>
+
+              <v-menu
+                  content-class="rounded-xl"
+                  v-model="downloadMenu"
+                  :close-on-content-click="true"
+                  :nudge-bottom="20"
+                  :nudge-left="60"
+                  offset-y
+              >
+                <template v-slot:activator="{ on, attrs }">
+                  <v-img
+                      v-bind="attrs"
+                      v-on="on"
+                      class="titleFont"
+                      @click="downloadMenu = true"
+                      src="https://investors.oss-cn-beijing.aliyuncs.com/assets/download_icon_black.png"
+                      style="width: 20px;"
+                  />
+                </template>
+                <v-card width="186px" height="274px">
+                  <div style="height: 26px"></div>
+                  <div
+                      class="text-center"
+                      style="width: 100%;height: 12px;font-size: 12px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #808080;line-height: 12px;"
+                  >
+                    扫码下载iOS&Android APP
+                  </div>
+                  <div style="padding: 12px 24px 1px 24px">
+                    <v-img
+                        src="https://investors.oss-cn-beijing.aliyuncs.com/assets/downloadCodeFile.png"
+                        class="my-3"
+                        contain
+                        width="100%"
+                    >
+                    </v-img>
+                  </div>
+                  <div style="padding: 0px 20px 0px 20px;">
+                    <v-btn
+                        style="font-size: 12px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #00CFAC;line-height: 16px;width: 100%;height: 32px;"
+                        depressed
+                        bottom
+                    >
+                      即将上线
+                    </v-btn>
+                  </div>
+                </v-card>
+              </v-menu>
             </div>
             <div style="width: 30px"></div>
             <div style="margin-top: 12px">
@@ -553,6 +596,7 @@ export default {
       productMenu: false,
       companyMenu: false,
       menuWhite: false,
+      downloadMenu: false,
       eyeFlag: 'mdi-eye',
       logoutResult: '',
       hsfDialogShow: '',
