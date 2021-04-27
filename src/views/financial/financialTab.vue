@@ -113,13 +113,13 @@
                   color="black"
                   center-active
                 >
-                  <v-tab>优先</v-tab>
-                  <v-tab>劣后</v-tab>
+                  <v-tab @click="investMoneyData.class = 1">优先</v-tab>
+                  <v-tab @click="investMoneyData.class = 2">劣后</v-tab>
                 </v-tabs>
                 <div style="height: 48px"></div>
                 <v-text-field
                   autocomplete="off"
-                  v-model="investValue"
+                  v-model="investMoneyData.value"
                   label="最小投资总额100"
                   single-line
                   filled
@@ -160,12 +160,12 @@
                   height="56px"
                   text
                   rounded
+                  @click="financePledge()"
                   style="color: #FFFFFF; background: linear-gradient(63deg, #00DEB8 0%, #21B7C5 100%);"
                 >
                   <div
                     style="width: 48px;height: 22px;font-size: 16px;font-weight: 600;
                     color: #FFFFFF;"
-                    @click="investMoney()"
                   >
                     质押
                   </div>
@@ -402,9 +402,9 @@
                 <div
                   style="width: 100%;height: 18px;font-size: 18px;font-family: Nunito-SemiBold, Nunito;font-weight: 600;color: #000000;line-height: 18px;"
                 >
-                  {{finance.BeginTimes}}
+                  {{ finance.BeginTimes }}
                   至
-                  {{finance.EndTimes}}
+                  {{ finance.EndTimes }}
                 </div>
                 <div style="height: 27px"></div>
                 <v-divider></v-divider>
@@ -969,6 +969,11 @@ export default {
         BeginTimes: '',
         CreatedTime: '',
       },
+      investMoneyData: {
+        class: 1,
+        value: '',
+        finance_id: '',
+      },
       highResult: {
         Class: '',
         HsfHasBeenPlaced: '',
@@ -982,15 +987,21 @@ export default {
     }
   },
   methods: {
-    investMoney: function() {
+    // int64 `json:"class"`      //质押优先劣后（1:优先;2:劣后）
+    // string `json:"vlue"`      //质押HSF数量
+    // int    `json:"user_id"`    //调用质押方法的用户ID
+    // int    `json:"finance_id"` //质押的项目（可改,只要
+    financePledge() {
+     // alert("financePledge")
       const token = localStorage.getItem('token')
       this.axios
         .post(
-          '/t0/invest/passed',
+          '/r0/finance/pledge',
           {
-            project_id: this.$route.query.projectid,
-            user_id: this.$route.query.userid,
-            invest_number: this.investValue,
+            class: this.investMoneyData.class,
+            value: this.investMoneyData.value,
+            finance_id: this.$route.query.projectid,
+            func_type: 'place',
           },
           {
             headers: {
@@ -1000,13 +1011,17 @@ export default {
           }
         )
         .then(response => {
-          this.investBtnFlag = false
-          if (response.data.success === 'true') {
-            alert(response.data.last)
-          } else {
-            alert(response.data.success)
+          console.log(response)
+          if (response.data.success == "true"){
+            alert("操作成功")
+            location.reload();
+          }else{
+            alert("操作失败")
           }
         })
+          .catch(error => {
+            alert("操作失败")
+          })
     },
     //初始化调用
     GetData() {
@@ -1032,12 +1047,12 @@ export default {
           this.highResult.HsfHasBeenPlaced = response.data.highResult.HsfHasBeenPlaced
           this.highResult.HsfLastToPlaced = response.data.highResult.HsfLastToPlaced
           this.invest.AnnualizedIncome = response.data.invest.AnnualizedIncome
-          alert(response.data.finance.BeginTimes)
-          let begin = new Date(response.data.finance.BeginTimes)
+          // alert(response.data.finance.BeginTimes)
+          let begin = new Date(response.data.finance.BeginTimes  * 1000)
           let end = new Date(
-            response.data.finance.BeginTimes +
-              response.data.finance.Cycle * 24 * 3600 * 1000
+            response.data.finance.BeginTimes  * 1000 + response.data.finance.Cycle * 24 * 3600 * 1000
           )
+          // pInfo.BeginTimes * 1000 + pInfo.Cycle * 24 * 3600 * 1000
           this.finance.BeginTimes = util.formatDate(
             begin,
             'yyyy-MM-dd hh:mm:ss'

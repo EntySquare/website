@@ -125,8 +125,7 @@
           >
             <div v-show="!navigationFlag" style="height: 200px">
               <swiper class="swiper" :options="swiperOption">
-                <div v-for="vi in list" v-bind:key="vi.ProjectId">
-                  <swiper-slide>
+                <swiper-slide v-for="vi in list" v-bind:key="vi.ProjectId">
                     <div style="height: 20px"></div>
                     <router-link
                       :to="{
@@ -142,7 +141,7 @@
                             <div
                               style="width: 160px; height: 20px;font-size: 20px; font-weight: 600;color: #FFFFFF; padding: 10px 0 20px 0"
                             >
-                              定期优选
+                              {{ vi.ProjectName }}
                             </div>
                             <v-btn
                               style="border-radius: 0 18px 0 8px; margin: -24px 0 0 186px; background: linear-gradient(316deg, #2F5E85 0%, #202A32 100%); color: #FFFFFF;"
@@ -189,8 +188,8 @@
                       </v-navigation-drawer>
                     </router-link>
                     <div style="height: 20px"></div>
-                  </swiper-slide>
-                </div>
+                </swiper-slide>
+
               </swiper>
             </div>
             <v-card
@@ -368,7 +367,7 @@
                         font-weight: 400;
                         color: #808080;"
             >
-              定期优选锁仓总额:
+              理财总质押:
             </span>
             <span
               style="font-size: 18px;
@@ -381,10 +380,19 @@
             <span
               style="font-size: 18px;
                         font-family: Nunito-SemiBold, Nunito;
-                        font-weight: 600;
-                        color: #000000;"
+                        font-weight: 400;
+                        color: #808080;"
             >
-              /{{ accountInfo.Available }} HSF
+              <div style="height: 20px;width: 30px;float:left"></div>
+              已质押:
+            </span>
+            <span
+              style="font-size: 18px;
+                        font-family: Nunito-SemiBold, Nunito;
+                        font-weight: 600;
+                        color: #00CFAC;"
+            >
+              {{ accountInfo.Locked }} HSF
             </span>
           </v-row>
           <v-row style="padding: 10px">
@@ -631,7 +639,7 @@ export default {
             emphasis: {
               focus: 'series',
             },
-            data: [200, 50, 0, 0],
+            data: [0, 0, 0, 0],
           },
         ],
       })
@@ -677,6 +685,15 @@ export default {
   width: 480px;
   padding-right: 30px;
 }
+.swiper-slide:nth-child(2n) {
+  width: 480px;
+  padding-right: 30px;
+}
+
+//.swiper-slide:nth-child(3n) {
+//  width: 480px;
+//  padding-right: 30px;
+//}
 /*.swiper-slide:nth-child(2n) {*/
 /*  width: 480px;*/
 /*}*/
