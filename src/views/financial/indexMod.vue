@@ -126,70 +126,68 @@
             <div v-show="!navigationFlag" style="height: 200px">
               <swiper class="swiper" :options="swiperOption">
                 <swiper-slide v-for="vi in list" v-bind:key="vi.ProjectId">
-                    <div style="height: 20px"></div>
-                    <router-link
-                      :to="{
-                        path: '/financialTab',
-                        query: { projectid: vi.ProjectId, userid: UserId },
-                      }"
+                  <div style="height: 20px"></div>
+                  <router-link
+                    :to="{
+                      path: '/financialTab',
+                      query: { projectid: vi.ProjectId, userid: UserId },
+                    }"
+                  >
+                    <v-navigation-drawer
+                      style="width: 800px;background: linear-gradient(63deg, #00DEB8 0%, #21B7C5 100%); height: 188px;border-radius: 20px;box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04);"
                     >
-                      <v-navigation-drawer
-                        style="width: 800px;background: linear-gradient(63deg, #00DEB8 0%, #21B7C5 100%); height: 188px;border-radius: 20px;box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.04);"
-                      >
-                        <v-row style="padding: 36px 0 36px 50px">
-                          <div class="d-inline-flex" style="width: 492px;">
-                            <div
-                              style="width: 160px; height: 20px;font-size: 20px; font-weight: 600;color: #FFFFFF; padding: 10px 0 20px 0"
-                            >
-                              {{ vi.ProjectName }}
-                            </div>
-                            <v-btn
-                              style="border-radius: 0 18px 0 8px; margin: -24px 0 0 186px; background: linear-gradient(316deg, #2F5E85 0%, #202A32 100%); color: #FFFFFF;"
-                              elevation="0"
-                            >
-                              可质押
-                            </v-btn>
-                          </div>
-                          <div style="height: 40px"></div>
+                      <v-row style="padding: 36px 0 36px 50px">
+                        <div class="d-inline-flex" style="width: 492px;">
                           <div
-                            style="width: 95%;
+                            style="width: 160px; height: 20px;font-size: 20px; font-weight: 600;color: #FFFFFF; padding: 10px 0 20px 0"
+                          >
+                            {{ vi.ProjectName }}
+                          </div>
+                          <v-btn
+                            style="border-radius: 0 18px 0 8px; margin: -24px 0 0 186px; background: linear-gradient(316deg, #2F5E85 0%, #202A32 100%); color: #FFFFFF;"
+                            elevation="0"
+                          >
+                            可质押
+                          </v-btn>
+                        </div>
+                        <div style="height: 40px"></div>
+                        <div
+                          style="width: 95%;
                               height: 48px;
                               font-size: 38px;
                               font-weight: 800;
                               color: #FFFFFF;margin: 0px;padding: 0px"
-                          >
-                            <span
-                              style="font-size: 38px;margin: 0px;padding: 0"
-                              >{{ vi.AnnualizedIncome }}</span
-                            >
-                            <span
-                              style="font-size: 28px;margin: 0px;padding: 0px"
-                              >%</span
-                            >
-                            <span
-                              style="font-size: 14px; font-weight: 400;color: #FFFFFF;;margin: 0px;padding: 0px 0px 0px 5px"
-                            >
-                              年化收益
-                              <img
-                                src="https://investors.oss-cn-beijing.aliyuncs.com/assets/jiantou001.png"
-                                style="width:36px;height:36px;float:right;margin:15px 0px 0px 0px"
-                              />
-                            </span>
-                          </div>
-
-                          <div style="height: 15px;width: 100%"></div>
+                        >
                           <span
-                            style="font-size: 14px; font-weight: 400;color: #FFFFFF;"
+                            style="font-size: 38px;margin: 0px;padding: 0"
+                            >{{ vi.AnnualizedIncome }}</span
                           >
-                            期限{{ vi.Cycle }}天 | 结算时间
-                            {{ vi.BeginTimes }}
+                          <span style="font-size: 28px;margin: 0px;padding: 0px"
+                            >%</span
+                          >
+                          <span
+                            style="font-size: 14px; font-weight: 400;color: #FFFFFF;;margin: 0px;padding: 0px 0px 0px 5px"
+                          >
+                            年化收益
+                            <img
+                              src="https://investors.oss-cn-beijing.aliyuncs.com/assets/jiantou001.png"
+                              style="width:36px;height:36px;float:right;margin:15px 0px 0px 0px"
+                            />
                           </span>
-                        </v-row>
-                      </v-navigation-drawer>
-                    </router-link>
-                    <div style="height: 20px"></div>
-                </swiper-slide>
+                        </div>
 
+                        <div style="height: 15px;width: 100%"></div>
+                        <span
+                          style="font-size: 14px; font-weight: 400;color: #FFFFFF;"
+                        >
+                          期限{{ vi.Cycle }}天 | 结算时间
+                          {{ vi.BeginTimes }}
+                        </span>
+                      </v-row>
+                    </v-navigation-drawer>
+                  </router-link>
+                  <div style="height: 20px"></div>
+                </swiper-slide>
               </swiper>
             </div>
             <v-card
@@ -203,7 +201,7 @@
                 <div>
                   <div style="width: 72px; height: 72px">
                     <v-img
-                      src="https://investors.oss-cn-beijing.aliyuncs.com/assets/financial/financial_noData1.png"
+                      src="https://investors.oss-cn-beijing.aliyuncs.com/assets/financial/financial_noData4.png"
                     >
                     </v-img>
                   </div>
