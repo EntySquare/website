@@ -194,12 +194,12 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="text-td" v-for="item in desserts" :key="item.name">
-                  <td>{{ item.t1 }}</td>
-                  <td>{{ item.t2 }}</td>
-                  <td>{{ item.t3 }}</td>
-                  <td>{{ item.t4 }}</td>
-                  <td>{{ item.t5 }}</td>
+                <tr class="text-td" v-for="v in list" :key="v.index">
+                  <td>{{ v.project.ProjectName }}</td>
+                  <td>{{ v.time }}</td>
+                  <td> {{ v.invest.AnnualizedIncome }} %</td>
+                  <td> {{ v.order.InvestValue}} HSF</td>
+                  <td>  0 HSF</td>
                 </tr>
               </tbody>
             </template>
@@ -231,6 +231,25 @@ export default {
     Swiper,
     SwiperSlide,
   },
+  mounted: function() {
+    window.scroll(0, 0) //页面加载置顶
+    this.GetData() //需要触发的函数
+  },
+  methods: {
+    GetData: function() {
+      const token = localStorage.getItem('token')
+      this.axios
+        .post(
+          '/r0/order/orderList',
+          { times: '7T' },
+          { headers: { 'access-token': token } }
+        )
+        .then(response => {
+          console.log(response)
+          this.list = response.data.list
+        })
+    },
+  },
   data() {
     return {
       sheet: false,
@@ -247,6 +266,7 @@ export default {
           clickable: true,
         },
       },
+      list: '',
       desserts: [
         {
           t1: '盈利宝',
