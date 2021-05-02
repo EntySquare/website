@@ -900,6 +900,21 @@
         </v-tab-item>
       </v-tabs-items>
     </div>
+    <v-dialog
+      v-model="alert.alertInfo"
+      width="300"
+      height="400"
+      overlay-color="#FFFFF"
+    >
+      <v-alert
+        border="left"
+        :color="alert.alertColor"
+        text
+        :type="alert.alertType"
+        style="margin-bottom: 0"
+        >{{ alert.alertText }}</v-alert
+      >
+    </v-dialog>
   </v-container>
 </template>
 
@@ -917,6 +932,12 @@ export default {
   },
   data() {
     return {
+      alert: {
+        alertInfo: false,
+        alertType: 'info',
+        alertText: '',
+        alertColor: '#00CFAC',
+      },
       tab: 'tab-1',
       tabTrans: null,
       tabProduct: null,
@@ -956,9 +977,9 @@ export default {
         .then(response => {
           this.investBtnFlag = false
           if (response.data.success === 'true') {
-            alert(response.data.last)
+            this.alertTip('success', '操作成功')
           } else {
-            alert(response.data.success)
+            this.alertTip('error', '操作失败')
           }
         })
     },
@@ -1095,6 +1116,18 @@ export default {
     },
     inputAllBalance() {
       this.investValue = this.availableBalance
+    },
+    alertTip: function(type, textString) {
+      let color = '#00CFAC'
+      if (type === 'success') {
+        color = 'green'
+      } else if (type === 'error') {
+        color = 'red'
+      }
+      this.alert.alertInfo = true
+      this.alert.alertType = type
+      this.alert.alertText = textString
+      this.alert.alertColor = color
     },
   },
 }
