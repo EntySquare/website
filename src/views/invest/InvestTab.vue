@@ -1003,7 +1003,7 @@ export default {
           console.log(response)
           let pInfo = response.data.projectInfo
           if (pInfo === '' || pInfo === null || pInfo === undefined) {
-            alert('查询投资信息失败')
+            this.alertTip('error', '查询投资信息失败')
           } else {
             this.cycleValue = pInfo.Cycle
             this.minMumValue = pInfo.MinimumInvestment
@@ -1108,7 +1108,7 @@ export default {
           console.log(response)
           let bInfo = response.data.balanceInfo
           if (bInfo === '' || bInfo === null || bInfo === undefined) {
-            alert('查询投资余额失败')
+            this.alertTip('error', '查询投资余额失败')
           } else {
             this.availableBalance = bInfo.Balance
           }

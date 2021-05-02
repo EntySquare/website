@@ -105,6 +105,21 @@
         </router-link>
       </div>
     </div>
+    <v-dialog
+      v-model="alert.alertInfo"
+      width="300"
+      height="400"
+      overlay-color="#FFFFF"
+    >
+      <v-alert
+        border="left"
+        :color="alert.alertColor"
+        text
+        :type="alert.alertType"
+        style="margin-bottom: 0"
+        >{{ alert.alertText }}</v-alert
+      >
+    </v-dialog>
   </div>
 </template>
 
@@ -113,6 +128,12 @@ export default {
   name: 'InvestMine',
   data() {
     return {
+      alert: {
+        alertInfo: false,
+        alertType: 'info',
+        alertText: '',
+        alertColor: '#00CFAC',
+      },
       top: 750,
       myList: '',
     }
@@ -138,11 +159,23 @@ export default {
         .then(response => {
           let dataList = response.data.list
           if (dataList === '' || dataList === null || dataList === undefined) {
-            alert('查询我的项目信息失败！')
+            this.alertTip('error', '查询我的项目信息失败')
             return
           }
           this.myList = dataList
         })
+    },
+    alertTip: function(type, textString) {
+      let color = '#00CFAC'
+      if (type === 'success') {
+        color = 'green'
+      } else if (type === 'error') {
+        color = 'red'
+      }
+      this.alert.alertInfo = true
+      this.alert.alertType = type
+      this.alert.alertText = textString
+      this.alert.alertColor = color
     },
   },
   // mounted() {

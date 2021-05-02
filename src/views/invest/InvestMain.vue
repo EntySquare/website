@@ -125,6 +125,21 @@
         </router-link>
       </div>
     </div>
+    <v-dialog
+      v-model="alert.alertInfo"
+      width="300"
+      height="400"
+      overlay-color="#FFFFF"
+    >
+      <v-alert
+        border="left"
+        :color="alert.alertColor"
+        text
+        :type="alert.alertType"
+        style="margin-bottom: 0"
+        >{{ alert.alertText }}</v-alert
+      >
+    </v-dialog>
   </div>
 </template>
 
@@ -133,6 +148,12 @@ export default {
   name: 'invest',
   data() {
     return {
+      alert: {
+        alertInfo: false,
+        alertType: 'info',
+        alertText: '',
+        alertColor: '#00CFAC',
+      },
       valueDeterminate: 90,
       upbtn: true,
       activeposition: 'fixed',
@@ -175,7 +196,7 @@ export default {
         .then(response => {
           let dataList = response.data.list
           if (dataList === '' || dataList === null || dataList === undefined) {
-            alert('查询项目信息失败！')
+            this.alertTip('error', '查询项目信息失败')
             return
           }
           this.list = dataList
@@ -184,6 +205,18 @@ export default {
     backTop() {
       document.body.scrollTop = 0
       document.documentElement.scrollTop = 0
+    },
+    alertTip: function(type, textString) {
+      let color = '#00CFAC'
+      if (type === 'success') {
+        color = 'green'
+      } else if (type === 'error') {
+        color = 'red'
+      }
+      this.alert.alertInfo = true
+      this.alert.alertType = type
+      this.alert.alertText = textString
+      this.alert.alertColor = color
     },
     // 点击图片回到顶部方法，加计时器是为了过渡顺滑
     // backTop() {

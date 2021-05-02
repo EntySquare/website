@@ -130,7 +130,7 @@ export default {
               if (response.status === 200) {
                 this.userName = response.data.UserName
                 localStorage.setItem('token', response.data.Token)
-                //alert('登录成功！')
+                this.alertTip('success', '登录成功')
               }
               this.$router.push({
                 path: '/',

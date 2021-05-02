@@ -657,12 +657,12 @@ padding: 0px 0px 0px 40px"
             <span
               style="font-size: 14px; font-weight: 400;color: #7F7F7F;line-height: 14px;"
             >
-               <div v-if="xiala.text == 'USDT'">
-                ·可用余额:   {{ apidata.USDT.numOk }} USDT
-                  </div>
-                  <div v-if="xiala.text == 'HSF'">
-                ·可用余额:  {{ apidata.HSF.numOk }}  HSF
-                  </div>
+              <div v-if="xiala.text == 'USDT'">
+                ·可用余额: {{ apidata.USDT.numOk }} USDT
+              </div>
+              <div v-if="xiala.text == 'HSF'">
+                ·可用余额: {{ apidata.HSF.numOk }} HSF
+              </div>
             </span>
             <p style="margin: 16px"></p>
             <span
@@ -673,13 +673,13 @@ padding: 0px 0px 0px 40px"
             <span
               style="font-size: 14px; font-weight: 400;color: #5B7ADE;line-height: 14px;"
             >
-              0.00000 {{xiala.text}}
+              0.00000 {{ xiala.text }}
             </span>
             <p style="margin: 16px"></p>
             <span
               style="font-size: 14px; font-weight: 400;color: #7F7F7F;line-height: 14px;"
             >
-              ·最小提币金额：0.0001 {{xiala.text}}
+              ·最小提币金额：0.0001 {{ xiala.text }}
             </span>
 
             <p style="margin: 16px"></p>
@@ -935,13 +935,12 @@ padding: 0px 0px 0px 40px"
             <span
               style="font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #7F7F7F;line-height: 14px;"
             >
-
-                <div v-if="xiala.text == 'USDT'">
-                  ·可用余额: {{ apidata.USDT.numOk }} USDT
-                  </div>
-                  <div v-if="xiala.text == 'HSF'">
-                  ·可用余额:{{ apidata.HSF.numOk }} HSF
-                  </div>
+              <div v-if="xiala.text == 'USDT'">
+                ·可用余额: {{ apidata.USDT.numOk }} USDT
+              </div>
+              <div v-if="xiala.text == 'HSF'">
+                ·可用余额:{{ apidata.HSF.numOk }} HSF
+              </div>
             </span>
             <p style="margin: 14px"></p>
             <span
@@ -952,13 +951,13 @@ padding: 0px 0px 0px 40px"
             <span
               style="font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #5B7ADE;line-height: 14px;"
             >
-              0.00001 {{xiala.text}}
+              0.00001 {{ xiala.text }}
             </span>
             <p style="margin: 14px"></p>
             <span
               style="font-size: 14px;font-family: Nunito-Regular, Nunito;font-weight: 400;color: #7F7F7F;line-height: 14px;"
             >
-              ·最小提币金额：0.0001 {{xiala.text}}
+              ·最小提币金额：0.0001 {{ xiala.text }}
             </span>
 
             <p style="margin: 14px"></p>
@@ -2084,6 +2083,21 @@ line-height: 28px;"
         </v-row>
       </div>
     </v-dialog>
+    <v-dialog
+      v-model="alert.alertInfo"
+      width="300"
+      height="400"
+      overlay-color="#FFFFF"
+    >
+      <v-alert
+        border="left"
+        :color="alert.alertColor"
+        text
+        :type="alert.alertType"
+        style="margin-bottom: 0"
+        >{{ alert.alertText }}</v-alert
+      >
+    </v-dialog>
   </v-row>
 </template>
 
@@ -2108,12 +2122,24 @@ export default {
     this.GetData() //需要触发的函数
     // this.synk()
   },
-  created () {
-    this.timer = setInterval(() =>{
+  created() {
+    this.timer = setInterval(() => {
       this.GetData()
-    },1000* 10)
+    }, 1000 * 10)
   },
   methods: {
+    alertTip: function(type, textString) {
+      let color = '#00CFAC'
+      if (type === 'success') {
+        color = 'green'
+      } else if (type === 'error') {
+        color = 'red'
+      }
+      this.alert.alertInfo = true
+      this.alert.alertType = type
+      this.alert.alertText = textString
+      this.alert.alertColor = color
+    },
     //synk
     synk() {
       console.log('synk。。。')
@@ -2178,10 +2204,9 @@ export default {
       //     })
 
       if (
-        this.duihuan_usdt_to_hsf_num != '' &&
-        this.duihuan_hsf_to_usdt_num == ''
+        this.duihuan_usdt_to_hsf_num !== '' &&
+        this.duihuan_hsf_to_usdt_num === ''
       ) {
-        // alert("duihuan_usdt_to_hsf_num")
         const token = localStorage.getItem('token')
         this.axios
           .post(
@@ -2193,18 +2218,17 @@ export default {
           )
           .then(response => {
             console.log(response)
-            if (response.data.data == 'ok') {
-              alert('操作成功')
+            if (response.data.data === 'ok') {
+              this.alertTip('success', '操作成功')
             } else {
-              alert('操作失败')
+              this.alertTip('error', '操作失败')
             }
           })
       }
       if (
-        this.duihuan_hsf_to_usdt_num != '' &&
-        this.duihuan_usdt_to_hsf_num == ''
+        this.duihuan_hsf_to_usdt_num !== '' &&
+        this.duihuan_usdt_to_hsf_num === ''
       ) {
-        // alert("duihuan_hsf_to_usdt_num")
         const token = localStorage.getItem('token')
         this.axios
           .post(
@@ -2216,14 +2240,13 @@ export default {
           )
           .then(response => {
             console.log(response)
-            if (response.data.data == 'ok') {
-              alert('操作成功')
+            if (response.data.data === 'ok') {
+              this.alertTip('success', '操作成功')
             } else {
-              alert('操作失败')
+              this.alertTip('error', '操作失败')
             }
           })
       }
-      // alert("操作异常！")
     },
     //页面数据渲染
     GetData: function() {
@@ -2359,12 +2382,12 @@ export default {
             )
             .then(response => {
               console.log(response)
-              if (response.data.data == 'ok') {
+              if (response.data.data === 'ok') {
                 this.dialog6 = false
                 this.dialog7 = true
                 this.GetData()
               } else {
-                alert('操作失败！')
+                this.alertTip('error', '操作失败')
               }
             })
           // this.dialog6 = false
@@ -2377,6 +2400,12 @@ export default {
   },
   data() {
     return {
+      alert: {
+        alertInfo: false,
+        alertType: 'info',
+        alertText: '',
+        alertColor: '#00CFAC',
+      },
       duihuan_usdt_to_hsf_num: '',
       duihuan_usdt_to_hsf_num_yunsuan: '0.005',
       duihuan_hsf_to_usdt_num: '',

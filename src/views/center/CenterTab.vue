@@ -1772,6 +1772,21 @@
         </v-row>
       </div>
     </v-dialog>
+    <v-dialog
+      v-model="alert.alertInfo"
+      width="300"
+      height="400"
+      overlay-color="#FFFFF"
+    >
+      <v-alert
+        border="left"
+        :color="alert.alertColor"
+        text
+        :type="alert.alertType"
+        style="margin-bottom: 0"
+        >{{ alert.alertText }}</v-alert
+      >
+    </v-dialog>
   </div>
 </template>
 
@@ -1789,6 +1804,12 @@ export default {
   },
   data() {
     return {
+      alert: {
+        alertInfo: false,
+        alertType: 'info',
+        alertText: '',
+        alertColor: '#00CFAC',
+      },
       model: null,
       text: '1111',
       infoSwitch: true,
@@ -2226,7 +2247,7 @@ export default {
         .then(response => {
           this.updateUidResult = response.data
           if (response.data !== 'success') {
-            alert(this.updateUidResult)
+            this.alertTip('error', '修改失败')
           }
           this.user_up2 = false
           this.GetMyData()
@@ -2243,7 +2264,6 @@ export default {
         )
         .then(response => {
           this.bindEmailResult = response.data
-          alert(this.bindEmailResult)
           this.bindEmailFlag = false
           this.GetMyData()
         })
@@ -2259,7 +2279,6 @@ export default {
         )
         .then(response => {
           this.bindPhoneResult = response.data
-          alert(this.bindPhoneResult)
           this.bindPhoneFlag = false
           this.GetMyData()
         })
@@ -2275,7 +2294,6 @@ export default {
         )
         .then(response => {
           this.setPayPwdResult = response.data
-          alert(this.setPayPwdResult)
           this.GetMyData()
         })
     },
@@ -2290,7 +2308,6 @@ export default {
         )
         .then(response => {
           this.verPayPwdResult = response.data
-          alert(this.verPayPwdResult)
           if (response.data !== 'success') {
             return
           }
@@ -2308,7 +2325,6 @@ export default {
         )
         .then(response => {
           this.updatePayPwdResult = response.data
-          alert(this.updatePayPwdResult)
         })
     },
     //忘记支付密码
@@ -2332,10 +2348,8 @@ export default {
           this.forgetPayPwdResult = response.data
           if (response.data !== 'success') {
             this.forgetPayPwdFlag = false
-            alert(response.data)
             return
           }
-          alert(this.forgetPayPwdResult)
           this.forgetPayPwdFlag = false
           this.payPwdNewFlag = true
         })
@@ -2354,7 +2368,6 @@ export default {
         )
         .then(response => {
           this.updLoginPwdResult = response.data
-          alert(this.updLoginPwdResult)
           this.updatePwdFlag = false
         })
     },
@@ -2372,7 +2385,6 @@ export default {
         )
         .then(response => {
           this.googleBindResult = response.data
-          alert(this.googleBindResult)
           this.googleyz3 = false
         })
     },
@@ -2417,7 +2429,6 @@ export default {
         )
         .then(response => {
           this.fishCodeResult = response.data
-          alert(this.fishCodeResult)
           this.fishDialog = false
           this.GetMyData()
         })
@@ -2472,11 +2483,23 @@ export default {
     },
     // 复制成功
     onCopy(e) {
-      alert('复制成功')
+      this.alertTip('success', '复制成功')
     },
     // 复制失败
     onError(e) {
-      alert('复制失败')
+      this.alertTip('error', '复制成功')
+    },
+    alertTip: function(type, textString) {
+      let color = '#00CFAC'
+      if (type === 'success') {
+        color = 'green'
+      } else if (type === 'error') {
+        color = 'red'
+      }
+      this.alert.alertInfo = true
+      this.alert.alertType = type
+      this.alert.alertText = textString
+      this.alert.alertColor = color
     },
   },
 }

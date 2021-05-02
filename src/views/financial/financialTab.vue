@@ -914,6 +914,21 @@
           </div>
         </v-tab-item>
       </v-tabs-items>
+      <v-dialog
+        v-model="alert.alertInfo"
+        width="300"
+        height="400"
+        overlay-color="#FFFFF"
+      >
+        <v-alert
+          border="left"
+          :color="alert.alertColor"
+          text
+          :type="alert.alertType"
+          style="margin-bottom: 0"
+          >{{ alert.alertText }}</v-alert
+        >
+      </v-dialog>
     </div>
   </v-container>
 </template>
@@ -932,6 +947,12 @@ export default {
   },
   data() {
     return {
+      alert: {
+        alertInfo: false,
+        alertType: 'info',
+        alertText: '',
+        alertColor: '#00CFAC',
+      },
       tab: 'tab-1',
       tabTrans: null,
       tabProduct: null,
@@ -992,7 +1013,6 @@ export default {
     // int    `json:"user_id"`    //调用质押方法的用户ID
     // int    `json:"finance_id"` //质押的项目（可改,只要
     financePledge() {
-     // alert("financePledge")
       const token = localStorage.getItem('token')
       this.axios
         .post(
@@ -1012,16 +1032,13 @@ export default {
         )
         .then(response => {
           console.log(response)
-          if (response.data.success == "true"){
-            alert("操作成功")
-            location.reload();
-          }else{
-            alert("操作失败")
+          if (response.data.success === 'true') {
+            this.alertTip('success', '操作成功')
+            location.reload()
+          } else {
+            this.alertTip('error', '操作失败')
           }
         })
-          .catch(error => {
-            alert("操作失败")
-          })
     },
     //初始化调用
     GetData() {
@@ -1044,13 +1061,15 @@ export default {
           this.finance.Cycle = response.data.finance.Cycle
           this.finance.ProjectName = response.data.finance.ProjectName
           // this.finance.Cycle = response.data.finance.Cycle
-          this.highResult.HsfHasBeenPlaced = response.data.highResult.HsfHasBeenPlaced
-          this.highResult.HsfLastToPlaced = response.data.highResult.HsfLastToPlaced
+          this.highResult.HsfHasBeenPlaced =
+            response.data.highResult.HsfHasBeenPlaced
+          this.highResult.HsfLastToPlaced =
+            response.data.highResult.HsfLastToPlaced
           this.invest.AnnualizedIncome = response.data.invest.AnnualizedIncome
-          // alert(response.data.finance.BeginTimes)
-          let begin = new Date(response.data.finance.BeginTimes  * 1000)
+          let begin = new Date(response.data.finance.BeginTimes * 1000)
           let end = new Date(
-            response.data.finance.BeginTimes  * 1000 + response.data.finance.Cycle * 24 * 3600 * 1000
+            response.data.finance.BeginTimes * 1000 +
+              response.data.finance.Cycle * 24 * 3600 * 1000
           )
           // pInfo.BeginTimes * 1000 + pInfo.Cycle * 24 * 3600 * 1000
           this.finance.BeginTimes = util.formatDate(
@@ -1134,6 +1153,18 @@ export default {
     //优先劣后显示
     priorityShow() {},
     inferiorShow() {},
+    alertTip: function(type, textString) {
+      let color = '#00CFAC'
+      if (type === 'success') {
+        color = 'green'
+      } else if (type === 'error') {
+        color = 'red'
+      }
+      this.alert.alertInfo = true
+      this.alert.alertType = type
+      this.alert.alertText = textString
+      this.alert.alertColor = color
+    },
   },
 }
 </script>

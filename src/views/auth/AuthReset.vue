@@ -78,7 +78,6 @@ line-height: 28px;"
         filled
         rounded
       ></v-text-field>
-
       <div class="card-bottom">
         <v-btn
           style="background: linear-gradient(90deg, #F1F1F2 0%, #B2B2B2 100%); height: 56px"
@@ -93,6 +92,21 @@ line-height: 28px;"
         </v-btn>
       </div>
     </v-form>
+    <v-dialog
+      v-model="alert.alertInfo"
+      width="300"
+      height="400"
+      overlay-color="#FFFFF"
+    >
+      <v-alert
+        border="left"
+        :color="alert.alertColor"
+        text
+        :type="alert.alertType"
+        style="margin-bottom: 0"
+        >{{ alert.alertText }}</v-alert
+      >
+    </v-dialog>
   </v-card>
 </template>
 
@@ -101,6 +115,12 @@ export default {
   name: 'AuthReset',
   data() {
     return {
+      alert: {
+        alertInfo: false,
+        alertType: 'info',
+        alertText: '',
+        alertColor: '#00CFAC',
+      },
       show1: true,
       sendCodeVue: true, // 控制发送验证码按钮显示
       authTime: 0, // 倒计时
@@ -126,7 +146,7 @@ export default {
   methods: {
     submit() {
       if (this.password !== this.passwordAff) {
-        alert('密码不一致！')
+        this.alertTip('error', '密码不一致')
         return
       }
       if (this.valid) {
@@ -139,10 +159,10 @@ export default {
           })
           .then(response => {
             if (response.data.errcode != null) {
-              alert('修改失败！')
+              this.alertTip('error', '修改失败')
               return
             }
-            alert('修改成功！,userid:' + response.data.UserId)
+            this.alertTip('success', '修改成功')
             this.$router.push('/')
             console.log(response)
           })
@@ -169,6 +189,18 @@ export default {
             }
           }, 1000)
         })
+    },
+    alertTip: function(type, textString) {
+      let color = '#00CFAC'
+      if (type === 'success') {
+        color = 'green'
+      } else if (type === 'error') {
+        color = 'red'
+      }
+      this.alert.alertInfo = true
+      this.alert.alertType = type
+      this.alert.alertText = textString
+      this.alert.alertColor = color
     },
   },
 }
