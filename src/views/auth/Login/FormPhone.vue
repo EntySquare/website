@@ -60,13 +60,35 @@
         </v-btn>
       </div>
     </v-form>
+    <v-dialog
+      v-model="alert.alertInfo"
+      width="300"
+      height="400"
+      overlay-color="#FFFFF"
+    >
+      <v-alert
+        border="left"
+        :color="alert.alertColor"
+        text
+        :type="alert.alertType"
+        style="margin-bottom: 0"
+        >{{ alert.alertText }}</v-alert
+      >
+    </v-dialog>
   </v-tab-item>
 </template>
+
 <script>
 export default {
   name: 'Login',
   data() {
     return {
+      alert: {
+        alertInfo: false,
+        alertType: 'info',
+        alertText: '',
+        alertColor: '#00CFAC',
+      },
       show1: false,
       valid: false,
       areaCode: '+86',
@@ -102,12 +124,13 @@ export default {
             .then(response => {
               console.log(response)
               if (response.data.errcode != null) {
-                alert('登录失败！')
+                this.alertTip('error', '登录失败')
                 return
               }
               if (response.status === 200) {
                 this.userName = response.data.UserName
                 localStorage.setItem('token', response.data.Token)
+                //alert('登录成功！')
               }
               this.$router.push({
                 path: '/',
@@ -115,13 +138,24 @@ export default {
                   name: this.userName,
                 },
               })
-              //this.userName = this.$route.params.userName
             })
             .catch(error => {
               reject(error)
             })
         })
       }
+    },
+    alertTip: function(type, textString) {
+      let color = '#00CFAC'
+      if (type === 'success') {
+        color = 'green'
+      } else if (type === 'error') {
+        color = 'red'
+      }
+      this.alert.alertInfo = true
+      this.alert.alertType = type
+      this.alert.alertText = textString
+      this.alert.alertColor = color
     },
   },
 }

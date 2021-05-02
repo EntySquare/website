@@ -7,7 +7,6 @@ import './plugins/axios'
 import './scss/index.scss'
 import i18n from './locales/i18n'
 import VueClipboard from 'vue-clipboard2'
-
 import moment from 'moment'
 Vue.prototype.$moment = moment
 
