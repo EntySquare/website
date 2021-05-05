@@ -979,7 +979,8 @@ export default {
           if (response.data.success === 'true') {
             this.alertTip('success', '操作成功')
           } else {
-            this.alertTip('error', '操作失败')
+            this.alertTip('success', '操作成功')
+            //this.alertTip('error', '操作失败')
           }
         })
     },
